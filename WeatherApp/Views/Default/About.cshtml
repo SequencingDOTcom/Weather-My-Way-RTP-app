@@ -1,0 +1,21 @@
+﻿@model Sequencing.WeatherApp.Models.CommonData
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Weather My Way +RTP</h2>
+<div class="col-sm-8">
+    <p>
+        The Weather My Way +RTP app uses Real-Time PersonalizationTM technology to provide you with personalized recommendations that optimize your health.
+        This app is personalized by combining the weather forecast with an analysis of your genes. Since your genes are unique, the recommendations you receive are genetically tailored to you.
+        This app securely accesses your genetic data that is stored in your Sequencing.com account. Only the genetic data relevant to this app is accessed and no data is stored in your browser or on your mobile device.
+        If you don't have genetic data, don't worry! You can still use this app by choosing one of the app's fun sample files. Just click the 'Personalize Me' button on the initial page of the app, connect the app to your Sequencing.com account and you'll then receive access to the sample files.
+    </p>
+
+    @Html.ActionLink("Back", "Startup", new object(), new { @class = "btn btn-primary" })
+    <a href="https://sequencing.com/user/register" class="btn btn-primary">
+        Click here to register for a free account at Sequencing.com
+    </a>
+</div>

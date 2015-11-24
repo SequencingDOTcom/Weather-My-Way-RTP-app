@@ -1,0 +1,36 @@
+
+#landing-wrapper #header {
+    background-color: #fff;
+    height: 60px;
+}
+#landing-wrapper h1 {
+    text-align: center;
+    padding-top: 23px;
+    text-transform: uppercase;
+    margin: 35px 0 65px 0;
+}
+#landing-content {
+    padding-top: 60px;
+}
+#landing-content .thumbnail-wrapper {
+    text-align: center;
+    margin-bottom: -15px;
+}
+#landing-content .thumbnail-wrapper img.thumb {
+    box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.1);
+    width:450px;
+    
+
+}
+#landing-content .desc img.badge-logo {
+   	text-align: center;
+   margin-bottom: 15px;
+}
+
+#landing-content .desc{
+	text-align: center;
+}
+
+#landing-content .desc h2{
+    margin-bottom: 50px;
+}

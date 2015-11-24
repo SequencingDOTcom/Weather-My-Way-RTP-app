@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="/Scripts/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/bootstrap-timepicker.min.js"></script>
+<link href="/Content/bootstrap-timepicker.min.css" rel="stylesheet" />
+<script src="/Scripts/timezones.min.js"></script>
+<link rel="stylesheet" href="/Content/intlTelInput.css">
+<link rel="stylesheet" href="/Content/customTel.css">
+<script src="/Scripts/intlTelInput.js"></script>
+<script src='//cdn.goroost.com/roostjs/408ecaf9c8d046309fb2c8e669d05cc3' async></script>
+
+<div id="titleText">
+    <h3 id="titleOne">
+        Weather My Way + RTP
+    </h3>
+    <h4 id="subTitle">Settings</h4>
+</div>
+
+<div id="settingsContent" class="form-group form-group-sm">
+    @using (Html.BeginForm("ChangeNotification", "Settings", new { r = Request.QueryString["r"] }, FormMethod.Post,
+        new { @class = "form-horizontal", @role = "form" }))
+    {
+        <div id="reportSettings">
+            <div id="selectedLocation" class="form-group">
+                <label style="color:rgb(51, 51, 51);">Location</label><br />
+                @ViewBag.SelectedLocation <a href="@Url.Action("Location", "Default", new { r = Request.Url.ToString() })"><img id="refresh" src="/assets/img/refresh-icon-32px.png" alt="refresh" /></a>
+
+            </div>
+            <div id="tempMode">
+                <label style="color:rgb(51, 51, 51);">Temperature units</label><br />
+                @Html.DropDownList("temperature", (SelectList)ViewBag.temperatureList, new { @class = "form-control input-sm", style = "position:absolute; left:50%; margin-left:-25px; width:55px;" })
+            </div>
+        </div>
+        <div id="accountSettings">
+            <label style="font-size:1.3em">Real-Time Personalization<sup id="tm">TM</sup></label>
+            <div id="connectedAcct" class=" form-group">
+                <h6 style="font-weight:bold">Connected account</h6>
+                On @ViewBag.AuthDt you authorized<br /> this app to access your data at Sequencing.com: <br /><br/><b> @Model.Context.UserName </b><a href="@Url.Action("RevokeAccess")" id="btnChange">Revoke access <img id="revoke" src="/assets/img/Revoke-icon-Sequencing-com-16px.png" /></a>
+            </div>
+
+            <div id="selectedFile" class=" form-group">
+                <h6 style="font-weight:bold">Genetic data file</h6>
+                This app's personalization is powered by <br/>your genes using data from this file:<br /><br />
+                <b>@ViewBag.DataFileName</b> <br /><br /><a href="@Url.Action("SelectFile", "Default", new { r = Request.Url.ToString() })" id="btnSelectFile">Select new file <img id="refreshTwo" src="/assets/img/refresh-icon-32px.png" alt="refresh" /></a>
+            </div>
+        </div>
+
+        <div id="preferences">
+
+            <div id="prefsTitle">
+                <h5 style="font-weight:bold">Notifications</h5>
+                <p>A healthy day starts with your forecast. <br/> Recieve your genetically tailored forecast every morning by email and text message (SMS). </p>
+            </div>
+            <div id="emailPrefs">
+                @Html.CheckBox("emailChk", (bool)ViewBag.EmailSend, new { @class = "check" })
+                @*<input type="checkbox" @(ViewBag.EmailSend ? "checked" : "") id="emailChk1" name="emailChk1"/>*@
+                <label class="check" for="emailChk">Email daily forecast</label>
+                @Html.TextBox("email", (string)@ViewBag.Email, new { @class = "form-control input-sm", placeholder = "Email address" })
+            </div>
+            <div id="smsPrefs">
+                @Html.CheckBox("smsChk", (bool)ViewBag.SmsSend, new { @class = "check" })
+                <label class="check" for="smsChk">Text daily forecast (SMS)</label><br />
+                @Html.TextBox("phone", (string)@ViewBag.Phone, new { @class = "form-control input-sm", type = "tel" })<br />
+            </div>
+
+            <div id="wakeUpTimes">
+                <div id="week">
+                    <label>Wake up time (weekdays)</label>
+                    <div style="z-index:1;" class="input-group bootstrap-timepicker bootstrap-timepicker">
+                        <input id="wakeupDay" name="wakeupDay" type="text" value="@ViewBag.wakeupDay" class="form-control input-sm">
+                        <span id="wakeupDaySelector" class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span> <br />
+                    </div>
+                </div>
+                <div id="weekends">
+                    <label>Wake up time (weekends)</label>
+                    <div style="z-index:1;" class="input-group bootstrap-timepicker bootstrap-timepicker">
+                        <input id="wakeupEnd" name="wakeupEnd" value="@ViewBag.wakeupEnd" type="text" class="form-control input-sm">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span> <br />
+                    </div>
+                </div>
+            </div>
+            <div id="timeZones">
+                <label>Timezone</label><br />
+                <select id="timezoneSelect" name="timezoneSelect" class="form-control input-sm"></select>
+                <input id="timezoneOffset" name="timezoneOffset" type="hidden" value="@ViewBag.tzOffset" /><br />
+            </div>
+            <div id="weekendNotifications">
+                <label>Weekend notifications</label><br />
+                @Html.DropDownList("weekendMode", (SelectList)ViewBag.weekendModeList, new { @class = "form-control input-sm" })
+
+            </div>
+        </div>
+       
+           
+            <input id="submitButton" type="submit" value="Save and return to forecast " />
+    }
+</div>
+
+<script>
+    function updateControlsState() {
+        if (!$("#emailChk").is(':checked'))
+            $("#email").attr("disabled", "disabled");
+        else
+            $("#email").removeAttr("disabled");
+
+        if (!$("#smsChk").is(':checked'))
+            $("#phone").attr("disabled", "disabled");
+        else
+            $("#phone").removeAttr("disabled");
+    }
+
+    $(function() {
+        $("#phone").intlTelInput({
+            nationalMode: false,
+            utilsScript: "/Scripts/intlTelUtils.js" // just for formatting/placeholders etc
+        });
+        $('#wakeupDay').timepicker();
+        $('#wakeupEnd').timepicker();
+        $("#timezoneSelect").timezones();
+        var _tzVal = '@ViewBag.tzValue';
+        if (_tzVal != '')
+            $("#timezoneSelect").val('@ViewBag.tzValue');
+        $("#timezoneSelect").change(function() {
+            var attr = $('#timezoneSelect').find(":selected").attr('data-offset');
+            $('#timezoneOffset').val(attr);
+        });
+        $("#emailChk").change(updateControlsState);
+        $("#smsChk").change(updateControlsState);
+        updateControlsState();
+
+        var _roost = _roost || [];
+        _roost.push(["segments", "Weather My Way App"]);
+        //_roost.push(["alias", "@ViewBag.UN"]);
+    });
+
+</script>

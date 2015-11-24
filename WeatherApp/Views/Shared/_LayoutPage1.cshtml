@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+        <!-- Fonts  -->
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/simple-line-icons.css">
+        <!-- CSS Animate -->
+        <link rel="stylesheet" href="/assets/css/animate.css">
+        <!-- Daterange Picker -->
+        <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker-bs3.css">
+        <!-- Calendar demo -->
+        <link rel="stylesheet" href="/assets/css/clndr.css">
+        <!-- Switchery -->
+        <link rel="stylesheet" href="/assets/plugins/switchery/switchery.min.css">
+        <!-- Custom styles for this theme -->
+        <link rel="stylesheet" href="/assets/css/home.css">
+        <!-- Feature detection -->
+        <script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!--include JQuery and updated scripts/styles. Author: Justin Piper-->
+        <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+        <script src="/assets/js/home.js"></script>
+        <link href="/assets/css/style.css" rel="stylesheet" />
+        <script src="/assets/js/vidRandom.js"></script>
+        <script src="/assets/js/weatherVids.js"></script>
+        <script src="/assets/js/alertVids.js"></script>
+
+
+        @RenderSection("AdditionalHead", false)
+	
+	
+
+    
+    </head>
+<body>
+    <div id="content">
+        <video id="bgVideo" poster="" autoplay loop muted>
+            <source id="currentVid" src="" type="video/mp4" />
+        </video>
+        @{
+            if (Model.Context.IsAuthenticated && Model.Forecast != null)
+            {
+                var dayNightHour = Model.Forecast.moon_phase.current_time.hour;
+                var dayNightMinute = Model.Forecast.moon_phase.current_time.minute;
+
+                var ssHour = Model.Forecast.moon_phase.sunset.hour;
+                var ssMin = Model.Forecast.moon_phase.sunset.minute;
+
+                var srHour = Model.Forecast.moon_phase.sunrise.hour;
+                var srMin = Model.Forecast.moon_phase.sunrise.minute;
+
+                var sunRise = srHour + srMin;
+                var sunSet = ssHour + ssMin;
+                var dayNight = dayNightHour + dayNightMinute;
+
+                int srInt = Convert.ToInt32(sunRise);
+                int ssInt = Convert.ToInt32(sunSet);
+                int dayNightInt = Convert.ToInt32(dayNight);
+
+                if (Model.Forecast.alerts.Capacity != 0)
+                {
+
+                    if (srInt < dayNightInt && dayNightInt < ssInt)
+                    {
+                        var alert = Model.Forecast.alerts[0].type;
+                    <script>
+                        var alert="@alert";
+                        alertVid(alert, "day");
+                    </script>
+                    }
+                    else
+                    {
+                        var alert = Model.Forecast.alerts[0].type;
+                    <script>
+                        var alert="@alert";
+                        alertVid(alert, "night");
+                    </script>
+                    }
+                }
+                else
+                {
+                    var weather = Model.Forecast.forecast.simpleforecast.forecastday[0].conditions;
+
+
+                    if (srInt < dayNightInt && dayNightInt < ssInt)
+                    {
+                    <script>
+                        var weatherType= "@weather";
+                        vidSelect(weatherType, "day");
+                    </script>
+                    }
+                    else
+                    {
+                    <script>
+                        var weatherType= "@weather";
+                        vidSelect(weatherType, "night");
+                    </script>
+                    }
+                }
+            }
+            else
+            {
+               <script>vidRandom();</script>
+            }
+        }
+
+        <script>getMobileOperatingSystem()</script>
+        @Html.Partial("Menu")
+
+        <div id="tabContainer">
+            <!--this container is for the collapsible tabs containing the location selector, about, and personalization log in -->
+
+            <div class="window" id="aboutWindow">
+                <div id="aboutPara">
+                    <img id="close" src="/assets/img/Close-icon-Sequencing-com-24px.png" />
+                    <br />
+                    <p>
+                        The Weather My Way +RTP app uses Real-Time Personalization<sup id="tm">TM</sup> technology to provide you
+                        with personalized recommendations that optimize your health.
+                    </p><p>
+                        This app is personalized by
+                        combining the weather forecast with an analysis of your genes. Since your genes are unique,
+                        the recommendations you receive are genetically tailored to you.
+                    </p>
+                </div><div id="logoContainer">
+                    <div id="more"><h4>Learn more</h4></div>
+
+
+
+                    <div id="pgOneSlogo">Powered by<br /> <a href="https://sequencing.com" target="_blank"><img id="pmLogoOne" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
+                    <div id="pgOneGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHub" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"></a></div>
+
+
+                </div>
+
+
+                <div id="aboutPara2">
+                    <img id="back" src="/assets/img/Back-icon-Sequencing-com-24px.png" />
+                    <img id="closeTwo" src="/assets/img/Close-icon-Sequencing-com-24px.png" />
+                    <br />
+                    <p>
+                        This app securely accesses your genetic data that is stored in your Sequencing.com account.
+                        Only the genetic data relevant to this app is accessed and no data is stored in your browser
+                        or on your mobile device.
+                    </p><p>
+                        If you don't have genetic data, <b>don't worry!</b>
+                        You can still use this app by choosing one of the app's fun sample files. This app's personalization will then be powered by the genetic data in that sample file.
+                        Since all sample files are from individuals, the data and the personalization are real.
+                    </p><p>
+                        To use a sample file, first <a id="regLink" href="https://sequencing.com/user/register/" target="_blank">Register for a free account</a> at Sequencing.com. After registering, return to this app, click the 'Sign in with Sequencing.com' button and select a file from the list of sample files.
+                    </p>
+                </div><div id="logoTwoContainer">
+                    <div id="pgTwoSlogo">Powered by <br /><a href="https://sequencing.com" target="_blank"><img id="pmLogo" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
+                    <div id="pgTwoGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHubtwo" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"><br />Fork me<br /> on GitHub</a></div>
+                    <div id="pgTwoWlogo">Powered by <br /><img id="wuLogo" src="~/assets/img/wundergroundLogo_4c_horz.png" alt="Weather Underground"></div>
+
+                </div>
+            </div>
+
+        </div>
+        @RenderBody()
+    </div>
+</body>
+
+
+
+</html>
