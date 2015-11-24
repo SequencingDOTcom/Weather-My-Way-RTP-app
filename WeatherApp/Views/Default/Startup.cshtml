@@ -1,0 +1,32 @@
+﻿@model Sequencing.WeatherApp.Models.CommonData
+
+@{
+    ViewBag.Title = "Weather My Way +RTP";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<script src="/Scripts/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="/assets/js/vidRandom.js"></script>
+
+
+
+<div id="titleText">
+    <h3 id="titleOne">
+        Weather My Way
+    </h3>
+    <h4 id="subTitle">with Real-Time Personalization<sup id="tm">TM</sup></h4>
+</div>
+<div id="loginContainer">
+    <a href="@Url.Action(!Model.Context.IsAuthenticated ? "StartAuth" : "StartJobSequence")" class="btn">
+        <img id="login" src="/assets/img/Sign_in_with_Sequencing_com_SSO_button_slate.png" />
+    </a><br />
+</div>
+<div id="regBox">
+    <p>
+        Don't have a sequencing.com account?<br/>
+        <a id="regLink" href="https://sequencing.com/user/register/">Register for a free account</a>
+    </p>
+</div>
+
+<div id="aboutButton"><b>About</b></div>

@@ -1,0 +1,118 @@
+.sequencing-file-selector-help-text 
+{
+font-weight:bold; 
+font-size:18px; 
+text-align:center; 
+background-color:rgba(215,215,215,0.5);
+
+}
+
+.sequencing-file-selector-help-text .sequencing-file-selector-help-text-brackets 
+{
+font-size:14px;
+}
+
+.sequencing-file-selector-type-control 
+{
+position:relative;
+left:50%;
+margin-left:-125px;
+width:250px;
+padding:0 0 1.4em 0;
+}
+.sequencing-file-selector-type-control .or 
+{
+padding:0 1em;
+font-size:1.5em;
+}
+
+.sequencing-file-selector-type-control .btn-custom 
+{
+background-color: hsl(0, 0%, 79%);
+background-repeat: repeat-x;
+background-image: -khtml-gradient(linear, left top, left bottom, from(hsl(0, 0%, 121%)), to(hsl(0, 0%, 79%)));
+background-image: -moz-linear-gradient(top, hsl(0, 0%, 121%), hsl(0, 0%, 79%));
+background-image: -ms-linear-gradient(top, hsl(0, 0%, 121%), hsl(0, 0%, 79%));
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, hsl(0, 0%, 121%)), color-stop(100%, hsl(0, 0%, 79%)));
+background-image: -webkit-linear-gradient(top, hsl(0, 0%, 121%), hsl(0, 0%, 79%));
+background-image: -o-linear-gradient(top, hsl(0, 0%, 121%), hsl(0, 0%, 79%));
+background-image: linear-gradient(hsl(0, 0%, 121%), hsl(0, 0%, 79%));
+
+color: #333;
+text-shadow: 0 1px 1px rgba(255, 255, 255, 0.69);
+-webkit-font-smoothing: antialiased;
+}
+
+.sequencing-file-selector-type-control .btn.active 
+{
+background-color:#a0e6ff; 
+background-image:none;
+}
+
+.sequencing-file-selector-table-container 
+{
+padding:1em 0;
+}
+
+.sequencing-file-selector.loading 
+{
+background:#EEE; 
+font-size:1.6em; 
+cursor:not-allowed;
+background-color:rgba(215,215,215,0.5);
+color:black;
+}
+
+table.sequencing-file-selector tbody tr 
+{
+cursor: pointer; 
+font-size:1.6em;
+color:black;
+}
+
+table.sequencing-file-selector th
+{
+font-size:1.6em;
+color:black
+} 
+
+table.sequencing-file-selector tbody tr.selected 
+{
+background-color: #a0e6ff;
+}
+
+table.sequencing-file-selector .column-radio-button 
+{
+width:19px;
+}
+
+@media screen and (max-width: 768px) 
+{
+
+    table.sequencing-file-selector td .sequencing-file-selector-description-2 
+    {
+    display:block;
+    }
+
+}
+
+#fileSelectBack .table-striped > tbody > tr:nth-child(2n+1) 
+{ 
+background-color:rgba(180,180,180,0.8);
+
+}
+
+#fileSelectBack .table-striped > tbody > tr:nth-child(2n) 
+{
+background-color:rgba(215,215,215,0.8);
+}
+
+#fileSelectBack table.sequencing-file-selector tbody tr.selected 
+{
+background-color: lightgreen;
+}
+
+#fileSelectBack table.sequencing-file-selector tbody tr:hover
+{
+background-color: lightblue;
+}

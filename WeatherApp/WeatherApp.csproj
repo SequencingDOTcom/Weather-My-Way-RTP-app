@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C2AB301-A6A3-4AA0-8E1E-D32FBC024A82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sequencing.WeatherApp</RootNamespace>
+    <AssemblyName>Sequencing.WeatherApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.13.2.0\lib\net40-client\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl">
+      <HintPath>..\packages\Flurl.1.0.7\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http">
+      <HintPath>..\packages\Flurl.Http.0.6.0\lib\net45\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mandrill">
+      <HintPath>..\packages\Mandrill.2.0.3.0\lib\net45\Mandrill.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.JQuery.Datatables">
+      <HintPath>..\packages\Mvc.JQuery.Datatables.1.2.148\lib\net45\Mvc.JQuery.Datatables.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.4.0.51\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\clndr.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\home.css" />
+    <Content Include="assets\css\landing.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\simple-line-icons.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="assets\img\1355530.mp4" />
+    <Content Include="assets\img\4634528.mp4" />
+    <Content Include="assets\img\Back-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\Back-icon-Sequencing-com-24px.png" />
+    <Content Include="assets\img\Checkbox-combined-Sequencing-com-16px.png" />
+    <Content Include="assets\img\Checkbox-combined-Sequencing-com-32px.png" />
+    <Content Include="assets\img\Checkbox-empty-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\Checkbox-selected-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\Close-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\Close-icon-Sequencing-com-24px.png" />
+    <Content Include="assets\img\edit_test_03.jpg" />
+    <Content Include="assets\img\facebook-icon-Simek-sequencing-com.png" />
+    <Content Include="assets\img\facebook_share_pic.jpg" />
+    <Content Include="assets\img\gear.png" />
+    <Content Include="assets\img\GitHub-Mark-64px.png" />
+    <Content Include="assets\img\GitHub_Logo.png" />
+    <Content Include="assets\img\GitHub_symbol.png" />
+    <Content Include="assets\img\google-plus-icon-Simek-sequencing-com.png" />
+    <Content Include="assets\img\Huuricane_poster_test.jpg" />
+    <Content Include="assets\img\Info-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\linkedin-icon-sequencing-com.png" />
+    <Content Include="assets\img\Location-crosshairs-icon-Sequencing-com-32px.png" />
+    <Content Include="assets\img\location-marked-icon-32px.png" />
+    <Content Include="assets\img\location-marked-icon-64px.png" />
+    <Content Include="assets\img\Logo.png" />
+    <Content Include="assets\img\LogoWithTag.png" />
+    <Content Include="assets\img\menu-icon-64px.png" />
+    <Content Include="assets\img\Personalize.png" />
+    <Content Include="assets\img\PersonalizeMe-RTP.png" />
+    <Content Include="assets\img\PersonalizeMe.png" />
+    <Content Include="assets\img\PersonalizeMe02.png" />
+    <Content Include="assets\img\PersonalizeMe03.png" />
+    <Content Include="assets\img\PersonalizeMeSlate.png" />
+    <Content Include="assets\img\pinterest-icon-Simek-sequencing-com.png" />
+    <Content Include="assets\img\posters\10572149_poster.jpg" />
+    <Content Include="assets\img\posters\1093591_poster.jpg" />
+    <Content Include="assets\img\posters\1126162_poster.jpg" />
+    <Content Include="assets\img\posters\11588486_poster.jpg" />
+    <Content Include="assets\img\posters\11612783_poster.jpg" />
+    <Content Include="assets\img\posters\120847_poster.jpg" />
+    <Content Include="assets\img\posters\1389124_poster.jpg" />
+    <Content Include="assets\img\posters\1538677_poster.jpg" />
+    <Content Include="assets\img\posters\163903_poster.jpg" />
+    <Content Include="assets\img\posters\1775912_poster.jpg" />
+    <Content Include="assets\img\posters\1936054_poster.jpg" />
+    <Content Include="assets\img\posters\2051507_poster.jpg" />
+    <Content Include="assets\img\posters\225991_poster.jpg" />
+    <Content Include="assets\img\posters\2302283_poster.jpg" />
+    <Content Include="assets\img\posters\2580011_poster.jpg" />
+    <Content Include="assets\img\posters\2629166_poster.jpg" />
+    <Content Include="assets\img\posters\2718020_poster.jpg" />
+    <Content Include="assets\img\posters\2831005_poster.jpg" />
+    <Content Include="assets\img\posters\2864458_poster.jpg" />
+    <Content Include="assets\img\posters\3036661_poster.jpg" />
+    <Content Include="assets\img\posters\3112114_poster.jpg" />
+    <Content Include="assets\img\posters\3168328_poster.jpg" />
+    <Content Include="assets\img\posters\3579536_poster.jpg" />
+    <Content Include="assets\img\posters\3652088_poster.jpg" />
+    <Content Include="assets\img\posters\3671960_poster.jpg" />
+    <Content Include="assets\img\posters\3753200_poster.jpg" />
+    <Content Include="assets\img\posters\3935576_poster.jpg" />
+    <Content Include="assets\img\posters\4189258_poster.jpg" />
+    <Content Include="assets\img\posters\4314167_poster.jpg" />
+    <Content Include="assets\img\posters\4406759_poster.jpg" />
+    <Content Include="assets\img\posters\4443185_poster.jpg" />
+    <Content Include="assets\img\posters\4491596_poster.jpg" />
+    <Content Include="assets\img\posters\4627466_poster.jpg" />
+    <Content Include="assets\img\posters\4636637_poster.jpg" />
+    <Content Include="assets\img\posters\5236070_poster.jpg" />
+    <Content Include="assets\img\posters\5468858_poster.jpg" />
+    <Content Include="assets\img\posters\5649644_poster.jpg" />
+    <Content Include="assets\img\posters\5742650_poster.jpg" />
+    <Content Include="assets\img\posters\5744606_poster.jpg" />
+    <Content Include="assets\img\posters\5793242_poster.jpg" />
+    <Content Include="assets\img\posters\6698111_poster.jpg" />
+    <Content Include="assets\img\posters\7188568_poster.jpg" />
+    <Content Include="assets\img\posters\728440_poster.jpg" />
+    <Content Include="assets\img\posters\7419178_poster.jpg" />
+    <Content Include="assets\img\posters\800269_poster.jpg" />
+    <Content Include="assets\img\posters\8037967_poster.jpg" />
+    <Content Include="assets\img\posters\8257699_poster.jpg" />
+    <Content Include="assets\img\posters\8529928_poster.jpg" />
+    <Content Include="assets\img\posters\861337_poster.jpg" />
+    <Content Include="assets\img\posters\885172_poster.jpg" />
+    <Content Include="assets\img\profile-lg.jpg" />
+    <Content Include="assets\img\profile.jpg" />
+    <Content Include="assets\img\question48.png" />
+    <Content Include="assets\img\reddit-icon-sequencing-com.png" />
+    <Content Include="assets\img\refresh-icon-32px.png" />
+    <Content Include="assets\img\Revoke-icon-Sequencing-com-16px.png" />
+    <Content Include="assets\img\ror.png" />
+    <Content Include="assets\img\Sequencing-com-awesome-preloader-128px.gif" />
+    <Content Include="assets\img\SettingsButton.png" />
+    <Content Include="assets\img\Sign_in_with_Sequencing_com_SSO_button_slate.png" />
+    <Content Include="assets\img\social-share-icon-64px.png" />
+    <Content Include="assets\img\social24.png" />
+    <Content Include="assets\img\thumbnail-soon.png" />
+    <Content Include="assets\img\thumbnail.png" />
+    <Content Include="assets\img\twitter-icon-Simek-sequencing-com.png" />
+    <Content Include="assets\img\vac-1.jpg" />
+    <Content Include="assets\img\vac-2.jpg" />
+    <Content Include="assets\img\vac-3.jpg" />
+    <Content Include="assets\img\vac-4.jpg" />
+    <Content Include="assets\img\weather-myway.png" />
+    <Content Include="assets\img\widget-twitter-bg.gif" />
+    <Content Include="assets\img\wundergroundLogo_4c_horz.png" />
+    <Content Include="assets\js\alertVids.js" />
+    <Content Include="assets\js\home.js" />
+    <Content Include="assets\js\sequencing-file-selector.js" />
+    <Content Include="assets\js\src\app.js" />
+    <Content Include="assets\js\vendor\html5shiv.min.js" />
+    <Content Include="assets\js\vendor\jquery-1.11.1.min.js" />
+    <Content Include="assets\js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="assets\js\vendor\respond.min.js" />
+    <Content Include="assets\js\vidRandom.js" />
+    <Content Include="assets\js\weatherVids.js" />
+    <Content Include="assets\plugins\bootstrap-slider\css\slider.css" />
+    <Content Include="assets\plugins\bootstrap-slider\js\bootstrap-slider.js" />
+    <Content Include="assets\plugins\bootstrap-wysihtml5\css\bootstrap-wysihtml5.css" />
+    <Content Include="assets\plugins\bootstrap-wysihtml5\css\bootstrap3-wysiwyg5-color.css" />
+    <Content Include="assets\plugins\bootstrap-wysihtml5\js\bootstrap3-wysihtml5.js" />
+    <Content Include="assets\plugins\bootstrap-wysihtml5\js\wysihtml5-0.3.0.js" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\plugins\daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="assets\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="assets\plugins\daterangepicker\moment.min.js" />
+    <Content Include="assets\plugins\switchery\switchery.min.css" />
+    <Content Include="assets\plugins\switchery\switchery.min.js" />
+    <Content Include="assets\videos\10572149.mp4" />
+    <Content Include="assets\videos\1093591.mp4" />
+    <Content Include="assets\videos\1126162.mp4" />
+    <Content Include="assets\videos\11588486.mp4" />
+    <Content Include="assets\videos\11612783.mp4" />
+    <Content Include="assets\videos\120847.mp4" />
+    <Content Include="assets\videos\1355530.mp4" />
+    <Content Include="assets\videos\1538677.mp4" />
+    <Content Include="assets\videos\163903.mp4" />
+    <Content Include="assets\videos\2051507.mp4" />
+    <Content Include="assets\videos\225991.mp4" />
+    <Content Include="assets\videos\2301923.mp4" />
+    <Content Include="assets\videos\2302283.mp4" />
+    <Content Include="assets\videos\2580011.mp4" />
+    <Content Include="assets\videos\2629166.mp4" />
+    <Content Include="assets\videos\2681501.mp4" />
+    <Content Include="assets\videos\2718020.mp4" />
+    <Content Include="assets\videos\2864458.mp4" />
+    <Content Include="assets\videos\3036661.mp4" />
+    <Content Include="assets\videos\3112114.mp4" />
+    <Content Include="assets\videos\3168328.mp4" />
+    <Content Include="assets\videos\3652088.mp4" />
+    <Content Include="assets\videos\3753200.mp4" />
+    <Content Include="assets\videos\4189258.mp4" />
+    <Content Include="assets\videos\4443185.mp4" />
+    <Content Include="assets\videos\4475606.mp4" />
+    <Content Include="assets\videos\4491596.mp4" />
+    <Content Include="assets\videos\4584485.mp4" />
+    <Content Include="assets\videos\4627466.mp4" />
+    <Content Include="assets\videos\4695167.mp4" />
+    <Content Include="assets\videos\5468858.mp4" />
+    <Content Include="assets\videos\5742650.mp4" />
+    <Content Include="assets\videos\5793242.mp4" />
+    <Content Include="assets\videos\7188568.mp4" />
+    <Content Include="assets\videos\728440.mp4" />
+    <Content Include="assets\videos\7419178.mp4" />
+    <Content Include="assets\videos\800269.mp4" />
+    <Content Include="assets\videos\8037967.mp4" />
+    <Content Include="assets\videos\861337.mp4" />
+    <Content Include="assets\videos\885172.mp4" />
+    <Content Include="assets\videos\editTest02.mp4" />
+    <Content Include="assets\videos\editTest03.mp4" />
+    <Content Include="assets\videos\editTest04.mp4" />
+    <Content Include="assets\videos\edit_test.mp4" />
+    <Content Include="assets\videos\edit_test_02.mp4" />
+    <Content Include="assets\videos\edit_test_03.mp4" />
+    <Content Include="assets\videos\shutterstock_v10572149.mp4" />
+    <Content Include="assets\videos\shutterstock_v1093591.mp4" />
+    <Content Include="assets\videos\shutterstock_v1126162.mp4" />
+    <Content Include="assets\videos\shutterstock_v11588486.mp4" />
+    <Content Include="assets\videos\shutterstock_v11612783.mp4" />
+    <Content Include="assets\videos\shutterstock_v120847.mp4" />
+    <Content Include="assets\videos\shutterstock_v1389124.mp4" />
+    <Content Include="assets\videos\shutterstock_v1538677.mp4" />
+    <Content Include="assets\videos\shutterstock_v163903.mp4" />
+    <Content Include="assets\videos\shutterstock_v1775912.mp4" />
+    <Content Include="assets\videos\shutterstock_v1936054.mp4" />
+    <Content Include="assets\videos\shutterstock_v2051507.mp4" />
+    <Content Include="assets\videos\shutterstock_v225991.mp4" />
+    <Content Include="assets\videos\shutterstock_v225991_HD.iphone5.mp4" />
+    <Content Include="assets\videos\shutterstock_v225991_HD.mp4" />
+    <Content Include="assets\videos\shutterstock_v2302283.mp4" />
+    <Content Include="assets\videos\shutterstock_v2580011.mp4" />
+    <Content Include="assets\videos\shutterstock_v2629166.mp4" />
+    <Content Include="assets\videos\shutterstock_v2718020.mp4" />
+    <Content Include="assets\videos\shutterstock_v2831005.mp4" />
+    <Content Include="assets\videos\shutterstock_v2864458.mp4" />
+    <Content Include="assets\videos\shutterstock_v3036661.mp4" />
+    <Content Include="assets\videos\shutterstock_v3112114.mp4" />
+    <Content Include="assets\videos\shutterstock_v3168328.mp4" />
+    <Content Include="assets\videos\shutterstock_v3579536.mp4" />
+    <Content Include="assets\videos\shutterstock_v3652088.mp4" />
+    <Content Include="assets\videos\shutterstock_v3671960.mp4" />
+    <Content Include="assets\videos\shutterstock_v3753200.mp4" />
+    <Content Include="assets\videos\shutterstock_v3935576.mp4" />
+    <Content Include="assets\videos\shutterstock_v4189258.mp4" />
+    <Content Include="assets\videos\shutterstock_v4314167.mp4" />
+    <Content Include="assets\videos\shutterstock_v4406759.mp4" />
+    <Content Include="assets\videos\shutterstock_v4443185.mp4" />
+    <Content Include="assets\videos\shutterstock_v4491596.mp4" />
+    <Content Include="assets\videos\shutterstock_v4627466.mp4" />
+    <Content Include="assets\videos\shutterstock_v4636637.mp4" />
+    <Content Include="assets\videos\shutterstock_v5236070.mp4" />
+    <Content Include="assets\videos\shutterstock_v5468858.mp4" />
+    <Content Include="assets\videos\shutterstock_v5649644.mp4" />
+    <Content Include="assets\videos\shutterstock_v5742650.mp4" />
+    <Content Include="assets\videos\shutterstock_v5744606.mp4" />
+    <Content Include="assets\videos\shutterstock_v5793242.mp4" />
+    <Content Include="assets\videos\shutterstock_v6698111.mp4" />
+    <Content Include="assets\videos\shutterstock_v6820675.mp4" />
+    <Content Include="assets\videos\shutterstock_v7188568.mp4" />
+    <Content Include="assets\videos\shutterstock_v728440.mp4" />
+    <Content Include="assets\videos\shutterstock_v7419178.mp4" />
+    <Content Include="assets\videos\shutterstock_v800269.mp4" />
+    <Content Include="assets\videos\shutterstock_v8037967.mp4" />
+    <Content Include="assets\videos\shutterstock_v8257699.mp4" />
+    <Content Include="assets\videos\shutterstock_v8529928.mp4" />
+    <Content Include="assets\videos\shutterstock_v861337.mp4" />
+    <Content Include="assets\videos\shutterstock_v885172.mp4" />
+    <Content Include="Content\bootstrap-timepicker.css" />
+    <Content Include="Content\bootstrap-timepicker.min.css" />
+    <Content Include="Content\customTel.css" />
+    <Content Include="Content\flags%402x.png" />
+    <Content Include="Content\flags.png" />
+    <Content Include="Content\intlTelInput.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap-timepicker.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
+    <Content Include="assets\fonts\HelveticaNeueLTStd-BdEx.otf" />
+    <Content Include="assets\fonts\HelveticaNeueLTStd-Ex.otf" />
+    <Content Include="assets\fonts\Roboto-Bold.ttf" />
+    <Content Include="assets\fonts\Roboto-Light.ttf" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\seq-weatherapp - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\intlTelInput.js" />
+    <Content Include="Scripts\intlTelInput.min.js" />
+    <Content Include="Scripts\intlTelUtils.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
+    <Content Include="Scripts\jquery.simpleWeather.js" />
+    <Content Include="Scripts\jquery.simpleWeather.min.js" />
+    <Content Include="Scripts\timezones.min.js" />
+    <None Include="recs.csv" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthInfo.cs" />
+    <Compile Include="Controllers\AuthWorker.cs" />
+    <Compile Include="Controllers\BackendServiceFacade.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\EmailWorker.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\InviteChanges.cs" />
+    <Compile Include="Controllers\CommonDataModelAttribute.cs" />
+    <Compile Include="Controllers\Options.cs" />
+    <Compile Include="Controllers\PersonalizedRecommendationsWorker.cs" />
+    <Compile Include="Controllers\PersonalRecommendation.cs" />
+    <Compile Include="Controllers\SendInfoWorker.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\TokenInfo.cs" />
+    <Compile Include="Controllers\UserAuthWorker.cs" />
+    <Compile Include="Controllers\WeatherUnderground\CityMapResult.cs" />
+    <Compile Include="Controllers\WeatherUnderground\CityMapResultRoot.cs" />
+    <Compile Include="Controllers\WeatherUnderground\CurrentConditionsRoot.cs" />
+    <Compile Include="Controllers\WeatherUnderground\Forecast10Root.cs" />
+    <Compile Include="Controllers\WeatherUnderground\ForecastRoot.cs" />
+    <Compile Include="Controllers\WeatherUnderground\WeatherWorker.cs" />
+    <Compile Include="Models\CheckAppData.cs" />
+    <Compile Include="Models\CommonData.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Models\RunResult.cs" />
+    <Compile Include="Controllers\RunResultBuilder.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SharedContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendInfo.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemperatureMode.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeatherDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WeekEndMode.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="assets\css\main.css.map" />
+    <Content Include="assets\css\main.less" />
+    <Content Include="assets\css\main.scss" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Default\Location.cshtml" />
+    <Content Include="Views\Default\SelectFile.cshtml" />
+    <Content Include="Views\Default\CheckApp.cshtml" />
+    <Content Include="Views\Default\Results.cshtml" />
+    <Content Include="Views\Default\Startup.cshtml" />
+    <EntityDeploy Include="WeatherDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WeatherDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="WeatherDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WeatherDb.edmx.diagram">
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="WeatherDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Default\About.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>36057</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36058/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

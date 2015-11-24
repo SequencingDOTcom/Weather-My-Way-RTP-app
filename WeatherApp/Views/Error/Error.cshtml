@@ -1,0 +1,19 @@
+﻿@model Sequencing.WeatherApp.Models.CommonData
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>
+        <div id="appError">
+            <h4>We're sorry.</h4><br/>
+            <p>The app encountered a temporary error.<br/> Please restart the app by <tr><td><a href="@Url.Action("Logout", "Default")" style="font-weight:normal; text-decoration:none;">signing out</a></td></tr> and then signing back in.<br/><br/> If the problem persists, please <a href="mailto:feedback@sequencing.rocks" style="text-decoration:none; cursor:pointer;">contact us</a>. </p> 
+        </div>
+    </body>
+</html>
