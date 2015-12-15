@@ -37,6 +37,7 @@ Information flow
 2. If successful, app either auto-detects geographic location or user can manually input location. The app works for most locations throughout the world. 
 3. Next, user selects a genetic file for analysis. Sample files are also provided. File selector code is open source and available here: https://github.com/SequencingDOTcom/File-Selector
 4. The app will then be personalized to the app user's genes by combining an analysis of the app user's genes with an analysis of the current weather forecast.
+
 * Two [App Chains](https://sequencing.com/app-chains) that use Sequencing.com's API are utilized for this app: 
 ** Chain10 (Predisposition to skin cancer)
 ** Chain88 (Vitamin D supplements likely to protect health). will then process the user’s genes and combine it with real-time weather data. 
