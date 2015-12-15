@@ -1,6 +1,8 @@
 Weather My Way +RTP app - Web version
 =========================================
-The [Weather My Way +RTP](https://weathermyway.rocks/) is the first weather app in the world to utilize Sequencing.com's [Sequencing.com's](https://sequencing.com/) [Real Time Personalization (RTP)](https://sequencing.com/developer-documentation/what-is-real-time-personalization-rtp/) technology. This code is open source and free to use, share, build upon and improve!
+The [Weather My Way +RTP](https://weathermyway.rocks/) is the first weather app in the world to utilize Sequencing.com's [Sequencing.com's](https://sequencing.com/) [Real Time Personalization (RTP)](https://sequencing.com/developer-documentation/what-is-real-time-personalization-rtp/) technology.
+
+The app provides the app user with genetically tailored forecasts that help the app user optimize his or her health and wellness. The genetically tailored forecasts are personalized to the user's genes (using Sequencing.com's API) and the weather (using Weather Underground's API) in real-time.
 
 Contents
 =========================================
