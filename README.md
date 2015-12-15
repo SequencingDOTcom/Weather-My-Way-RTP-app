@@ -2,11 +2,11 @@ Weather My Way +RTP app - Web version
 =========================================
 The [Weather My Way +RTP](https://weathermyway.rocks/) is the first weather app in the world to utilize Sequencing.com's [Sequencing.com's](https://sequencing.com/) [Real Time Personalization (RTP)](https://sequencing.com/developer-documentation/what-is-real-time-personalization-rtp/) technology. This code is open source and free to use, share, build upon and improve!
 
-Weather My Way +RTP web app: https://weathermyway.rocks
-
-This repository is for the .NET version of the Weather My Way +RTP app.
-
+Contents
+=========================================
+* Editions
 * Introduction
+* Information flow
 * Project
 * Requirements
 * Installation
@@ -15,15 +15,33 @@ This repository is for the .NET version of the Weather My Way +RTP app.
 * Maintainers
 * Contribute
 
+Editions
+=========================================
+Weather My Way +RTP 
+* Repo = this repo
+* App = https://weathermyway.rocks
+
+Weather My Child's Way +RTP
+* Repo = https://github.com/SequencingDOTcom/Weather-My-Childs-Way-app
+* App = https://weathermychildsway.rocks
+
 Introduction
 =========================================
-The [Weather My Way +RTP app](https://weathermyway.rocks/) is the first weather app in the world to utilize Sequencing.com's Real Time Personalization (RTP) technology.
-
-This codebase is a C# .NET implementation that shows how to combine real-time weather data with an users genetic data and is also intended to show how to work with Sequencing.com's open API. The APIs are implemented as REST API and can be used with any coding language that supports JSON.
-
-The overall information flow of this app is that an end-user validates using their sequencing.com login and if successfully the app asks for geographic location which can be any location on the planet. After which the user should select a genetic file for analysis. The backend APIs will then process the user’s genes and combine it with real-time weather data. Finally, the user will be presented with personalized recommendations that takes into account the current weather and the user’s genes - all occurring in real-time.
+The [Weather My Way +RTP app](https://weathermyway.rocks/) codebase is a C# .NET implementation that shows how to combine real-time weather data with the genetic data from the child of the app user.
 
 [Register for a free account](https://sequencing.com/user/register/) to learn more about Real-Time Personalization technology and gain full access to this technology. Development using RTP is free.
+
+Information flow
+========================================
+1. App-user validates using Sign in with Sequencing.com. OAuth2 code is open source and available here: https://github.com/SequencingDOTcom/oAuth2-code-and-demo
+2. If successful, app either auto-detects geographic location or user can manually input location. The app works for most locations throughout the world. 
+3. Next, user selects a genetic file for analysis. Sample files are also provided. File selector code is open source and available here: https://github.com/SequencingDOTcom/File-Selector
+4. The app will then be personalized to the app user's genes by combining an analysis of the app user's genes with an analysis of the current weather forecast.
+* Two [App Chains](https://sequencing.com/app-chains) that use Sequencing.com's API are utilized for this app: 
+** Chain10 (Predisposition to skin cancer)
+** Chain88 (Vitamin D supplements likely to protect health). will then process the user’s genes and combine it with real-time weather data. 
+* Forecast screen contains both the weather forecast and the user's genetically tailored forecast, which is personalized insight to help the user optimize their health and wellness.
+* All analysis occurs in real-time.
 
 Project
 ========================================
