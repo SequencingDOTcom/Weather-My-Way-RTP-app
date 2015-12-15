@@ -40,7 +40,7 @@ Information flow
 
 * Two [App Chains](https://sequencing.com/app-chains) that use Sequencing.com's API are utilized for this app: 
  * Chain10 (Predisposition to skin cancer)
- * Chain88 (Vitamin D supplements likely to protect health). will then process the user’s genes and combine it with real-time weather data. 
+ * Chain88 (Vitamin D supplements likely to protect health)
 * Forecast screen contains both the weather forecast and the user's genetically tailored forecast, which is personalized insight to help the user optimize their health and wellness.
 * All analysis occurs in real-time.
 
