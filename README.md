@@ -43,8 +43,8 @@ Information flow
 4. The app will then be personalized to the app user's genes by combining an analysis of the app user's genes with an analysis of the current weather forecast.
 
 * Two [App Chains](https://sequencing.com/app-chains/) that use Sequencing.com's API are utilized for this app: 
- * Chain10 (Predisposition to skin cancer)
- * Chain88 (Vitamin D supplements likely to protect health)
+ * [Chain9](https://sequencing.com/skin-cancer-risk-melanoma) (Skin cancer risk)
+ * [Chain88](https://sequencing.com/optimizing-vitamin-d-levels-very-important-health) (Vitamin D supplements likely to protect health)
 * Forecast screen contains both the weather forecast and the user's genetically tailored forecast, which is personalized insight to help the user optimize their health and wellness.
 * All analysis occurs in real-time.
 
@@ -89,6 +89,7 @@ Other tips
 * Confirm all the dependency dlls loaded correctly.
 * Confirm you are connected to the internet since the API calls will be made to our server and the weather data servers as well.
 * Confirm you have the latest version of the code from this repository.
+* Search through available App Chains here: https://sequencing.com/app-chains/
 
 Maintainers
 ======================================
