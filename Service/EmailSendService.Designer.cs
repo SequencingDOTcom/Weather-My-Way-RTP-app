@@ -1,4 +1,4 @@
-﻿namespace Service
+﻿namespace Sequencing.WeatherApp.Service
 {
     partial class EmailSendService
     {

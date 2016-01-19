@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,9 +62,6 @@
       <HintPath>..\packages\Mandrill.2.0.3.0\lib\net45\Mandrill.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mvc.JQuery.Datatables">
-      <HintPath>..\packages\Mvc.JQuery.Datatables.1.2.148\lib\net45\Mvc.JQuery.Datatables.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
@@ -127,6 +125,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-icon-144x144.png" />
+    <Content Include="android-icon-192x192.png" />
+    <Content Include="android-icon-36x36.png" />
+    <Content Include="android-icon-48x48.png" />
+    <Content Include="android-icon-72x72.png" />
+    <Content Include="android-icon-96x96.png" />
+    <Content Include="apple-icon-114x114.png" />
+    <Content Include="apple-icon-120x120.png" />
+    <Content Include="apple-icon-144x144.png" />
+    <Content Include="apple-icon-152x152.png" />
+    <Content Include="apple-icon-180x180.png" />
+    <Content Include="apple-icon-57x57.png" />
+    <Content Include="apple-icon-60x60.png" />
+    <Content Include="apple-icon-72x72.png" />
+    <Content Include="apple-icon-76x76.png" />
+    <Content Include="apple-icon-precomposed.png" />
+    <Content Include="apple-icon.png" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\clndr.css" />
     <Content Include="assets\css\font-awesome.min.css" />
@@ -139,17 +154,122 @@
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\fonts\Simple-Line-Icons.dev.svg" />
     <Content Include="assets\fonts\Simple-Line-Icons.svg" />
-    <Content Include="assets\img\1355530.mp4" />
-    <Content Include="assets\img\4634528.mp4" />
+    <Content Include="assets\img\Awesome-cub-pre-loader-Sequencing-com-128px.gif" />
     <Content Include="assets\img\Back-icon-Sequencing-com-16px.png" />
     <Content Include="assets\img\Back-icon-Sequencing-com-24px.png" />
     <Content Include="assets\img\Checkbox-combined-Sequencing-com-16px.png" />
     <Content Include="assets\img\Checkbox-combined-Sequencing-com-32px.png" />
-    <Content Include="assets\img\Checkbox-empty-icon-Sequencing-com-16px.png" />
-    <Content Include="assets\img\Checkbox-selected-icon-Sequencing-com-16px.png" />
     <Content Include="assets\img\Close-icon-Sequencing-com-16px.png" />
     <Content Include="assets\img\Close-icon-Sequencing-com-24px.png" />
-    <Content Include="assets\img\edit_test_03.jpg" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Preloader_3.gif" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\preloader_3_14879.gif" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00000.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00001.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00002.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00003.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00004.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00005.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00006.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00007.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00008.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00009.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00010.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00011.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00012.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00013.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00014.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00015.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00016.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00017.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00018.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00019.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00020.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00021.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00022.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00023.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00024.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00025.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00026.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00027.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00028.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00029.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00030.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00031.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00032.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00033.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00034.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00035.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00036.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00037.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00038.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00039.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00040.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00041.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00042.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00043.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00044.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00045.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00046.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00047.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00048.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00049.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00050.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\PR_3_00051.png" />
+    <Content Include="assets\img\Cube preloader\128x128\Sequencing-com-awesome-preloader-128px.gif" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Preloader_3.gif" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00000.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00001.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00002.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00003.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00004.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00005.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00006.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00007.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00008.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00009.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00010.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00011.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00012.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00013.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00014.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00015.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00016.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00017.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00018.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00019.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00020.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00021.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00022.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00023.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00024.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00025.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00026.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00027.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00028.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00029.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00030.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00031.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00032.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00033.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00034.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00035.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00036.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00037.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00038.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00039.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00040.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00041.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00042.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00043.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00044.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00045.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00046.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00047.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00048.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00049.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00050.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\PR_3_00051.png" />
+    <Content Include="assets\img\Cube preloader\64x64\Sequencing-com-awesome-preloader-64px.gif" />
     <Content Include="assets\img\facebook-icon-Simek-sequencing-com.png" />
     <Content Include="assets\img\facebook_share_pic.jpg" />
     <Content Include="assets\img\gear.png" />
@@ -157,7 +277,6 @@
     <Content Include="assets\img\GitHub_Logo.png" />
     <Content Include="assets\img\GitHub_symbol.png" />
     <Content Include="assets\img\google-plus-icon-Simek-sequencing-com.png" />
-    <Content Include="assets\img\Huuricane_poster_test.jpg" />
     <Content Include="assets\img\Info-icon-Sequencing-com-16px.png" />
     <Content Include="assets\img\linkedin-icon-sequencing-com.png" />
     <Content Include="assets\img\Location-crosshairs-icon-Sequencing-com-32px.png" />
@@ -194,6 +313,7 @@
     <Content Include="assets\img\posters\2864458_poster.jpg" />
     <Content Include="assets\img\posters\3036661_poster.jpg" />
     <Content Include="assets\img\posters\3112114_poster.jpg" />
+    <Content Include="assets\img\posters\3149698_poster.jpg" />
     <Content Include="assets\img\posters\3168328_poster.jpg" />
     <Content Include="assets\img\posters\3579536_poster.jpg" />
     <Content Include="assets\img\posters\3652088_poster.jpg" />
@@ -205,6 +325,7 @@
     <Content Include="assets\img\posters\4406759_poster.jpg" />
     <Content Include="assets\img\posters\4443185_poster.jpg" />
     <Content Include="assets\img\posters\4491596_poster.jpg" />
+    <Content Include="assets\img\posters\4584485_poster.jpg" />
     <Content Include="assets\img\posters\4627466_poster.jpg" />
     <Content Include="assets\img\posters\4636637_poster.jpg" />
     <Content Include="assets\img\posters\5236070_poster.jpg" />
@@ -214,6 +335,7 @@
     <Content Include="assets\img\posters\5744606_poster.jpg" />
     <Content Include="assets\img\posters\5793242_poster.jpg" />
     <Content Include="assets\img\posters\6698111_poster.jpg" />
+    <Content Include="assets\img\posters\6820675_poster.jpg" />
     <Content Include="assets\img\posters\7188568_poster.jpg" />
     <Content Include="assets\img\posters\728440_poster.jpg" />
     <Content Include="assets\img\posters\7419178_poster.jpg" />
@@ -243,6 +365,104 @@
     <Content Include="assets\img\vac-3.jpg" />
     <Content Include="assets\img\vac-4.jpg" />
     <Content Include="assets\img\weather-myway.png" />
+    <Content Include="assets\img\WeatherIcons\day\blowing snow.png" />
+    <Content Include="assets\img\WeatherIcons\day\blustery.png" />
+    <Content Include="assets\img\WeatherIcons\day\chanceflurries.png" />
+    <Content Include="assets\img\WeatherIcons\day\chancerain.png" />
+    <Content Include="assets\img\WeatherIcons\day\chancesleet.png" />
+    <Content Include="assets\img\WeatherIcons\day\chancesnow.png" />
+    <Content Include="assets\img\WeatherIcons\day\chancetstorms.png" />
+    <Content Include="assets\img\WeatherIcons\day\clear.png" />
+    <Content Include="assets\img\WeatherIcons\day\cloudy.png" />
+    <Content Include="assets\img\WeatherIcons\day\cold.png" />
+    <Content Include="assets\img\WeatherIcons\day\default weather icon.png" />
+    <Content Include="assets\img\WeatherIcons\day\drizzle.png" />
+    <Content Include="assets\img\WeatherIcons\day\dust.png" />
+    <Content Include="assets\img\WeatherIcons\day\fair.png" />
+    <Content Include="assets\img\WeatherIcons\day\flurries.png" />
+    <Content Include="assets\img\WeatherIcons\day\fog.png" />
+    <Content Include="assets\img\WeatherIcons\day\freezing drizzle.png" />
+    <Content Include="assets\img\WeatherIcons\day\freezing rain.png" />
+    <Content Include="assets\img\WeatherIcons\day\hail.png" />
+    <Content Include="assets\img\WeatherIcons\day\hazy.png" />
+    <Content Include="assets\img\WeatherIcons\day\heavy snow.png" />
+    <Content Include="assets\img\WeatherIcons\day\hot.png" />
+    <Content Include="assets\img\WeatherIcons\day\hurricane.png" />
+    <Content Include="assets\img\WeatherIcons\day\isolated thundershowers.png" />
+    <Content Include="assets\img\WeatherIcons\day\isolated thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\day\light rain.png" />
+    <Content Include="assets\img\WeatherIcons\day\light snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\mixed rain and hail.png" />
+    <Content Include="assets\img\WeatherIcons\day\mixed rain and sleet.png" />
+    <Content Include="assets\img\WeatherIcons\day\mixed rain and snow.png" />
+    <Content Include="assets\img\WeatherIcons\day\mixed snow and sleet.png" />
+    <Content Include="assets\img\WeatherIcons\day\mostlycloudy.png" />
+    <Content Include="assets\img\WeatherIcons\day\mostlysunny.png" />
+    <Content Include="assets\img\WeatherIcons\day\partlycloudy.png" />
+    <Content Include="assets\img\WeatherIcons\day\partlySunny.png" />
+    <Content Include="assets\img\WeatherIcons\day\pm showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\rain.png" />
+    <Content Include="assets\img\WeatherIcons\day\scattered showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\scattered snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\scattered thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\day\severe thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\day\showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\sleet.png" />
+    <Content Include="assets\img\WeatherIcons\day\smoky.png" />
+    <Content Include="assets\img\WeatherIcons\day\snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\day\snow.png" />
+    <Content Include="assets\img\WeatherIcons\day\sunny.png" />
+    <Content Include="assets\img\WeatherIcons\day\thundershowers.png" />
+    <Content Include="assets\img\WeatherIcons\day\tornado.png" />
+    <Content Include="assets\img\WeatherIcons\day\tropical storm.png" />
+    <Content Include="assets\img\WeatherIcons\day\tstorms.png" />
+    <Content Include="assets\img\WeatherIcons\day\unknown.png" />
+    <Content Include="assets\img\WeatherIcons\day\windy.png" />
+    <Content Include="assets\img\WeatherIcons\night\blowing snow.png" />
+    <Content Include="assets\img\WeatherIcons\night\blustery.png" />
+    <Content Include="assets\img\WeatherIcons\night\chanceflurries.png" />
+    <Content Include="assets\img\WeatherIcons\night\chancerain.png" />
+    <Content Include="assets\img\WeatherIcons\night\chancesleet.png" />
+    <Content Include="assets\img\WeatherIcons\night\chancesnow.png" />
+    <Content Include="assets\img\WeatherIcons\night\chancetstorms.png" />
+    <Content Include="assets\img\WeatherIcons\night\clear.png" />
+    <Content Include="assets\img\WeatherIcons\night\cloudy.png" />
+    <Content Include="assets\img\WeatherIcons\night\cold.png" />
+    <Content Include="assets\img\WeatherIcons\night\default weather icon.png" />
+    <Content Include="assets\img\WeatherIcons\night\drizzle.png" />
+    <Content Include="assets\img\WeatherIcons\night\fair.png" />
+    <Content Include="assets\img\WeatherIcons\night\flurries.png" />
+    <Content Include="assets\img\WeatherIcons\night\fog.png" />
+    <Content Include="assets\img\WeatherIcons\night\freezing drizzle.png" />
+    <Content Include="assets\img\WeatherIcons\night\freezing rain.png" />
+    <Content Include="assets\img\WeatherIcons\night\hail.png" />
+    <Content Include="assets\img\WeatherIcons\night\heavy snow.png" />
+    <Content Include="assets\img\WeatherIcons\night\hurricane.png" />
+    <Content Include="assets\img\WeatherIcons\night\isolated thundershowers.png" />
+    <Content Include="assets\img\WeatherIcons\night\isolated thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\night\light snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\mixed rain and hail.png" />
+    <Content Include="assets\img\WeatherIcons\night\mixed rain and sleet.png" />
+    <Content Include="assets\img\WeatherIcons\night\mixed rain and snow.png" />
+    <Content Include="assets\img\WeatherIcons\night\mixed snow and sleet.png" />
+    <Content Include="assets\img\WeatherIcons\night\mostlycloudy.png" />
+    <Content Include="assets\img\WeatherIcons\night\partlycloudy.png" />
+    <Content Include="assets\img\WeatherIcons\night\pm showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\rain.png" />
+    <Content Include="assets\img\WeatherIcons\night\scattered showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\scattered snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\scattered thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\night\severe thunderstorms.png" />
+    <Content Include="assets\img\WeatherIcons\night\showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\sleet.png" />
+    <Content Include="assets\img\WeatherIcons\night\snow showers.png" />
+    <Content Include="assets\img\WeatherIcons\night\snow.png" />
+    <Content Include="assets\img\WeatherIcons\night\thundershowers.png" />
+    <Content Include="assets\img\WeatherIcons\night\tornado.png" />
+    <Content Include="assets\img\WeatherIcons\night\tropical storm.png" />
+    <Content Include="assets\img\WeatherIcons\night\tstorms.png" />
+    <Content Include="assets\img\WeatherIcons\night\unknown.png" />
+    <Content Include="assets\img\WeatherIcons\night\windy.png" />
     <Content Include="assets\img\widget-twitter-bg.gif" />
     <Content Include="assets\img\wundergroundLogo_4c_horz.png" />
     <Content Include="assets\js\alertVids.js" />
@@ -271,52 +491,6 @@
     <Content Include="assets\plugins\daterangepicker\moment.min.js" />
     <Content Include="assets\plugins\switchery\switchery.min.css" />
     <Content Include="assets\plugins\switchery\switchery.min.js" />
-    <Content Include="assets\videos\10572149.mp4" />
-    <Content Include="assets\videos\1093591.mp4" />
-    <Content Include="assets\videos\1126162.mp4" />
-    <Content Include="assets\videos\11588486.mp4" />
-    <Content Include="assets\videos\11612783.mp4" />
-    <Content Include="assets\videos\120847.mp4" />
-    <Content Include="assets\videos\1355530.mp4" />
-    <Content Include="assets\videos\1538677.mp4" />
-    <Content Include="assets\videos\163903.mp4" />
-    <Content Include="assets\videos\2051507.mp4" />
-    <Content Include="assets\videos\225991.mp4" />
-    <Content Include="assets\videos\2301923.mp4" />
-    <Content Include="assets\videos\2302283.mp4" />
-    <Content Include="assets\videos\2580011.mp4" />
-    <Content Include="assets\videos\2629166.mp4" />
-    <Content Include="assets\videos\2681501.mp4" />
-    <Content Include="assets\videos\2718020.mp4" />
-    <Content Include="assets\videos\2864458.mp4" />
-    <Content Include="assets\videos\3036661.mp4" />
-    <Content Include="assets\videos\3112114.mp4" />
-    <Content Include="assets\videos\3168328.mp4" />
-    <Content Include="assets\videos\3652088.mp4" />
-    <Content Include="assets\videos\3753200.mp4" />
-    <Content Include="assets\videos\4189258.mp4" />
-    <Content Include="assets\videos\4443185.mp4" />
-    <Content Include="assets\videos\4475606.mp4" />
-    <Content Include="assets\videos\4491596.mp4" />
-    <Content Include="assets\videos\4584485.mp4" />
-    <Content Include="assets\videos\4627466.mp4" />
-    <Content Include="assets\videos\4695167.mp4" />
-    <Content Include="assets\videos\5468858.mp4" />
-    <Content Include="assets\videos\5742650.mp4" />
-    <Content Include="assets\videos\5793242.mp4" />
-    <Content Include="assets\videos\7188568.mp4" />
-    <Content Include="assets\videos\728440.mp4" />
-    <Content Include="assets\videos\7419178.mp4" />
-    <Content Include="assets\videos\800269.mp4" />
-    <Content Include="assets\videos\8037967.mp4" />
-    <Content Include="assets\videos\861337.mp4" />
-    <Content Include="assets\videos\885172.mp4" />
-    <Content Include="assets\videos\editTest02.mp4" />
-    <Content Include="assets\videos\editTest03.mp4" />
-    <Content Include="assets\videos\editTest04.mp4" />
-    <Content Include="assets\videos\edit_test.mp4" />
-    <Content Include="assets\videos\edit_test_02.mp4" />
-    <Content Include="assets\videos\edit_test_03.mp4" />
     <Content Include="assets\videos\shutterstock_v10572149.mp4" />
     <Content Include="assets\videos\shutterstock_v1093591.mp4" />
     <Content Include="assets\videos\shutterstock_v1126162.mp4" />
@@ -330,8 +504,6 @@
     <Content Include="assets\videos\shutterstock_v1936054.mp4" />
     <Content Include="assets\videos\shutterstock_v2051507.mp4" />
     <Content Include="assets\videos\shutterstock_v225991.mp4" />
-    <Content Include="assets\videos\shutterstock_v225991_HD.iphone5.mp4" />
-    <Content Include="assets\videos\shutterstock_v225991_HD.mp4" />
     <Content Include="assets\videos\shutterstock_v2302283.mp4" />
     <Content Include="assets\videos\shutterstock_v2580011.mp4" />
     <Content Include="assets\videos\shutterstock_v2629166.mp4" />
@@ -340,6 +512,7 @@
     <Content Include="assets\videos\shutterstock_v2864458.mp4" />
     <Content Include="assets\videos\shutterstock_v3036661.mp4" />
     <Content Include="assets\videos\shutterstock_v3112114.mp4" />
+    <Content Include="assets\videos\shutterstock_v3149698.mp4" />
     <Content Include="assets\videos\shutterstock_v3168328.mp4" />
     <Content Include="assets\videos\shutterstock_v3579536.mp4" />
     <Content Include="assets\videos\shutterstock_v3652088.mp4" />
@@ -351,6 +524,7 @@
     <Content Include="assets\videos\shutterstock_v4406759.mp4" />
     <Content Include="assets\videos\shutterstock_v4443185.mp4" />
     <Content Include="assets\videos\shutterstock_v4491596.mp4" />
+    <Content Include="assets\videos\shutterstock_v4584485.mp4" />
     <Content Include="assets\videos\shutterstock_v4627466.mp4" />
     <Content Include="assets\videos\shutterstock_v4636637.mp4" />
     <Content Include="assets\videos\shutterstock_v5236070.mp4" />
@@ -370,6 +544,7 @@
     <Content Include="assets\videos\shutterstock_v8529928.mp4" />
     <Content Include="assets\videos\shutterstock_v861337.mp4" />
     <Content Include="assets\videos\shutterstock_v885172.mp4" />
+    <Content Include="browserconfig.xml" />
     <Content Include="Content\bootstrap-timepicker.css" />
     <Content Include="Content\bootstrap-timepicker.min.css" />
     <Content Include="Content\customTel.css" />
@@ -409,13 +584,47 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
+    <Content Include="favicon-96x96.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ms-icon-144x144.png" />
+    <Content Include="ms-icon-150x150.png" />
+    <Content Include="ms-icon-310x310.png" />
+    <Content Include="ms-icon-70x70.png" />
     <Content Include="Scripts\bootstrap-timepicker.js" />
     <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="assets\fonts\HelveticaNeueLTStd-BdEx.otf" />
     <Content Include="assets\fonts\HelveticaNeueLTStd-Ex.otf" />
     <Content Include="assets\fonts\Roboto-Bold.ttf" />
     <Content Include="assets\fonts\Roboto-Light.ttf" />
+    <Content Include="assets\img\Cube preloader\128x128.zip" />
+    <Content Include="assets\img\Cube preloader\128x128\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\64x64\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\.DS_Store" />
+    <Content Include="assets\img\Cube preloader\.DS_Store" />
+    <Content Include="manifest.json" />
+    <EntityDeploy Include="Models\WeatherDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WeatherDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WeatherDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WeatherDb.edmx.diagram">
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WeatherDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - Web Deploy.pubxml" />
@@ -431,6 +640,7 @@
     <Content Include="Scripts\jquery.simpleWeather.min.js" />
     <Content Include="Scripts\timezones.min.js" />
     <None Include="recs.csv" />
+    <Content Include="Sitemap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -438,64 +648,67 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AuthInfo.cs" />
-    <Compile Include="Controllers\AuthWorker.cs" />
-    <Compile Include="Controllers\BackendServiceFacade.cs" />
+    <Compile Include="Controllers\AppChain\AppChainResults.cs" />
+    <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
+    <Compile Include="Controllers\OAuth\AuthInfo.cs" />
+    <Compile Include="Controllers\OAuth\AuthWorker.cs" />
+    <Compile Include="Controllers\AppChain\SqApiServiceFacade.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
-    <Compile Include="Controllers\EmailWorker.cs" />
+    <Compile Include="Controllers\UserNotification\EmailWorker.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExternalController.cs" />
     <Compile Include="Controllers\InviteChanges.cs" />
     <Compile Include="Controllers\CommonDataModelAttribute.cs" />
     <Compile Include="Controllers\Options.cs" />
-    <Compile Include="Controllers\PersonalizedRecommendationsWorker.cs" />
-    <Compile Include="Controllers\PersonalRecommendation.cs" />
+    <Compile Include="Controllers\AppChain\PersonalizedRecommendationsWorker.cs" />
+    <Compile Include="Controllers\AppChain\PersonalRecommendation.cs" />
     <Compile Include="Controllers\SendInfoWorker.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Controllers\TokenInfo.cs" />
-    <Compile Include="Controllers\UserAuthWorker.cs" />
+    <Compile Include="Controllers\OAuth\TokenInfo.cs" />
+    <Compile Include="Controllers\OAuth\UserAuthWorker.cs" />
     <Compile Include="Controllers\WeatherUnderground\CityMapResult.cs" />
     <Compile Include="Controllers\WeatherUnderground\CityMapResultRoot.cs" />
     <Compile Include="Controllers\WeatherUnderground\CurrentConditionsRoot.cs" />
     <Compile Include="Controllers\WeatherUnderground\Forecast10Root.cs" />
-    <Compile Include="Controllers\WeatherUnderground\ForecastRoot.cs" />
+    <Compile Include="Controllers\WeatherUnderground\LocationVerifier.cs" />
     <Compile Include="Controllers\WeatherUnderground\WeatherWorker.cs" />
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Models\RunResult.cs" />
-    <Compile Include="Controllers\RunResultBuilder.cs" />
+    <Compile Include="Controllers\AppChain\PersonalizedForecastResultBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SendInfo.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SharedContext.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SendInfo.cs">
+    <Compile Include="Models\TemperatureMode.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="TemperatureMode.cs">
+    <Compile Include="Models\UserInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserInfo.cs">
-      <DependentUpon>WeatherDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WeatherDb.Context.cs">
+    <Compile Include="Models\WeatherDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WeatherDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WeatherDb.cs">
+    <Compile Include="Models\WeatherDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="WeatherDb.Designer.cs">
+    <Compile Include="Models\WeatherDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WeatherDb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="WeekEndMode.cs">
+    <Compile Include="Models\WeekEndMode.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -524,23 +737,6 @@
     <Content Include="Views\Default\CheckApp.cshtml" />
     <Content Include="Views\Default\Results.cshtml" />
     <Content Include="Views\Default\Startup.cshtml" />
-    <EntityDeploy Include="WeatherDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WeatherDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="WeatherDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeatherDb.edmx</DependentUpon>
-      <LastGenOutput>WeatherDb.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="WeatherDb.edmx.diagram">
-      <DependentUpon>WeatherDb.edmx</DependentUpon>
-    </Content>
-    <Content Include="WeatherDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeatherDb.edmx</DependentUpon>
-      <LastGenOutput>WeatherDb.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\jquery-2.1.3.min.map" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Default\About.cshtml" />
@@ -571,7 +767,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>36057</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

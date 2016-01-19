@@ -3,8 +3,9 @@ using System.Threading;
 using log4net;
 using log4net.Config;
 using Sequencing.WeatherApp.Controllers;
+using Sequencing.WeatherApp.Controllers.UserNotification;
 
-namespace Service
+namespace Sequencing.WeatherApp.Service
 {
     public class EmailSendProcessor
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{12962E0E-66F7-481A-AFFD-CFF0B14D2BD0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Service</RootNamespace>
-    <AssemblyName>Service</AssemblyName>
+    <RootNamespace>Sequencing.WeatherApp.Service</RootNamespace>
+    <AssemblyName>Sequencing.WeatherApp.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

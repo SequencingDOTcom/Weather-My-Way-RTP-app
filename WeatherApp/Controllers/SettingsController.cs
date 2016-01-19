@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using Sequencing.WeatherApp.Controllers.OAuth;
+using Sequencing.WeatherApp.Controllers.UserNotification;
 using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers

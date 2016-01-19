@@ -1,6 +1,6 @@
 function vidRandom()
 {
-    var random = Math.floor((Math.random() * 4) + 1);
+    var random = Math.floor((Math.random() * 5) + 1);
 	
 	if(random == 1)
 	{
@@ -33,5 +33,12 @@ function vidRandom()
 
 		$("#bgVideo").attr("poster", "/assets/img/posters/163903_poster.jpg");
 		$("#content").css({ "background-image": "url(/assets/img/posters/163903_poster.jpg)" });
+	}
+	if (random == 5) {
+	    $("#currentVid").attr("src", "/assets/videos/shutterstock_v4584485.mp4");
+
+
+	    $("#bgVideo").attr("poster", "/assets/img/posters/4584485_poster.jpg");
+	    $("#content").css({ "background-image": "url(/assets/img/posters/4584485_poster.jpg)" });
 	}
 }

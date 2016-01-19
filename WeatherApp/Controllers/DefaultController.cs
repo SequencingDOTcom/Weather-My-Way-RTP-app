@@ -4,6 +4,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Sequencing.WeatherApp.Controllers.AppChain;
+using Sequencing.WeatherApp.Controllers.OAuth;
+using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers
@@ -69,7 +72,7 @@ namespace Sequencing.WeatherApp.Controllers
 
                     Response.Cookies.Add(faCookie);
 
-                    return RedirectToAction("Location");
+                    return RedirectToAction("Startup");
                     
                 }
                 return new ContentResult { Content = "Error while retrieving access token:" + _authInfo.ErrorMessage };
@@ -158,9 +161,9 @@ namespace Sequencing.WeatherApp.Controllers
         [Authorize]
         public bool CheckAppCompletion(string jobId, string jobId2)
         {
-            var _srv = new BackendServiceFacade(Options.ApiUrl);
-            var _appStatus = _srv.CheckAppStatus(Convert.ToInt64(jobId));
-            var _appStatus2 = _srv.CheckAppStatus(Convert.ToInt64(jobId2));
+            var _srv = new SqApiServiceFacade(Options.ApiUrl);
+            var _appStatus = _srv.CheckAppChainStatus(Convert.ToInt64(jobId));
+            var _appStatus2 = _srv.CheckAppChainStatus(Convert.ToInt64(jobId2));
             if (_appStatus == "Completed" && _appStatus2 == "Completed")
                 return true;
             return false;
@@ -186,9 +189,9 @@ namespace Sequencing.WeatherApp.Controllers
         [Authorize]
         public ActionResult StartJob(string selectedId)
         {
-            var _srv = new BackendServiceFacade(Options.ApiUrl);
-            var _appIdMelanoma = _srv.StartApp(EmailWorker.MELANOMA_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
-            var _appIdVitD = _srv.StartApp(EmailWorker.VITD_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
+            var _srv = new SqApiServiceFacade(Options.ApiUrl);
+            var _appIdMelanoma = _srv.StartAppChain(SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
+            var _appIdVitD = _srv.StartAppChain(SqApiServiceFacade.VITD_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
 
             return RedirectToAction("CheckApp", new {_appIdMelanoma.jobId, jobId2 = _appIdVitD.jobId });
         }
@@ -223,9 +226,8 @@ namespace Sequencing.WeatherApp.Controllers
 
             var _isAuthenticated = User.Identity.IsAuthenticated;
             var _userName = User.Identity.Name;
-            var _runResult = new RunResultBuilder(_userName, TemperatureMode.F).Build(jobId, jobId2, Context.City);
+            var _runResult = new PersonalizedForecastResultBuilder(_userName, TemperatureMode.F).Build(jobId, jobId2, Context.City);
             ViewBag.ShowEmail = _isAuthenticated;
-            ViewBag.EmailSend = new EmailWorker().GetEmailSend(_userName);
             ViewBag.LastJobId = jobId;
             ViewBag.City = Context.City;
             return View(_runResult);
@@ -273,10 +275,24 @@ namespace Sequencing.WeatherApp.Controllers
         /// <returns></returns>
         public ActionResult VerifyLocation(string city)
         {
+            var _res = new LocationVerifier(Context).IsLocationValid(city);
+            return Content(_res.ToString());
+        }
+
+
+        public ActionResult GetIcon(string icon, bool night = false)
+        {
             using (var _wb = new WebClient())
             {
-                var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?query=" + city);
-                return Content(_res);
+                var _url = "http://icons.wxug.com/i/c/k/{0}.gif";
+                if (night)
+                {
+                    icon = "nt_" + icon;
+                    _url = "http://icons.wxug.com/i/c/i/{0}.gif";
+                }
+                
+                var _res = _wb.DownloadData(string.Format(_url, icon));
+                return File(_res, "image/gif", icon+".gif");
             }
         }
     }

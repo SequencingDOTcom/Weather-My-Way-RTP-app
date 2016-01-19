@@ -1,6 +1,6 @@
 ﻿using System.ServiceProcess;
 
-namespace Service
+namespace Sequencing.WeatherApp.Service
 {
     partial class EmailSendService : ServiceBase
     {

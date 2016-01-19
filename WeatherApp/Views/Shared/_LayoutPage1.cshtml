@@ -23,6 +23,24 @@
         <!-- Feature detection -->
         <script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">        
+
         <!--include JQuery and updated scripts/styles. Author: Justin Piper-->
         <script src="~/Scripts/jquery-2.1.3.min.js"></script>
         <script src="/assets/js/home.js"></script>
@@ -69,18 +87,18 @@
                     if (srInt < dayNightInt && dayNightInt < ssInt)
                     {
                         var alert = Model.Forecast.alerts[0].type;
-                    <script>
-                        var alert="@alert";
-                        alertVid(alert, "day");
-                    </script>
+                        <script>
+                            var alert="@alert";
+                            alertVid(alert, "day");
+                        </script>
                     }
                     else
                     {
                         var alert = Model.Forecast.alerts[0].type;
-                    <script>
-                        var alert="@alert";
-                        alertVid(alert, "night");
-                    </script>
+                        <script>
+                            var alert="@alert";
+                            alertVid(alert, "night");
+                        </script>
                     }
                 }
                 else
@@ -90,23 +108,23 @@
 
                     if (srInt < dayNightInt && dayNightInt < ssInt)
                     {
-                    <script>
-                        var weatherType= "@weather";
-                        vidSelect(weatherType, "day");
-                    </script>
+                        <script>
+                            var weatherType= "@weather";
+                            vidSelect(weatherType, "day");
+                        </script>
                     }
                     else
                     {
-                    <script>
-                        var weatherType= "@weather";
-                        vidSelect(weatherType, "night");
-                    </script>
+                        <script>
+                            var weatherType= "@weather";
+                            vidSelect(weatherType, "night");
+                        </script>
                     }
                 }
             }
             else
             {
-               <script>vidRandom();</script>
+                <script>vidRandom();</script>
             }
         }
 
@@ -124,20 +142,20 @@
                         The Weather My Way +RTP app uses Real-Time Personalization<sup id="tm">TM</sup> technology to provide you
                         with personalized recommendations that optimize your health.
                     </p><p>
-                        This app is personalized by
-                        combining the weather forecast with an analysis of your genes. Since your genes are unique,
-                        the recommendations you receive are genetically tailored to you.
-                    </p>
+                            This app is personalized by
+                            combining the weather forecast with an analysis of your genes. Since your genes are unique,
+                            the recommendations you receive are genetically tailored to you.
+                        </p>
                 </div><div id="logoContainer">
-                    <div id="more"><h4>Learn more</h4></div>
+                          <div id="more"><h4>Learn more</h4></div>
 
 
 
-                    <div id="pgOneSlogo">Powered by<br /> <a href="https://sequencing.com" target="_blank"><img id="pmLogoOne" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
-                    <div id="pgOneGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHub" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"></a></div>
+                          <div id="pgOneSlogo">Powered by<br /> <a href="https://sequencing.com" target="_blank"><img id="pmLogoOne" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
+                          <div id="pgOneGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHub" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"></a></div>
 
 
-                </div>
+                      </div>
 
 
                 <div id="aboutPara2">
@@ -149,23 +167,35 @@
                         Only the genetic data relevant to this app is accessed and no data is stored in your browser
                         or on your mobile device.
                     </p><p>
-                        If you don't have genetic data, <b>don't worry!</b>
-                        You can still use this app by choosing one of the app's fun sample files. This app's personalization will then be powered by the genetic data in that sample file.
-                        Since all sample files are from individuals, the data and the personalization are real.
-                    </p><p>
-                        To use a sample file, first <a id="regLink" href="https://sequencing.com/user/register/" target="_blank">Register for a free account</a> at Sequencing.com. After registering, return to this app, click the 'Sign in with Sequencing.com' button and select a file from the list of sample files.
-                    </p>
+                            If you don't have genetic data, <b>don't worry!</b>
+                            You can still use this app by choosing one of the app's fun sample files. This app's personalization will then be powered by the genetic data in that sample file.
+                            Since all sample files are from individuals, the data and the personalization are real.
+                        </p><p>
+                                To use a sample file, first <a id="regLink" href="https://sequencing.com/user/register/" target="_blank">Register for a free account</a> at Sequencing.com. After registering, return to this app, click the 'Sign in with Sequencing.com' button and select a file from the list of sample files.
+                            </p>
                 </div><div id="logoTwoContainer">
-                    <div id="pgTwoSlogo">Powered by <br /><a href="https://sequencing.com" target="_blank"><img id="pmLogo" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
-                    <div id="pgTwoGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHubtwo" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"><br />Fork me<br /> on GitHub</a></div>
-                    <div id="pgTwoWlogo">Powered by <br /><img id="wuLogo" src="~/assets/img/wundergroundLogo_4c_horz.png" alt="Weather Underground"></div>
+                          <div id="pgTwoSlogo">Powered by <br /><a href="https://sequencing.com" target="_blank"><img id="pmLogo" src="~/assets/img/LogoWithTag.png" alt="Sequencing"></a></div>
+                          <div id="pgTwoGlogo"><a href="https://github.com/SequencingDOTcom/Weather-My-Way-RTP-App" target="_blank"><img id="gitHubtwo" src="~/assets/img/GitHub_symbol.png" alt="Git Hub"><br />Fork me<br /> on GitHub</a></div>
+                          <div id="pgTwoWlogo">Powered by <br /><img id="wuLogo" src="~/assets/img/wundergroundLogo_4c_horz.png" alt="Weather Underground"></div>
 
-                </div>
+                      </div>
             </div>
 
         </div>
         @RenderBody()
     </div>
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-70665561-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
 </body>
 
 

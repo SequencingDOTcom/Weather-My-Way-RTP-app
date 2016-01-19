@@ -1,4 +1,5 @@
-﻿@model Sequencing.WeatherApp.Models.RunResult
+﻿@using Sequencing.WeatherApp.Models
+@model Sequencing.WeatherApp.Models.RunResult
 
 @{
     ViewBag.Title = "Your daily 'Weather +RTP App' recommendations";
@@ -22,19 +23,19 @@
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
     @if (Model.Context.IsAuthenticated)
     {
-  
+
             <div id="share"><img id="shareButton" src="/assets/img/social-share-icon-64px.png" /></div>
 
             <div id="shareWindow">
                 <h3>Share your genetically tailored forecast</h3>
-                <div id="fbShare"><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fweather-app.sequencing.com" target="_blank"><img src="/assets/img/facebook-icon-Simek-sequencing-com.png" height="78" width="78" /></a></div>
+                <div id="fbShare"><a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fweather-app.sequencing.com" target="_blank"><img src="/assets/img/facebook-icon-Simek-sequencing-com.png" height="78" width="78" /></a></div>
                 <div id="gPlusOne"><a href="https://plus.google.com/share?url=url=https%3A%2F%2Fweather-app.sequencing.com" target="_blank"><img src="/assets/img/google-plus-icon-Simek-sequencing-com.png" height="78" width="78" /></a></div>
 
-                 <div id="linkedIn"><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweather-app.sequencing.com&title=The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20&"><img src="/assets/img/linkedin-icon-sequencing-com.png" height="78" width="78" /></a></div>
+                 <div id="linkedIn"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fweather-app.sequencing.com&title=The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20&"><img src="/assets/img/linkedin-icon-sequencing-com.png" height="78" width="78" /></a></div>
                 <div id="pinterest"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true" data-pin-description="The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20&"><img src="/assets/img/pinterest-icon-Simek-sequencing-com.png" height="78" width="78" /></a></div>
                 
                 <div id="twitter"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fweather-app.sequencing.com&text=The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20" target="_blank"><img src="/assets/img/twitter-icon-Simek-sequencing-com.png" height="78" width="78" /></a></div>
-                <div id="reddit"><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fweather-app.sequencing.com&title=The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20" target="_blank"><img src="/assets/img/reddit-icon-sequencing-com.png" height="78" width="78" /></a></div>
+                <div id="reddit"><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fweather-app.sequencing.com&title=The%20Weather%20My%20Way%20app%20just%20analyzed%20my%20genes.%20Based%20on%20today%27s%20weather%2C%20My%20recommendation%20is%20" target="_blank"><img src="/assets/img/reddit-icon-sequencing-com.png" height="78" width="78" /></a></div>
             </div>
     }
 
@@ -75,7 +76,18 @@
                                 </div>
     }
     <div id="iconNow">
-        <img id="forecastIcon" src=@Model.Forecast.forecast.simpleforecast.forecastday[0].icon_url /><br /><br /><br /><br />
+        @{ 
+            var timeDay ="day/";
+
+            var night = Model.CurrentWeather.icon_url.Contains("nt_");
+            if (night)
+            {
+                timeDay = "night/";
+            }
+          
+            var source = "../assets/img/WeatherIcons/" + timeDay + Model.Forecast.forecast.simpleforecast.forecastday[0].icon + ".png";
+
+        <img id="forecastIcon" src=@source />}<br /><br /><br /><br />
         <p id="forecastIconText">@Model.Forecast.forecast.simpleforecast.forecastday[0].conditions</p>
     </div>
 </div>
@@ -110,8 +122,8 @@
 </div>
 
 <div id="tip">
-    <h5 id="tipTitle">Your genetically tailored forecast</h5><br />
-    <strong>@Model.Risk</strong>
+    <h5 id="tipTitle">Your genetically tailored forecast</h5>
+    <p id="tipDetail">@Model.Risk</p>
 </div>
 
 <div id="forecastDetails">
@@ -120,19 +132,19 @@
     @if (Model.Forecast.alerts.Capacity != 0)
     {
         <h5 id="fcDetailTitle" style="color:red">WEATHER ALERT</h5>
-                                <br/><p style="color:red">@Model.Forecast.alerts[0].message</p>
+                                <p style="color:red">@Model.Forecast.alerts[0].message</p>
     }
     else
     {
         if (Model.Temperature == TemperatureMode.F)
         {
             <h5 id="fcDetailTitle">Today's extended forecast</h5>
-                                   <br/> @Model.Forecast.forecast.txt_forecast.forecastday[0].fcttext
+                                    @Model.Forecast.forecast.txt_forecast.forecastday[0].fcttext
         }
         else
         {
             <h5 id="fcDetailTitle">Today's extended forecast</h5>
-                                  <br/>  @Model.Forecast.forecast.txt_forecast.forecastday[0].fcttext_metric
+                                    @Model.Forecast.forecast.txt_forecast.forecastday[0].fcttext_metric
         }
     }
 </div>
@@ -147,8 +159,8 @@
             @for (int _idx = 1; _idx < 5; _idx++)
             {
                 <td id="day@_idx">
-                    <b>@Model.Forecast.forecast.simpleforecast.forecastday[_idx].date.weekday</b> <br />
-                    <img src=@Model.Forecast.forecast.simpleforecast.forecastday[_idx].icon_url /><br />
+                    <b>@Model.Forecast.forecast.simpleforecast.forecastday[_idx].date.weekday</b><br />
+                    <img class="fcIcon" src=@("../assets/img/WeatherIcons/day/"+Model.Forecast.forecast.simpleforecast.forecastday[_idx].icon+".png") /><br />
                     <p><b> @(Model.Temperature == TemperatureMode.F ? Model.Forecast.forecast.simpleforecast.forecastday[_idx].high.fahrenheit
                                    : Model.Forecast.forecast.simpleforecast.forecastday[_idx].high.celsius)</b><br />
                         @(Model.Temperature == TemperatureMode.F ? Model.Forecast.forecast.simpleforecast.forecastday[_idx].low.fahrenheit

@@ -24,8 +24,8 @@
     {
         <div id="reportSettings">
             <div id="selectedLocation" class="form-group">
-                <label style="color:rgb(51, 51, 51);">Location</label><br />
-                @ViewBag.SelectedLocation <a href="@Url.Action("Location", "Default", new { r = Request.Url.ToString() })"><img id="refresh" src="/assets/img/refresh-icon-32px.png" alt="refresh" /></a>
+                <label style="color:rgb(51, 51, 51);">Location</label>
+                <h6 id="locTxt">@ViewBag.SelectedLocation <a href="@Url.Action("Location", "Default", new { r = Request.Url.ToString() })"><img id="refresh" src="/assets/img/refresh-icon-32px.png" alt="refresh" /></a></h6>
 
             </div>
             <div id="tempMode">
@@ -51,7 +51,7 @@
 
             <div id="prefsTitle">
                 <h5 style="font-weight:bold">Notifications</h5>
-                <p>A healthy day starts with your forecast. <br/> Recieve your genetically tailored forecast every morning by email and text message (SMS). </p>
+                <p>A healthy day starts with your forecast. <br/> Recieve your genetically tailored forecast every morning by email and text (SMS). </p>
             </div>
             <div id="emailPrefs">
                 @Html.CheckBox("emailChk", (bool)ViewBag.EmailSend, new { @class = "check" })

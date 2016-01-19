@@ -130,12 +130,12 @@ function vidSelect(weatherType, dayNight)
 		}
 		if(weatherType == "Heavy Ice Crystals" || weatherType == "Heavy Ice Pellets" || weatherType == "Heavy Hail" || weatherType == "Heavy Ice Pellet Showers" || weatherType == "Heavy Hail Showers" || weatherType == "Heavy Small Hail Showers" || weatherType == "Heavy Thunderstorms and Ice Pellets" || weatherType == "Heavy Thunderstorms with Hail" || weatherType == "Heavy Thunderstorms with Small Hail" || weatherType == "Hail" || weatherType == "IcePelletShowers" || weatherType == "HailShowers" || weatherType == "SmallHailShowers" || weatherType == "ThunderstormsandIcePellets" || weatherType == "ThunderstormswithHail" || weatherType == "ThunderstormswithSmallHail" || weatherType == "Light Hail Showers" || weatherType == "Light Small Hail Showers")
 		{
-			$("#currentVid").attr("src", "/assets/videos/shutterstock_v2623166.mp4");
+			$("#currentVid").attr("src", "/assets/videos/shutterstock_v2629166.mp4");
 			
 
-			$("#bgVideo").attr("poster", "/assets/img/posters/2623166_poster.jpg");
-			$("#content").css({ "background-image": "url(/assets/img/posters/2623166_poster.jpg)" });
-			$("#dashboard").css({ "background-image": "url(/assets/img/posters/2623166_poster.jpg)" });
+			$("#bgVideo").attr("poster", "/assets/img/posters/2629166_poster.jpg");
+			$("#content").css({ "background-image": "url(/assets/img/posters/2629166_poster.jpg)" });
+			$("#dashboard").css({ "background-image": "url(/assets/img/posters/2629166_poster.jpg)" });
 		}
 		if(weatherType == "Heavy Smoke" || weatherType == "Heavy Freezing Fog" || weatherType == "Smoke" || weatherType == "FreezingFog" || weatherType == "Light Smoke")
 		{
@@ -373,15 +373,6 @@ function vidSelect(weatherType, dayNight)
 					$("#content").css({ "background-image": "url(/assets/img/posters/2580011_poster.jpg)" });
 					$("#dashboard").css({ "background-image": "url(/assets/img/posters/2580011_poster.jpg)" });
 				}
-		if(weatherType == "Rain" || weatherType == "RainShowers" || weatherType == "Light Rain")
-				{
-					$("#currentVid").attr("src", "/assets/videos/shutterstock_v10658729.mp4");
-					
-
-					$("#bgVideo").attr("poster", "/assets/img/posters/10658729_poster.jpg");
-					$("#content").css({ "background-image": "url(/assets/img/posters/10658729_poster.jpg)" });
-					$("#dashboard").css({ "background-image": "url(/assets/img/posters/10658729_poster.jpg)" });
-				}
 		if(weatherType == "Heavy Widespread Dust" || weatherType == "Heavy Blowing Widespread Dust" || weatherType == "WidespreadDust")
 				{
 					$("#currentVid").attr("src", "/assets/videos/shutterstock_v1126162.mp4");
@@ -492,7 +483,7 @@ function vidSelect(weatherType, dayNight)
 					$("#content").css({ "background-image": "url(/assets/img/posters/3168328_poster.jpg)" });
 					$("#dashboard").css({ "background-image": "url(/assets/img/posters/3168328_poster.jpg)" });
 				}
-		if(weatherType == "Chance of Showers" || weatherType == "Heavy Rain" || weatherType == "Heavy Rain Mist" || weatherType == "Heavy Rain Showers" || weatherType == "Rain")
+		if(weatherType == "Chance of Showers" || weatherType == "Heavy Rain" || weatherType == "Heavy Rain Mist" || weatherType == "Heavy Rain Showers" || weatherType == "RainShowers")
 				{
 					$("#currentVid").attr("src", "/assets/videos/shutterstock_v3579536.mp4");
 					
@@ -512,12 +503,12 @@ function vidSelect(weatherType, dayNight)
 				}
 		if(weatherType == "Heavy Drizzle")
 				{
-					$("#currentVid").attr("src", "/assets/videos/shutterstock_v3744299.mp4");
+					$("#currentVid").attr("src", "/assets/videos/shutterstock_v5649644.mp4");
 					
 
-					$("#bgVideo").attr("poster", "/assets/img/posters/3744299_poster.jpg");
-					$("#content").css({ "background-image": "url(/assets/img/posters/3744299_poster.jpg)" });
-					$("#dashboard").css({ "background-image": "url(/assets/img/posters/3744299_poster.jpg)" });
+					$("#bgVideo").attr("poster", "/assets/img/posters/5649644_poster.jpg");
+					$("#content").css({ "background-image": "url(/assets/img/posters/5649644_poster.jpg)" });
+					$("#dashboard").css({ "background-image": "url(/assets/img/posters/5649644_poster.jpg)" });
 				}
 		if(weatherType == "Heavy Dust Whirls" || weatherType == "Heavy Low Drifting Widespread Dust" || weatherType == "DustWhirls" || weatherType == "LowDriftingWidespreadDust" || weatherType == "BlowingWidespreadDust" || weatherType == "Light Widespread Dust" || weatherType == "Light Dust Whirls" || weatherType == "Light Low Drifting Widespread Dust" || weatherType == "Light Blowing Widespread Dust" || weatherType == "Light Low Drifting Snow")
 				{
@@ -546,7 +537,7 @@ function vidSelect(weatherType, dayNight)
 					$("#content").css({ "background-image": "url(/assets/img/posters/5468858_poster.jpg)" });
 					$("#dashboard").css({ "background-image": "url(/assets/img/posters/5468858_poster.jpg)" });
 				}
-		if (weatherType == "Showers" || weatherType == "Chance of Rain" || weatherType == "Rain" || weatherType == "Light Drizzle" || weatherType == "Light Rain Showers" || weatherType == "Unknown Precipitation" || weatherType == "Drizzle")
+		if (weatherType == "Showers" || weatherType == "Chance of Rain" || weatherType == "Rain" || weatherType == "Light Drizzle" || weatherType == "Light Rain Showers" || weatherType == "Unknown Precipitation" || weatherType == "Drizzle" || weatherType == "Light Rain" || weatherType == "")
 				{
 					$("#currentVid").attr("src", "/assets/videos/shutterstock_v5649644.mp4");
 					

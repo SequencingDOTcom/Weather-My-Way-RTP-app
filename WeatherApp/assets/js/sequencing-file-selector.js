@@ -68,7 +68,17 @@ SequencingFileSelector = function(formElement, options) {
   this.table.parents('.table-responsive').wrap($('<div></div>').addClass('sequencing-file-selector-table-container').addClass('hidden'));
   this.table.parents('.sequencing-file-selector-table-container')
     .prepend($('<p></p>').addClass('sequencing-file-selector-help-text').html('Select a file from the list below<br /><span class="sequencing-file-selector-help-text-brackets">(The genetic data from the file you select will be used to personalize this app.)</span>'));
-}
+
+  if ($(this.formElement).parents('form').size() > 0) {
+    $(this.formElement).parents('form').submit(function() {
+      if (!$(obj.formElement).val()) {
+        obj.validationClean();
+        obj.switch.after($('<p></p>').addClass('error').html('No file selected. Select a file before continuing.'));
+        return false;
+      }
+    });
+  }
+};
 
 /**
  * Method to populate the table with rows, i.e. with files.
@@ -152,6 +162,7 @@ SequencingFileSelector.prototype.val = function(selectedFile) {
         }
       }
     }
+    this.validationClean();
   }
   else {
     returnValue = this.formElement.val('');
@@ -160,6 +171,13 @@ SequencingFileSelector.prototype.val = function(selectedFile) {
     }
   }
   return returnValue;
+};
+
+/**
+ * Remove any validation messages, if such exist.
+ */
+SequencingFileSelector.prototype.validationClean = function() {
+  this.switch.siblings('.error').remove();
 };
 
 /**

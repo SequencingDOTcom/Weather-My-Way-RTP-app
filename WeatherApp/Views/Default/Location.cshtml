@@ -13,7 +13,7 @@
     <h3 id="titleOne">
         Weather My Way +RTP
     </h3>
-    <h4 id="subTitle">Location<sup id="tm">TM</sup></h4>
+    <h4 id="subTitle">Location</h4>
 </div>
 @using (Html.BeginForm("SaveLocation", "Default", new {r = Request.QueryString["r"]},
     FormMethod.Post, new {@class = "form-horizontal", @role = "form"}))
@@ -61,8 +61,7 @@
                     city: city
                 },
                 success: function (data, textStatus, jqXHR) {
-                    var json = JSON.parse(data);
-                    if (json.RESULTS && json.RESULTS.length && json.RESULTS.length > 0) {
+                    if (data == "True") {
                         form.get(0).submit();
                     }
                     else {

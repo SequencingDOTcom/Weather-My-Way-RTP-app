@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -82,7 +83,7 @@ namespace Sequencing.WeatherApp.Controllers
                 return _sign*(decimal.Parse(_strings[0]) + decimal.Parse(_strings[1])/60);
             }
             else
-                return _sign * (decimal.Parse(offset));
+                return decimal.Parse(offset);
         }
 
         public InviteChanges SetNotification(bool emailChk, bool smsChk, string email, string phone, string wakeupDay, string wakeupEnd, string tz, string tzOffset, WeekEndMode weekendMode, TemperatureMode temperature)

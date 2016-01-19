@@ -1,19 +1,22 @@
 //These functions control the about windows appearance, expansion and disappearance animation based on click events.
 $(function () {
-    $("#aboutButton").click(function ()
+    $("#aboutButton").click(function (evt)
     {
+        
         $("#tabContainer").fadeIn();
         $("#aboutButton").fadeOut();
         $("#aboutWindow").fadeIn();
+        evt.stopPropagation();
     });
 });
 
 $(function () {
-    $("#aboutButtonTwo").click(function () {
+    $("#aboutButtonTwo").click(function (evt) {
         $("#tabContainer").fadeIn();
         $("#aboutButton").fadeOut();
         $("#aboutWindow").fadeIn();
         $("#settingsWindow").slideToggle();
+        evt.stopPropagation();
     });
 });
 
@@ -24,6 +27,18 @@ $(function () {
         $("#aboutButton").fadeIn();
         $("#settingsWindow").slideUp();
         $("#fileInstruction").slideUp();
+        $("#shareWindow").slideUp();
+    });
+});
+
+$(function () {
+    $("#content").click(function () {
+        $("#tabContainer").fadeOut();
+        $("#aboutWindow").fadeOut();
+        $("#aboutButton").fadeIn();
+        $("#settingsWindow").slideUp();
+        $("#fileInstruction").slideUp();
+        $("#shareWindow").slideUp();
     });
 });
 
@@ -33,6 +48,7 @@ $(function () {
         $("#aboutWindow").fadeOut();
         $("#aboutButton").fadeIn();
         $("#settingsWindow").slideUp();
+        $("#shareWindow").slideUp();
         
     });
 });
@@ -165,7 +181,7 @@ $(function () {
 // these control the page turn in the about window
 $(function()//turns to the more information page
 {
-	$("#more").click(function()
+	$("#more").click(function(evt)
 	{
 		$("#aboutPara").fadeOut();
 		$("#more").fadeOut();
@@ -180,13 +196,13 @@ $(function()//turns to the more information page
 		$("#aboutPara2").fadeIn();
 		$("#logoTwoContainer").fadeIn();
 		
-		
+		evt.stopPropagation();
 	});
 });
 
 $(function()//turns back to the main about page
 {
-	$("#back").click(function()
+	$("#back").click(function(evt)
 	{
 		$("#aboutPara2").fadeOut();
 		$("#logoTwoContainer").fadeOut();
@@ -202,32 +218,34 @@ $(function()//turns back to the main about page
 		$("#logoContainer").fadeIn();
 		$("#more").fadeIn();
 		
-		
+		evt.stopPropagation();
 	});
 });
 
 //the share window controller
 $(function ()
 {
-    $("#share").click(function () {
+    $("#share").click(function (evt) {
         $("#shareWindow").slideToggle();
+        evt.stopPropagation();
     });
 });
 
 //the settings drop down
 $(function () {
-    $("#settingsButton").click(function () {
+    $("#settingsButton").click(function (evt) {
         $("#settingsWindow").slideToggle();
+        evt.stopPropagation();
     });
 });
 
 //file selctor instructions
 $(function () {
-    $("#question").click(function () {
+    $("#question").click(function (evt) {
         $("#fileInstruction").slideToggle();
+        evt.stopPropagation();
     });
 });
-
 
 
 //location detection
@@ -273,31 +291,6 @@ function codeLatLng(lat, lng) {
     });
 };
 
-//dynamic text sizing
-$(document).ready(function () {
-    var $body = $('body'); //Cache this for performance
-
-    var setBodyScale = function () {
-        var scaleSource = $body.width(),
-            scaleFactor = 0.35,
-            maxScale = 150,
-            minScale = 30; //Tweak these values to taste
-
-        var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
-
-        if (fontSize > maxScale) fontSize = maxScale;
-        if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
-
-        $('body').css('font-size', fontSize + '%');
-    }
-
-    $(window).resize(function () {
-        setBodyScale();
-    });
-
-    //Fire it when the page first loads:
-    setBodyScale();
-});
 
 
 //mobile device detection

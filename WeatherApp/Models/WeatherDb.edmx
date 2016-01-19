@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WeatherAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SendInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+          <Property Name="SendEmail" Type="bit" />
+          <Property Name="SendSms" Type="bit" />
+          <Property Name="SendRoost" Type="bit" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastSendDt" Type="datetime" />
+          <Property Name="City" Type="nvarchar" MaxLength="250" />
+          <Property Name="DataFileName" Type="nvarchar" MaxLength="150" />
+          <Property Name="DataFileId" Type="nvarchar" MaxLength="150" />
+          <Property Name="TimeWeekDay" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeWeekEnd" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeZoneValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeZoneOffset" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="WeekendMode" Type="int" />
+          <Property Name="Temperature" Type="int" />
+          <Property Name="SmsId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SmsUseFrom2" Type="bit" />
+          <Property Name="LastWeatherUpdate" Type="nvarchar(max)" />
+          <Property Name="WeatherUpdateDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthToken" Type="nvarchar" MaxLength="250" />
+          <Property Name="RefreshToken" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthDt" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="WeatherAppDbModelStoreContainer">
+          <EntitySet Name="SendInfo" EntityType="Self.SendInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WeatherAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RefreshToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="SendInfoes" EntityType="WeatherAppDbModel.SendInfo" />
+        </EntityContainer>
+        <EntityType Name="SendInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SendEmail" Type="Boolean" />
+          <Property Name="SendSms" Type="Boolean" />
+          <Property Name="UserEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastSendDt" Type="DateTime" Precision="3" />
+          <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DataFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DataFileId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TimeWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeWeekEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneOffset" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="WeekendMode" Type="WeatherAppDbModel.WeekEndMode" />
+          <Property Name="Temperature" Type="WeatherAppDbModel.TemperatureMode" />
+          <Property Name="SmsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SmsUseFrom2" Type="Boolean" />
+          <Property Name="SendRoost" Type="Boolean" />
+          <Property Name="LastWeatherUpdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WeatherUpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EnumType Name="WeekEndMode">
+          <Member Name="SendSms" Value="0" />
+          <Member Name="SendEmail" Value="1" />
+          <Member Name="SendBoth" Value="2" />
+          <Member Name="None" Value="3" />
+        </EnumType>
+        <EnumType Name="TemperatureMode">
+          <Member Name="F" Value="0" />
+          <Member Name="C" Value="1" />
+        </EnumType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WeatherAppDbModelStoreContainer" CdmEntityContainer="WeatherAppDbEntities">
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="WeatherAppDbModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="AuthDt" ColumnName="AuthDt" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+                <ScalarProperty Name="RefreshToken" ColumnName="RefreshToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SendInfoes">
+            <EntityTypeMapping TypeName="WeatherAppDbModel.SendInfo">
+              <MappingFragment StoreEntitySet="SendInfo">
+                <ScalarProperty Name="WeatherUpdateDt" ColumnName="WeatherUpdateDt" />
+                <ScalarProperty Name="LastWeatherUpdate" ColumnName="LastWeatherUpdate" />
+                <ScalarProperty Name="SendRoost" ColumnName="SendRoost" />
+                <ScalarProperty Name="SmsUseFrom2" ColumnName="SmsUseFrom2" />
+                <ScalarProperty Name="SmsId" ColumnName="SmsId" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="WeekendMode" ColumnName="WeekendMode" />
+                <ScalarProperty Name="TimeZoneOffset" ColumnName="TimeZoneOffset" />
+                <ScalarProperty Name="TimeZoneValue" ColumnName="TimeZoneValue" />
+                <ScalarProperty Name="TimeWeekEnd" ColumnName="TimeWeekEnd" />
+                <ScalarProperty Name="TimeWeekDay" ColumnName="TimeWeekDay" />
+                <ScalarProperty Name="DataFileId" ColumnName="DataFileId" />
+                <ScalarProperty Name="DataFileName" ColumnName="DataFileName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="LastSendDt" ColumnName="LastSendDt" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="SendSms" ColumnName="SendSms" />
+                <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

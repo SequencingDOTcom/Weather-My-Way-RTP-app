@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 
@@ -38,8 +39,7 @@ namespace Sequencing.WeatherApp.Controllers
                 _sharedContext.City = _sendInfo.City;
                 _sharedContext.DataFileId = _sendInfo.DataFileId;
                 _sharedContext.AuthToken = new UserAuthWorker().GetCurrent().AuthToken;
-                _sharedContext.Forecast = new WeatherWorker(_sendInfo.Temperature ?? TemperatureMode.F,
-                    _user.Identity.Name).GetForecast10(_sendInfo.City);
+                _sharedContext.Forecast = new WeatherWorker(_user.Identity.Name).GetForecast10(_sendInfo.City);
             }
             else
                 _sharedContext.IsAuthenticated = false;

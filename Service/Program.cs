@@ -1,7 +1,6 @@
-﻿using System;
-using System.ServiceProcess;
+﻿using System.ServiceProcess;
 
-namespace Service
+namespace Sequencing.WeatherApp.Service
 {
     static class Program
     {
