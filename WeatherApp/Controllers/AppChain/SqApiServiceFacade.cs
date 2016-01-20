@@ -205,9 +205,24 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// </summary>
         public class AppStatus
         {
+            /// <summary>
+            /// AppChain job ID
+            /// </summary>
             public long IdJob { get; set; }
+
+            /// <summary>
+            /// Current job status, possible values are:  Pending,Running,Completed
+            /// </summary>
             public string Status { get; set; }
+            
+            /// <summary>
+            /// Identifies whether job has completed succesfully, has only meaning in case of Completed job
+            /// </summary>
             public bool? CompletedSuccesfully { get; set; }
+            
+            /// <summary>
+            /// App chain job finish time
+            /// </summary>
             public DateTime? FinishDt { get; set; }
         }
 
@@ -216,12 +231,33 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// </summary>
         public class ItemDataValue
         {
+            /// <summary>
+            /// Represents current item name
+            /// </summary>
             public string Name { get; set; }
+            /// <summary>
+            /// Additional title value-optional
+            /// </summary>
             public string Title { get; set; }
+            /// <summary>
+            /// Additional sub-title value, optional
+            /// </summary>
             public string SubTitle { get; set; }
+            /// <summary>
+            /// Description string, optional
+            /// </summary>
             public string Description { get; set; }
+            /// <summary>
+            /// Item type value, can be of the following:   PlainText,HtmlText,ImageUrl,VideoUrl,HTML5,Pdf,ViewTable,Chart,DataFile,SVG 
+            /// </summary>
             public string Type { get; set; }
+            /// <summary>
+            /// Additional sub-type value, optional, might be specified for certain types only, like ViewTable for example
+            /// </summary>
             public string SubType { get; set; }
+            /// <summary>
+            /// Item value setting
+            /// </summary>
             public string Value { get; set; }
         }
 

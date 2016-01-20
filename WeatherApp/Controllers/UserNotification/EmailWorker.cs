@@ -127,7 +127,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         }
 
         /// <summary>
-        /// Checks all users and sends emails
+        /// Checks all users and sends emails/sms/on-site-alerts when appropriate
         /// </summary>
         public void CheckAllAndSendEmails()
         {

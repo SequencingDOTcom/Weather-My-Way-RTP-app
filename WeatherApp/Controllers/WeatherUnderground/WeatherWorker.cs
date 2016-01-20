@@ -6,6 +6,9 @@ using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
+    /// <summary>
+    /// WeatherWorker performs queries against WeatherUnderground service
+    /// </summary>
     public class WeatherWorker
     {
         private readonly string userName;

@@ -2,6 +2,9 @@
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
+    /// <summary>
+    /// WU data wrapper
+    /// </summary>
     public class Forecast10Root
     {
         public Response response { get; set; }

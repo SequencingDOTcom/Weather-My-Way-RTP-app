@@ -1,5 +1,8 @@
 ﻿namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
+    /// <summary>
+    /// WU data wrapper
+    /// </summary>
     public class CityMapResult
     {
         public string name { get; set; }

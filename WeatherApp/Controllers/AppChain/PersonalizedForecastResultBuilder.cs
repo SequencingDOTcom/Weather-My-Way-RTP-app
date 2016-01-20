@@ -18,6 +18,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             this.mode = mode;
         }
 
+        /// <summary>
+        /// Builds forecast page model for given app-chain job IDs and location
+        /// </summary>
+        /// <param name="jobId"></param>
+        /// <param name="jobId2"></param>
+        /// <param name="city"></param>
+        /// <returns></returns>
         public RunResult Build(string jobId, string jobId2, string city)
         {
             mode = new SendInfoWorker(userName).GetInfo().Temperature ?? TemperatureMode.F;
@@ -48,6 +55,12 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             return _runResult;
         }
 
+        /// <summary>
+        /// Retrieves app-chain results for given app-chain jobs IDs
+        /// </summary>
+        /// <param name="acJobIdMelanoma"></param>
+        /// <param name="acJobIdVitD"></param>
+        /// <returns></returns>
         public AppChainResults GetAppChainResultingRisks(string acJobIdMelanoma, string acJobIdVitD)
         {
             if (!string.IsNullOrEmpty(acJobIdMelanoma))
@@ -70,6 +83,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             return null;
         }
 
+        /// <summary>
+        /// Returns personalized recommendation for given weather/alert/appChain results
+        /// </summary>
+        /// <param name="weatherCondition"></param>
+        /// <param name="weatherAlertCode"></param>
+        /// <param name="acr"></param>
+        /// <returns></returns>
         public string GetPersonalizedRiskDescription(string weatherCondition, string weatherAlertCode, AppChainResults acr)
         {
             var _s = new PersonalizedRecommendationsWorker().GetRecommendation(weatherCondition, weatherAlertCode, acr);

@@ -5,6 +5,9 @@ using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
+    /// <summary>
+    /// LocationVerifier performs check whether user provided location string will be compatible with WeatherUnderground service
+    /// </summary>
     public class LocationVerifier
     {
         private readonly SharedContext ctx;

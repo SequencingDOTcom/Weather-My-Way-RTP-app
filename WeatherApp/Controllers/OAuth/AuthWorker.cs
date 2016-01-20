@@ -71,6 +71,9 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
             }
         }
 
+        /// <summary>
+        /// Wrapper data class for drupal user response
+        /// </summary>
         public class DrupalOAuthInfo
         {
             public string uid { get; set; }

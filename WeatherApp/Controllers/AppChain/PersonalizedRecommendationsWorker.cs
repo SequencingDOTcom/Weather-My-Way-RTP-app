@@ -12,6 +12,9 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
     {
         private readonly List<PersonalRecommendation> items = new List<PersonalRecommendation>();
 
+        /// <summary>
+        /// Loads PR data from csv file. Sample file is included into solution and named as recs.csv
+        /// </summary>
         public PersonalizedRecommendationsWorker()
         {
             string[] _firstLine = null;
@@ -45,6 +48,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             }
         }
             
+        /// <summary>
+        /// Returns PR for given weather/alert/app-chains. First scans for alerts, then for regular weather conditions.
+        /// </summary>
+        /// <param name="weatherCondition"></param>
+        /// <param name="alert"></param>
+        /// <param name="acr"></param>
+        /// <returns></returns>
         public string GetRecommendation(string weatherCondition, string alert, AppChainResults acr)
         {
             var _melanomaRisk = acr.MelanomaAppChainResult.ToString();
@@ -55,6 +65,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             return GetRecommendationImpl(weatherCondition, _melanomaRisk, _vitDRisk);
         }
 
+        /// <summary>
+        /// Exact implementation for searching for PR on given weather/melanoma risk/vitd status.
+        /// </summary>
+        /// <param name="weatherCondition"></param>
+        /// <param name="risk"></param>
+        /// <param name="vitD"></param>
+        /// <returns></returns>
         private string GetRecommendationImpl(string weatherCondition, string risk, string vitD)
         {
             foreach (var _item in items)

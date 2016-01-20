@@ -9,7 +9,7 @@ using Sequencing.WeatherApp.Models;
 namespace Sequencing.WeatherApp.Controllers
 {
     /// <summary>
-    /// Main controller for working out the main workflow sequence
+    /// Provides access for storing/retrieving settings for native (not-web) clients (iphone/android)
     /// </summary>
     public class ExternalController : Controller
     {

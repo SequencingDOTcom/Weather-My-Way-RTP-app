@@ -1,5 +1,8 @@
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
+    /// <summary>
+    /// WU data wrapper
+    /// </summary>
     public class CurrentObservationRoot
     {
         public Response response { get; set; }
