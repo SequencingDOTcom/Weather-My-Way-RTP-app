@@ -16,6 +16,7 @@ Contents
 * Installation
 * Configuration
 * Troubleshooting
+* App chains
 * Maintainers
 * Contribute
 
@@ -90,6 +91,27 @@ Other tips
 * Confirm you are connected to the internet since the API calls will be made to our server and the weather data servers as well.
 * Confirm you have the latest version of the code from this repository.
 * Search through available App Chains here: https://sequencing.com/app-chains/
+
+App chains
+======================================
+Search and find app chains https://sequencing.com/app-chains
+
+Each app chain is composed of 
+* an **API request** to Sequencing.com
+ * this request is secured using oAuth2
+* analysis of the app user's genes
+ * each app chain analyzes a specific trait or condition
+ * there are thousands of app chains to choose from
+ * all analysis occurs in real-time at Sequencing.com
+* an **API response** to your app
+ * the information provided by the response allows your app to tailor itself to the app user based on the user's genes.
+ * the documentation for each app chain provides a list of all possible API responses. The response for most app chains are simply 'Yes' or 'No'.
+
+Example
+* App Chain: It is very important for this person's health to apply sunscreen with SPF +30 whenever it is sunny or even partly sunny.
+* Possible responses: Yes, No, Insufficient Data, Error
+
+While there are already app chains to personalize most apps, if you need something but don't see an app chain for it, tell us! (ie email us: gittaca@sequencing.com).
 
 Maintainers
 ======================================
