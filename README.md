@@ -94,7 +94,7 @@ Other tips
 
 App chains
 ======================================
-Search and find app chains https://sequencing.com/app-chains/
+Search and find app chains -> https://sequencing.com/app-chains/
 
 Each app chain is composed of 
 * an **API request** to Sequencing.com
