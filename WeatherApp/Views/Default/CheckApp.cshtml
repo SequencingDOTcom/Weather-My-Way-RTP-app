@@ -7,24 +7,27 @@
 
 <div>
     <script>
-    function checkApp() {
+        var delay = 0;
+        function checkApp() {
 
-        $.ajax({
-            url: '@Html.Raw(Url.Action("CheckAppCompletion", "Default", new { jobId = Model.JobId, jobId2=Model.JobId2 }))',
-            contentType: 'application/json',
-            method: "GET",
-            success: function (data) {
-                if (data == "True")
-                    window.location.replace('@Html.Raw(Url.Action("ResultsOriginal", new { jobId = Model.JobId, jobId2 = Model.JobId2 }))');
-            }
-        });
-        setTimeout(checkApp, 2000);
+            $.ajax({
+                url: '@Html.Raw(Url.Action("CheckAppCompletion", "Default", new { jobId = Model.JobId, jobId2=Model.JobId2 }))',
+                contentType: 'application/json',
+                method: "GET",
+                success: function (data) {
+                    if (data == "True")
+                        window.location.replace('@Html.Raw(Url.Action("ResultsOriginal", new { jobId = Model.JobId, jobId2 = Model.JobId2 }))');
+                }
+            });
+            if (delay < 30000)
+                delay += 5000;
+            setTimeout(checkApp, delay);
         
-    };
+        };
 
-    $(function () {
-        checkApp();
-    });
+        $(function () {
+            checkApp();
+        });
     </script>
     <div id="preloader">
         <b>Please wait... <br/>This app is now being personalized to you based upon your genes.</b><br/>
