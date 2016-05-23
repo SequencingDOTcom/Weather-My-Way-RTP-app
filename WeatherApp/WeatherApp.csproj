@@ -650,6 +650,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
+    <Compile Include="Controllers\BaseSettingsController.cs" />
+    <Compile Include="Controllers\ExternalSettingsController.cs" />
     <Compile Include="Controllers\OAuth\AuthInfo.cs" />
     <Compile Include="Controllers\OAuth\AuthWorker.cs" />
     <Compile Include="Controllers\AppChain\SqApiServiceFacade.cs" />
