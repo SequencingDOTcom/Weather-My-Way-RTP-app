@@ -56,7 +56,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
             return _sendMessage.Sid;
         }
 
-        private void SendSms(SendInfo info, string content)
+        private string SendSms(SendInfo info, string content)
         {
             var _from = Options.FromPhone;
             if (info.SmsUseFrom2 ?? false)
@@ -70,6 +70,8 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                     info.SmsUseFrom2 = true;
             }
             info.SmsId = _sid;
+
+            return _sid;
         }
 
         private static void SendEmail(MandrillApi api, SendInfo info, string subj, string content)
@@ -245,16 +247,17 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         /// Sends SMS notification after its enablement
         /// </summary>
         /// <param name="name"></param>
-        public void SendSmsInvite(string name)
+        public string SendSmsInvite(string userName)
         {
             using (var _ctx = new WeatherAppDbEntities())
             {
-                var _firstOrDefault = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == name);
+                var _firstOrDefault = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
                 if (_firstOrDefault != null)
                 {
-                    SendSms(_firstOrDefault,
+                   return SendSms(_firstOrDefault,
                         "Genetically tailored SMS notifications successfully enabled for your Weather My Way +RTP app. Email apps@weathermyway.rocks if u didn't activate this notification.");
                 }
+                return string.Format("Can't find records for user {0} ", userName);
             }
         }
     }
