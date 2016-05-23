@@ -9,7 +9,7 @@ namespace Sequencing.WeatherApp.Controllers
     /// <summary>
     /// Settings page controller
     /// </summary>
-    public class SettingsController : ControllerBase
+    public class SettingsController : BaseSettingsController
     {
         // GET: Settings
         [Authorize]
@@ -55,16 +55,12 @@ namespace Sequencing.WeatherApp.Controllers
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
             WeekEndMode weekendMode, TemperatureMode temperature)
         {
-            var _inviteChanges = new SendInfoWorker(User.Identity.Name).SetNotification(emailChk, smsChk, email, phone,
+            SubscribeUserNotification(User.Identity.Name, emailChk, smsChk, email, phone,
                 wakeupDay, wakeupEnd, timezoneSelect, timezoneOffset, weekendMode, temperature);
-            var _emailWorker = new EmailWorker();
-            if (_inviteChanges.SendEmail)
-                _emailWorker.SendEmailInvite(User.Identity.Name);
-            if (_inviteChanges.SendSms)
-                _emailWorker.SendSmsInvite(User.Identity.Name);
+
             return RedirectToAction("GoToResults", "Default");
         }
-  
+
         [Authorize]
         public ActionResult RevokeAccess()
         {
