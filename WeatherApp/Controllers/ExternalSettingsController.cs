@@ -31,5 +31,32 @@ namespace Sequencing.WeatherApp.Controllers
              else
                  return Json(new { Type = "Error", Message = "Invalid token" }, JsonRequestBehavior.AllowGet);
         }
+
+        
+
+        [HttpPost]
+        public void SaveFileNotification(string selectedId, string selectedName, string token)
+        {
+            string userName = GetUserNameByToken(token);
+
+            if (userName != null)
+                base.SaveFile(userName, selectedName, selectedId);            
+
+        }
+
+        [HttpPost]
+        public void SaveLocationNotification(string city, string token)
+        {
+            string userName = GetUserNameByToken(token);
+
+            if (userName != null)
+                base.SaveLocation(userName, city);
+        }
+
+        public string GetUserNameByToken(string token)
+        {
+            return new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                Options.OAuthAppId).GetUserName(token);
+        }
     }
 }

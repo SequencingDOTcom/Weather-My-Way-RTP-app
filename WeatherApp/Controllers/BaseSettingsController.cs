@@ -29,5 +29,15 @@ namespace Sequencing.WeatherApp.Controllers
 
             return builder.ToString();
         }
+
+        protected void SaveFile(string userName, string selectedId, string selectedName)
+        {
+            new SendInfoWorker(userName).SetDataFile(selectedName, selectedId);
+        }
+
+        protected void SaveLocation(string userName, string city)
+        {
+            new SendInfoWorker(userName).SetLocation(city);
+        }
     }
 }
