@@ -123,36 +123,6 @@ namespace Sequencing.WeatherApp.Controllers
         }
 
         /// <summary>
-        /// Location save
-        /// </summary>
-        /// <param name="city"></param>
-        /// <returns></returns>
-        [Authorize]
-        public ActionResult SaveLocation(string city)
-        {
-            new SendInfoWorker(User.Identity.Name).SetLocation(city);
-            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
-                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
-            return RedirectToAction("SelectFile");
-        }
-
-
-        /// <summary>
-        /// File save
-        /// </summary>
-        /// <param name="selectedId"></param>
-        /// <param name="selectedName"></param>
-        /// <returns></returns>
-        [Authorize]
-        public ActionResult SaveFile(string selectedId, string selectedName)
-        {
-            new SendInfoWorker(User.Identity.Name).SetDataFile(selectedName, selectedId);
-            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
-                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
-            return RedirectToAction("StartJob", new { selectedId, city = Context.City });
-        }
-
-        /// <summary>
         /// Checks appchains completions. Is used from CheckApp page through AJAX call
         /// </summary>
         /// <param name="jobId"></param>

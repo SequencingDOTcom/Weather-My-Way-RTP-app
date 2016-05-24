@@ -91,10 +91,12 @@ namespace Sequencing.WeatherApp.Controllers
             var _res = new InviteChanges();
             UpdateImpl(info =>
                        {
-                           if (!(info.SendEmail ?? false) && emailChk)
+                           if (ShouldSendInitialEmail(info, email, emailChk))
                                _res.SendEmail = true;
-                           if (!(info.SendSms ?? false) && smsChk)
+
+                           if (ShouldSendInitialSms(info, phone, smsChk))
                                _res.SendSms = true;
+
                            info.SendEmail = emailChk;
                            info.SendSms = smsChk;
                            info.UserEmail = email;
@@ -107,7 +109,38 @@ namespace Sequencing.WeatherApp.Controllers
                            info.WeekendMode = weekendMode;
                            info.Temperature = temperature;
                        });
+
             return _res;
+        }
+
+        private bool ShouldSendInitialEmail(SendInfo info, string email, bool emailChk)
+        {
+            bool isAlreadySubscribed = !(info.SendEmail ?? false);
+
+            if (!emailChk)
+                return false;
+
+            if (!isAlreadySubscribed)
+                return true;
+
+            bool emailMatches = email.Equals(info.UserEmail);
+
+            return !emailMatches;
+        }
+
+        private bool ShouldSendInitialSms(SendInfo info, string phone, bool smsChk)
+        {
+            bool isAlreadySubscribed = !(info.SendSms ?? false);
+
+            if (!smsChk)
+                return false;
+
+            if (!isAlreadySubscribed)
+                return true;
+
+            bool phoneMatches = phone.Equals(info.UserPhone);
+
+            return !phoneMatches;
         }
     }
 }
