@@ -10,16 +10,16 @@
 namespace Sequencing.WeatherApp.Models
 {
     using System;
-
-    public enum WeekEndMode : int
+    using System.Collections.Generic;
+    
+    public partial class DeviceToken
     {
-        SendSms = 0,
-        SendEmail = 1,
-        SendBoth = 2,
-        None = 3,
-        Push = 4,
-        PushAndEmail = 5,
-        PushAndSms = 6,
-        All = 7
+        public long id { get; set; }
+        public Nullable<long> userId { get; set; }
+        public Nullable<DeviceType> deviceType { get; set; }
+        public string token { get; set; }
+        public Nullable<System.DateTime> subscriptionDate { get; set; }
+    
+        public virtual SendInfo SendInfo { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                                 };
 
                 var _str = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                    Options.OAuthAppId).GetUserName(info.access_token);
+                    Options.OAuthAppId).GetUserInfo(info.access_token).username;
                 _userInfo.UserName = _str;
                 _ctx.UserInfoes.Add(_userInfo);
                 _ctx.SaveChanges();

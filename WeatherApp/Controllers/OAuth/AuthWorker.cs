@@ -85,7 +85,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
         /// </summary>
         /// <param name="token">OAuth auth token</param>
         /// <returns></returns>
-        public string GetUserName(string token)
+        public DrupalOAuthInfo GetUserInfo(string token)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                     string _readToEnd = _sr.ReadToEnd();
 
                     var _drupalOAuthInfo = JsonConvert.DeserializeObject<DrupalOAuthInfo>(_readToEnd);
-                    return _drupalOAuthInfo.username;
+                    return _drupalOAuthInfo;
                 }
             }
             catch

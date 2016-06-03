@@ -27,5 +27,6 @@ namespace Sequencing.WeatherApp.Models
     
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<SendInfo> SendInfoes { get; set; }
+        public virtual DbSet<DeviceToken> DeviceTokens { get; set; }
     }
 }

@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="WeatherAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DeviceTokens">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="bigint" />
+          <Property Name="deviceType" Type="int" />
+          <Property Name="token" Type="nvarchar" MaxLength="200" />
+          <Property Name="subscriptionDate" Type="date" />
+        </EntityType>
         <EntityType Name="SendInfo">
           <Key>
             <PropertyRef Name="Id" />
@@ -41,9 +51,26 @@
           <Property Name="RefreshToken" Type="nvarchar" MaxLength="250" />
           <Property Name="AuthDt" Type="datetime" />
         </EntityType>
+        <Association Name="Id">
+          <End Role="SendInfo" Type="Self.SendInfo" Multiplicity="0..1" />
+          <End Role="DeviceTokens" Type="Self.DeviceTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeviceTokens">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WeatherAppDbModelStoreContainer">
+          <EntitySet Name="DeviceTokens" EntityType="Self.DeviceTokens" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SendInfo" EntityType="Self.SendInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Id" Association="Self.Id">
+            <End Role="SendInfo" EntitySet="SendInfo" />
+            <End Role="DeviceTokens" EntitySet="DeviceTokens" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -62,6 +89,11 @@
         <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
           <EntitySet Name="SendInfoes" EntityType="WeatherAppDbModel.SendInfo" />
+          <EntitySet Name="DeviceTokens" EntityType="WeatherAppDbModel.DeviceToken" />
+          <AssociationSet Name="Id" Association="WeatherAppDbModel.Id">
+            <End Role="SendInfo" EntitySet="SendInfoes" />
+            <End Role="DeviceToken" EntitySet="DeviceTokens" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SendInfo">
           <Key>
@@ -88,6 +120,7 @@
           <Property Name="SendRoost" Type="Boolean" />
           <Property Name="LastWeatherUpdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="WeatherUpdateDt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DeviceTokens" Relationship="WeatherAppDbModel.Id" FromRole="SendInfo" ToRole="DeviceToken" />
         </EntityType>
         <EnumType Name="WeekEndMode">
           <Member Name="SendSms" Value="0" />
@@ -98,6 +131,33 @@
         <EnumType Name="TemperatureMode">
           <Member Name="F" Value="0" />
           <Member Name="C" Value="1" />
+        </EnumType>
+        <EntityType Name="DeviceToken">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int64" />
+          <Property Name="deviceType" Type="WeatherAppDbModel.DeviceType" />
+          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SendInfo" Relationship="WeatherAppDbModel.Id" FromRole="DeviceToken" ToRole="SendInfo" />
+        </EntityType>
+        <Association Name="Id">
+          <End Type="WeatherAppDbModel.SendInfo" Role="SendInfo" Multiplicity="0..1" />
+          <End Type="WeatherAppDbModel.DeviceToken" Role="DeviceToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeviceToken">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="DeviceType">
+          <Member Name="IOS" Value="1" />
+          <Member Name="Android" Value="2" />
         </EnumType>
       </Schema>
     </edmx:ConceptualModels>
@@ -140,6 +200,17 @@
                 <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceTokens">
+            <EntityTypeMapping TypeName="WeatherAppDbModel.DeviceToken">
+              <MappingFragment StoreEntitySet="DeviceTokens">
+                <ScalarProperty Name="subscriptionDate" ColumnName="subscriptionDate" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="deviceType" ColumnName="deviceType" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

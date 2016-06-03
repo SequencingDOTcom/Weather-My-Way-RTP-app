@@ -3,20 +3,23 @@ using System.Web.Security;
 using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.UserNotification;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers
 {
     /// <summary>
     /// Settings page controller
     /// </summary>
-    public class SettingsController : BaseSettingsController
+    public class SettingsController : ControllerBase
     {
+        ISettingService settingService = new UserSettingService();
+
         // GET: Settings
         [Authorize]
         public ActionResult Index()
         {
             var _name = User.Identity.Name;
-            var _sendInfo = new SendInfoWorker(_name).GetInfo();
+            var _sendInfo = settingService.GetInfo(_name);
             ViewBag.SelectedLocation = _sendInfo.City;
             ViewBag.EmailSend = _sendInfo.SendEmail ?? false;
             ViewBag.SmsSend = _sendInfo.SendSms ?? false;
@@ -49,14 +52,32 @@ namespace Sequencing.WeatherApp.Controllers
             return View(new CommonData());
         }
 
+
         [Authorize]
         [HttpPost]
         public ActionResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
             WeekEndMode weekendMode, TemperatureMode temperature)
         {
-            SubscribeUserNotification(User.Identity.Name, emailChk, smsChk, email, phone,
-                wakeupDay, wakeupEnd, timezoneSelect, timezoneOffset, weekendMode, temperature);
+            SendInfo info = new SendInfo()
+            {
+                UserName = User.Identity.Name,
+                SendEmail = emailChk,
+                SendSms = smsChk,
+                UserEmail = email,
+                UserPhone = phone,
+                TimeWeekDay = wakeupDay,
+                TimeWeekEnd = wakeupEnd,
+                TimeZoneValue = timezoneSelect,
+                WeekendMode = weekendMode,
+                Temperature = temperature
+            };
+
+            if (!string.IsNullOrEmpty(timezoneOffset))
+                info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
+
+
+            settingService.UpdateUserSettings(info);
 
             return RedirectToAction("GoToResults", "Default");
         }
@@ -66,6 +87,24 @@ namespace Sequencing.WeatherApp.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Startup", "Default");
+        }
+		
+		[Authorize]
+        public ActionResult SaveLocation(string city)
+        {
+            settingService.SetUserLocation(city, User.Identity.Name);
+            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
+                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
+            return RedirectToAction("SelectFile");
+        }
+
+        [Authorize]
+        public ActionResult SaveFile(string selectedId, string selectedName)
+        {
+            settingService.SetUserDataFile(selectedName, selectedId, User.Identity.Name);
+            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
+                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
+            return RedirectToAction("StartJob", new { selectedId, city = Context.City });
         }
     }
 }
