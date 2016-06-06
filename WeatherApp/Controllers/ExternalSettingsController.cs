@@ -22,9 +22,9 @@ namespace Sequencing.WeatherApp.Controllers
         ISettingService settingsService = new UserSettingService();
 
         [HttpPost]
-        public void ChangeNotification(bool emailChk = true, bool smsChk = true, string email = "anna.derkatch@yandex.com", string phone = "+380969064204",
-            string wakeupDay = "6:00 AM", string wakeupEnd = "6:00 AM", string timezoneSelect = "Etc/GMT-3", string timezoneOffset = "1.00000",
-            WeekEndMode weekendMode = WeekEndMode.SendBoth, TemperatureMode temperature = TemperatureMode.C, string token = "1d9822269d3ab0089e0f004f5c8979ff5d43dad1")
+        public void ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
+            string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
+            WeekEndMode weekendMode, TemperatureMode temperature, string token)
         {
             SendInfo info = new SendInfo()
             {
@@ -41,14 +41,13 @@ namespace Sequencing.WeatherApp.Controllers
             };
 
             if (!string.IsNullOrEmpty(timezoneOffset))
-                info.TimeZoneOffset = 2.00000m;
+                info.TimeZoneOffset = settingsService.ParseTimeZoneOffset(timezoneOffset);
 
             settingsService.UpdateUserSettings(info);
         }
 
-
         [HttpPost]
-        public void SubscribePushNotification(bool pushCheck = true, string deviceToken = "041c639650e9b50d6850f3d214a9b014828489a2a695d68c0c0e6270a09a56ee", DeviceType deviceType = DeviceType.IOS, string accessToken = "56ccdfdc16e06d86fbb25aa076a48bb3ee73481c")
+        public void SubscribePushNotification(bool pushCheck, string deviceToken, DeviceType deviceType, string accessToken)
         {
             if (pushCheck)
                 pushService.Subscribe(deviceToken, deviceType, accessToken);
@@ -57,13 +56,13 @@ namespace Sequencing.WeatherApp.Controllers
         }
 
         [HttpPost]
-        public void SaveFile(string selectedId = "ADS:40852", string selectedName = "Craig Venter - A maverick and pioneer of modern day genetics", string token = "3124c0b9ae0302e822a5d7d9e03b22942a6e71bb")
+        public void SaveFile(string selectedId, string selectedName, string token)
         {
             settingsService.SetUserDataFileExt(selectedName, selectedId, token);
         }
 
         [HttpPost]
-        public void SaveLocation(string city = "Vinnitsa, Ukraine", string token = "3124c0b9ae0302e822a5d7d9e03b22942a6e71bb")
+        public void SaveLocation(string city, string token)
         {
             settingsService.SetUserLocationExt(city, token);
         }

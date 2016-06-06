@@ -39,26 +39,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             if (String.IsNullOrEmpty(city))
                 return;
 
-            /*
-            SendInfo existingInfo = factory.GetSendInfoDao().Find(name);
-
-            if (existingInfo == null)
-            {
-                factory.GetSendInfoDao().Insert(new SendInfo
-                {
-                    UserName = name,
-                    City = city,
-                    WeatherUpdateDt = null,
-                    LastWeatherUpdate = null
-                });
-                return;
-            }
-
-            existingInfo.City = city;
-            existingInfo.WeatherUpdateDt = null;
-            existingInfo.LastWeatherUpdate = null;
-            */
-
             factory.GetSendInfoDao().Update(new SendInfo
             {
                 UserName = name,
@@ -78,23 +58,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         {
             if (String.IsNullOrEmpty(selectedName))
                 return;
-
-            /*
-            SendInfo existingInfo = factory.GetSendInfoDao().Find(name);
-
-            if (existingInfo == null)
-            {
-                factory.GetSendInfoDao().Insert(new SendInfo {
-                    UserName = name,
-                    DataFileName = selectedName,
-                    DataFileId = selectedId,
-                });
-                return;
-            }
-
-            existingInfo.DataFileName = selectedName;
-            existingInfo.DataFileId = selectedId;
-            */
 
             factory.GetSendInfoDao().Update(new SendInfo
             {

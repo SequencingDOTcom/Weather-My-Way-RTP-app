@@ -9,9 +9,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     public interface ISendInfoDao
     {
         void Insert(SendInfo info);
-
         SendInfo Find(string userName);
-
         SendInfo Update(SendInfo info);
    
     }

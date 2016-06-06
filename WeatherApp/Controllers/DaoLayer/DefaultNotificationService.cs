@@ -31,8 +31,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     settingsService.SubscribePushNotification(sendInfo.Id, deviceToken, deviceType);
             }
             else
-                //log.InfoFormat("Invalid access token");
-                System.Diagnostics.Debug.WriteLine("Invalid access token");
+                logger.InfoFormat("Invalid access token");
         }
 
         public void Unsubscribe(string token)
@@ -123,7 +122,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 case DeviceType.Android:
                     return new AndroidPushMessageSender();
             }
-
             return null;
         }
 

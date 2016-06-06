@@ -38,7 +38,10 @@ namespace Sequencing.WeatherApp.Controllers
                               new {Id = WeekEndMode.SendSms.ToString(), Name = "Only send txt msg (SMS) notifications on weekend"},
                               new {Id = WeekEndMode.SendBoth.ToString(), Name = "Send notifications on weekends"},
                               new {Id = WeekEndMode.None.ToString(), Name = "Do not send any notifications on weekends"},
-                              
+                              new {Id = WeekEndMode.Push.ToString(), Name = "Only send push notifications on weekend"},
+                              new {Id = WeekEndMode.PushAndEmail.ToString(), Name = "Send push and email notifications on weekend"},
+                              new {Id = WeekEndMode.PushAndSms.ToString(), Name = "Send push and msg (SMS) notifications on weekend"},
+                              new {Id = WeekEndMode.All.ToString(), Name = "Send all notifications on weekend"},
                           };
 
             ViewBag.weekendModeList = new SelectList(_values, "Id", "Name", _sendInfo.WeekendMode.ToString());

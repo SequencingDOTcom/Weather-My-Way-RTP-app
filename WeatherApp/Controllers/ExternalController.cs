@@ -40,8 +40,6 @@ namespace Sequencing.WeatherApp.Controllers
             var _userInfo = JsonConvert.DeserializeObject<ExternalSendInfo>(json);
             if (_userName != null)
             {
-                //using (var _ctx = new WeatherAppDbEntities())
-               // {
                     SendInfo _info = mssqlDao.GetSendInfoDao().Find(_userName);
                     _info.SendEmail = _userInfo.SendEmail;
                     _info.SendSms = _userInfo.SendSms;
@@ -57,10 +55,8 @@ namespace Sequencing.WeatherApp.Controllers
                     _info.Temperature = _userInfo.Temperature;
 
                     mssqlDao.GetSendInfoDao().Update(_info);
-                // _ctx.SaveChanges();
 
                 return Json(ExternalSendInfo.Create(_info), JsonRequestBehavior.AllowGet);
-               // }
             }
             return Json(new ExternalSendInfo(), JsonRequestBehavior.AllowGet);
         }

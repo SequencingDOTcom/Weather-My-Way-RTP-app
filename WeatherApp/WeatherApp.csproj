@@ -62,6 +62,38 @@
       <HintPath>..\packages\Mandrill.2.0.3.0\lib\net45\Mandrill.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Amazon, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Apple, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Apple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Blackberry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Core, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Firefox, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Firefox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Google, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Windows, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
@@ -110,9 +142,6 @@
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -650,12 +679,28 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
-    <Compile Include="Controllers\BaseSettingsController.cs" />
+    <Compile Include="Controllers\DaoLayer\DefaultNotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\IFrontendDao.cs" />
+    <Compile Include="Controllers\DaoLayer\IFrontendDaoFactory.cs" />
+    <Compile Include="Controllers\DaoLayer\INotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\ISettingService.cs" />
+    <Compile Include="Controllers\DaoLayer\OauthTokenDao.cs" />
+    <Compile Include="Controllers\DaoLayer\OAuthTokenDaoFactory.cs" />
+    <Compile Include="Controllers\DaoLayer\UserSettingService.cs" />
     <Compile Include="Controllers\ExternalSettingsController.cs" />
     <Compile Include="Controllers\OAuth\AuthInfo.cs" />
     <Compile Include="Controllers\OAuth\AuthWorker.cs" />
     <Compile Include="Controllers\AppChain\SqApiServiceFacade.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\PushNotification\AndroidPushMessage.cs" />
+    <Compile Include="Controllers\DaoLayer\IDaoFactory.cs" />
+    <Compile Include="Controllers\DaoLayer\IDeviceTokenDao.cs" />
+    <Compile Include="Controllers\DaoLayer\ISendInfoDao.cs" />
+    <Compile Include="Controllers\DaoLayer\IUserInfoDao.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLDeviceTokenDao.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLDaoFactory.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLSendInfoDao.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLUserInfoDao.cs" />
     <Compile Include="Controllers\UserNotification\EmailWorker.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExternalController.cs" />
@@ -664,10 +709,11 @@
     <Compile Include="Controllers\Options.cs" />
     <Compile Include="Controllers\AppChain\PersonalizedRecommendationsWorker.cs" />
     <Compile Include="Controllers\AppChain\PersonalRecommendation.cs" />
-    <Compile Include="Controllers\SendInfoWorker.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\OAuth\TokenInfo.cs" />
     <Compile Include="Controllers\OAuth\UserAuthWorker.cs" />
+    <Compile Include="Controllers\PushNotification\IOSPushMessage.cs" />
+    <Compile Include="Controllers\PushNotification\PushMessageSender.cs" />
     <Compile Include="Controllers\WeatherUnderground\CityMapResult.cs" />
     <Compile Include="Controllers\WeatherUnderground\CityMapResultRoot.cs" />
     <Compile Include="Controllers\WeatherUnderground\CurrentConditionsRoot.cs" />
@@ -677,6 +723,12 @@
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Models\DeviceToken.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeviceType.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RunResult.cs" />
     <Compile Include="Controllers\AppChain\PersonalizedForecastResultBuilder.cs" />
     <Compile Include="Global.asax.cs">
@@ -754,6 +806,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ExternalFileSave\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

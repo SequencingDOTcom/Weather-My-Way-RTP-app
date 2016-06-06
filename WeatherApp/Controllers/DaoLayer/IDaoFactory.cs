@@ -8,9 +8,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     public interface IDaoFactory
     {
         IDeviceTokenDao GetDeviceTokenDao();
-
         ISendInfoDao GetSendInfoDao();
-
         IUserInfoDao GetUserInfoDao();
     }
 }

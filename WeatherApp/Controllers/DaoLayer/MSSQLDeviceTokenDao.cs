@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sequencing.WeatherApp.Models;
+using log4net;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     public class MSSQLDeviceTokenDao : IDeviceTokenDao
     {
+        public ILog logger = LogManager.GetLogger(typeof(MSSQLDeviceTokenDao));
+
         public void DeleteToken(string token)
         {
             using (var dbCtx = new WeatherAppDbEntities())
@@ -17,15 +20,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 if (singleOrDefault != null)
                 {
                     dbCtx.DeviceTokens.Remove(singleOrDefault);
-
                     dbCtx.SaveChanges();
 
-                    System.Diagnostics.Debug.WriteLine(string.Format("Token {0} successfully removed from database", token));
-                    //logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
+                    logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
                 }
                 else
-                    System.Diagnostics.Debug.WriteLine("Token {0} is already removed from database", token);
-                // logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
+                    logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
             }
         }
 
@@ -58,7 +58,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             using (var dbCtx = new WeatherAppDbEntities())
             {
                 dbCtx.DeviceTokens.Add(tokenInfo);
-
                 dbCtx.SaveChanges();
             }
         }
@@ -80,15 +79,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 if (singleOrDefault != null)
                 {
                     singleOrDefault.token = newId;
-
                     dbCtx.SaveChanges();
 
-                    System.Diagnostics.Debug.WriteLine(string.Format("Old Token {0} successfully updated with new {1} ", oldId, newId));
-                    //logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
+                    logger.InfoFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
                 }
-                else
-                    System.Diagnostics.Debug.WriteLine("Old Token {0} can not be found", oldId);
-                    // logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
             }
         }
     }

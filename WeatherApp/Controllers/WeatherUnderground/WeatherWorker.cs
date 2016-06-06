@@ -70,7 +70,6 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
                 using (var _ctx = new WeatherAppDbEntities())
                 {
                     var _si = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
-                    //var _si = mssqlDao.GetSendInfoDao().FindSendInfo(userName);
                     if (_si == null)
                     {
                         _si = new SendInfo(userName);
