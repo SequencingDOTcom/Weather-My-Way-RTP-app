@@ -45,12 +45,10 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         var apnsNotification = notificationException.Notification;
                         var statusCode = notificationException.ErrorStatusCode;
 
-                        logger.Error($"Apple Notification Failed: ID={apnsNotification.Identifier}, Code={statusCode}, Token ={notification.DeviceToken}");
+                        logger.Error(string.Format("Apple Notification Failed: ID={0}, Code={1}, Token ={2}", apnsNotification.Identifier, statusCode, notification.DeviceToken));
                     }
                     else
-                    {
-                        logger.Error($"Apple Notification Failed for some unknown reason : {ex.InnerException}, Token ={notification.DeviceToken}");
-                    }
+                        logger.Error(string.Format("Apple Notification Failed for some unknown reason : {0}, Token = {1}", ex.InnerException, notification.DeviceToken));
 
                     notificationService.Unsubscribe(notification.DeviceToken);
 
@@ -60,7 +58,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
             apnsBroker.OnNotificationSucceeded += (notification) =>
             {
-                logger.Info($"Notification Successfully Sent to: " + notification.DeviceToken);
+                logger.Info("Notification Successfully Sent to: " + notification.DeviceToken);
             };
 
             apnsBroker.Start();
