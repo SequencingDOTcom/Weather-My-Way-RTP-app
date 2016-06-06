@@ -35,7 +35,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         var gcmNotification = notificationException.Notification;
                         var description = notificationException.Description;
 
-                        log.Error($"GCM Notification Failed: ID={gcmNotification.MessageId}, Desc={description}");
+                        log.Error(string.Format("GCM Notification Failed: ID={0}, Desc={1}", gcmNotification.MessageId, description));
                     }
                     else if (ex is GcmMulticastResultException)
                     {
@@ -43,7 +43,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
                         foreach (var succeededNotification in multicastException.Succeeded)
                         {
-                            log.Error($"GCM Notification Failed: ID={succeededNotification.MessageId}");
+                            log.Error(string.Format("GCM Notification Failed: ID={0}", succeededNotification.MessageId));
                         }
 
                         foreach (var failedKvp in multicastException.Failed)
@@ -51,7 +51,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                             var n = failedKvp.Key;
                             var e = failedKvp.Value;
 
-                            log.Error($"GCM Notification Failed: ID={n.MessageId}, Desc={e.InnerException}");
+                            log.Error(string.Format("GCM Notification Failed: ID={0}, Desc={1}", n.MessageId, e.InnerException));
                         }
 
                     }
@@ -62,14 +62,14 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         var oldId = expiredException.OldSubscriptionId;
                         var newId = expiredException.NewSubscriptionId;
 
-                        log.Error($"Device RegistrationId Expired: {oldId}");
-                        log.Error($"Device RegistrationId Changed To: {newId}");
+                        log.Error(string.Format("Device RegistrationId Expired: {0}", oldId));
+                        log.Error(string.Format("Device RegistrationId Changed To: {0}", newId));
 
                         if (!string.IsNullOrWhiteSpace(newId))
                         {
                             notificationService.RefreshDeviceToken(oldId, newId);
 
-                            log.Error($"Device RegistrationId Changed To: {newId}");
+                            log.Error(string.Format("Device RegistrationId Changed To: {0}", newId));
                         }
                         else
                             notificationService.Unsubscribe(oldId);
@@ -78,14 +78,14 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                     {
                         var retryException = (RetryAfterException)ex;
 
-                        log.Error($"GCM Rate Limited, don't send more until after {retryException.RetryAfterUtc}");
+                        log.Error(string.Format("GCM Rate Limited, don't send more until after {0}", retryException.RetryAfterUtc));
                     }
                     else
                     {
-                        log.Error($"GCM Notification Failed for some unknown reason");
+                        log.Error("GCM Notification Failed for some unknown reason");
                     }
 
-                    log.Error($"FAiled for:" + string.Join(",", notification.RegistrationIds));
+                    log.Error("FAiled for:" + string.Join(",", notification.RegistrationIds));
 
                     return true;
                 });
@@ -93,7 +93,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
             gcmBroker.OnNotificationSucceeded += (notification) =>
             {
-                log.Info($"Success for:" + string.Join(",", notification.RegistrationIds));
+                log.Info("Success for:" + string.Join(",", notification.RegistrationIds));
             };
 
             gcmBroker.Start();
