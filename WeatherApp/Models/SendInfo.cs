@@ -14,6 +14,19 @@ namespace Sequencing.WeatherApp.Models
     
     public partial class SendInfo
     {
+        public SendInfo()
+        {
+            this.DeviceTokens = new HashSet<DeviceToken>();
+        }
+
+        public SendInfo(string name)
+        {
+            this.UserName = name;
+            this.WeekendMode = WeekEndMode.SendBoth;
+            this.TimeWeekDay = "6 AM";
+            this.TimeWeekEnd = "8 AM";
+        }
+
         public long Id { get; set; }
         public string UserName { get; set; }
         public Nullable<bool> SendEmail { get; set; }
@@ -35,5 +48,69 @@ namespace Sequencing.WeatherApp.Models
         public Nullable<bool> SendRoost { get; set; }
         public string LastWeatherUpdate { get; set; }
         public Nullable<System.DateTime> WeatherUpdateDt { get; set; }
+    
+        public virtual ICollection<DeviceToken> DeviceTokens { get; set; }
+
+        public void Merge(SendInfo from)
+        {
+            SendInfo to = this;
+
+            if (from.City != null)
+                to.City = from.City;
+
+            if (from.DataFileId != null)
+                to.DataFileId = from.DataFileId;
+
+            if (from.DataFileName != null)
+                to.DataFileName = from.DataFileName;
+
+            if (from.LastSendDt != null)
+                to.LastSendDt = from.LastSendDt;
+
+            if (from.SendRoost != null)
+                to.SendRoost = from.SendRoost;
+
+            if (from.SendSms != null)
+                to.SendSms = from.SendSms;
+
+            if (from.SmsId != null)
+                to.SmsId = from.SmsId;
+
+            if (from.SendEmail != null)
+                to.SendEmail = from.SendEmail;
+
+            if (from.SmsUseFrom2 != null)
+                to.SmsUseFrom2 = from.SmsUseFrom2;
+
+            if (from.Temperature != null)
+                to.Temperature = from.Temperature;
+
+            if (from.TimeWeekDay != null)
+                to.TimeWeekDay = from.TimeWeekDay;
+
+            if (from.TimeWeekEnd != null)
+                to.TimeWeekEnd = from.TimeWeekEnd;
+
+            if (from.TimeZoneOffset != null)
+                to.TimeZoneOffset = from.TimeZoneOffset;
+
+            if (from.TimeZoneValue != null)
+                to.TimeZoneValue = from.TimeZoneValue;
+
+            if (from.UserEmail != null)
+                to.UserEmail = from.UserEmail;
+
+            if (from.UserPhone != null)
+                to.UserPhone = from.UserPhone;
+
+            if (from.WeatherUpdateDt != null)
+                to.WeatherUpdateDt = from.WeatherUpdateDt;
+
+            if (from.WeekendMode != null)
+                to.WeekendMode = from.WeekendMode;
+
+            if (from.LastWeatherUpdate != null)
+                to.LastWeatherUpdate = from.LastWeatherUpdate;
+        }
     }
 }

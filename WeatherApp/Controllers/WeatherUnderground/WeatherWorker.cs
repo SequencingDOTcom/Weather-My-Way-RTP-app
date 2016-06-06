@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
@@ -12,6 +13,9 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
     public class WeatherWorker
     {
         private readonly string userName;
+
+        MSSQLDaoFactory mssqlDao = new MSSQLDaoFactory();
+        ISettingService setting = new UserSettingService();
 
         public WeatherWorker(string userName)
         {
@@ -68,7 +72,7 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
                     var _si = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
                     if (_si == null)
                     {
-                        _si = SendInfoWorker.CreateDefaults(userName);
+                        _si = new SendInfo(userName);
                         _ctx.SendInfoes.Add(_si);
                     }
                     if (_si.WeatherUpdateDt.HasValue &&
@@ -77,7 +81,7 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
                     {
                         var _deserializeObject = JsonConvert.DeserializeObject<Forecast10Root>(_si.LastWeatherUpdate);
                         if (_deserializeObject.forecast != null)
-                        return _deserializeObject;
+                            return _deserializeObject;
                     }
 
                     var _forecast10Impl = GetForecast10Impl(city);

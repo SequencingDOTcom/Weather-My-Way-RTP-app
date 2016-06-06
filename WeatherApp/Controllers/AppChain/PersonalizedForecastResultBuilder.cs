@@ -1,6 +1,7 @@
 ﻿using System;
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers.AppChain
 {
@@ -11,6 +12,8 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
     {
         private readonly string userName;
         private TemperatureMode mode;
+
+        ISettingService service = new UserSettingService();
 
         public PersonalizedForecastResultBuilder(string userName, TemperatureMode mode)
         {
@@ -27,7 +30,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <returns></returns>
         public RunResult Build(string jobId, string jobId2, string city)
         {
-            mode = new SendInfoWorker(userName).GetInfo().Temperature ?? TemperatureMode.F;
+            mode = service.GetInfo(userName).Temperature ?? TemperatureMode.F;
 
             var _weatherWorker = new WeatherWorker(userName);
 

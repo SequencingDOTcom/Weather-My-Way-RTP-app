@@ -3,6 +3,7 @@ using System.Web.Routing;
 using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -11,6 +12,8 @@ namespace Sequencing.WeatherApp.Controllers
     /// </summary>
     public class CommonDataModelAttribute : ActionFilterAttribute
     {
+        ISettingService service = new UserSettingService();
+
         public CommonDataModelAttribute()
         {
         }
@@ -34,7 +37,7 @@ namespace Sequencing.WeatherApp.Controllers
             {
                 _sharedContext.IsAuthenticated = true;
                 _sharedContext.UserName = _user.Identity.Name;
-                var _sendInfo = new SendInfoWorker(_user.Identity.Name).GetInfo();
+                var _sendInfo = service.GetInfo(_user.Identity.Name);
                 _sharedContext.UserEmail = _sendInfo.UserEmail;
                 _sharedContext.City = _sendInfo.City;
                 _sharedContext.DataFileId = _sendInfo.DataFileId;

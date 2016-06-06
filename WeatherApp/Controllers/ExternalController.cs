@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -13,18 +14,17 @@ namespace Sequencing.WeatherApp.Controllers
     /// </summary>
     public class ExternalController : Controller
     {
+        MSSQLDaoFactory mssqlDao = new MSSQLDaoFactory();
+
         [AllowAnonymous]
         public ActionResult Settings()
         {
             string _userName = ExtractUserName();
             if (_userName != null)
-            {
-                using (var _ctx = new WeatherAppDbEntities())
-                {
-                    SendInfo _info = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == _userName);
+            {              
+                    SendInfo _info = mssqlDao.GetSendInfoDao().Find(_userName);
 
                     return Json(ExternalSendInfo.Create(_info), JsonRequestBehavior.AllowGet);
-                }
             }
             return Json(new ExternalSendInfo(), JsonRequestBehavior.AllowGet);
         }
@@ -40,9 +40,7 @@ namespace Sequencing.WeatherApp.Controllers
             var _userInfo = JsonConvert.DeserializeObject<ExternalSendInfo>(json);
             if (_userName != null)
             {
-                using (var _ctx = new WeatherAppDbEntities())
-                {
-                    SendInfo _info = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == _userName);
+                    SendInfo _info = mssqlDao.GetSendInfoDao().Find(_userName);
                     _info.SendEmail = _userInfo.SendEmail;
                     _info.SendSms = _userInfo.SendSms;
                     _info.UserEmail = _userInfo.UserEmail;
@@ -55,10 +53,10 @@ namespace Sequencing.WeatherApp.Controllers
                     _info.TimeZoneOffset = _userInfo.TimeZoneOffset;
                     _info.WeekendMode = _userInfo.WeekendMode;
                     _info.Temperature = _userInfo.Temperature;
-                    _ctx.SaveChanges();
-                    
-                    return Json(ExternalSendInfo.Create(_info), JsonRequestBehavior.AllowGet);
-                }
+
+                    mssqlDao.GetSendInfoDao().Update(_info);
+
+                return Json(ExternalSendInfo.Create(_info), JsonRequestBehavior.AllowGet);
             }
             return Json(new ExternalSendInfo(), JsonRequestBehavior.AllowGet);
         }
@@ -71,7 +69,7 @@ namespace Sequencing.WeatherApp.Controllers
                 var _strings = _s.Split(' ');
                 var _token = _strings[1];
 
-                var _userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret, Options.OAuthAppId).GetUserName(_token);
+                var _userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret, Options.OAuthAppId).GetUserInfo(_token).username;
                 return _userName;
             }
             return null;

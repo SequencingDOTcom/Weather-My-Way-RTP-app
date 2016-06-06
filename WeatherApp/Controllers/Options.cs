@@ -1,3 +1,4 @@
+using System;
 using System.Configuration;
 
 namespace Sequencing.WeatherApp.Controllers
@@ -34,5 +35,13 @@ namespace Sequencing.WeatherApp.Controllers
 
         
         public static string BaseSiteUrl { get { return ConfigurationManager.AppSettings["BaseSiteUrl"]; } }
+
+        //Certificates for push notification
+        public static string ApnsCertificateFile { get { return ConfigurationManager.AppSettings["ApnsCertificateFile"]; } }
+        public static string ApnsCertificatePassword { get { return ConfigurationManager.AppSettings["ApnsCertificatePassword"]; } }
+        public static string GCMSenderId { get { return ConfigurationManager.AppSettings["GCMSenderId"]; } }
+        public static string DeviceAuthToken { get { return ConfigurationManager.AppSettings["DeviceAuthToken"]; } }
+        public static string NotificationMessage { get { return ConfigurationManager.AppSettings["NotificationMessage"]; } }
+        public static Int64 APNSFeedbackServiceRunDelay { get { return Int64.Parse(ConfigurationManager.AppSettings["APNSFeedbackServiceRunDelay"]); } }
     }
 }
