@@ -15,7 +15,7 @@
     </h3>
     <h4 id="subTitle">Location</h4>
 </div>
-@using (Html.BeginForm("SaveLocation", "Settings", new {r = Request.QueryString["r"]},
+@using (Html.BeginForm("SaveLocation", "Default", new {r = Request.QueryString["r"]},
     FormMethod.Post, new {@class = "form-horizontal", @role = "form"}))
 {
     <div id="locInstruction">

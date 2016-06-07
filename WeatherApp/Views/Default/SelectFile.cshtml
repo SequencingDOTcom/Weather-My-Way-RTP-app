@@ -48,7 +48,7 @@
                 });
             </script>
         </div>
-        @using (Html.BeginForm("SaveFile", "Settings", new {r=Request.QueryString["r"]}))
+        @using (Html.BeginForm("SaveFile", "Default", new {r=Request.QueryString["r"]}))
         {
             <div style="margin-bottom: 5px; margin-top: 10px;" class="form-group">
                 <div class="col-sm-12 controls">

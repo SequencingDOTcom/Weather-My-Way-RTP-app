@@ -91,23 +91,5 @@ namespace Sequencing.WeatherApp.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Startup", "Default");
         }
-		
-		[Authorize]
-        public ActionResult SaveLocation(string city)
-        {
-            settingService.SetUserLocation(city, User.Identity.Name);
-            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
-                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
-            return RedirectToAction("SelectFile");
-        }
-
-        [Authorize]
-        public ActionResult SaveFile(string selectedId, string selectedName)
-        {
-            settingService.SetUserDataFile(selectedName, selectedId, User.Identity.Name);
-            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
-                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
-            return RedirectToAction("StartJob", new { selectedId, city = Context.City });
-        }
     }
 }
