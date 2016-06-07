@@ -8,6 +8,7 @@ using Sequencing.WeatherApp.Controllers.AppChain;
 using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -17,6 +18,8 @@ namespace Sequencing.WeatherApp.Controllers
     public class DefaultController : ControllerBase
     {
         private readonly AuthWorker authWorker = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret, Options.OAuthAppId);
+
+        ISettingService settingService = new UserSettingService();
 
         /// <summary>
         /// Landing page
@@ -247,6 +250,24 @@ namespace Sequencing.WeatherApp.Controllers
         {
             var _res = new LocationVerifier(Context).IsLocationValid(city);
             return Content(_res.ToString());
+        }
+
+        [Authorize]
+        public ActionResult SaveLocation(string city)
+        {
+            settingService.SetUserLocation(city, User.Identity.Name);
+            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
+                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
+            return RedirectToAction("SelectFile");
+        }
+
+        [Authorize]
+        public ActionResult SaveFile(string selectedId, string selectedName)
+        {
+            settingService.SetUserDataFile(selectedName, selectedId, User.Identity.Name);
+            if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
+                return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
+            return RedirectToAction("StartJob", new { selectedId, city = Context.City });
         }
 
 
