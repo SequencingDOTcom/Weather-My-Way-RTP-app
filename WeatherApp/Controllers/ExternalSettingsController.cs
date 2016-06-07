@@ -26,24 +26,31 @@ namespace Sequencing.WeatherApp.Controllers
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
             WeekEndMode weekendMode, TemperatureMode temperature, string token)
         {
-            SendInfo info = new SendInfo()
+            string name = oauthFactory.GetOAuthTokenDao().getUser(token).userName;
+
+            if (name != null)
             {
-                UserName = oauthFactory.GetOAuthTokenDao().getUser(token).userName,
-                SendEmail = emailChk,
-                SendSms = smsChk,
-                UserEmail = email,
-                UserPhone = phone,
-                TimeWeekDay = wakeupDay,
-                TimeWeekEnd = wakeupEnd,
-                TimeZoneValue = timezoneSelect,
-                WeekendMode = weekendMode,
-                Temperature = temperature
-            };
+                SendInfo info = new SendInfo()
+                {
+                    UserName = name,
+                    SendEmail = emailChk,
+                    SendSms = smsChk,
+                    UserEmail = email,
+                    UserPhone = phone,
+                    TimeWeekDay = wakeupDay,
+                    TimeWeekEnd = wakeupEnd,
+                    TimeZoneValue = timezoneSelect,
+                    WeekendMode = weekendMode,
+                    Temperature = temperature
+                };
 
-            if (!string.IsNullOrEmpty(timezoneOffset))
-                info.TimeZoneOffset = settingsService.ParseTimeZoneOffset(timezoneOffset);
+                if (!string.IsNullOrEmpty(timezoneOffset))
+                    info.TimeZoneOffset = settingsService.ParseTimeZoneOffset(timezoneOffset);
 
-            settingsService.UpdateUserSettings(info);
+                settingsService.UpdateUserSettings(info);
+            }
+            else
+                log.InfoFormat("Invalid access token");
         }
 
         [HttpPost]

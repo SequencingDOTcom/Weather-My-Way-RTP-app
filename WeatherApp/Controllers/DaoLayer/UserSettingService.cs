@@ -12,11 +12,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     public class UserSettingService : ISettingService
     {
-        //public ILog logger = LogManager.GetLogger(typeof(UserSettingService));
+        public ILog logger = LogManager.GetLogger(typeof(UserSettingService));
         private MSSQLDaoFactory factory = new MSSQLDaoFactory();
         private OAuthTokenDaoFactory oauthFactory = new OAuthTokenDaoFactory();
 
-        
+
 
         public SendInfo GetInfo(string name)
         {
@@ -31,7 +31,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public void SetUserLocationExt(string city, string userToken)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).userName;
-            SetUserLocation(city, userName);
+            if (userName != null)
+                SetUserLocation(city, userName);
+            else
+                logger.InfoFormat("Invalid access token");
         }
 
         public void SetUserLocation(string city, string name)
@@ -51,7 +54,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public void SetUserDataFileExt(string selectedName, string selectedId, string token)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(token).userName;
-            SetUserDataFile(selectedName, selectedId, userName);
+            if (userName != null)
+                SetUserDataFile(selectedName, selectedId, userName);
+            else
+                logger.InfoFormat("Invalid access token");
         }
 
         public void SetUserDataFile(string selectedName, string selectedId, string name)
