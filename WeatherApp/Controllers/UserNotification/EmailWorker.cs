@@ -142,11 +142,18 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                 {
                     var _mode = _info.Temperature ?? TemperatureMode.F;
                     var _rrb = new PersonalizedForecastResultBuilder(_info.UserName, _mode);
+                    LogManager.GetLogger(GetType()).Debug("Processing sendInfo:"+_info.Id);
                     if (IsRightTime(_info))
                     {
+                        LogManager.GetLogger(GetType()).Debug("Processing sendInfo, time was right:" + _info.Id);
                         var _weatherWorker = new WeatherWorker(_info.UserName);
                         var _forecastRoot = _weatherWorker.GetForecast10(_info.City);
+                        LogManager.GetLogger(GetType()).Debug("Received forecast:" + _info.Id);
+                        if (string.IsNullOrEmpty(_info.DataFileId))
+                            continue;
                         var _jobId = GetJobId(_info);
+                        LogManager.GetLogger(GetType()).Debug("Started job:" + _info.Id);
+
                         var _riskValue = _rrb.GetAppChainResultingRisks(_jobId.Item1.ToString(), _jobId.Item2.ToString());
                         var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
 
@@ -165,16 +172,19 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
 
                         if (_info.SendSms ?? false)
                         {
+                            LogManager.GetLogger(GetType()).Debug("Sending sms:" + _info.Id);
                             SendSmsNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
                         }
 
                         if (notificationService.IsUserSubscribed(_info.Id))
                         {
+                            LogManager.GetLogger(GetType()).Debug("Sending push:" + _info.Id);
                             SendPushNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
                         }
 
                         if (_info.SendEmail ?? false)
                         {
+                            LogManager.GetLogger(GetType()).Debug("Sending email:" + _info.Id);
                             SendEmailNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription, _forecastRoot, _mode, _api, _subj);
                         }
 
