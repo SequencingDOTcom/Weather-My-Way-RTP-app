@@ -17,7 +17,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         private OAuthTokenDaoFactory oauthFactory = new OAuthTokenDaoFactory();
 
 
-
         public SendInfo GetInfo(string name)
         {
             using (var _ctx = new WeatherAppDbEntities())
@@ -28,6 +27,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
+        /// <summary>
+        /// Extension for user location set
+        /// </summary>
+        /// <param name="city"></param>
+        /// <param name="userToken"></param>
         public void SetUserLocationExt(string city, string userToken)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).userName;
@@ -37,6 +41,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 logger.InfoFormat("Invalid access token");
         }
 
+
+        /// <summary>
+        /// Set user location
+        /// </summary>
+        /// <param name="city"></param>
+        /// <param name="name"></param>
         public void SetUserLocation(string city, string name)
         {
             if (String.IsNullOrEmpty(city))
@@ -51,6 +61,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             });
         }
 
+        /// <summary>
+        /// Extension for user file change
+        /// </summary>
+        /// <param name="selectedName"></param>
+        /// <param name="selectedId"></param>
+        /// <param name="token"></param>
         public void SetUserDataFileExt(string selectedName, string selectedId, string token)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(token).userName;
@@ -60,6 +76,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 logger.InfoFormat("Invalid access token");
         }
 
+        /// <summary>
+        /// Change user file
+        /// </summary>
+        /// <param name="selectedName"></param>
+        /// <param name="selectedId"></param>
+        /// <param name="name"></param>
         public void SetUserDataFile(string selectedName, string selectedId, string name)
         {
             if (String.IsNullOrEmpty(selectedName))
@@ -91,6 +113,29 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 _emailWorker.SendSmsInvite(existingInfo);
 
             UpdateUserSettingsImpl(existingInfo);
+        }
+
+        /// <summary>
+        /// Retrieve user settings from database
+        /// </summary>
+        /// <param name="userToken"></param>
+        /// <returns></returns>
+        public SendInfo GetUserSettings(string userToken)
+        {
+            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).userName;
+
+            if(userName != null)
+            {
+                SendInfo info = factory.GetSendInfoDao().Find(userName);
+
+                if (info == null)
+                {
+                    info = factory.GetSendInfoDao().Insert(new SendInfo { UserName = userName });
+                }
+                return info;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -168,7 +213,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
 
         /// <summary>
-        /// ///////////////////////////////////////////////////////////////////
+        /// Subscribes push notifications
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="token"></param>
@@ -178,15 +223,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         {
             IPushNotificationService notificationService = new DefaultPushNotificationService();
 
-            System.Diagnostics.Debug.WriteLine(string.Format("SubscribePushNotification: userId {0}, token {1}, deviceType {2}", userId, token, deviceType));
-
             if (notificationService.IsTokenSubscribed(token) == false)
             {
                 notificationService.SubscribeDeviceToken(userId, token, deviceType);
                 notificationService.Send(userId, deviceType, token, Options.NotificationMessage);
             }
-            else
-                System.Diagnostics.Debug.WriteLine(string.Format("User with token: {0} is already subscibed", token));
         }
     }
 }

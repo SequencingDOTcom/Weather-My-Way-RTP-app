@@ -12,6 +12,9 @@ using System.Web;
 
 namespace Sequencing.WeatherApp.Controllers.PushNotification
 {
+    /// <summary>
+    /// Android  push message logic implementsation
+    /// </summary>
     public class AndroidPushMessageSender : PushMessageSender
     {
         private GcmConfiguration config;

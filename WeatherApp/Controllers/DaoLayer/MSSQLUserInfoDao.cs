@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Mandrill.Models;
+using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
@@ -18,9 +18,23 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             throw new NotImplementedException();
         }
 
-        public void SaveUser(UserInfo info)
+        public UserInfo SaveUser(UserInfo info)
         {
-            throw new NotImplementedException();
+            using (var dbCtx = new WeatherAppDbEntities())
+            {
+                var firstOrDefault = dbCtx.UserInfoes.FirstOrDefault(user => user.UserName == info.UserName);
+
+                if (firstOrDefault == null)
+                {
+                    dbCtx.UserInfoes.Add(info);
+                    dbCtx.SaveChanges();
+
+                    return info;
+                }
+
+                return firstOrDefault;
+            }
         }
+
     }
 }

@@ -12,13 +12,14 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     {
         public ILog logger = LogManager.GetLogger(typeof(MSSQLSendInfoDao));
 
-        public void Insert(SendInfo info)
+        public SendInfo Insert(SendInfo info)
         {
             using (var dbCtx = new WeatherAppDbEntities())
             {
                 dbCtx.SendInfoes.Add(info);
                 dbCtx.SaveChanges();
             }
+            return info;
         }
 
         public SendInfo Find(string userName)
