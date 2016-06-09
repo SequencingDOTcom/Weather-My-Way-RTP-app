@@ -13,6 +13,10 @@ using System.Threading;
 
 namespace Sequencing.WeatherApp.Controllers.PushNotification
 {
+
+    /// <summary>
+    /// IOS  push message logic implementsation
+    /// </summary>
     public class IosPushMessageSender : PushMessageSender
     {
         private ApnsConfiguration config;
@@ -24,6 +28,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         {
             return DeviceType.IOS;
         }
+
 
         public IosPushMessageSender()
         {
@@ -83,7 +88,10 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             });
         }
 
-        private void CheckAndRemoveExiredToken()
+        /// <summary>
+        /// Removes expired token
+        /// </summary>
+        private void CheckAndRemoveExpiredToken()
         {
             try
             {
@@ -100,9 +108,13 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             }
         }
 
+        /// <summary>
+        /// Initiates timer for expired token removal
+        /// </summary>
+        /// <param name="delayInHours"></param>
         private void SetUpFeedbackServiceTimer(Int64 delayInHours)
         {
-            new System.Threading.Timer(x => { CheckAndRemoveExiredToken(); },
+            new System.Threading.Timer(x => { CheckAndRemoveExpiredToken(); },
                 null, 60 * 1000 /*initial delay*/, delayInHours * 60 * 1000 /*execution delay*/);
         }
     }

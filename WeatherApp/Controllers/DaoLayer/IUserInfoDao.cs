@@ -1,4 +1,4 @@
-﻿using Mandrill.Models;
+﻿using Sequencing.WeatherApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     public interface IUserInfoDao
     {
-        void SaveUser(UserInfo info);
+        UserInfo SaveUser(UserInfo info);
 
         void DeleteUser(string userName);
 

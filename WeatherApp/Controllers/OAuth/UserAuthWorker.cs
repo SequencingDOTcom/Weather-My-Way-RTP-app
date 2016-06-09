@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using Sequencing.WeatherApp.Models;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers.OAuth
 {
@@ -11,6 +12,9 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
     /// </summary>
     public class UserAuthWorker
     {
+        private MSSQLDaoFactory factory = new MSSQLDaoFactory();
+        private OAuthTokenDaoFactory oauthFactory = new OAuthTokenDaoFactory();
+
         private readonly string userNameOvr;
 
         public UserAuthWorker()
@@ -29,23 +33,17 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
         /// <returns></returns>
         public UserInfo CreateNewUserToken(TokenInfo info)
         {
-            using (var _ctx = new WeatherAppDbEntities())
-            {
-                var _userInfo = new UserInfo
-                                {
-                                    AuthToken = info.access_token,
-                                    RefreshToken = info.refresh_token,
-                                    UserName = "user@name.placeholder",
-                                    AuthDt = DateTime.Now
-                                };
+            var _userName = oauthFactory.GetOAuthTokenDao().getUser(info.access_token).userName;
 
-                var _str = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                    Options.OAuthAppId).GetUserInfo(info.access_token).username;
-                _userInfo.UserName = _str;
-                _ctx.UserInfoes.Add(_userInfo);
-                _ctx.SaveChanges();
-                return _userInfo;
-            }
+            var _userInfo = new UserInfo
+            {
+                AuthToken = info.access_token,
+                RefreshToken = info.refresh_token,
+                UserName = _userName,
+                AuthDt = DateTime.Now
+            };
+
+            return factory.GetUserInfoDao().SaveUser(_userInfo);
         }
 
         /// <summary>

@@ -12,6 +12,10 @@ using Sequencing.WeatherApp.Controllers.DaoLayer;
 
 namespace Sequencing.WeatherApp.Controllers
 {
+
+    /// <summary>
+    /// Controller used in mobile app
+    /// </summary>
     public class ExternalSettingsController : ControllerBase
     {
         public ILog log = LogManager.GetLogger(typeof(ExternalSettingsController));
@@ -21,6 +25,20 @@ namespace Sequencing.WeatherApp.Controllers
         OAuthTokenDaoFactory oauthFactory = new OAuthTokenDaoFactory();
         ISettingService settingsService = new UserSettingService();
 
+        /// <summary>
+        /// Change user notifications in database
+        /// </summary>
+        /// <param name="emailChk"></param>
+        /// <param name="smsChk"></param>
+        /// <param name="email"></param>
+        /// <param name="phone"></param>
+        /// <param name="wakeupDay"></param>
+        /// <param name="wakeupEnd"></param>
+        /// <param name="timezoneSelect"></param>
+        /// <param name="timezoneOffset"></param>
+        /// <param name="weekendMode"></param>
+        /// <param name="temperature"></param>
+        /// <param name="token"></param>
         [HttpPost]
         public void ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
@@ -53,6 +71,13 @@ namespace Sequencing.WeatherApp.Controllers
                 log.InfoFormat("Invalid access token");
         }
 
+        /// <summary>
+        /// Subscribe user to get push notification
+        /// </summary>
+        /// <param name="pushCheck"></param>
+        /// <param name="deviceToken"></param>
+        /// <param name="deviceType"></param>
+        /// <param name="accessToken"></param>
         [HttpPost]
         public void SubscribePushNotification(bool pushCheck, string deviceToken, DeviceType deviceType, string accessToken)
         {
@@ -62,16 +87,63 @@ namespace Sequencing.WeatherApp.Controllers
                 pushService.Unsubscribe(deviceToken);
         }
 
+        /// <summary>
+        /// Set new file to database
+        /// </summary>
+        /// <param name="selectedId"></param>
+        /// <param name="selectedName"></param>
+        /// <param name="token"></param>
         [HttpPost]
         public void SaveFile(string selectedId, string selectedName, string token)
         {
             settingsService.SetUserDataFileExt(selectedName, selectedId, token);
         }
 
+        /// <summary>
+        /// Change location
+        /// </summary>
+        /// <param name="city"></param>
+        /// <param name="token"></param>
         [HttpPost]
         public void SaveLocation(string city, string token)
         {
             settingsService.SetUserLocationExt(city, token);
         }
+
+
+        /// <summary>
+        /// Add user in database after registration
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="expiresIn"></param>
+        /// <param name="tokenType"></param>
+        /// <param name="scope"></param>
+        /// <param name="refreshToken"></param>
+        [HttpPost]
+        public void AuthCallback(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
+        {
+            TokenInfo tokenInfo = new TokenInfo()
+            {
+                access_token = accessToken,
+                expires_in = expiresIn,
+                token_type = tokenType,
+                scope = scope,
+                refresh_token = refreshToken
+            };
+
+            new UserAuthWorker().CreateNewUserToken(tokenInfo);
+        }
+
+        /// <summary>
+        /// Retrieve user settings if exists. Create default if doesn't
+        /// </summary>
+        /// <param name="accessToken"></param>
+        [HttpPost]
+        public void RetrieveUserSettings(string accessToken)
+        {
+            settingsService.GetUserSettings(accessToken);
+        }
+
+
     }
 }

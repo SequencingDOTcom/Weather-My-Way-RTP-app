@@ -17,5 +17,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         SendInfo GetInfo(string name);
         void UpdateUserSettings(SendInfo info);
         decimal ParseTimeZoneOffset(string offset);
+        SendInfo GetUserSettings(string userToken);
     }
 }

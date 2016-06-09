@@ -8,6 +8,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     public class OauthTokenDao : IFrontendDao
     {
+
+        /// <summary>
+        /// Gets user info from frontend
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public FrontendUser getUser(string token)
         {
             return new FrontendUser

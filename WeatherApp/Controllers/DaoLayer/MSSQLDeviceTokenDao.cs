@@ -11,6 +11,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     {
         public ILog logger = LogManager.GetLogger(typeof(MSSQLDeviceTokenDao));
 
+        /// <summary>
+        /// Deletes token from database
+        /// </summary>
+        /// <param name="token"></param>
         public void DeleteToken(string token)
         {
             using (var dbCtx = new WeatherAppDbEntities())
@@ -29,6 +33,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
+        /// <summary>
+        /// Searches token in database
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public DeviceToken FindToken(string token)
         {
             using (var dbCtx = new WeatherAppDbEntities())
@@ -37,6 +46,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
+
+        /// <summary>
+        /// Retrieves user tokens
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="deviceType"></param>
+        /// <returns></returns>
         public List<string> GetUserTokens(Int64 userId, DeviceType deviceType)
         {
             using (var dbCtx = new WeatherAppDbEntities())
@@ -45,6 +61,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
+        /// <summary>
+        /// Counts user devices
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public int SelectCount(Int64 userId)
         {
             using (var dbCtx = new WeatherAppDbEntities())
