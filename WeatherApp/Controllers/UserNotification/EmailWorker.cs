@@ -268,12 +268,11 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                     var _sb = new StringBuilder();
                     _sb.Append("<p style='text-align:left'>")
                         .AppendFormat(
-                            "Genetically tailored email notifications have been successfully enabled for your <a href='{0}' class='external'>Weather My Way +RTP app</a>. You will receive your first personalized weather forecast by the time you wake up tomorrow.",
-                            Options.BaseSiteUrl)
-                        .Append("</p><br/>");
+                            "Genetically tailored email notifications have been successfully enabled for your <a href='{0}' class='external'>Weather My Way +RTP</a> app. You will receive your first personalized weather forecast by the time you wake up tomorrow.",
+                            "https://sequencing.com/weather-my-way-rtp")
+                        .Append("</p>");
                     _sb.Append("<p style='text-align:left'>");
-                    _sb.AppendFormat("Notification settings may be changed by going to your app.",
-                        Options.BaseSiteUrl).Append("</p>");
+                    _sb.AppendFormat("Notification settings may be changed by going to your app.").Append("</p>");
                     SendEmail(_api, _firstOrDefault, "Email notifications from weather app", _sb.ToString());
                 }
             }
