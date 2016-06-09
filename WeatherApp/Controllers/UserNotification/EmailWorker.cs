@@ -266,13 +266,13 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                 {
                     var _api = new MandrillApi(Options.MandrillApi);
                     var _sb = new StringBuilder();
-                    _sb.Append("<p style='text-align:center'>")
+                    _sb.Append("<p style='text-align:left'>")
                         .AppendFormat(
                             "Genetically tailored email notifications have been successfully enabled for your <a href='{0}' class='external'>Weather My Way +RTP app</a>. You will receive your first personalized weather forecast by the time you wake up tomorrow.",
                             Options.BaseSiteUrl)
                         .Append("</p><br/>");
-                    _sb.Append("<p style='text-align:center'>");
-                    _sb.AppendFormat("Notification settings may be changed by going to your <a href='{0}' class='external'>app</a>.  ",
+                    _sb.Append("<p style='text-align:left'>");
+                    _sb.AppendFormat("Notification settings may be changed by going to your app.",
                         Options.BaseSiteUrl).Append("</p>");
                     SendEmail(_api, _firstOrDefault, "Email notifications from weather app", _sb.ToString());
                 }
@@ -285,7 +285,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         /// <param name="name"></param>
         public void SendSmsInvite(SendInfo info)
         {
-            string message = "Genetically tailored SMS notifications successfully enabled for your Weather My Way + RTP app.Email apps@weathermyway.rocks if u didn't activate this notification.";
+            string message = "Genetically tailored SMS notifications successfully enabled for your Weather My Way + RTP app. Email apps@weathermyway.rocks if you didn't activate this notification.";
             SendSms(info, message);
         }
     }
