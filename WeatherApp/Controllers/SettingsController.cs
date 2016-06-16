@@ -4,6 +4,7 @@ using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.UserNotification;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
+using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -20,7 +21,7 @@ namespace Sequencing.WeatherApp.Controllers
         {
             var _name = User.Identity.Name;
             var _sendInfo = settingService.GetInfo(_name);
-            ViewBag.SelectedLocation = _sendInfo.City;
+            ViewBag.SelectedLocation = WeatherWorker.ConvertFromIDToName(_sendInfo.City);
             ViewBag.EmailSend = _sendInfo.SendEmail ?? false;
             ViewBag.SmsSend = _sendInfo.SendSms ?? false;
             ViewBag.Email = _sendInfo.UserEmail;
@@ -43,7 +44,6 @@ namespace Sequencing.WeatherApp.Controllers
                               new {Id = WeekEndMode.PushAndSms.ToString(), Name = "Send push and msg (SMS) notifications on weekend"},
                               new {Id = WeekEndMode.All.ToString(), Name = "Send all notifications on weekend"},
                           };
-
             ViewBag.weekendModeList = new SelectList(_values, "Id", "Name", _sendInfo.WeekendMode.ToString());
             ViewBag.weekendMode = _sendInfo.WeekendMode;
             ViewBag.temperature = _sendInfo.Temperature;
@@ -78,7 +78,6 @@ namespace Sequencing.WeatherApp.Controllers
 
             if (!string.IsNullOrEmpty(timezoneOffset))
                 info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
-
 
             settingService.UpdateUserSettings(info);
 

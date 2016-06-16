@@ -112,15 +112,15 @@ namespace Sequencing.WeatherApp.Controllers
 
 
         /// <summary>
-        /// Add user in database after registration
+        /// Retrieve user settings from database
         /// </summary>
         /// <param name="accessToken"></param>
         /// <param name="expiresIn"></param>
         /// <param name="tokenType"></param>
         /// <param name="scope"></param>
         /// <param name="refreshToken"></param>
-        [HttpPost]
-        public void AuthCallback(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
+		[HttpPost]
+        public SendInfo RetrieveUserSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
         {
             TokenInfo tokenInfo = new TokenInfo()
             {
@@ -131,19 +131,9 @@ namespace Sequencing.WeatherApp.Controllers
                 refresh_token = refreshToken
             };
 
-            new UserAuthWorker().CreateNewUserToken(tokenInfo);
+            SendInfo sendInfo = settingsService.GetUserSettings(tokenInfo);
+
+            return sendInfo;
         }
-
-        /// <summary>
-        /// Retrieve user settings if exists. Create default if doesn't
-        /// </summary>
-        /// <param name="accessToken"></param>
-        [HttpPost]
-        public void RetrieveUserSettings(string accessToken)
-        {
-            settingsService.GetUserSettings(accessToken);
-        }
-
-
     }
 }

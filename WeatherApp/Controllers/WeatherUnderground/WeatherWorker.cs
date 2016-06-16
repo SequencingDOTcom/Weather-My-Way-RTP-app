@@ -4,6 +4,9 @@ using System.Net;
 using Newtonsoft.Json;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
+using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier;
+using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier.RootObject;
+using static Sequencing.WeatherApp.Controllers.WeatherUnderground.CurrentObservationRoot;
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
@@ -22,40 +25,24 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
             this.userName = userName;
         }
 
-        private string GetCityCoords(string city)
-        {
-            using (var _wb = new WebClient())
-            {
-                var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?query=" + city);
-                var _root = JsonConvert.DeserializeObject<CityMapResultRoot>(_res);
-                if (_root.RESULTS.Count != 0)
-                    return _root.RESULTS[0].l;
-            }
-            return city;
-        }
-
         private Forecast10Root GetForecast10Impl(string city)
         {
-            var _cityMapResult = GetCityCoords(city);
-            if (_cityMapResult == null)
-                return null;
             using (var _wb = new WebClient())
             {
                 var _res = _wb.DownloadString(string.Format("http://api.wunderground.com/api/{0}/forecast10day/conditions/alerts/astronomy/q/{1}.json",
-                    Options.WUKey, _cityMapResult));
+                    Options.WUKey, city));
                 var _data = JsonConvert.DeserializeObject<Forecast10Root>(_res);
                 return _data;
             }
         }
 
 
-        public CurrentObservationRoot GetConditions(string city)
+        public static CurrentObservationRoot GetConditions(string city)
         {
-            var _cityMapResult = GetCityCoords(city);
             using (var _wb = new WebClient())
             {
                 var _res = _wb.DownloadString(string.Format("http://api.wunderground.com/api/{0}/conditions/q/{1}.json",
-                    Options.WUKey, _cityMapResult));
+                    Options.WUKey, city));
                 var _data = JsonConvert.DeserializeObject<CurrentObservationRoot>(_res);
                 return _data;
             }
@@ -95,6 +82,32 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
                 }
             }
             return GetForecast10Impl(city);
+        }
+
+        /// <summary>
+        /// Converts location name to its ID
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="cityName"></param>
+        /// <returns></returns>
+        public static string ConvertFromNameToID(RootObject obj, string cityName)
+        {
+            foreach (RESULT res in obj.RESULTS)
+            {
+                if (res.name.Equals(cityName))
+                    return res.l;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Converts location ID to its name
+        /// </summary>
+        /// <param name="cityID"></param>
+        /// <returns></returns>
+        public static string ConvertFromIDToName(string cityID)
+        {
+           return GetConditions(cityID).current_observation.display_location.full;
         }
     }
 }

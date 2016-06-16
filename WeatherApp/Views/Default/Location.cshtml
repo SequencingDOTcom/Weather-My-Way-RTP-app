@@ -26,12 +26,37 @@
         </p>
     </div>
     <div id="location">               
-        <div id="locIn">
-            @Html.TextBox("city", Model.Context.City, new {placeholder = "Enter your location", style = "width:75%"})
-            <div class="city-error"></div>
+        <div id="locIn">         
+            <input type="text" list="cities" id="city" name="city" style= "width:75%" placeholder = "Enter your location"/>
+            <div id="locButton"><input id="contButton" type="submit" value="Continue" /></div>
+            <datalist id="cities">
+            </datalist>
+            <script>
+                $('#city').on('input', function () {
+                    var data= {
+                        city: $('#city').val(),
+                    };
+                    $.ajax({
+                        url: "/Default/VerifyLocation",
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (data) {
+                            var mydata = JSON.parse(data).RESULTS;
+                            $('#cities').empty();
+                            for (i in mydata) {
+                                $('#cities').append("<option value='" + mydata[i]['name'] + "'>");
+                            }
+                        }
+                    });
+                    return false;
+                });
+            </script>
+            
+           <div class="city-error"></div>
         </div>
         <div id="discoverButton"><img id="locIcon" src="/assets/img/location-crosshairs-icon-Sequencing-com-32px.png" /><a id="discButton">Auto-detect <br/> location</a></div>
-        <div id="locButton"><button id="contButton"  type="submit">Continue</button></div>
     </div>
     
 }
@@ -45,36 +70,6 @@
         color: red;
     }
 </style>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var form = $('#contButton').parents('form');
-        form.submit(function (e) {
-            var errorContainer = form.find('.city-error');
-            errorContainer.html('Checking city...');
-            e.preventDefault();
-            var city = form.find('#city').val();
-            $.ajax({
-                url: '@Html.Raw(Url.Action("VerifyLocation", "Default"))',
-                method: 'GET',
-                data: {
-                    city: city
-                },
-                success: function (data, textStatus, jqXHR) {
-                    if (data == "True") {
-                        form.get(0).submit();
-                    }
-                    else {
-                        errorContainer.html('');
-                        errorContainer.append($('<div></div>').addClass('error').text('This location is not recognized.'));
-                        errorContainer.append($('<div></div>').addClass('error').text("Use the 'Location auto-detect' button or enter in a nearby location."));
-                    }
-                }
-            });
-        });
-    });
-</script>
-
 
 <script>
     $(document).ready(function() {
