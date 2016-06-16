@@ -4,9 +4,6 @@ using System.Net;
 using Newtonsoft.Json;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
-using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier;
-using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier.RootObject;
-using static Sequencing.WeatherApp.Controllers.WeatherUnderground.CurrentObservationRoot;
 
 namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
 {
@@ -90,9 +87,9 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
         /// <param name="obj"></param>
         /// <param name="cityName"></param>
         /// <returns></returns>
-        public static string ConvertFromNameToID(RootObject obj, string cityName)
+        public static string ConvertFromNameToID(LocationVerifier.RootObject obj, string cityName)
         {
-            foreach (RESULT res in obj.RESULTS)
+            foreach (LocationVerifier.RootObject.RESULT res in obj.RESULTS)
             {
                 if (res.name.Equals(cityName))
                     return res.l;
