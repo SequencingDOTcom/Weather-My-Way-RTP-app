@@ -26,6 +26,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         {
             using (var dbCtx = new WeatherAppDbEntities())
             {
+                dbCtx.SendInfoes.Include("DeviceTokens").ToList();
+
                 return dbCtx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
             }
         }
