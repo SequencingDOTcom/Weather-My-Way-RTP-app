@@ -10,8 +10,6 @@ using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
 using Newtonsoft.Json;
-using Sequencing.WeatherApp.Controllers;
-using System.Web.Http.Cors;
 using log4net;
 
 

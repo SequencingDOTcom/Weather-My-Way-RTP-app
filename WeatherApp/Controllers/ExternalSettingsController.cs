@@ -44,7 +44,7 @@ namespace Sequencing.WeatherApp.Controllers
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
             WeekEndMode weekendMode, TemperatureMode temperature, string token)
         {
-            string name = oauthFactory.GetOAuthTokenDao().getUser(token).userName;
+            string name = oauthFactory.GetOAuthTokenDao().getUser(token).username;
 
             if (name != null)
             {
