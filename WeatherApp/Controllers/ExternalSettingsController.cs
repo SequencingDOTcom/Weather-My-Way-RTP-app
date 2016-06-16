@@ -131,9 +131,7 @@ namespace Sequencing.WeatherApp.Controllers
                 refresh_token = refreshToken
             };
 
-            SendInfo sendInfo = settingsService.GetUserSettings(tokenInfo);
-
-            return Json(sendInfo, JsonRequestBehavior.AllowGet);
+            return Json(settingsService.GetUserSettings(tokenInfo), JsonRequestBehavior.AllowGet);
         }
     }
 }
