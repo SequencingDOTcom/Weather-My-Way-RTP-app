@@ -10,10 +10,10 @@ using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
 using Newtonsoft.Json;
-using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier;
-using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier.RootObject;
+using Sequencing.WeatherApp.Controllers;
 using System.Web.Http.Cors;
 using log4net;
+
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -23,7 +23,7 @@ namespace Sequencing.WeatherApp.Controllers
         private readonly AuthWorker authWorker = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret, Options.OAuthAppId);
         public ILog log = LogManager.GetLogger(typeof(DefaultController));
         ISettingService settingService = new UserSettingService();
-        public static RootObject rootObj;
+        public static LocationVerifier.RootObject rootObj;
 
         /// <summary>
         /// Landing page
@@ -250,6 +250,11 @@ namespace Sequencing.WeatherApp.Controllers
         /// </summary>
         /// <param name="city"></param>
         /// <returns></returns>
+        /* public ActionResult VerifyLocation(string city)
+         {
+             var _res = new LocationVerifier(Context).IsLocationValid(city);
+             return Content(_res.ToString());
+         }*/
 
         [HttpPost]
         public JsonResult VerifyLocation(string city)
@@ -257,7 +262,7 @@ namespace Sequencing.WeatherApp.Controllers
             using (var _wb = new WebClient())
             {
                 var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?format=JSON&query=" + city);
-                rootObj = JsonConvert.DeserializeObject<RootObject>(_res);
+                rootObj = JsonConvert.DeserializeObject<LocationVerifier.RootObject>(_res);
                 return Json(_res, JsonRequestBehavior.AllowGet);
             }           
         }

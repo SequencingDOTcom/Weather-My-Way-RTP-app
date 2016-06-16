@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using static Sequencing.WeatherApp.Controllers.OAuth.AuthWorker;
+using Sequencing.WeatherApp.Controllers.OAuth;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     public interface IFrontendDao
     {
-        DrupalOAuthInfo getUser(string token);
+        AuthWorker.DrupalOAuthInfo getUser(string token);
     }
 }
