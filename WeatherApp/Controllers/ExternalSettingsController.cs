@@ -119,8 +119,8 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="tokenType"></param>
         /// <param name="scope"></param>
         /// <param name="refreshToken"></param>
-		[HttpPost]
-        public SendInfo RetrieveUserSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
+        [HttpPost]
+        public JsonResult RetrieveUserSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
         {
             TokenInfo tokenInfo = new TokenInfo()
             {
@@ -133,7 +133,7 @@ namespace Sequencing.WeatherApp.Controllers
 
             SendInfo sendInfo = settingsService.GetUserSettings(tokenInfo);
 
-            return sendInfo;
+            return Json(sendInfo, JsonRequestBehavior.AllowGet);
         }
     }
 }
