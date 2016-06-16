@@ -62,7 +62,7 @@
             <source id="currentVid" src="" type="video/mp4" />
         </video>
         @{
-            if (Model.Context.IsAuthenticated && Model.Forecast != null)
+            if (Model.Context.IsAuthenticated && Model.Forecast != null && Model.Context.City != null)
             {
                 var dayNightHour = Model.Forecast.moon_phase.current_time.hour;
                 var dayNightMinute = Model.Forecast.moon_phase.current_time.minute;

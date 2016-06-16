@@ -9,17 +9,21 @@ using Sequencing.WeatherApp.Controllers.OAuth;
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
+using Newtonsoft.Json;
+using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier;
+using static Sequencing.WeatherApp.Controllers.WeatherUnderground.LocationVerifier.RootObject;
+using System.Web.Http.Cors;
+using log4net;
 
 namespace Sequencing.WeatherApp.Controllers
 {
-    /// <summary>
-    /// Main controller for working out the main workflow sequence
-    /// </summary>
+
     public class DefaultController : ControllerBase
     {
         private readonly AuthWorker authWorker = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret, Options.OAuthAppId);
-
+        public ILog log = LogManager.GetLogger(typeof(DefaultController));
         ISettingService settingService = new UserSettingService();
+        public static RootObject rootObj;
 
         /// <summary>
         /// Landing page
@@ -33,8 +37,7 @@ namespace Sequencing.WeatherApp.Controllers
                 var _urlReferrer = Request.UrlReferrer;
                 if (_urlReferrer == null || _urlReferrer.Host != Request.Url.Host)
                 {
-                    if (!string.IsNullOrEmpty(Context.DataFileId) && !string.IsNullOrEmpty(Context.City))
-                        return RedirectToAction("StartJob", new { selectedId = Context.DataFileId});
+                   return RedirectToAction("StartJobSequence");             
                 }
             }
             return View(new CommonData());
@@ -200,6 +203,7 @@ namespace Sequencing.WeatherApp.Controllers
             var _isAuthenticated = User.Identity.IsAuthenticated;
             var _userName = User.Identity.Name;
             var _runResult = new PersonalizedForecastResultBuilder(_userName, TemperatureMode.F).Build(jobId, jobId2, Context.City);
+            Context.City = WeatherWorker.ConvertFromIDToName(Context.City);
             ViewBag.ShowEmail = _isAuthenticated;
             ViewBag.LastJobId = jobId;
             ViewBag.City = Context.City;
@@ -246,16 +250,27 @@ namespace Sequencing.WeatherApp.Controllers
         /// </summary>
         /// <param name="city"></param>
         /// <returns></returns>
-        public ActionResult VerifyLocation(string city)
-        {
-            var _res = new LocationVerifier(Context).IsLocationValid(city);
-            return Content(_res.ToString());
+
+        [HttpPost]
+        public JsonResult VerifyLocation(string city)
+       {   
+            using (var _wb = new WebClient())
+            {
+                var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?format=JSON&query=" + city);
+                rootObj = JsonConvert.DeserializeObject<RootObject>(_res);
+                return Json(_res, JsonRequestBehavior.AllowGet);
+            }           
         }
 
         [Authorize]
         public ActionResult SaveLocation(string city)
         {
-            settingService.SetUserLocation(city, User.Identity.Name);
+            string location = WeatherWorker.ConvertFromNameToID(rootObj, city);
+
+            if (location == null)
+                location = Context.City;
+
+            settingService.SetUserLocation(location, User.Identity.Name);
             if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
                 return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
             return RedirectToAction("SelectFile");
@@ -269,7 +284,6 @@ namespace Sequencing.WeatherApp.Controllers
                 return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
             return RedirectToAction("StartJob", new { selectedId, city = Context.City });
         }
-
 
         public ActionResult GetIcon(string icon, bool night = false)
         {

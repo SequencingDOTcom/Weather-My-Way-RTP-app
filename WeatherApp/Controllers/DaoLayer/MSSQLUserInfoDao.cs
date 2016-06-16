@@ -36,5 +36,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
+        public int SelectCount(string userName)
+        {
+            using (var dbCtx = new WeatherAppDbEntities())
+            {
+                return dbCtx.UserInfoes.Where(info => info.UserName == userName).Select(info => info).Count();
+            }
+        }
     }
 }

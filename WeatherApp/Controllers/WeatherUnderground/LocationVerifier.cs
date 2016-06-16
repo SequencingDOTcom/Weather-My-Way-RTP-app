@@ -17,22 +17,6 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
             this.ctx = ctx;
         }
 
-        public bool IsLocationValid(string city)
-        {
-           using (var _wb = new WebClient())
-            {
-                var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?query=" + city);
-                var _rootObject = JsonConvert.DeserializeObject<RootObject>(_res);
-                if (_rootObject.RESULTS.Count != 0)
-                    return true;
-                var _currentObservationRoot = new WeatherWorker(ctx.UserName).GetConditions(city);
-                if (_currentObservationRoot.current_observation != null)
-                    return true;
-                return false;
-            }   
-        }
-
-   
         public class RootObject
         {
             public List<RESULT> RESULTS { get; set; }
@@ -50,7 +34,6 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
                 public string lat { get; set; }
                 public string lon { get; set; }
             }
-
         }
     }
 }

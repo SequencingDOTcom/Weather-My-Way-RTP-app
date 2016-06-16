@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static Sequencing.WeatherApp.Controllers.OAuth.AuthWorker;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
@@ -14,13 +15,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public FrontendUser getUser(string token)
+        public DrupalOAuthInfo getUser(string token)
         {
-            return new FrontendUser
-            {
-                userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                Options.OAuthAppId).GetUserInfo(token).username
-            };
+            return new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                Options.OAuthAppId).GetUserInfo(token);
         }
     }
 }

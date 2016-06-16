@@ -7,6 +7,7 @@ using Sequencing.WeatherApp.Controllers.PushNotification;
 using System.Text;
 using Sequencing.WeatherApp.Controllers.UserNotification;
 using log4net;
+using Sequencing.WeatherApp.Controllers.OAuth;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
@@ -34,7 +35,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userToken"></param>
         public void SetUserLocationExt(string city, string userToken)
         {
-            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).userName;
+            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).username;
             if (userName != null)
                 SetUserLocation(city, userName);
             else
@@ -69,7 +70,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="token"></param>
         public void SetUserDataFileExt(string selectedName, string selectedId, string token)
         {
-            string userName = oauthFactory.GetOAuthTokenDao().getUser(token).userName;
+            string userName = oauthFactory.GetOAuthTokenDao().getUser(token).username;
             if (userName != null)
                 SetUserDataFile(selectedName, selectedId, userName);
             else
@@ -120,9 +121,9 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// </summary>
         /// <param name="userToken"></param>
         /// <returns></returns>
-        public SendInfo GetUserSettings(string userToken)
+        public SendInfo GetUserSettings(TokenInfo tokenInfo)
         {
-            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).userName;
+            string userName = oauthFactory.GetOAuthTokenDao().getUser(tokenInfo.access_token).username;
 
             if(userName != null)
             {
@@ -130,11 +131,12 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
                 if (info == null)
                 {
-                    info = factory.GetSendInfoDao().Insert(new SendInfo { UserName = userName });
+                    info = factory.GetSendInfoDao().Insert(new SendInfo(userName));
+                    if(factory.GetUserInfoDao().SelectCount(userName) == 0)
+                        new UserAuthWorker().CreateNewUserToken(tokenInfo);
                 }
                 return info;
             }
-
             return null;
         }
 

@@ -1,4 +1,5 @@
-﻿using Sequencing.WeatherApp.Controllers.PushNotification;
+﻿using Sequencing.WeatherApp.Controllers.OAuth;
+using Sequencing.WeatherApp.Controllers.PushNotification;
 using Sequencing.WeatherApp.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         SendInfo GetInfo(string name);
         void UpdateUserSettings(SendInfo info);
         decimal ParseTimeZoneOffset(string offset);
-        SendInfo GetUserSettings(string userToken);
+        SendInfo GetUserSettings(TokenInfo userToken);
     }
 }

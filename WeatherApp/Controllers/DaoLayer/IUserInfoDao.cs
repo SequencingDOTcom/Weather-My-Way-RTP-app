@@ -13,5 +13,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         void DeleteUser(string userName);
 
         UserInfo FindUser(string userName);
+
+        int SelectCount(string userName);
+
     }
 }

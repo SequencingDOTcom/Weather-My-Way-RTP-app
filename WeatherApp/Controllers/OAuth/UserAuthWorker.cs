@@ -33,7 +33,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
         /// <returns></returns>
         public UserInfo CreateNewUserToken(TokenInfo info)
         {
-            var _userName = oauthFactory.GetOAuthTokenDao().getUser(info.access_token).userName;
+            var _userName = oauthFactory.GetOAuthTokenDao().getUser(info.access_token).username;
 
             var _userInfo = new UserInfo
             {

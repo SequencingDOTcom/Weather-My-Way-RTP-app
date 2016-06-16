@@ -161,7 +161,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                         var _subj =
                             string.Format("Forecast for " +
                                           DateTime.Now.ToString("dddd MMMM d"));
-                        var _city = _info.City;
+                        var _city = WeatherWorker.ConvertFromIDToName(_info.City);
                         var _time = _forecastRoot.current_observation.observation_time;
                         var _todayForecast = _mode == TemperatureMode.F ?
                             _forecastRoot.forecast.txt_forecast.forecastday[0].fcttext :
@@ -202,7 +202,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
 
             notificationService.Send(_info.Id, _msg1);
 
-            //SendOnSiteNotification(_info, _msg1);
+           
         }
 
         private void SendSmsNotification(SendInfo _info, string _city, string _todayForecast, string _currentObservation, string _riskDescription)
