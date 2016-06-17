@@ -137,6 +137,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 }
                 return info;
             }
+            logger.InfoFormat("Invalid access token");
             return null;
         }
 
