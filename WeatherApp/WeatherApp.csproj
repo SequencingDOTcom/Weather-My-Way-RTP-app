@@ -679,7 +679,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
+    <Compile Include="Controllers\DaoLayer\ApplicationException.cs" />
+    <Compile Include="Controllers\DaoLayer\DaoException.cs" />
     <Compile Include="Controllers\DaoLayer\DefaultNotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\GenericResponse.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDao.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDaoFactory.cs" />
     <Compile Include="Controllers\DaoLayer\INotificationService.cs" />
