@@ -14,39 +14,61 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
         public SendInfo Insert(SendInfo info)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                dbCtx.SendInfoes.Add(info);
-                dbCtx.SaveChanges();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    dbCtx.SendInfoes.Add(info);
+                    dbCtx.SaveChanges();
+                }
+                return info;
             }
-            return info;
+            catch (Exception e)
+            {
+                throw new DaoException("Error inserting user " + info.UserName + " in database", e);
+            }
         }
 
         public SendInfo Find(string userName)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                dbCtx.SendInfoes.Include("DeviceTokens").ToList();
-
-                return dbCtx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    dbCtx.SendInfoes.Include("DeviceTokens").ToList();
+                    return dbCtx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException("Error finding user " + userName + " in database", e);
             }
         }
 
         public SendInfo Update(SendInfo sendInfo)
         {
             SendInfo result = null;
-
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                result = dbCtx.SendInfoes.SingleOrDefault(info => info.UserName == sendInfo.UserName);
-
-                if (result != null)
+                using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    result.Merge(sendInfo);
-                    dbCtx.SaveChanges();
+                    result = dbCtx.SendInfoes.SingleOrDefault(info => info.UserName == sendInfo.UserName);
+
+                    if (result != null)
+                    {
+                        result.Merge(sendInfo);
+                        dbCtx.SaveChanges();
+
+                        return result;
+                    }
+                    else
+                        throw new DaoException("No user " + sendInfo.UserName + " found in database");
                 }
-                return result;
+            }
+            catch (Exception e)
+            {
+                throw new DaoException("Error updating user " + sendInfo.UserName + " in database. "+ e.Message, e);
             }
         }
-    }  
+    }
 }

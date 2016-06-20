@@ -105,9 +105,9 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                     return _drupalOAuthInfo;
                 }
             }
-            catch
+            catch (Exception e)
             {
-                return null;
+                throw new DaoLayer.ApplicationException(string.Format("Invalid access token {0}. {1}", token, e.Message));
             }
         }
 
