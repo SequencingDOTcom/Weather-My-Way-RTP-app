@@ -35,11 +35,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userToken"></param>
         public void SetUserLocationExt(string city, string userToken)
         {
-            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).username;
-            if (userName != null)
-                SetUserLocation(city, userName);
-            else
-                logger.InfoFormat("Invalid access token");
+                string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).username;
+                if (userName != null)
+                    SetUserLocation(city, userName);
+                else
+                    throw new ApplicationException(string.Format("Invalid access token {0}" , userToken));
         }
 
 
@@ -71,10 +71,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public void SetUserDataFileExt(string selectedName, string selectedId, string token)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(token).username;
+
             if (userName != null)
                 SetUserDataFile(selectedName, selectedId, userName);
             else
-                logger.InfoFormat("Invalid access token");
+                throw new ApplicationException(string.Format("Invalid access token {0}", token));
         }
 
         /// <summary>
@@ -137,8 +138,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 }
                 return info;
             }
-            logger.InfoFormat("Invalid access token");
-            return null;
+            throw new ApplicationException(string.Format("Invalid access token {0}", tokenInfo.access_token));
         }
 
         /// <summary>
@@ -202,16 +202,23 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
         public decimal ParseTimeZoneOffset(string offset)
         {
-            decimal _sign = 1;
-            if (offset.StartsWith("-"))
-                _sign = -1;
-            if (offset.Contains(":"))
+            try
             {
-                var _strings = offset.Substring(1).Split(':');
-                return _sign * (decimal.Parse(_strings[0]) + decimal.Parse(_strings[1]) / 60);
+                decimal _sign = 1;
+                if (offset.StartsWith("-"))
+                    _sign = -1;
+                if (offset.Contains(":"))
+                {
+                    var _strings = offset.Substring(1).Split(':');
+                    return _sign * (decimal.Parse(_strings[0]) + decimal.Parse(_strings[1]) / 60);
+                }
+                else
+                    return decimal.Parse(offset);
             }
-            else
-                return decimal.Parse(offset);
+            catch (Exception e)
+            {
+                throw new ApplicationException(string.Format("Unable to parse time zone"), e);
+            }
         }
 
 
@@ -224,12 +231,21 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
         public void SubscribePushNotification(long userId, string token, DeviceType deviceType)
         {
-            IPushNotificationService notificationService = new DefaultPushNotificationService();
-
-            if (notificationService.IsTokenSubscribed(token) == false)
+            try
             {
-                notificationService.SubscribeDeviceToken(userId, token, deviceType);
-                notificationService.Send(userId, deviceType, token, Options.NotificationMessage);
+                IPushNotificationService notificationService = new DefaultPushNotificationService();
+
+                if (notificationService.IsTokenSubscribed(token) == false)
+                {
+                    notificationService.SubscribeDeviceToken(userId, token, deviceType);
+                    notificationService.Send(userId, deviceType, token, Options.NotificationMessage);
+                }
+                else
+                    throw new ApplicationException("Device already subscribed");
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException(e.Message);
             }
         }
     }

@@ -30,19 +30,25 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="accessToken"></param>
         public void Subscribe(string deviceToken, DeviceType deviceType, string accessToken)
         {
-            string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                Options.OAuthAppId).GetUserInfo(accessToken).username;
-
-            // checking for token validity
-            if (userName != null)
+            try
             {
-                var sendInfo = mssqlDaoFactory.GetSendInfoDao().Find(userName);
+               string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+               Options.OAuthAppId).GetUserInfo(accessToken).username;
 
-                if (sendInfo != null)
-                    settingsService.SubscribePushNotification(sendInfo.Id, deviceToken, deviceType);
+                if (userName != null)
+                {
+                    var sendInfo = mssqlDaoFactory.GetSendInfoDao().Find(userName);
+
+                    if (sendInfo != null)
+                        settingsService.SubscribePushNotification(sendInfo.Id, deviceToken, deviceType);
+                }
+                else
+                    throw new ApplicationException(string.Format("Invalid access token {0}", accessToken));
             }
-            else
-                logger.InfoFormat("Invalid access token");
+            catch (Exception e)
+            {
+                throw new ApplicationException(e.Message);
+            }   
         }
 
         /// <summary>
@@ -63,15 +69,21 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="message"></param>
         public void Send(Int64 userId, DeviceType deviceType, string token, string message)
         {
-            PushMessageSender pushMessageSender = GetPushMessageSender(deviceType);
-
-            if (pushMessageSender == null)
+            try
             {
-                logger.Error(string.Format("Device type: {0} is not supported", deviceType));
-                return;
-            }
+                PushMessageSender pushMessageSender = GetPushMessageSender(deviceType);
 
-            pushMessageSender.SendPushNotification(token, message, userId);
+                if (pushMessageSender == null)
+                {
+                    throw new ApplicationException(string.Format("Device type: {0} is not supported", deviceType));
+                }
+
+                pushMessageSender.SendPushNotification(token, message, userId);
+            }
+            catch(Exception e)
+            {
+                throw new ApplicationException(e.Message);
+            }  
         }
 
 
@@ -115,7 +127,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                logger.Error(e);
+                throw new DaoLayer.ApplicationException(e.Message);
             }
 
         }
