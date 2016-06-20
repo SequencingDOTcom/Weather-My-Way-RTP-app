@@ -17,19 +17,29 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="token"></param>
         public void DeleteToken(string token)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == token);
-
-                if (singleOrDefault != null)
+                using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    dbCtx.DeviceTokens.Remove(singleOrDefault);
-                    dbCtx.SaveChanges();
+                    var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == token);
 
-                    logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
+                    if (singleOrDefault != null)
+                    {
+                        dbCtx.DeviceTokens.Remove(singleOrDefault);
+                        dbCtx.SaveChanges();
+
+                        logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
+                    }
+                    else
+                    {
+                        logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
+                        throw new DaoException(string.Format("Token {0} is already removed from database", token));
+                    }                     
                 }
-                else
-                    logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error deleting device token {0}. {1}.", token, e.Message), e);
             }
         }
 
@@ -40,9 +50,16 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <returns></returns>
         public DeviceToken FindToken(string token)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                return dbCtx.DeviceTokens.FirstOrDefault(info => info.token == token);
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceTokens.FirstOrDefault(info => info.token == token);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error finding device token {0}. {1}", token, e.Message), e);
             }
         }
 
@@ -55,9 +72,16 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <returns></returns>
         public List<string> GetUserTokens(Int64 userId, DeviceType deviceType)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                return dbCtx.DeviceTokens.Where(info => info.userId == userId && info.deviceType == deviceType).Select(info => info.token).ToList();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceTokens.Where(info => info.userId == userId && info.deviceType == deviceType).Select(info => info.token).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error getting device token. "+e.Message), e);
             }
         }
 
@@ -68,42 +92,72 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <returns></returns>
         public int SelectCount(Int64 userId)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).Count();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).Count();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error counting user device tokens. "+ e.Message), e);
             }
         }
 
         public void SaveToken(DeviceToken tokenInfo)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                dbCtx.DeviceTokens.Add(tokenInfo);
-                dbCtx.SaveChanges();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    dbCtx.DeviceTokens.Add(tokenInfo);
+                    dbCtx.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error inserting device token {0}."+e.Message, tokenInfo), e);
             }
         }
 
         public List<DeviceToken> Select(long userId)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).ToList();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error selecting device token. "+e.Message), e);
             }
         }
 
         public void UpdateToken(string oldId, string newId)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == oldId);
-
-                if (singleOrDefault != null)
+                using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    singleOrDefault.token = newId;
-                    dbCtx.SaveChanges();
+                    var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == oldId);
 
-                    logger.InfoFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
+                    if (singleOrDefault != null)
+                    {
+                        singleOrDefault.token = newId;
+                        dbCtx.SaveChanges();
+
+                        logger.InfoFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
+                    }
+                    else 
+                        throw new DaoException(string.Format("No device token {0} found in database. ", oldId));
                 }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error updating device token {0}. {1}", oldId, e.Message), e);
             }
         }
     }

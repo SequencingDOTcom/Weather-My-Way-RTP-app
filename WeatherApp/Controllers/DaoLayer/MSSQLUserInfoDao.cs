@@ -20,27 +20,41 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
         public UserInfo SaveUser(UserInfo info)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                var firstOrDefault = dbCtx.UserInfoes.FirstOrDefault(user => user.UserName == info.UserName);
-
-                if (firstOrDefault == null)
+                using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    dbCtx.UserInfoes.Add(info);
-                    dbCtx.SaveChanges();
+                    var firstOrDefault = dbCtx.UserInfoes.FirstOrDefault(user => user.UserName == info.UserName);
 
-                    return info;
+                    if (firstOrDefault == null)
+                    {
+                        dbCtx.UserInfoes.Add(info);
+                        dbCtx.SaveChanges();
+
+                        return info;
+                    }
+
+                    return firstOrDefault;
                 }
-
-                return firstOrDefault;
+            }
+            catch (Exception e)
+            {
+                throw new DaoException("Error inserting  new user token info " + info, e);
             }
         }
 
         public int SelectCount(string userName)
         {
-            using (var dbCtx = new WeatherAppDbEntities())
+            try
             {
-                return dbCtx.UserInfoes.Where(info => info.UserName == userName).Select(info => info).Count();
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.UserInfoes.Where(info => info.UserName == userName).Select(info => info).Count();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException("Error counting user access tokens", e);
             }
         }
     }
