@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Sequencing.WeatherApp.Models;
 using log4net;
+using System.Data.Entity.Core.Objects;
 
 namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
@@ -21,11 +22,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == token);
+                    var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.token == token);
 
                     if (singleOrDefault != null)
                     {
-                        dbCtx.DeviceTokens.Remove(singleOrDefault);
+                        dbCtx.DeviceInfo.Remove(singleOrDefault);
                         dbCtx.SaveChanges();
 
                         logger.InfoFormat(string.Format("Token {0} successfully removed from database", token));
@@ -48,13 +49,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public DeviceToken FindToken(string token)
+        public DeviceInfo FindToken(string token)
         {
             try
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    return dbCtx.DeviceTokens.FirstOrDefault(info => info.token == token);
+                    return dbCtx.DeviceInfo.FirstOrDefault(info => info.token == token);
                 }
             }
             catch (Exception e)
@@ -76,7 +77,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    return dbCtx.DeviceTokens.Where(info => info.userId == userId && info.deviceType == deviceType).Select(info => info.token).ToList();
+                    return dbCtx.DeviceInfo.Where(info => info.userId == userId && info.deviceType == deviceType).Select(info => info.token).ToList();
                 }
             }
             catch (Exception e)
@@ -96,7 +97,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).Count();
+                    return dbCtx.DeviceInfo.Where(info => info.userId == userId).Select(info => info).Count();
                 }
             }
             catch (Exception e)
@@ -105,29 +106,29 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
-        public void SaveToken(DeviceToken tokenInfo)
+        public void SaveToken(DeviceInfo tokenInfo)
         {
             try
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    dbCtx.DeviceTokens.Add(tokenInfo);
+                    dbCtx.DeviceInfo.Add(tokenInfo);
                     dbCtx.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                throw new DaoException(string.Format("Error inserting device token {0}."+e.Message, tokenInfo), e);
+                throw new DaoException(string.Format("Error inserting device token {0}. "+e.Message, tokenInfo.token), e);
             }
         }
 
-        public List<DeviceToken> Select(long userId)
+        public List<DeviceInfo> Select(long userId)
         {
             try
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    return dbCtx.DeviceTokens.Where(info => info.userId == userId).Select(info => info).ToList();
+                    return dbCtx.DeviceInfo.Where(info => info.userId == userId).Select(info => info).ToList();
                 }
             }
             catch (Exception e)
@@ -142,7 +143,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    var singleOrDefault = dbCtx.DeviceTokens.SingleOrDefault(info => info.token == oldId);
+                    var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.token == oldId);
 
                     if (singleOrDefault != null)
                     {

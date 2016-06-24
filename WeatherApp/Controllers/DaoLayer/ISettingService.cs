@@ -10,7 +10,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     interface ISettingService
     {
-        void SubscribePushNotification(Int64 userId, string token, DeviceType deviceType);
+        void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info);
         void SetUserLocation(string city, string name);
         void SetUserLocationExt(string city, string userToken);
         void SetUserDataFile(string selectedName, string selectedId, string name);
@@ -18,6 +18,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         SendInfo GetInfo(string name);
         void UpdateUserSettings(SendInfo info);
         decimal ParseTimeZoneOffset(string offset);
-        SendInfo GetUserSettings(TokenInfo userToken);
+        string DeviceTokenSetting(string oldToken, string newToken, bool sendPush, DeviceType deviceType, string accessToken, long userId);
+        SendInfo RetrieveSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken);
     }
 }

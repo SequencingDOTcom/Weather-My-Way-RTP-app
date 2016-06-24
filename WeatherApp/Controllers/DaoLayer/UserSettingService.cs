@@ -22,7 +22,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         {
             using (var _ctx = new WeatherAppDbEntities())
             {
-                SendInfo _firstOrDefault = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == name)
+                SendInfo _firstOrDefault = _ctx.SendInfo.FirstOrDefault(info => info.UserName == name)
                                            ?? new SendInfo(name);
                 return _firstOrDefault;
             }
@@ -35,11 +35,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userToken"></param>
         public void SetUserLocationExt(string city, string userToken)
         {
-                string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).username;
-                if (userName != null)
-                    SetUserLocation(city, userName);
-                else
-                    throw new ApplicationException(string.Format("Invalid access token {0}" , userToken));
+            string userName = oauthFactory.GetOAuthTokenDao().getUser(userToken).username;
+            if (userName != null)
+                SetUserLocation(city, userName);
+            else
+                throw new ApplicationException(string.Format("Invalid access token {0}", userToken));
         }
 
 
@@ -117,28 +117,114 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             UpdateUserSettingsImpl(existingInfo);
         }
 
+        public string DeviceTokenSetting(string oldToken, string newToken, bool sendPush, DeviceType deviceType, string accessToken, long userId)
+        {
+            try
+            {
+                if (sendPush == true && newToken != null && oldToken == null)
+                {
+                    ProcessSubscribe(newToken, deviceType, accessToken);
+                    logger.InfoFormat("Device token {0} successfully subscribed", newToken);
+                    return string.Format("Device token {0} successfully subscribed", newToken);
+                }
+                else if (sendPush == true && newToken != null && oldToken != null)
+                {
+                    return ProcessUpdate(oldToken, newToken, userId, deviceType);
+                }
+
+                return "Settings successfully retrieved";
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException(e.Message);
+            }
+        }
+
+        private string ProcessUpdate(string oldToken, string newToken, long userId, DeviceType deviceType)
+        {
+            try
+            {
+                IPushNotificationService notificationSrv = new DefaultPushNotificationService();
+
+                if (notificationSrv.IsTokenSubscribed(oldToken))
+                {
+                    if (!newToken.Equals(oldToken))
+                    {
+                        notificationSrv.RefreshDeviceToken(oldToken, newToken);
+                        logger.InfoFormat("Device token {0} successfully updated with new token {1}", oldToken, newToken);
+                        return string.Format("Device token {0} successfully updated with new token {1}", oldToken, newToken);
+                    }
+                        
+                }
+                else if (!notificationSrv.IsTokenSubscribed(newToken))
+                {
+                    notificationSrv.SubscribeDeviceToken(newToken, deviceType, userId);
+                    return string.Format("New device token {0} successfully inserted in database", newToken);
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException(e.Message);
+            }
+        }
+
+        private void ProcessSubscribe(string newToken, DeviceType deviceType, string accessToken)
+        {
+            try
+            {
+                IPushNotificationService notificationSrv = new DefaultPushNotificationService();
+
+                if (!notificationSrv.IsTokenSubscribed(newToken))
+                    notificationSrv.Subscribe(newToken, deviceType, accessToken);
+                else
+                    throw new ApplicationException("Device already subscribed");
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException(e.Message);
+            }
+        }
+
         /// <summary>
         /// Retrieve user settings from database
         /// </summary>
         /// <param name="userToken"></param>
         /// <returns></returns>
-        public SendInfo GetUserSettings(TokenInfo tokenInfo)
+        private SendInfo GetUserSettings(TokenInfo tokenInfo)
         {
             string userName = oauthFactory.GetOAuthTokenDao().getUser(tokenInfo.access_token).username;
 
-            if(userName != null)
+            if (userName != null)
             {
                 SendInfo info = factory.GetSendInfoDao().Find(userName);
 
                 if (info == null)
                 {
                     info = factory.GetSendInfoDao().Insert(new SendInfo(userName));
-                    if(factory.GetUserInfoDao().SelectCount(userName) == 0)
+                    if (factory.GetUserInfoDao().SelectCount(userName) == 0)
                         new UserAuthWorker().CreateNewUserToken(tokenInfo);
                 }
                 return info;
             }
             throw new ApplicationException(string.Format("Invalid access token {0}", tokenInfo.access_token));
+        }
+
+        public SendInfo RetrieveSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken)
+        {
+            TokenInfo tokenInfo = new TokenInfo()
+            {
+                access_token = accessToken,
+                expires_in = expiresIn,
+                token_type = tokenType,
+                scope = scope,
+                refresh_token = refreshToken
+            };
+
+            SendInfo info = GetUserSettings(tokenInfo);
+            info.LastWeatherUpdate = null;
+
+            return info;
         }
 
         /// <summary>
@@ -229,7 +315,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="token"></param>
         /// <param name="deviceType"></param>
 
-        public void SubscribePushNotification(long userId, string token, DeviceType deviceType)
+        public void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info)
         {
             try
             {
@@ -237,8 +323,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
                 if (notificationService.IsTokenSubscribed(token) == false)
                 {
-                    notificationService.SubscribeDeviceToken(userId, token, deviceType);
-                    notificationService.Send(userId, deviceType, token, Options.NotificationMessage);
+                    notificationService.SubscribeDeviceToken(token, deviceType, info.Id);
+                    notificationService.Send(info.Id, deviceType, token, Options.NotificationMessage);
                 }
                 else
                     throw new ApplicationException("Device already subscribed");

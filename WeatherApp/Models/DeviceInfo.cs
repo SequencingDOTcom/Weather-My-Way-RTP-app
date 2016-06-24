@@ -12,14 +12,12 @@ namespace Sequencing.WeatherApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DeviceToken
+    public partial class DeviceInfo
     {
         public long id { get; set; }
         public Nullable<long> userId { get; set; }
         public Nullable<DeviceType> deviceType { get; set; }
         public string token { get; set; }
         public Nullable<System.DateTime> subscriptionDate { get; set; }
-    
-        public virtual SendInfo SendInfo { get; set; }
     }
 }

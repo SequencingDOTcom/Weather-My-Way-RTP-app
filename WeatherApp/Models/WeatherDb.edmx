@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WeatherAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="DeviceTokens">
+      <Schema Namespace="WeatherMyWayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DeviceInfo">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -51,31 +51,52 @@
           <Property Name="RefreshToken" Type="nvarchar" MaxLength="250" />
           <Property Name="AuthDt" Type="datetime" />
         </EntityType>
-        <Association Name="Id">
-          <End Role="SendInfo" Type="Self.SendInfo" Multiplicity="0..1" />
-          <End Role="DeviceTokens" Type="Self.DeviceTokens" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SendInfo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DeviceTokens">
-              <PropertyRef Name="userId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="WeatherAppDbModelStoreContainer">
-          <EntitySet Name="DeviceTokens" EntityType="Self.DeviceTokens" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="WeatherMyWayModelStoreContainer">
+          <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SendInfo" EntityType="Self.SendInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="Id" Association="Self.Id">
-            <End Role="SendInfo" EntitySet="SendInfo" />
-            <End Role="DeviceTokens" EntitySet="DeviceTokens" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="WeatherAppDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="WeatherMyWayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeviceInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int64" />
+          <Property Name="deviceType" Type="WeatherMyWayModel.DeviceType" />
+          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SendInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SendEmail" Type="Boolean" />
+          <Property Name="SendSms" Type="Boolean" />
+          <Property Name="SendRoost" Type="Boolean" />
+          <Property Name="UserEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastSendDt" Type="DateTime" Precision="3" />
+          <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DataFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DataFileId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TimeWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeWeekEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneOffset" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="WeekendMode" Type="WeatherMyWayModel.WeekEndMode" />
+          <Property Name="Temperature" Type="WeatherMyWayModel.TemperatureMode" />
+          <Property Name="SmsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SmsUseFrom2" Type="Boolean" />
+          <Property Name="LastWeatherUpdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WeatherUpdateDt" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="Id" />
@@ -87,130 +108,65 @@
           <Property Name="AuthDt" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
-          <EntitySet Name="SendInfoes" EntityType="WeatherAppDbModel.SendInfo" />
-          <EntitySet Name="DeviceTokens" EntityType="WeatherAppDbModel.DeviceToken" />
-          <AssociationSet Name="Id" Association="WeatherAppDbModel.Id">
-            <End Role="SendInfo" EntitySet="SendInfoes" />
-            <End Role="DeviceToken" EntitySet="DeviceTokens" />
-          </AssociationSet>
+          <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" />
+          <EntitySet Name="SendInfo" EntityType="Self.SendInfo" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
         </EntityContainer>
-        <EntityType Name="SendInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SendEmail" Type="Boolean" />
-          <Property Name="SendSms" Type="Boolean" />
-          <Property Name="UserEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="LastSendDt" Type="DateTime" Precision="3" />
-          <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DataFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="DataFileId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="TimeWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TimeWeekEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TimeZoneValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TimeZoneOffset" Type="Decimal" Precision="18" Scale="5" />
-          <Property Name="WeekendMode" Type="WeatherAppDbModel.WeekEndMode" />
-          <Property Name="Temperature" Type="WeatherAppDbModel.TemperatureMode" />
-          <Property Name="SmsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SmsUseFrom2" Type="Boolean" />
-          <Property Name="SendRoost" Type="Boolean" />
-          <Property Name="LastWeatherUpdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="WeatherUpdateDt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="DeviceTokens" Relationship="WeatherAppDbModel.Id" FromRole="SendInfo" ToRole="DeviceToken" />
-        </EntityType>
-        <EnumType Name="WeekEndMode">
-          <Member Name="SendSms" Value="0" />
-          <Member Name="SendEmail" Value="1" />
-          <Member Name="SendBoth" Value="2" />
-          <Member Name="None" Value="3" />
-        </EnumType>
-        <EnumType Name="TemperatureMode">
-          <Member Name="F" Value="0" />
-          <Member Name="C" Value="1" />
-        </EnumType>
-        <EntityType Name="DeviceToken">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userId" Type="Int64" />
-          <Property Name="deviceType" Type="WeatherAppDbModel.DeviceType" />
-          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="SendInfo" Relationship="WeatherAppDbModel.Id" FromRole="DeviceToken" ToRole="SendInfo" />
-        </EntityType>
-        <Association Name="Id">
-          <End Type="WeatherAppDbModel.SendInfo" Role="SendInfo" Multiplicity="0..1" />
-          <End Type="WeatherAppDbModel.DeviceToken" Role="DeviceToken" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SendInfo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DeviceToken">
-              <PropertyRef Name="userId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EnumType Name="DeviceType">
-          <Member Name="IOS" Value="1" />
-          <Member Name="Android" Value="2" />
-        </EnumType>
+        <EnumType Name="DeviceType" />
+        <EnumType Name="WeekEndMode" />
+        <EnumType Name="TemperatureMode" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WeatherAppDbModelStoreContainer" CdmEntityContainer="WeatherAppDbEntities">
-          <EntitySetMapping Name="UserInfoes">
-            <EntityTypeMapping TypeName="WeatherAppDbModel.UserInfo">
+        <EntityContainerMapping StorageEntityContainer="WeatherMyWayModelStoreContainer" CdmEntityContainer="WeatherAppDbEntities">
+          <EntitySetMapping Name="DeviceInfo">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.DeviceInfo">
+              <MappingFragment StoreEntitySet="DeviceInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="deviceType" ColumnName="deviceType" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="subscriptionDate" ColumnName="subscriptionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SendInfo">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.SendInfo">
+              <MappingFragment StoreEntitySet="SendInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
+                <ScalarProperty Name="SendSms" ColumnName="SendSms" />
+                <ScalarProperty Name="SendRoost" ColumnName="SendRoost" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="LastSendDt" ColumnName="LastSendDt" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DataFileName" ColumnName="DataFileName" />
+                <ScalarProperty Name="DataFileId" ColumnName="DataFileId" />
+                <ScalarProperty Name="TimeWeekDay" ColumnName="TimeWeekDay" />
+                <ScalarProperty Name="TimeWeekEnd" ColumnName="TimeWeekEnd" />
+                <ScalarProperty Name="TimeZoneValue" ColumnName="TimeZoneValue" />
+                <ScalarProperty Name="TimeZoneOffset" ColumnName="TimeZoneOffset" />
+                <ScalarProperty Name="WeekendMode" ColumnName="WeekendMode" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="SmsId" ColumnName="SmsId" />
+                <ScalarProperty Name="SmsUseFrom2" ColumnName="SmsUseFrom2" />
+                <ScalarProperty Name="LastWeatherUpdate" ColumnName="LastWeatherUpdate" />
+                <ScalarProperty Name="WeatherUpdateDt" ColumnName="WeatherUpdateDt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
-                <ScalarProperty Name="AuthDt" ColumnName="AuthDt" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
                 <ScalarProperty Name="RefreshToken" ColumnName="RefreshToken" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SendInfoes">
-            <EntityTypeMapping TypeName="WeatherAppDbModel.SendInfo">
-              <MappingFragment StoreEntitySet="SendInfo">
-                <ScalarProperty Name="WeatherUpdateDt" ColumnName="WeatherUpdateDt" />
-                <ScalarProperty Name="LastWeatherUpdate" ColumnName="LastWeatherUpdate" />
-                <ScalarProperty Name="SendRoost" ColumnName="SendRoost" />
-                <ScalarProperty Name="SmsUseFrom2" ColumnName="SmsUseFrom2" />
-                <ScalarProperty Name="SmsId" ColumnName="SmsId" />
-                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
-                <ScalarProperty Name="WeekendMode" ColumnName="WeekendMode" />
-                <ScalarProperty Name="TimeZoneOffset" ColumnName="TimeZoneOffset" />
-                <ScalarProperty Name="TimeZoneValue" ColumnName="TimeZoneValue" />
-                <ScalarProperty Name="TimeWeekEnd" ColumnName="TimeWeekEnd" />
-                <ScalarProperty Name="TimeWeekDay" ColumnName="TimeWeekDay" />
-                <ScalarProperty Name="DataFileId" ColumnName="DataFileId" />
-                <ScalarProperty Name="DataFileName" ColumnName="DataFileName" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="LastSendDt" ColumnName="LastSendDt" />
-                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
-                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="SendSms" ColumnName="SendSms" />
-                <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DeviceTokens">
-            <EntityTypeMapping TypeName="WeatherAppDbModel.DeviceToken">
-              <MappingFragment StoreEntitySet="DeviceTokens">
-                <ScalarProperty Name="subscriptionDate" ColumnName="subscriptionDate" />
-                <ScalarProperty Name="token" ColumnName="token" />
-                <ScalarProperty Name="deviceType" ColumnName="deviceType" />
-                <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AuthDt" ColumnName="AuthDt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -228,7 +184,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

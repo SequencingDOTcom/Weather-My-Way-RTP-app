@@ -13,10 +13,6 @@ using System.Threading;
 
 namespace Sequencing.WeatherApp.Controllers.PushNotification
 {
-
-    /// <summary>
-    /// IOS  push message logic implementsation
-    /// </summary>
     public class IosPushMessageSender : PushMessageSender
     {
         private ApnsConfiguration config;
@@ -28,7 +24,6 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         {
             return DeviceType.IOS;
         }
-
 
         public IosPushMessageSender()
         {
@@ -51,9 +46,14 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         var statusCode = notificationException.ErrorStatusCode;
 
                         logger.Error(string.Format("Apple Notification Failed: ID={0}, Code={1}, Token ={2}", apnsNotification.Identifier, statusCode, notification.DeviceToken));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Apple Notification Failed: ID={0}, Code={1}, Token ={2}", apnsNotification.Identifier, statusCode, notification.DeviceToken));
                     }
                     else
+                    {
                         logger.Error(string.Format("Apple Notification Failed for some unknown reason : {0}, Token = {1}", ex.InnerException, notification.DeviceToken));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Apple Notification Failed for some unknown reason : {0}, Token = {1}", ex.InnerException, notification.DeviceToken));
+                    }
+                        
 
                     notificationService.Unsubscribe(notification.DeviceToken);
 
@@ -64,6 +64,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             apnsBroker.OnNotificationSucceeded += (notification) =>
             {
                 logger.Info("Notification Successfully Sent to: " + notification.DeviceToken);
+                System.Diagnostics.Debug.WriteLine("Notification Successfully Sent to: " + notification.DeviceToken);
             };
 
             apnsBroker.Start();
@@ -88,9 +89,6 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             });
         }
 
-        /// <summary>
-        /// Removes expired token
-        /// </summary>
         private void CheckAndRemoveExpiredToken()
         {
             try
@@ -102,16 +100,12 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                 };
                 fbs.Check();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 logger.Info("Unable to usubscibed user" + e.Message);
             }
         }
 
-        /// <summary>
-        /// Initiates timer for expired token removal
-        /// </summary>
-        /// <param name="delayInHours"></param>
         private void SetUpFeedbackServiceTimer(Int64 delayInHours)
         {
             new System.Threading.Timer(x => { CheckAndRemoveExpiredToken(); },

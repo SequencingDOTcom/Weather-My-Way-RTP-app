@@ -11,12 +11,11 @@ namespace Sequencing.WeatherApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class SendInfo
     {
         public SendInfo()
-        {
-            this.DeviceTokens = new HashSet<DeviceToken>();
+        { 
         }
 
         public SendInfo(string name)
@@ -48,8 +47,7 @@ namespace Sequencing.WeatherApp.Models
         public Nullable<bool> SendRoost { get; set; }
         public string LastWeatherUpdate { get; set; }
         public Nullable<System.DateTime> WeatherUpdateDt { get; set; }
-    
-        public virtual ICollection<DeviceToken> DeviceTokens { get; set; }
+
 
         public void Merge(SendInfo from)
         {
