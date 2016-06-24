@@ -99,8 +99,16 @@
       <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -110,6 +118,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -142,12 +158,6 @@
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -618,6 +628,16 @@
     <Content Include="favicon-96x96.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\WeatherDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WeatherDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeatherDb.edmx</DependentUpon>
+      <LastGenOutput>WeatherDb.cs</LastGenOutput>
+    </Content>
     <Content Include="ms-icon-144x144.png" />
     <Content Include="ms-icon-150x150.png" />
     <Content Include="ms-icon-310x310.png" />
@@ -641,18 +661,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>WeatherDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\WeatherDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeatherDb.edmx</DependentUpon>
-      <LastGenOutput>WeatherDb.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\WeatherDb.edmx.diagram">
       <DependentUpon>WeatherDb.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\WeatherDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeatherDb.edmx</DependentUpon>
-      <LastGenOutput>WeatherDb.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
@@ -679,7 +689,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
+    <Compile Include="Controllers\DaoLayer\ApplicationException.cs" />
+    <Compile Include="Controllers\DaoLayer\DaoException.cs" />
     <Compile Include="Controllers\DaoLayer\DefaultNotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\GenericResponse.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDao.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDaoFactory.cs" />
     <Compile Include="Controllers\DaoLayer\INotificationService.cs" />
@@ -723,7 +736,7 @@
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
-    <Compile Include="Models\DeviceToken.cs">
+    <Compile Include="Models\DeviceInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeviceType.cs">
@@ -806,7 +819,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ExternalFileSave\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
