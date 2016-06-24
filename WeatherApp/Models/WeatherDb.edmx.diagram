@@ -4,12 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b5f11e0ce2484001a26bbdee2be1b464" Name="Diagram1">
-        <EntityTypeShape EntityType="WeatherAppDbModel.SendInfo" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WeatherAppDbModel.UserInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WeatherAppDbModel.sysdiagram" Width="1.5" PointX="3.375" PointY="3.75" />
-        <EntityTypeShape EntityType="WeatherAppDbModel.DeviceToken" Width="1.5" PointX="5.875" PointY="3.625" />
-        <AssociationConnector Association="WeatherAppDbModel.Id" />
+      <Diagram DiagramId="5237b18b701c4e3b836fa378decaa2d5" Name="Diagram1">
+        <EntityTypeShape EntityType="WeatherMyWayModel.DeviceInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.SendInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.UserInfo" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

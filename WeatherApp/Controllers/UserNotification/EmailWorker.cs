@@ -137,7 +137,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
             {
                 var _api = new MandrillApi(Options.MandrillApi);
                 var _infos =
-                    _ctx.SendInfoes.Where(info => (info.SendEmail ?? false) || (info.SendSms ?? false)).ToList();
+                    _ctx.SendInfo.Where(info => (info.SendEmail ?? false) || (info.SendSms ?? false)).ToList();
                 foreach (var _info in _infos)
                 {
                     var _mode = _info.Temperature ?? TemperatureMode.F;
@@ -261,7 +261,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         {
             using (var _ctx = new WeatherAppDbEntities())
             {
-                var _firstOrDefault = _ctx.SendInfoes.FirstOrDefault(info => info.UserName == name);
+                var _firstOrDefault = _ctx.SendInfo.FirstOrDefault(info => info.UserName == name);
                 if (_firstOrDefault != null)
                 {
                     var _api = new MandrillApi(Options.MandrillApi);

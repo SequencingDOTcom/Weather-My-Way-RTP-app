@@ -60,7 +60,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                 using (var _ctx = new WeatherAppDbEntities())
                 {
                     var _id = long.Parse(_formsAuthenticationTicket.UserData);
-                    var _userInfo = _ctx.UserInfoes.FirstOrDefault(info => info.Id == _id);
+                    var _userInfo = _ctx.UserInfo.FirstOrDefault(info => info.Id == _id);
                     return _userInfo;
                 }
             }
@@ -68,7 +68,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
             {
                 using (var _ctx = new WeatherAppDbEntities())
                 {
-                    var _userInfo = _ctx.UserInfoes.Where(info => info.UserName == userNameOvr).OrderByDescending(info => info.Id).First();
+                    var _userInfo = _ctx.UserInfo.Where(info => info.UserName == userNameOvr).OrderByDescending(info => info.Id).First();
                     return _userInfo;
                 }
             }
@@ -83,7 +83,7 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
         {
             using (var _ctx = new WeatherAppDbEntities())
             {
-                var _userInfo = _ctx.UserInfoes.FirstOrDefault(info => info.Id == ui.Id);
+                var _userInfo = _ctx.UserInfo.FirstOrDefault(info => info.Id == ui.Id);
                 _userInfo.AuthToken = ui.AuthToken;
                 _ctx.SaveChanges();
                 return _userInfo;

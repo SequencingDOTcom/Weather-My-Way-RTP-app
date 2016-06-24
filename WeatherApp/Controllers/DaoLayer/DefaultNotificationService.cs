@@ -40,7 +40,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     var sendInfo = mssqlDaoFactory.GetSendInfoDao().Find(userName);
 
                     if (sendInfo != null)
-                        settingsService.SubscribePushNotification(sendInfo.Id, deviceToken, deviceType);
+                        settingsService.SubscribePushNotification(deviceToken, deviceType, sendInfo);
                 }
                 else
                     throw new ApplicationException(string.Format("Invalid access token {0}", accessToken));
@@ -94,9 +94,9 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="message"></param>
         public void Send(Int64 userId, string message)
         {
-            List<DeviceToken> deviceTokensInfo = mssqlDaoFactory.GetDeviceTokenDao().Select(userId);
+            List<DeviceInfo> deviceTokensInfo = mssqlDaoFactory.GetDeviceTokenDao().Select(userId);
 
-            foreach (DeviceToken token in deviceTokensInfo)
+            foreach (DeviceInfo token in deviceTokensInfo)
             {
                 Send(userId, token.deviceType.Value, token.token, message);
             }
@@ -108,19 +108,20 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <param name="deviceType"></param>
-        public void SubscribeDeviceToken(Int64 userId, string token, DeviceType deviceType)
+        public void SubscribeDeviceToken(string token, DeviceType deviceType, long userId)
         {
             try
             {
                 if (IsTokenSubscribed(token))
                     return;
 
-                DeviceToken devInfo = new DeviceToken
+                DeviceInfo devInfo = new DeviceInfo
                 {
                     userId = userId,
                     subscriptionDate = DateTime.Now.Date,
                     deviceType = deviceType,
-                    token = token
+                    token = token,
+                   
                 };
 
                 mssqlDaoFactory.GetDeviceTokenDao().SaveToken(devInfo);

@@ -24,11 +24,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    var firstOrDefault = dbCtx.UserInfoes.FirstOrDefault(user => user.UserName == info.UserName);
+                    var firstOrDefault = dbCtx.UserInfo.FirstOrDefault(user => user.UserName == info.UserName);
 
                     if (firstOrDefault == null)
                     {
-                        dbCtx.UserInfoes.Add(info);
+                        dbCtx.UserInfo.Add(info);
                         dbCtx.SaveChanges();
 
                         return info;
@@ -49,7 +49,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    return dbCtx.UserInfoes.Where(info => info.UserName == userName).Select(info => info).Count();
+                    return dbCtx.UserInfo.Where(info => info.UserName == userName).Select(info => info).Count();
                 }
             }
             catch (Exception e)

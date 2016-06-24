@@ -25,8 +25,8 @@ namespace Sequencing.WeatherApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
-        public virtual DbSet<SendInfo> SendInfoes { get; set; }
-        public virtual DbSet<DeviceToken> DeviceTokens { get; set; }
+        public virtual DbSet<DeviceInfo> DeviceInfo { get; set; }
+        public virtual DbSet<SendInfo> SendInfo { get; set; }
+        public virtual DbSet<UserInfo> UserInfo { get; set; }
     }
 }

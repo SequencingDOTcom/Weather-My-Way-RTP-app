@@ -18,7 +18,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    dbCtx.SendInfoes.Add(info);
+                    dbCtx.SendInfo.Add(info);
                     dbCtx.SaveChanges();
                 }
                 return info;
@@ -35,13 +35,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    dbCtx.SendInfoes.Include("DeviceTokens").ToList();
-                    return dbCtx.SendInfoes.FirstOrDefault(info => info.UserName == userName);
+
+                    return dbCtx.SendInfo.FirstOrDefault(info => info.UserName == userName);
                 }
             }
             catch (Exception e)
             {
-                throw new DaoException("Error finding user " + userName + " in database", e);
+                throw new DaoException("Error finding user " + userName + " in database. "+e.Message, e);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    result = dbCtx.SendInfoes.SingleOrDefault(info => info.UserName == sendInfo.UserName);
+                    result = dbCtx.SendInfo.SingleOrDefault(info => info.UserName == sendInfo.UserName);
 
                     if (result != null)
                     {
