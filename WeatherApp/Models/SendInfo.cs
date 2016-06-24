@@ -21,7 +21,7 @@ namespace Sequencing.WeatherApp.Models
         public SendInfo(string name)
         {
             this.UserName = name;
-            this.WeekendMode = WeekEndMode.SendBoth;
+            this.WeekendMode = WeekEndMode.All;
             this.TimeWeekDay = "6 AM";
             this.TimeWeekEnd = "8 AM";
         }
