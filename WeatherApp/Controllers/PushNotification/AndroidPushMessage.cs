@@ -21,6 +21,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         private GcmServiceBroker gcmBroker;
         private IPushNotificationService notificationService = new DefaultPushNotificationService();
         private ILog log = LogManager.GetLogger(typeof(AndroidPushMessageSender));
+        private string devToken;
 
         public AndroidPushMessageSender()
         {
@@ -56,7 +57,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
                             log.Error(string.Format("GCM Notification Failed: ID={0}, Desc={1}", n.MessageId, e.InnerException));
                         }
-
+                        notificationService.Unsubscribe(devToken);
                     }
                     else if (ex is DeviceSubscriptionExpiredException)
                     {
@@ -70,7 +71,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
                         if (!string.IsNullOrWhiteSpace(newId))
                         {
-                            notificationService.RefreshDeviceToken(oldId, newId);
+                            notificationService.Unsubscribe(oldId);
 
                             log.Error(string.Format("Device RegistrationId Changed To: {0}", newId));
                         }
@@ -88,7 +89,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         log.Error("GCM Notification Failed for some unknown reason");
                     }
 
-                    log.Error("FAiled for:" + string.Join(",", notification.RegistrationIds));
+                    log.Error("Failed for:" + string.Join(",", notification.RegistrationIds));
 
                     return true;
                 });
@@ -104,6 +105,8 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
         override public void SendPushNotification(string token, string message, Int64 userId)
         {
+            devToken = token;
+
             var pushObj = new
             {
                 message = message,
