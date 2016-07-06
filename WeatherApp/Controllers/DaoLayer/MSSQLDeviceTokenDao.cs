@@ -150,7 +150,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                         singleOrDefault.token = newId;
                         dbCtx.SaveChanges();
 
-                        logger.InfoFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
+                        logger.ErrorFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
                     }
                     else 
                         throw new DaoException(string.Format("No device token {0} found in database. ", oldId));

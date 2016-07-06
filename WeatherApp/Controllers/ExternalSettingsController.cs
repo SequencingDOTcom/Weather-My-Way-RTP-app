@@ -292,7 +292,7 @@ namespace Sequencing.WeatherApp.Controllers
 
         public void ResponseLogging( GenericResponse responseObj)
         {
-            log.InfoFormat(string.Format("Response object: {{ Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3} }}", responseObj.Status, 
+            log.ErrorFormat(string.Format("Response object: {{ Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3} }}", responseObj.Status, 
                 responseObj.ResponseTime, responseObj.Message, responseObj.Data));
         }
     }
