@@ -181,6 +181,8 @@
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\fonts\Simple-Line-Icons.dev.svg" />
     <Content Include="assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="assets\img\Android-App-Google-Play-Sequencing-Com-Real-Time-Personalization-RTP.png" />
+    <Content Include="assets\img\Apple-App-Store-SequencingCom-Genomics-Real-Time-Personalization-RTP.png" />
     <Content Include="assets\img\Awesome-cub-pre-loader-Sequencing-com-128px.gif" />
     <Content Include="assets\img\Back-icon-Sequencing-com-16px.png" />
     <Content Include="assets\img\Back-icon-Sequencing-com-24px.png" />
