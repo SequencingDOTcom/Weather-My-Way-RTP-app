@@ -31,10 +31,10 @@ Editions
 Weather My Way +RTP 
 * Repo = this repo
 * App =
-** [iOS (Objective C)](https://geo.itunes.apple.com/us/app/weather-my-way-+rtp/id1116797084?mt=8)
-** iOS (Swift) (coming soon)
-** [Android](https://play.google.com/store/apps/details?id=com.sequencing.weather)
-** [Web (C# and HTML/PHP)](https://weathermyway.rocks)
+ * [iOS (Objective C)](https://geo.itunes.apple.com/us/app/weather-my-way-+rtp/id1116797084?mt=8)
+ * iOS (Swift) (coming soon)
+ * [Android](https://play.google.com/store/apps/details?id=com.sequencing.weather)
+ * [Web (C# and HTML/PHP)](https://weathermyway.rocks)
 
 Weather My Child's Way +RTP
 * Repo = https://github.com/SequencingDOTcom/Weather-My-Childs-Way-app
