@@ -63,6 +63,7 @@
                 @Html.CheckBox("smsChk", (bool)ViewBag.SmsSend, new { @class = "check" })
                 <label class="check" for="smsChk">Text daily forecast (SMS)</label><br />
                 @Html.TextBox("phone", (string)@ViewBag.Phone, new { @class = "form-control input-sm", type = "tel" })<br />
+                <input id="countryCode" name="countryCode" type="hidden" value = @ViewBag.CountryCode>
             </div>
 
             <div id="wakeUpTimes">
@@ -89,7 +90,6 @@
             <div id="weekendNotifications">
                 <label>Weekend notifications</label><br />
                 @Html.DropDownList("weekendMode", (SelectList)ViewBag.weekendModeList, new { @class = "form-control input-sm" })
-
             </div>
         </div>
        
@@ -111,14 +111,23 @@
             $("#phone").removeAttr("disabled");
     }
 
+
+
     $(function() {
+
         $("#phone").intlTelInput({
             nationalMode: false,
             utilsScript: "/Scripts/intlTelUtils.js" // just for formatting/placeholders etc
         });
+
+        $("#phone").change(function() {
+            $("#countryCode").val(jQuery("#phone").intlTelInput("getSelectedCountryData").iso2);
+        });
+
         $('#wakeupDay').timepicker();
         $('#wakeupEnd').timepicker();
         $("#timezoneSelect").timezones();
+        console.log($("#timezoneSelect").timezones());
         var _tzVal = '@ViewBag.tzValue';
         if (_tzVal != '')
             $("#timezoneSelect").val('@ViewBag.tzValue');

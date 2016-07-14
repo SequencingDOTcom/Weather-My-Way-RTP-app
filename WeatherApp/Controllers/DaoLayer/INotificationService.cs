@@ -9,7 +9,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     public interface IPushNotificationService
     {
         void Subscribe(string deviceToken, DeviceType deviceType, string accessToken);
-        void Unsubscribe(string token);
+        void Unsubscribe(string token, long userId);
         void Send(Int64 userId, DeviceType deviceType, string token, string message);
         void Send(Int64 userId, string message);
         void SubscribeDeviceToken(string token, DeviceType deviceType, long userId);

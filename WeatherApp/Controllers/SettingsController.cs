@@ -32,6 +32,7 @@ namespace Sequencing.WeatherApp.Controllers
             ViewBag.wakeupEnd = _sendInfo.TimeWeekEnd;
             ViewBag.tzOffset = _sendInfo.TimeZoneOffset;
             ViewBag.tzValue = _sendInfo.TimeZoneValue;
+            ViewBag.CountryCode = _sendInfo.CountryCode;
 
             var _values = new[]
                           {
@@ -58,26 +59,25 @@ namespace Sequencing.WeatherApp.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
-            string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
-            WeekEndMode weekendMode, TemperatureMode temperature)
+        public ActionResult ChangeNotification(SettingsDto settings)
         {
             SendInfo info = new SendInfo()
             {
                 UserName = User.Identity.Name,
-                SendEmail = emailChk,
-                SendSms = smsChk,
-                UserEmail = email,
-                UserPhone = phone,
-                TimeWeekDay = wakeupDay,
-                TimeWeekEnd = wakeupEnd,
-                TimeZoneValue = timezoneSelect,
-                WeekendMode = weekendMode,
-                Temperature = temperature
+                SendEmail = settings.emailChk,
+                SendSms = settings.smsChk,
+                UserEmail = settings.email,
+                UserPhone = settings.phone,
+                TimeWeekDay = settings.wakeupDay,
+                TimeWeekEnd = settings.wakeupEnd,
+                TimeZoneValue = settings.timezoneSelect,
+                WeekendMode = settings.weekendMode,
+                Temperature = settings.temperature,
+                CountryCode = settings.countryCode
             };
 
-            if (!string.IsNullOrEmpty(timezoneOffset))
-                info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
+            if (!string.IsNullOrEmpty(settings.timezoneOffset))
+                info.TimeZoneOffset = settingService.ParseTimeZoneOffset(settings.timezoneOffset);
 
             settingService.UpdateUserSettings(info);
 

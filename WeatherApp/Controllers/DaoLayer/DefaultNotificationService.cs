@@ -55,9 +55,9 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// Unsubscribe user from push message
         /// </summary>
         /// <param name="token"></param>
-        public void Unsubscribe(string token)
+        public void Unsubscribe(string token, long userId)
         {
-            mssqlDaoFactory.GetDeviceTokenDao().DeleteToken(token);
+            mssqlDaoFactory.GetDeviceTokenDao().DeleteToken(token, userId);
         }
 
         /// <summary>

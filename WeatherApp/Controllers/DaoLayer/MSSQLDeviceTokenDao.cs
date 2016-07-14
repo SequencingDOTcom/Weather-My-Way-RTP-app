@@ -16,13 +16,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// Deletes token from database
         /// </summary>
         /// <param name="token"></param>
-        public void DeleteToken(string token)
+        public void DeleteToken(string token, long userId)
         {
             try
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.token == token);
+                    var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.userId == userId && info.token == token);
 
                     if (singleOrDefault != null)
                     {
@@ -41,6 +41,14 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             catch (Exception e)
             {
                 throw new DaoException(string.Format("Error deleting device token {0}. {1}.", token, e.Message), e);
+            }
+        }
+
+        public long GetUserIdByName(string userName)
+        {
+            using (var dbCtx = new WeatherAppDbEntities())
+            {
+                return dbCtx.SendInfo.FirstOrDefault(info => info.UserName == userName).Id;
             }
         }
 
