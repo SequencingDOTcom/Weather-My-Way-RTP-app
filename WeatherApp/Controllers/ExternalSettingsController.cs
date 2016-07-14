@@ -44,7 +44,7 @@ namespace Sequencing.WeatherApp.Controllers
         public JsonResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone, string wakeupDay, string wakeupEnd,
             string timezoneSelect, string timezoneOffset, WeekEndMode weekendMode, TemperatureMode temperature, string token)
         {
-            GenericResponse responseObj;
+            GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
@@ -94,6 +94,10 @@ namespace Sequencing.WeatherApp.Controllers
                 };
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
+            finally
+            {
+                ResponseLogging(responseObj);
+            }
         }
 
         /// <summary>
@@ -106,9 +110,9 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult SubscribePushNotification(bool pushCheck, string deviceToken, DeviceType deviceType, string accessToken)
         {
-
-            GenericResponse responseObj;
+            GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
+
             try
             {
                 if (pushCheck)
@@ -136,7 +140,12 @@ namespace Sequencing.WeatherApp.Controllers
                     Data = null,
                 };
 
+                
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
+            }
+            finally
+            {
+                ResponseLogging(responseObj);
             }
         }
 
@@ -149,7 +158,7 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult SaveFile(string selectedId, string selectedName, string token)
         {
-            GenericResponse responseObj;
+            GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
@@ -178,6 +187,10 @@ namespace Sequencing.WeatherApp.Controllers
 
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
+            finally
+            {
+                ResponseLogging(responseObj);
+            }
         }
 
         /// <summary>
@@ -188,7 +201,7 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult SaveLocation(string city, string token)
         {
-            GenericResponse responseObj;
+            GenericResponse responseObj = null; 
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
@@ -216,6 +229,10 @@ namespace Sequencing.WeatherApp.Controllers
                 };
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
+            finally
+            {
+                ResponseLogging(responseObj);
+            }
         }
 
         /// <summary>
@@ -236,7 +253,7 @@ namespace Sequencing.WeatherApp.Controllers
             string refreshToken, string oldDeviceToken, string newDeviceToken, bool sendPush, DeviceType deviceType)
         {
 
-            GenericResponse responseObj;
+            GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
             SendInfo info = null;
 
@@ -267,6 +284,16 @@ namespace Sequencing.WeatherApp.Controllers
                 };
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
+            finally
+            {
+                ResponseLogging(responseObj);
+            }
+        }
+
+        public void ResponseLogging( GenericResponse responseObj)
+        {
+            log.ErrorFormat(string.Format("Response object: {{ Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3} }}", responseObj.Status, 
+                responseObj.ResponseTime, responseObj.Message, responseObj.Data));
         }
     }
 }
