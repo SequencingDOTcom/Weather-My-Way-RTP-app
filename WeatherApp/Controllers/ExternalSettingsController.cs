@@ -41,8 +41,7 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="temperature"></param>
         /// <param name="token"></param>
         [HttpPost]
-        public JsonResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone, string wakeupDay, string wakeupEnd,
-            string timezoneSelect, string timezoneOffset, WeekEndMode weekendMode, TemperatureMode temperature, string token, string countryCode)
+        public JsonResult ChangeNotification(SettingsDto settings)
         {
             GenericResponse responseObj = null;
             string name = null;
@@ -50,27 +49,27 @@ namespace Sequencing.WeatherApp.Controllers
 
             try
             {
-                name = oauthFactoryDao.GetOAuthTokenDao().getUser(token).username;
+                name = oauthFactoryDao.GetOAuthTokenDao().getUser(settings.token).username;
 
                 if (name != null)
                 {
                     SendInfo info = new SendInfo()
                     {
                         UserName = name,
-                        SendEmail = emailChk,
-                        SendSms = smsChk,
-                        UserEmail = email,
-                        UserPhone = phone,
-                        TimeWeekDay = wakeupDay,
-                        TimeWeekEnd = wakeupEnd,
-                        TimeZoneValue = timezoneSelect,
-                        WeekendMode = weekendMode,
-                        Temperature = temperature,
-                        CountryCode = countryCode,
+                        SendEmail = settings.emailChk,
+                        SendSms = settings.smsChk,
+                        UserEmail = settings.email,
+                        UserPhone = settings.phone,
+                        TimeWeekDay = settings.wakeupDay,
+                        TimeWeekEnd = settings.wakeupEnd,
+                        TimeZoneValue = settings.timezoneSelect,
+                        WeekendMode = settings.weekendMode,
+                        Temperature = settings.temperature,
+                        CountryCode = settings.countryCode,
                     };
 
-                    if (!string.IsNullOrEmpty(timezoneOffset))
-                        info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
+                    if (!string.IsNullOrEmpty(settings.timezoneOffset))
+                        info.TimeZoneOffset = settingService.ParseTimeZoneOffset(settings.timezoneOffset);
 
                     settingService.UpdateUserSettings(info);
                 }
