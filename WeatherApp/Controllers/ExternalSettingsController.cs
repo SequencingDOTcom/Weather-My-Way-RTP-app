@@ -23,8 +23,8 @@ namespace Sequencing.WeatherApp.Controllers
 
         MSSQLDaoFactory factory = new MSSQLDaoFactory();
         IPushNotificationService pushService = new DefaultPushNotificationService();
-        OAuthTokenDaoFactory oauthFactory = new OAuthTokenDaoFactory();
-        ISettingService settingsService = new UserSettingService();
+        OAuthTokenDaoFactory oauthFactoryDao = new OAuthTokenDaoFactory();
+        ISettingService settingService = new UserSettingService();
 
         /// <summary>
         /// Change user notifications in database
@@ -42,14 +42,15 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="token"></param>
         [HttpPost]
         public JsonResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone, string wakeupDay, string wakeupEnd,
-            string timezoneSelect, string timezoneOffset, WeekEndMode weekendMode, TemperatureMode temperature, string token)
+            string timezoneSelect, string timezoneOffset, WeekEndMode weekendMode, TemperatureMode temperature, string token, string countryCode)
         {
             GenericResponse responseObj = null;
+            string name = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
             {
-                string name = oauthFactory.GetOAuthTokenDao().getUser(token).username;
+                name = oauthFactoryDao.GetOAuthTokenDao().getUser(token).username;
 
                 if (name != null)
                 {
@@ -64,20 +65,21 @@ namespace Sequencing.WeatherApp.Controllers
                         TimeWeekEnd = wakeupEnd,
                         TimeZoneValue = timezoneSelect,
                         WeekendMode = weekendMode,
-                        Temperature = temperature
+                        Temperature = temperature,
+                        CountryCode = countryCode,
                     };
 
                     if (!string.IsNullOrEmpty(timezoneOffset))
-                        info.TimeZoneOffset = settingsService.ParseTimeZoneOffset(timezoneOffset);
+                        info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
 
-                    settingsService.UpdateUserSettings(info);
+                    settingService.UpdateUserSettings(info);
                 }
 
                 responseObj = new GenericResponse()
                 {
                     Status = 0,
                     ResponseTime = DateTime.Now.TimeOfDay.Seconds - timeStart,
-                    Message = "Settings successfully updated",
+                    Message = "Settings successfully updated for user: " + name,
                     Data = null,
                 };
 
@@ -89,14 +91,12 @@ namespace Sequencing.WeatherApp.Controllers
                 {
                     Status = 1,
                     ResponseTime = DateTime.Now.TimeOfDay.Milliseconds - timeStart,
-                    Message = e.Message,
+                    Message = string.Format("Error while notification settings for user: {0}. Message is: {1}", name, e.Message),
                     Data = null,
                 };
-                return Json(responseObj, JsonRequestBehavior.AllowGet);
-            }
-            finally
-            {
+
                 ResponseLogging(responseObj);
+                return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -108,23 +108,36 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="deviceType"></param>
         /// <param name="accessToken"></param>
         [HttpPost]
-        public JsonResult SubscribePushNotification(bool pushCheck, string deviceToken, DeviceType deviceType, string accessToken)
+        public JsonResult SubscribePushNotification(bool pushCheck, string deviceToken,
+            DeviceType deviceType, string accessToken)
         {
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
-
+            string userName = null;
             try
             {
+                userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                        Options.OAuthAppId).GetUserInfo(accessToken).username;
+
                 if (pushCheck)
                     pushService.Subscribe(deviceToken, deviceType, accessToken);
                 else
-                    pushService.Unsubscribe(deviceToken);
+                {
+                    
+                    if (userName != null)
+                    {
+                        var userId = factory.GetDeviceTokenDao().GetUserIdByName(userName);
+                        pushService.Unsubscribe(deviceToken, userId);
+                    }
+                    else
+                        throw new Sequencing.WeatherApp.Controllers.DaoLayer.ApplicationException(string.Format("Invalid access token {0}", accessToken));
+                }
 
                 responseObj = new GenericResponse()
                 {
                     Status = 0,
                     ResponseTime = DateTime.Now.TimeOfDay.Seconds - timeStart,
-                    Message = "Push notification successfully " + (pushCheck ? "subscribed" : "unsubscribed"),
+                    Message = string.Format("Push notification successfully {0} for user: {1} ", pushCheck ? "subscribed" : "unsubscribed" , userName),
                     Data = null,
                 };
 
@@ -136,16 +149,12 @@ namespace Sequencing.WeatherApp.Controllers
                 {
                     Status = 1,
                     ResponseTime = DateTime.Now.TimeOfDay.Seconds - timeStart,
-                    Message = e.Message,
+                    Message = string.Format("Error subscribing  push notification for user: {0}. Message is: {1}", userName, e.Message),
                     Data = null,
                 };
 
-                
-                return Json(responseObj, JsonRequestBehavior.AllowGet);
-            }
-            finally
-            {
                 ResponseLogging(responseObj);
+                return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -163,7 +172,7 @@ namespace Sequencing.WeatherApp.Controllers
 
             try
             {
-                settingsService.SetUserDataFileExt(selectedName, selectedId, token);
+                settingService.SetUserDataFileExt(selectedName, selectedId, token);
 
                 responseObj = new GenericResponse()
                 {
@@ -184,12 +193,8 @@ namespace Sequencing.WeatherApp.Controllers
                     Message = e.Message,
                     Data = null,
                 };
-
-                return Json(responseObj, JsonRequestBehavior.AllowGet);
-            }
-            finally
-            {
                 ResponseLogging(responseObj);
+                return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -201,12 +206,12 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult SaveLocation(string city, string token)
         {
-            GenericResponse responseObj = null; 
+            GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
             {
-                settingsService.SetUserLocationExt(city, token);
+                settingService.SetUserLocationExt(city, token);
 
                 responseObj = new GenericResponse()
                 {
@@ -227,11 +232,8 @@ namespace Sequencing.WeatherApp.Controllers
                     Message = e.Message,
                     Data = null,
                 };
-                return Json(responseObj, JsonRequestBehavior.AllowGet);
-            }
-            finally
-            {
                 ResponseLogging(responseObj);
+                return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -249,19 +251,23 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="deviceType"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult RetrieveUserSettings(string accessToken, string expiresIn, string tokenType, string scope, 
-            string refreshToken, string oldDeviceToken, string newDeviceToken, bool sendPush, DeviceType deviceType)
+        public JsonResult RetrieveUserSettings(string accessToken, string expiresIn, string tokenType, string scope, string refreshToken, string oldDeviceToken, 
+            string newDeviceToken, bool sendPush, DeviceType deviceType)
         {
 
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
             SendInfo info = null;
+            string userName = null;
 
             try
             {
-                info = settingsService.RetrieveSettings(accessToken, expiresIn, tokenType, scope, refreshToken);
+                userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                        Options.OAuthAppId).GetUserInfo(accessToken).username;
 
-                string message = settingsService.DeviceTokenSetting(oldDeviceToken, newDeviceToken, sendPush, deviceType, accessToken, info.Id);
+                info = settingService.RetrieveSettings(accessToken, expiresIn, tokenType, scope, refreshToken);
+
+                string message = settingService.DeviceTokenSetting(oldDeviceToken, newDeviceToken, sendPush, deviceType, accessToken, info.Id);
 
                 responseObj = new GenericResponse()
                 {
@@ -279,20 +285,18 @@ namespace Sequencing.WeatherApp.Controllers
                 {
                     Status = 1,
                     ResponseTime = DateTime.Now.TimeOfDay.Seconds - timeStart,
-                    Message = e.Message,
+                    Message = string.Format("Error retrieving  settings for user: {0}. Message is: {1}", userName, e.Message),
                     Data = info,
                 };
-                return Json(responseObj, JsonRequestBehavior.AllowGet);
-            }
-            finally
-            {
+
                 ResponseLogging(responseObj);
+                return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
 
-        public void ResponseLogging( GenericResponse responseObj)
+        public void ResponseLogging(GenericResponse responseObj)
         {
-            log.ErrorFormat(string.Format("Response object: {{ Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3} }}", responseObj.Status, 
+            log.ErrorFormat(string.Format("Response object: [Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3}]", responseObj.Status,
                 responseObj.ResponseTime, responseObj.Message, responseObj.Data));
         }
     }

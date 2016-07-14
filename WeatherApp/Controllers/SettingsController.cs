@@ -32,6 +32,7 @@ namespace Sequencing.WeatherApp.Controllers
             ViewBag.wakeupEnd = _sendInfo.TimeWeekEnd;
             ViewBag.tzOffset = _sendInfo.TimeZoneOffset;
             ViewBag.tzValue = _sendInfo.TimeZoneValue;
+            ViewBag.CountryCode = _sendInfo.CountryCode;
 
             var _values = new[]
                           {
@@ -60,7 +61,7 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public ActionResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
             string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
-            WeekEndMode weekendMode, TemperatureMode temperature)
+            WeekEndMode weekendMode, TemperatureMode temperature, string countryCode)
         {
             SendInfo info = new SendInfo()
             {
@@ -73,7 +74,8 @@ namespace Sequencing.WeatherApp.Controllers
                 TimeWeekEnd = wakeupEnd,
                 TimeZoneValue = timezoneSelect,
                 WeekendMode = weekendMode,
-                Temperature = temperature
+                Temperature = temperature,
+                CountryCode = countryCode
             };
 
             if (!string.IsNullOrEmpty(timezoneOffset))
