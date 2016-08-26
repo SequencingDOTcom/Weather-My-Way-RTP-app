@@ -14,6 +14,7 @@
           <Property Name="deviceType" Type="int" />
           <Property Name="token" Type="nvarchar" MaxLength="200" />
           <Property Name="subscriptionDate" Type="date" />
+          <Property Name="applicationId" Type="int" />
         </EntityType>
         <EntityType Name="SendInfo">
           <Key>
@@ -70,6 +71,7 @@
           <Property Name="deviceType" Type="WeatherMyWayModel.DeviceType" />
           <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
+          <Property Name="applicationId" Type="WeatherMyWayModel.ApplicationType" />
         </EntityType>
         <EntityType Name="SendInfo">
           <Key>
@@ -115,6 +117,10 @@
         </EntityContainer>
         <EnumType Name="DeviceType" />
         <EnumType Name="WeekEndMode" />
+        <EnumType Name="ApplicationType">
+          <Member Name="Mobile" Value="1" />
+          <Member Name="Tablet" Value="2" />
+        </EnumType>
         <EnumType Name="TemperatureMode" />
       </Schema>
     </edmx:ConceptualModels>
@@ -125,6 +131,7 @@
           <EntitySetMapping Name="DeviceInfo">
             <EntityTypeMapping TypeName="WeatherMyWayModel.DeviceInfo">
               <MappingFragment StoreEntitySet="DeviceInfo">
+                <ScalarProperty Name="applicationId" ColumnName="applicationId" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="deviceType" ColumnName="deviceType" />

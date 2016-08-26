@@ -1,0 +1,3179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mandrill</name>
+    </assembly>
+    <members>
+        <member name="T:Mandrill.Configuration">
+            <summary>
+              The configuration.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Configuration.BASE_SECURE_URL">
+            <summary>
+              The bas e_ secur e_ url.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Configuration.BASE_URL">
+            <summary>
+              The bas e_ url.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Configuration.DATE_TIME_FORMAT_STRING">
+            <summary>
+              The dat e_ tim e_ forma t_ string.
+            </summary>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.CancelScheduledMessage(Mandrill.Requests.Messages.CancelScheduledMessageRequest)">
+            <summary>
+              The cancel scheduled message.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:Mandrill.Models.ScheduledEmailResult"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.GetContent(Mandrill.Requests.Messages.ContentRequest)">
+            <summary>
+              Get the full content of a recently sent message.
+            </summary>
+            <param name="request">
+              The request
+            </param>
+            <returns>
+              The <see cref="M:Mandrill.MandrillApi.GetContent(Mandrill.Requests.Messages.ContentRequest)"/>
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.GetInfo(Mandrill.Requests.Messages.MessageInfoRequest)">
+            <summary>
+              Get the information for a single recently sent message.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ListScheduledMessages(Mandrill.Requests.Messages.ListScheduledMessagesRequest)">
+            <summary>
+              The list scheduled messages.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:System.Collections.Generic.List`1"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.RescheduleMessage(Mandrill.Requests.Messages.RescheduleMessageRequest)">
+            <summary>
+              The reschedule message.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:Mandrill.Models.ScheduledEmailResult"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.Search(Mandrill.Requests.Messages.SearchRequest)">
+            <summary>
+              Send a new search instruction through Mandrill.
+            </summary>
+            <param name="search">
+              The search.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.SendMessageTemplate(Mandrill.Requests.Messages.SendMessageTemplateRequest)">
+            <summary>
+              Send a new transactional message through Mandrill using a template
+              <see cref="!:https://mandrillapp.com/api/docs/messages.JSON.html#method=send-template">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/>.</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.SendMessage(Mandrill.Requests.Messages.SendMessageRequest)">
+            <summary>
+              Sends a new transactional message through Mandrill.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.SendRawMessage(Mandrill.Requests.Messages.SendRawMessageRequest)">
+            <summary>
+              Sends the raw message.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Task&lt;List&lt;EmailResult&gt;&gt;.</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.CheckSenderDomain(Mandrill.Requests.Senders.SenderCheckDomainRequest)">
+            <summary>
+              The list senders.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>
+              a <see cref="T:Mandrill.Models.SenderDomain"/>
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ListSenders">
+            <summary>
+              The list senders.
+            </summary>
+            <returns>
+              The <see cref="T:System.Collections.Generic.List`1"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.SenderDomains">
+            <summary>
+              The list senders.
+            </summary>
+            <returns>
+              The <see cref="T:System.Collections.Generic.List`1"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.AddTemplate(Mandrill.Requests.Templates.AddTemplateRequest)">
+            <summary>
+              Add a new template.
+            </summary>
+            <param name="request">
+              The name for the new template - must be unique.
+            </param>
+            <returns>A <see cref="M:Mandrill.IMandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object.</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ListTemplates(Mandrill.Requests.Templates.ListTemplatesRequest)">
+            <summary>
+              The list templates.
+            </summary>
+            <returns>
+              The <see cref="T:System.Collections.Generic.List`1"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.Render(Mandrill.Requests.Templates.RenderTemplateRequest)">
+            <summary>
+              The render async.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.UpdateTemplate(Mandrill.Requests.Templates.UpdateTemplateRequest)">
+            <summary>
+              Update the code for an existing template, asynchronously.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <remarks>
+              If <c>null</c> is provided for any fields, the values will remain unchanged.
+            </remarks>
+            <returns>
+              The <see cref="M:Mandrill.IMandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object of the template that was updated
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)">
+            <summary>
+              Templates the information.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Task&lt;TemplateInfo&gt;.</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.DeleteTemplate(Mandrill.Requests.Templates.DeleteTemplateRequest)">
+            <summary>
+              Delete a template, asynchronously.
+            </summary>
+            <param name="request">
+              The template name.
+            </param>
+            <returns>
+              The <see cref="M:Mandrill.IMandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object of the template that was deleted
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.AddSubaccount(Mandrill.Requests.SubAccounts.AddSubAccountRequest)">
+            <summary>
+              Add a new subaccount.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=add">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The subaccount request</param>
+            <returns>the information saved about the new subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.DeleteSubaccount(Mandrill.Requests.SubAccounts.DeleteSubAccountRequest)">
+            <summary>
+              Delete an existing subaccount. Any email related to the subaccount will be saved, but stats will be removed and any
+              future sending calls to this subaccount will fail.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=delete">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>the information for the deleted subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ListSubaccounts(Mandrill.Requests.SubAccounts.ListSubAccountsRequest)">
+            <summary>
+              Get the list of subaccounts defined for the account, optionally filtered by a prefix.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=list">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>the subaccounts for the account, up to a maximum of 1,000</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.PauseSubaccount(Mandrill.Requests.SubAccounts.PauseSubAccountRequest)">
+            <summary>
+              Pause a subaccount's sending. Any future emails delivered to this subaccount will be queued for a maximum of 3 days
+              until the subaccount is resumed.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=pause">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the paused subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ResumeSubaccount(Mandrill.Requests.SubAccounts.ResumeSubAccountRequest)">
+            <summary>
+              Resume a paused subaccount's sending
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=resume">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the resumed subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.SubaccountInfo(Mandrill.Requests.SubAccounts.SubAccountInfoRequest)">
+            <summary>
+              Given the ID of an existing subaccount, asynchronously return the data about it
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=info">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information about the subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.UpdateSubaccount(Mandrill.Requests.SubAccounts.UpdateSubAccountRequest)">
+            <summary>
+              Update an existing subaccount
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=update">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the updated subaccount</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.Ping">
+            <summary>
+              Validate an API key and respond to a ping
+            </summary>
+            <returns>
+              The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.UserInfo">
+            <summary>
+              Return the information about the API-connected user
+            </summary>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+            <see cref="!:https://mandrillapp.com/api/docs/users.html#method=info"/>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.AddReject(Mandrill.Requests.Rejects.AddRejectRequest)">
+            <summary>
+              Adds the reject.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Task&lt;RejectAddResult&gt;.</returns>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.DeleteReject(Mandrill.Requests.Rejects.DeleteRejectRequest)">
+            <summary>
+              The delete reject.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:Mandrill.Models.RejectDeleteResult"/>.</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Mandrill.IMandrillApi.ListRejects(Mandrill.Requests.Rejects.ListRejectsRequest)">
+            <summary>
+              Lists the rejects.
+            </summary>
+            <param name="request">The request</param>
+            <returns>The <see cref="!:List"/>.</returns>
+        </member>
+        <member name="P:Mandrill.IMandrillApi.ApiKey">
+            <summary>
+              The Api Key for the project received from the MandrillApp website
+            </summary>
+        </member>
+        <member name="T:Mandrill.MandrillApi">
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              Core class for using the MandrillApp Api
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+            <summary>
+              The mandrill api.
+            </summary>
+        </member>
+        <member name="M:Mandrill.MandrillApi.CancelScheduledMessage(Mandrill.Requests.Messages.CancelScheduledMessageRequest)">
+            <summary>
+              The cancel scheduled message.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:Mandrill.Models.ScheduledEmailResult"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.GetContent(Mandrill.Requests.Messages.ContentRequest)">
+            <summary>
+              Get the full content of a recently sent message.
+            </summary>
+            <param name="request">
+              The content.
+            </param>
+            <returns>
+              The <see cref="M:Mandrill.MandrillApi.GetContent(Mandrill.Requests.Messages.ContentRequest)"/>
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.GetInfo(Mandrill.Requests.Messages.MessageInfoRequest)">
+            <summary>
+              Get the information for a single recently sent message.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ListScheduledMessages(Mandrill.Requests.Messages.ListScheduledMessagesRequest)">
+            <summary>
+              The list scheduled messages.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.RescheduleMessage(Mandrill.Requests.Messages.RescheduleMessageRequest)">
+            <summary>
+              The reschedule message.
+            </summary>
+            <param name="id">
+              The id.
+            </param>
+            <param name="send_at">
+              The send_at.
+            </param>
+            <returns>
+              The <see cref="T:Mandrill.Models.ScheduledEmailResult"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.Search(Mandrill.Requests.Messages.SearchRequest)">
+            <summary>
+            Search recently sent messages and optionally narrow by date range, tags, senders, and API keys. If no date range is specified,
+            results within the last 7 days are returned. This method may be called up to 20 times per minute. If you need the data more often,
+            you can use /messages/info.json to get the information for a single message, or webhooks to push activity to your own application for querying.
+            <see cref="!:https://mandrillapp.com/api/docs/messages.JSON.html#method=search">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:Mandrill.Models.EmailResult"/>.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SendMessage(Mandrill.Requests.Messages.SendMessageRequest)">
+            <summary>
+              Sends a new transactional message through Mandrill.
+            </summary>
+            <param name="message">
+              The message.
+            </param>
+            <param name="send_at">
+              The send_at.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SendMessageTemplate(Mandrill.Requests.Messages.SendMessageTemplateRequest)">
+            <summary>
+              Send a new transactional message through Mandrill using a template.
+              <see cref="!:https://mandrillapp.com/api/docs/messages.JSON.html#method=send-template">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:System.Collections.Generic.List`1"/>.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SendRawMessage(Mandrill.Requests.Messages.SendRawMessageRequest)">
+            <summary>
+              The send raw message.
+            </summary>
+            <param name="raw_message">
+              The raw_message.
+            </param>
+            <param name="send_at">
+              The send_at.
+            </param>
+            <returns>
+              The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.#ctor(System.String,System.Boolean)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.MandrillApi"/> class.
+            </summary>
+            <param name="apiKey">
+              The API Key recieved from MandrillApp
+            </param>
+            <param name="useHttps">
+            </param>
+            <param name="timeout">
+              Timeout in milliseconds to use for requests.
+            </param>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SetHttpClient(System.Net.Http.HttpClient)">
+            <summary>
+              Allows overriding the HttpClient which is used in Post()
+            </summary>
+            <param name="httpClient">the httpClient to use</param>
+        </member>
+        <member name="M:Mandrill.MandrillApi.Post``1(System.String,Mandrill.Requests.RequestBase)">
+            <summary>
+              Execute post to path
+            </summary>
+            <param name="path">the path to post to</param>
+            <param name="data">the payload to send in request body as json</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.AddReject(Mandrill.Requests.Rejects.AddRejectRequest)">
+            <summary>
+              Adds the reject.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Task&lt;RejectAddResult&gt;.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.DeleteReject(Mandrill.Requests.Rejects.DeleteRejectRequest)">
+            <summary>
+              The delete reject.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The <see cref="T:Mandrill.Models.RejectDeleteResult"/>.</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ListRejects(Mandrill.Requests.Rejects.ListRejectsRequest)">
+            <summary>
+              Lists the rejects.
+            </summary>
+            <param name="request">The request</param>
+            <returns>The <see cref="!:List"/>.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.CheckSenderDomain(Mandrill.Requests.Senders.SenderCheckDomainRequest)">
+            <summary>
+              The list senders.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>
+              a <see cref="T:Mandrill.Models.SenderDomain"/>
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ListSenders">
+            <summary>
+              The list senders.
+            </summary>
+            <returns>
+              The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SenderDomains">
+            <summary>
+              The list senders.
+            </summary>
+            <returns>
+              The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.AddSubaccount(Mandrill.Requests.SubAccounts.AddSubAccountRequest)">
+            <summary>
+              Add a new subaccount.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=add">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The subaccount request</param>
+            <returns>the information saved about the new subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.DeleteSubaccount(Mandrill.Requests.SubAccounts.DeleteSubAccountRequest)">
+            <summary>
+              Delete an existing subaccount. Any email related to the subaccount will be saved, but stats will be removed and any
+              future sending calls to this subaccount will fail.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=delete">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>the information for the deleted subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ListSubaccounts(Mandrill.Requests.SubAccounts.ListSubAccountsRequest)">
+            <summary>
+              Get the list of subaccounts defined for the account, optionally filtered by a prefix.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=list">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request.</param>
+            <returns>the subaccounts for the account, up to a maximum of 1,000</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.PauseSubaccount(Mandrill.Requests.SubAccounts.PauseSubAccountRequest)">
+            <summary>
+              Pause a subaccount's sending. Any future emails delivered to this subaccount will be queued for a maximum of 3 days
+              until the subaccount is resumed.
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=pause">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the paused subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ResumeSubaccount(Mandrill.Requests.SubAccounts.ResumeSubAccountRequest)">
+            <summary>
+              Resume a paused subaccount's sending
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=resume">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the resumed subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.SubaccountInfo(Mandrill.Requests.SubAccounts.SubAccountInfoRequest)">
+            <summary>
+              Given the ID of an existing subaccount, asynchronously return the data about it
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=info">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information about the subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.UpdateSubaccount(Mandrill.Requests.SubAccounts.UpdateSubAccountRequest)">
+            <summary>
+              Update an existing subaccount
+              <see cref="!:https://mandrillapp.com/api/docs/subaccounts.JSON.html#method=update">Mandrill API Documentation</see>
+            </summary>
+            <param name="request">The request</param>
+            <returns>the information for the updated subaccount</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.AddTemplate(Mandrill.Requests.Templates.AddTemplateRequest)">
+            <summary>
+              Add a new template.
+            </summary>
+            <param name="request">
+              The name for the new template - must be unique.
+            </param>
+            <returns>A <see cref="M:Mandrill.MandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object.</returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.ListTemplates(Mandrill.Requests.Templates.ListTemplatesRequest)">
+            <summary>
+              Return a list of all the templates available to this user
+            </summary>
+            <returns>
+              The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.Render(Mandrill.Requests.Templates.RenderTemplateRequest)">
+            <summary>
+              The render async.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.UpdateTemplate(Mandrill.Requests.Templates.UpdateTemplateRequest)">
+            <summary>
+              Update the code for an existing template, asynchronously.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <remarks>
+              If <c>null</c> is provided for any fields, the values will remain unchanged.
+            </remarks>
+            <returns>
+              The <see cref="M:Mandrill.MandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object of the template that was updated
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.DeleteTemplate(Mandrill.Requests.Templates.DeleteTemplateRequest)">
+            <summary>
+              Delete a template.
+            </summary>
+            <param name="request">
+              The template name.
+            </param>
+            <returns>
+              The <see cref="M:Mandrill.MandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object of the template that was deleted
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)">
+            <summary>
+              Fetch a specific template.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              A <see cref="M:Mandrill.MandrillApi.TemplateInfo(Mandrill.Requests.Templates.TemplateInfoRequest)"/> object.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.TemplateTimeSeries(Mandrill.Requests.Templates.TemplateTimeSeriesRequest)">
+            <summary>
+              Return the recent history (hourly stats for the last 30 days) for a template.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              A list of <see cref="M:Mandrill.MandrillApi.TemplateTimeSeries(Mandrill.Requests.Templates.TemplateTimeSeriesRequest)"/> for the template.
+            </returns>
+        </member>
+        <member name="M:Mandrill.MandrillApi.Ping">
+            <summary>
+              Validate an API key and respond to a ping
+            </summary>
+            <returns>
+              The <see cref="T:System.String"/>.
+            </returns>
+            <see cref="!:https://mandrillapp.com/api/docs/users.JSON.html#method=ping"/>
+        </member>
+        <member name="M:Mandrill.MandrillApi.UserInfo">
+            <summary>
+              Return the information about the API-connected user
+            </summary>
+            <returns>
+              The <see cref="M:Mandrill.MandrillApi.UserInfo"/>.
+            </returns>
+            <see cref="!:https://mandrillapp.com/api/docs/users.html#method=info"/>
+        </member>
+        <member name="P:Mandrill.MandrillApi.ApiKey">
+            <summary>
+              The Api Key for the project received from the MandrillApp website
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Attachment">
+            <summary>
+              Information about an individual attachment.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Attachment.Content">
+            <summary>
+              Content of the attachment as a base64 encoded string.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Attachment.Name">
+            <summary>
+              File name of the attachment.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Attachment.Type">
+            <summary>
+              MIME type of the attachment.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Content">
+            <summary>
+              Content of the message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Attachments">
+            <summary>
+              Array of any attachments that can be found in the message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.FromEmail">
+            <summary>
+              Email address of the sender.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.FromName">
+            <summary>
+              Alias of the sender (if any).
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Headers">
+            <summary>
+              Key-value pairs of the custom MIME headers for the message's main
+              document.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Html">
+            <summary>
+              HTML part of the message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Id">
+            <summary>
+              Message's unique id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Subject">
+            <summary>
+              Message's subject line.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Tags">
+            <summary>
+              List of tags on this message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Text">
+            <summary>
+              Text part of the message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.Timestamp">
+            <summary>
+              Unix timestamp from when this message was sent.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Content.To">
+            <summary>
+              Message recipient's information.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Dkim">
+            <summary>
+              The dkim.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Dkim.Error">
+            <summary>
+              Gets or sets the error.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Dkim.Valid">
+            <summary>
+              Gets or sets a value indicating whether valid.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Dkim.ValidAfter">
+            <summary>
+              Gets or sets the valid_after.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.MessageInfo">
+            <summary>
+              The information of a recently sent message
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.TimeStamp">
+            <summary>
+              Gets or sets the time stamp.
+            </summary>
+            <value>The time stamp.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Id">
+            <summary>
+              Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Sender">
+            <summary>
+              Gets or sets the sender.
+            </summary>
+            <value>The sender.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Template">
+            <summary>
+              Gets or sets the template.
+            </summary>
+            <value>The template.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+            <value>The subject.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.ClickDetails">
+            <summary>
+              Gets or sets the click details.
+            </summary>
+            <value>The click details.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Opens">
+            <summary>
+              Gets or sets the opens.
+            </summary>
+            <value>The opens.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.Clicks">
+            <summary>
+              Gets or sets the clicks.
+            </summary>
+            <value>The clicks.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.OpenDetails">
+            <summary>
+              Gets or sets the open details.
+            </summary>
+            <value>The open details.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.State">
+            <summary>
+              Gets or sets the state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfo.MetaData">
+            <summary>
+              Gets or sets the meta data.
+            </summary>
+            <value>The meta data.</value>
+        </member>
+        <member name="T:Mandrill.Models.MessageInfoMetaData">
+            <summary>
+              Class MessageInfoMetaData.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfoMetaData.UserId">
+            <summary>
+              Gets or sets the user identifier.
+            </summary>
+            <value>The user identifier.</value>
+        </member>
+        <member name="P:Mandrill.Models.MessageInfoMetaData.Website">
+            <summary>
+              Gets or sets the website.
+            </summary>
+            <value>The website.</value>
+        </member>
+        <member name="T:Mandrill.Models.OpenDetail">
+            <summary>
+              Class OpenDetail.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.OpenDetail.TimeStamp">
+            <summary>
+              Gets or sets the time stamp.
+            </summary>
+            <value>The time stamp.</value>
+        </member>
+        <member name="P:Mandrill.Models.OpenDetail.Ip">
+            <summary>
+              Gets or sets the ip.
+            </summary>
+            <value>The ip.</value>
+        </member>
+        <member name="P:Mandrill.Models.OpenDetail.Location">
+            <summary>
+              Gets or sets the location.
+            </summary>
+            <value>The location.</value>
+        </member>
+        <member name="P:Mandrill.Models.OpenDetail.UserAgent">
+            <summary>
+              Gets or sets the user agent.
+            </summary>
+            <value>The user agent.</value>
+        </member>
+        <member name="T:Mandrill.Models.ClickDetail">
+            <summary>
+              Class ClickDetail.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ClickDetail.Url">
+            <summary>
+              Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="T:Mandrill.Models.EmailAddress">
+            <summary>
+              The email address.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.EmailAddress.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Models.EmailAddress"/> class.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.EmailAddress.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Models.EmailAddress"/> class.
+            </summary>
+            <param name="email">
+              The email.
+            </param>
+        </member>
+        <member name="M:Mandrill.Models.EmailAddress.#ctor(System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Models.EmailAddress"/> class.
+            </summary>
+            <param name="email">
+              The email.
+            </param>
+            <param name="name">
+              The name.
+            </param>
+        </member>
+        <member name="M:Mandrill.Models.EmailAddress.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Models.EmailAddress"/> class.
+            </summary>
+            <param name="email">
+              The email.
+            </param>
+            <param name="name">
+              The name.
+            </param>
+            <param name="type">
+              The type.
+            </param>
+        </member>
+        <member name="P:Mandrill.Models.EmailAddress.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAddress.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAddress.Type">
+            <summary>
+              The header type to use for the recipient, defaults to "to" if not provided
+              oneof(to, cc, bcc)
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.TemplateSyntax">
+            <summary>
+              Defines the template syntax.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.TemplateSyntax.Mailchimp">
+            <summary>
+              Uses the MailChimp template syntax.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.TemplateSyntax.Handlebars">
+            <summary>
+              Uses the handlebars template syntax.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.MergeVar">
+            <summary>
+              The merge_var.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.MergeVar.Content">
+            <summary>
+              The content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.MergeVar.Name">
+            <summary>
+              The name.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RcptMergeVar">
+            <summary>
+              The rcpt_merge_var.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.RcptMergeVar.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Models.RcptMergeVar"/> class.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RcptMergeVar.Rcpt">
+            <summary>
+              The rcpt.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RcptMergeVar.Vars">
+            <summary>
+              The vars.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RcptMetadata">
+            <summary>
+              The rcpt_metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RcptMetadata.Rcpt">
+            <summary>
+              The rcpt.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RcptMetadata.Values">
+            <summary>
+              The values.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.EmailAttachment">
+            <summary>
+              The attachment.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAttachment.Content">
+            <summary>
+              The content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAttachment.Name">
+            <summary>
+              The name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAttachment.Type">
+            <summary>
+              The type.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailAttachment.Base64">
+            <summary>
+              True if the attachment is base64 encoded
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Image">
+            <summary>
+              The image.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Image.Content">
+            <summary>
+              The content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Image.Name">
+            <summary>
+              The name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Image.Type">
+            <summary>
+              The type.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.EmailMessage">
+            <summary>
+              The email message.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.EmailMessage.AddGlobalVariable(System.String,System.Object)">
+            <summary>
+              The add global variable.
+            </summary>
+            <param name="name">
+              The name.
+            </param>
+            <param name="content">
+              The content.
+            </param>
+        </member>
+        <member name="M:Mandrill.Models.EmailMessage.AddHeader(System.String,System.String)">
+            <summary>
+              The add header.
+            </summary>
+            <param name="name">
+              The name.
+            </param>
+            <param name="value">
+              The value.
+            </param>
+        </member>
+        <member name="M:Mandrill.Models.EmailMessage.AddMetadata(System.String,System.String)">
+            <summary>
+              The add metadata.
+            </summary>
+            <param name="key">
+              The key.
+            </param>
+            <param name="value">
+              The value.
+            </param>
+        </member>
+        <member name="M:Mandrill.Models.EmailMessage.AddRecipientVariable(System.String,System.String,System.Object)">
+            <summary>
+              The add recipient variable.
+            </summary>
+            <param name="recipient">
+              The recipient.
+            </param>
+            <param name="name">
+              The name.
+            </param>
+            <param name="content">
+              The content.
+            </param>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Attachments">
+            <summary>
+              Gets or sets the attachments.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.AutoHtml">
+            <summary>
+              Gets or sets a value indicating whether auto_html.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.AutoText">
+            <summary>
+              Gets or sets a value indicating whether auto_text.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.BccAddress">
+            <summary>
+              Gets or sets the bcc_address.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.FromEmail">
+            <summary>
+              Gets or sets the from_email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.FromName">
+            <summary>
+              Gets or sets the from_name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.GlobalMergeVars">
+            <summary>
+              Gets the global_merge_vars.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.GoogleAnalyticsCampaign">
+            <summary>
+              Gets or sets the google_analytics_campaign.
+              TODO the api docs state that this can be a string or an array
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.GoogleAnalyticsDomains">
+            <summary>
+              Gets or sets the google_analytics_domains.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Headers">
+            <summary>
+              Gets the headers.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Html">
+            <summary>
+              Gets or sets the html.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Images">
+            <summary>
+              Gets or sets the images.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Important">
+            <summary>
+              Get s or sets a value indicating whether important.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.InlineCss">
+            <summary>
+              Gets or sets a value indicating whether inline_css.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Merge">
+            <summary>
+              Gets or sets a value indicating whether merge.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.MergeVars">
+            <summary>
+              Gets the merge_vars.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Metadata">
+            <summary>
+              Gets the metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.PreserveRecipients">
+            <summary>
+              Gets or sets whether or not to expose all recipients in to "To" header for each email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.RawMessage">
+            <summary>
+              Gets or sets the raw_message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.RawTo">
+            <summary>
+              Gets or sets the string array to.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.RecipientMetadata">
+            <summary>
+              Gets or sets the recipient_metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.ReturnPathDomain">
+            <summary>
+              Gets or sets the return_path_domain.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.SigningDomain">
+            <summary>
+              Gets or sets the signing_domain.
+            </summary>
+            <remarks>
+              a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
+            </remarks>
+            <value>
+              The signing_domain.
+            </value>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.SubAccount">
+            <summary>
+              Gets or sets the subaccount.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.MergeLanguage">
+            <summary>
+              Gets or sets the merge language.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Tags">
+            <summary>
+              Gets or sets the tags.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.Text">
+            <summary>
+              Gets or sets the text.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.To">
+            <summary>
+              Gets or sets the to.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.TrackClicks">
+            <summary>
+              Gets or sets a value indicating whether track_clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.TrackOpens">
+            <summary>
+              Gets or sets a value indicating whether track_opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.TrackingDomain">
+            <summary>
+              Gets or sets the tracking_domain.
+            </summary>
+            <remarks>
+              a custom domain to use for tracking opens and clicks instead of mandrillapp.com
+            </remarks>
+            <value>
+              The tracking_domain.
+            </value>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.UrlStripQs">
+            <summary>
+              Gets or sets a value indicating whether url_strip_qs.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailMessage.ViewContentLink">
+            <summary>
+              Gets or sets a value indicating whether view_content_link
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.EmailResultStatus">
+            <summary>
+              The email result status.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.EmailResultStatus.Sent">
+            <summary>
+              The sent.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.EmailResultStatus.Queued">
+            <summary>
+              The queued.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.EmailResultStatus.Rejected">
+            <summary>
+              The rejected.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.EmailResultStatus.Invalid">
+            <summary>
+              The invalid.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.EmailResultStatus.Scheduled">
+            <summary>
+              The scheduled.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.EmailResult">
+            <summary>
+              The email result.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailResult.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailResult.Id">
+            <summary>
+              Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailResult.RejectReason">
+            <summary>
+              Reason for reject
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.EmailResult.Status">
+            <summary>
+              Gets or sets the status.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.ErrorResponse">
+            <summary>
+              The error response.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ErrorResponse.Code">
+            <summary>
+              The code.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ErrorResponse.Message">
+            <summary>
+              The message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ErrorResponse.Name">
+            <summary>
+              The name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ErrorResponse.Status">
+            <summary>
+              The status.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.TemplateTimeSeries">
+            <summary>
+            Time series statistics for a Mandrill template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Time">
+            <summary>
+            The date and time that this series corresponds to.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Sent">
+            <summary>
+            The number of emails that were sent during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.HardBounces">
+            <summary>
+            The number of emails that hard bounced during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.SoftBounces">
+            <summary>
+            The number of emails that soft bounced during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Rejects">
+            <summary>
+            The number of emails that were rejected during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Complaints">
+            <summary>
+            The number of spam complaints received during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Opens">
+            <summary>
+            The number of emails opened during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.UniqueOpens">
+            <summary>
+            The number of unique opens generated by messages sent during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.Clicks">
+            <summary>
+            The number of tracked URLs clicked during the hour.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateTimeSeries.UniqueClicks">
+            <summary>
+            The number of unique clicks generated by messages sent during the hour.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Requests.Rejects.AddRejectRequest">
+            <summary>
+              Class AddRejectRequest.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Requests.RequestBase">
+            <summary>
+              Base Payload class for all request going to Mandrill Servers
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.RequestBase.Key">
+            <summary>
+              The API Key property.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.AddRejectRequest.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.AddRejectRequest.Comment">
+            <summary>
+              Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.AddRejectRequest.SubAccount">
+            <summary>
+              Gets or sets the subaccount.
+            </summary>
+            <value>The subaccount.</value>
+        </member>
+        <member name="T:Mandrill.Requests.SubAccounts.AddSubAccountRequest">
+            <summary>
+              Class AddSubAccountRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.AddSubAccountRequest.Id">
+            <summary>
+              Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.AddSubAccountRequest.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.AddSubAccountRequest.Notes">
+            <summary>
+              Gets or sets the notes.
+            </summary>
+            <value>The notes.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.AddSubAccountRequest.CustomQuota">
+            <summary>
+              Gets or sets the custom_quota.
+            </summary>
+            <value>The custom_quota.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Templates.AddTemplateRequest">
+            <summary>
+              Class AddTemplateRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.FromEmail">
+            <summary>
+              Gets or sets the from_email.
+            </summary>
+            <value>The from_email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.FromName">
+            <summary>
+              Gets or sets the from_name.
+            </summary>
+            <value>The from_name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.TemplateContent">
+            <summary>
+              Gets or sets the template_content.
+            </summary>
+            <value>The template_content.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Code">
+            <summary>
+              Gets or sets the code.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Text">
+            <summary>
+              Gets or sets the text.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+            <value>The subject.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Publish">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:Mandrill.Requests.Templates.AddTemplateRequest"/> is publish.
+            </summary>
+            <value><c>true</c> if publish; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.AddTemplateRequest.Labels">
+            <summary>
+              Gets or sets the labels.
+            </summary>
+            <value>The labels.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.ContentRequest.Id">
+            <summary>
+              Unique id of the message to get -- passed as the "_id" field in
+              webhooks, send calls, or search calls.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Requests.Rejects.DeleteRejectRequest">
+            <summary>
+              Class DeleteRejectRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.DeleteRejectRequest.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.DeleteRejectRequest.SubAccount">
+            <summary>
+              Gets or sets the subaccount.
+            </summary>
+            <value>The subaccount.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Rejects.ListRejectsRequest">
+            <summary>
+              Class ListRejectsRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.ListRejectsRequest.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.ListRejectsRequest.IncludeExpired">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:Mandrill.Requests.Rejects.ListRejectsRequest"/> is include_expired.
+            </summary>
+            <value><c>true</c> if include_expired; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Rejects.ListRejectsRequest.SubAccount">
+            <summary>
+              Gets or sets the subaccount.
+            </summary>
+            <value>The subaccount.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Templates.RenderTemplateRequest">
+            <summary>
+              Class RenderTemplateRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.RenderTemplateRequest.TemplateName">
+            <summary>
+              Gets or sets the template_name.
+            </summary>
+            <value>The template_name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.RenderTemplateRequest.TemplateContent">
+            <summary>
+              Gets or sets the template_content.
+            </summary>
+            <value>The template_content.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.RenderTemplateRequest.MergeVars">
+            <summary>
+              Gets or sets the merge_vars.
+            </summary>
+            <value>The merge_vars.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Messages.SendMessageRequest">
+            <summary>
+              Class SendMessageRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageRequest.Message">
+            <summary>
+              Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageRequest.Async">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:Mandrill.Requests.Messages.SendMessageRequest"/> is asynchronous.
+            </summary>
+            <value><c>true</c> if asynchronous; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageRequest.IpPool">
+            <summary>
+              Gets or sets the ip pool.
+            </summary>
+            <value>The ip pool.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageRequest.SendAt">
+            <summary>
+              Gets or sets the send at.
+            </summary>
+            <value>The send at.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Messages.SendMessageTemplateRequest">
+            <summary>
+            The request to send a new transactional message through Mandrill using a template.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Requests.Messages.SendMessageTemplateRequest.#ctor(Mandrill.Models.EmailMessage,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message">The other information on the message to send - same as /messages/send, but without the html content.</param>
+            <param name="templateName">The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.</param>
+        </member>
+        <member name="M:Mandrill.Requests.Messages.SendMessageTemplateRequest.#ctor(Mandrill.Models.EmailMessage,System.String,System.Collections.Generic.IEnumerable{Mandrill.Models.TemplateContent})">
+            <summary>
+            
+            </summary>
+            <param name="message">The other information on the message to send - same as /messages/send, but without the html content.</param>
+            <param name="templateName">The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.</param>
+            <param name="templateContents">An array of template content to send.</param>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.Message">
+            <summary>
+            The other information on the message to send - same as /messages/send, but without the html content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.TemplateName">
+            <summary>
+            The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.TemplateContents">
+            <summary>
+            An array of template content to send.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.Async">
+            <summary>
+            Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. 
+            To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; 
+            messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.IpPool">
+            <summary>
+            The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendMessageTemplateRequest.SendAt">
+            <summary>
+            When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. 
+            If you specify a time in the past, the message will be sent immediately. 
+            An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Recipient">
+            <summary>
+              Message recipient's information.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Recipient.Email">
+            <summary>
+              Email address of the recipient.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Recipient.Name">
+            <summary>
+              Alias of the recipient (if any).
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RejectInfo">
+            <summary>
+              The reject info.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.CreatedAt">
+            <summary>
+              Gets or sets the created at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.Expired">
+            <summary>
+              Gets or sets a value indicating whether expired.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.ExpiresAt">
+            <summary>
+              Gets or sets the expires at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.LastEventAt">
+            <summary>
+              Gets or sets the expires at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.Reason">
+            <summary>
+              Gets or sets the reason.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.Detail">
+            <summary>
+              Gets or sets the reason.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectInfo.Sender">
+            <summary>
+              Gets or sets the reason.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RejectAddResult">
+            <summary>
+              The reject add result.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectAddResult.Added">
+            <summary>
+              Gets or sets a value indicating whether added.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectAddResult.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RejectDeleteResult">
+            <summary>
+              The reject delete result.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectDeleteResult.Deleted">
+            <summary>
+              Gets or sets a value indicating whether deleted.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RejectDeleteResult.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.RenderedTemplate">
+            <summary>
+              The rendered template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.RenderedTemplate.Html">
+            <summary>
+              Gets or sets the html.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Requests.Messages.SendRawMessageRequest">
+            <summary>
+              Class SendRawMessageRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.RawMessage">
+            <summary>
+              Gets or sets the raw message.
+            </summary>
+            <value>The raw message.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.FromEmail">
+            <summary>
+              Gets or sets from email.
+            </summary>
+            <value>From email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.FromName">
+            <summary>
+              Gets or sets from name.
+            </summary>
+            <value>From name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.ToEmails">
+            <summary>
+              Gets or sets to emails.
+            </summary>
+            <value>To emails.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.Async">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:Mandrill.Requests.Messages.SendRawMessageRequest"/> is asynchronous.
+            </summary>
+            <value><c>true</c> if asynchronous; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.IpPool">
+            <summary>
+              Gets or sets the ip pool.
+            </summary>
+            <value>The ip pool.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.SendAt">
+            <summary>
+              Gets or sets the send at.
+            </summary>
+            <value>The send at.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SendRawMessageRequest.ReturnPathDomain">
+            <summary>
+              Gets or sets the return path domain.
+            </summary>
+            <value>The return path domain.</value>
+        </member>
+        <member name="T:Mandrill.Requests.SubAccounts.UpdateSubAccountRequest">
+            <summary>
+              Class UpdateSubAccountRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.UpdateSubAccountRequest.Id">
+            <summary>
+              Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.UpdateSubAccountRequest.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.UpdateSubAccountRequest.Notes">
+            <summary>
+              Gets or sets the notes.
+            </summary>
+            <value>The notes.</value>
+        </member>
+        <member name="P:Mandrill.Requests.SubAccounts.UpdateSubAccountRequest.CustomQuota">
+            <summary>
+              Gets or sets the custom_quota.
+            </summary>
+            <value>The custom_quota.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Templates.TemplateTimeSeriesRequest">
+            <summary>
+            Class TemplateTimeSeriesRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.TemplateTimeSeriesRequest.Name">
+            <summary>
+            Gets or sets the template name.
+            </summary>
+            <value>The template name.</value>
+        </member>
+        <member name="T:Mandrill.Requests.Templates.UpdateTemplateRequest">
+            <summary>
+              Class UpdateTemplateRequest.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.FromEmail">
+            <summary>
+              Gets or sets the from_email.
+            </summary>
+            <value>The from_email.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.FromName">
+            <summary>
+              Gets or sets the from_name.
+            </summary>
+            <value>The from_name.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+            <value>The subject.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Code">
+            <summary>
+              Gets or sets the code.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Text">
+            <summary>
+              Gets or sets the text.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Publish">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:Mandrill.Requests.Templates.UpdateTemplateRequest"/> is publish.
+            </summary>
+            <value><c>true</c> if publish; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Mandrill.Requests.Templates.UpdateTemplateRequest.Labels">
+            <summary>
+              Gets or sets the labels.
+            </summary>
+            <value>The labels.</value>
+        </member>
+        <member name="T:Mandrill.Models.ScheduledEmailResult">
+            <summary>
+              The scheduled email result.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.CreatedAt">
+            <summary>
+              Gets or sets the created at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.FromEmail">
+            <summary>
+              Gets or sets the from email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.Id">
+            <summary>
+              Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.SendAt">
+            <summary>
+              Gets or sets the send at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.ScheduledEmailResult.ToEmail">
+            <summary>
+              Gets or sets the to email.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Requests.Messages.SearchRequest">
+            <summary>
+              Search Request.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.DateFrom">
+            <summary>
+              Start date.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.DateTo">
+            <summary>
+              End date.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.Limit">
+            <summary>
+              The maximum number of results to return, defaults to 100, 1000 is the maximum.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.Query">
+            <summary>
+              Search terms to find matching messages
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.Senders">
+            <summary>
+              An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.Tags">
+            <summary>
+              An array of tag names to narrow the search to, will return messages that contain ANY of the tags.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Requests.Messages.SearchRequest.ApiKeys">
+            <summary>
+            An array of API keys to narrow the search to, will return messages sent by ANY of the keys.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.SearchResultState">
+            <summary>
+              The search result state.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Sent">
+            <summary>
+              The sent.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Bounced">
+            <summary>
+              The bounced.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Rejected">
+            <summary>
+              The rejected.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.SoftBounced">
+            <summary>
+              The soft bounced.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Spam">
+            <summary>
+              The spam.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Unsub">
+            <summary>
+              The unsub.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.SearchResultState.Deferred">
+            <summary>
+              The deferred.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.SearchResult">
+            <summary>
+              The search result.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Id">
+            <summary>
+              Gets or sets the _id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.BounceDescription">
+            <summary>
+              Gets or sets the bounce_description.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Clicks">
+            <summary>
+              Gets or sets the clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Diag">
+            <summary>
+              Gets or sets the diag.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Metadata">
+            <summary>
+              Gets or sets the metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Opens">
+            <summary>
+              Gets or sets the opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Sender">
+            <summary>
+              Gets or sets the sender.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.SmtpEvents">
+            <summary>
+              Gets or sets the smtp_events.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.State">
+            <summary>
+              Gets or sets the state.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Tags">
+            <summary>
+              Gets or sets the tags.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.Ts">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.OpenDetails">
+            <summary>
+              Gets or sets the open details.
+            </summary>
+            <value>The open details.</value>
+        </member>
+        <member name="P:Mandrill.Models.SearchResult.ClickDetails">
+            <summary>
+              Gets or sets the click details.
+            </summary>
+            <value>The click details.</value>
+        </member>
+        <member name="T:Mandrill.Models.Sender">
+            <summary>
+              The sender.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Address">
+            <summary>
+              Gets or sets the address.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Clicks">
+            <summary>
+              Gets or sets the clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Complaints">
+            <summary>
+              Gets or sets the complaints.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.CreatedAt">
+            <summary>
+              Gets or sets the created_at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.HardBounces">
+            <summary>
+              Gets or sets the hard_bounces.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Opens">
+            <summary>
+              Gets or sets the opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Rejects">
+            <summary>
+              Gets or sets the rejects.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Sent">
+            <summary>
+              Gets or sets the sent.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.SoftBounces">
+            <summary>
+              Gets or sets the soft_bounces.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Sender.Unsubs">
+            <summary>
+              Gets or sets the unsubs.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.SenderDomain">
+            <summary>
+              The sender domain.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.CreatedAt">
+            <summary>
+              Gets or sets the created_at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.Dkim">
+            <summary>
+              Gets or sets the dkim.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.Domain">
+            <summary>
+              Gets or sets the domain.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.LastTestedAt">
+            <summary>
+              Gets or sets the last_tested_at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.Spf">
+            <summary>
+              Gets or sets the spf.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.ValidSigning">
+            <summary>
+              Gets or sets a value indicating whether valid_signing.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SenderDomain.VerifiedAt">
+            <summary>
+              Gets or sets the verified_at.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.SmtpEvent">
+            <summary>
+              The smtp event.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.TimeStamp">
+            <summary>
+              Gets the time stamp.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.DestinationIp">
+            <summary>
+              Gets or sets the destination_ip.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.Diag">
+            <summary>
+              Gets or sets the diag.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.Size">
+            <summary>
+              Gets or sets the size.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.SourceIp">
+            <summary>
+              Gets or sets the source_ip.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.Ts">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SmtpEvent.Type">
+            <summary>
+              Gets or sets the type.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.Spf">
+            <summary>
+              The spf.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Spf.Error">
+            <summary>
+              Gets or sets the error.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Spf.Valid">
+            <summary>
+              Gets or sets a value indicating whether valid.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Spf.ValidAfter">
+            <summary>
+              Gets or sets the valid_after.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.CreatedAt">
+            <summary>
+              The date and time that the subaccount was created as a UTC string in YYYY-MM-DD HH:MM:SS format
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.CustomQuota">
+            <summary>
+              An optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on
+              reputation
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.FirstSentAt">
+            <summary>
+              The date and time that the subaccount first sent as a UTC string in YYYY-MM-DD HH:MM:SS format
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.Id">
+            <summary>
+              A unique indentifier for the subaccount
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.Last30Days">
+            <summary>
+              Stats for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.Name">
+            <summary>
+              An optional display name for the subaccount
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.Reputation">
+            <summary>
+              The subaccount's current reputation on a scale from 0 to 100
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.SentMonthly">
+            <summary>
+              The number of emails the subaccount has sent so far this month (months start on midnight of the 1st, UTC)
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.SentTotal">
+            <summary>
+              The number of emails the subaccount has sent since it was created
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.SentWeekly">
+            <summary>
+              The number of emails the subaccount has sent so far this week (weeks start on midnight Monday, UTC)
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.SubaccountInfo.Status">
+            <summary>
+              The current sending status of the subaccount, one of "active" or "paused"
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Clicks">
+            <summary>
+              The number of URLs that have been clicked for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Complaints">
+            <summary>
+              The number of spam complaints for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.HardBounces">
+            <summary>
+              The number of emails hard bounced for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Opens">
+            <summary>
+              The number of times emails have been opened for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Rejects">
+            <summary>
+              The number of emails rejected for sending this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Sent">
+            <summary>
+              The number of emails sent for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.SoftBounces">
+            <summary>
+              The number of emails soft bounced for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.UniqueClicks">
+            <summary>
+              The number of unique clicks for emails sent for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.UniqueOpens">
+            <summary>
+              The number of unique opens for emails sent for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Last30Days.Unsubs">
+            <summary>
+              The number of unsbuscribes for this subaccount in the last 30 days
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.TemplateInfo">
+            <summary>
+              The template info.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Created">
+            <summary>
+              The date and time the template was first created.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.FromEmail">
+            <summary>
+              The default sender address for the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.FromName">
+            <summary>
+              The default sender from name for the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Labels">
+            <summary>
+              The list of labels applied to the template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishFromEmail">
+            <summary>
+              The default sender address for the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishFromName">
+            <summary>
+              The default sender from name for the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishSubject">
+            <summary>
+              The subject line of the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishText">
+            <summary>
+              The default text part of messages sent with the template, if
+              provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Published">
+            <summary>
+              The date and time the template was last published, or null if it
+              has not been published.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Slug">
+            <summary>
+              The immutable unique code name of the template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Subject">
+            <summary>
+              The subject line of the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Text">
+            <summary>
+              The default text part of messages sent with the template, if provided.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Updated">
+            <summary>
+              The date and time the template was last modified.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Code">
+            <summary>
+              The full HTML code of the template, with <c>mc:edit</c> attributes
+              marking the editable elements.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.Name">
+            <summary>
+              The name of the template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishCode">
+            <summary>
+              The full HTML code of the template, with <c>mc:edit</c> attributes
+              marking the editable elements that are available as published, if
+              it has been published.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateInfo.PublishName">
+            <summary>
+              The same as the template name - kept as a separate field for
+              backwards compatibility.
+            </summary>
+            <seealso cref="P:Mandrill.Models.TemplateInfo.Name"/>
+        </member>
+        <member name="T:Mandrill.Models.Stats">
+            <summary>
+              The stats.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.AllTime">
+            <summary>
+              The all_time.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.Last30Days">
+            <summary>
+              The last_30_days.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.Last60Days">
+            <summary>
+              The last_60_days.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.Last7Days">
+            <summary>
+              The last_7_days.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.Last90Days">
+            <summary>
+              The last_90_days.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.Stats.Today">
+            <summary>
+              The today.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.UserInfoStats">
+            <summary>
+              The user info stats.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Clicks">
+            <summary>
+              The clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Complaints">
+            <summary>
+              The complaints.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.HardBounces">
+            <summary>
+              The hard_bounces.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Opens">
+            <summary>
+              The opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Rejects">
+            <summary>
+              The rejects.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Sent">
+            <summary>
+              The sent.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.SoftBounces">
+            <summary>
+              The soft_bounces.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.UniqueClicks">
+            <summary>
+              The unique_clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.UniqueOpens">
+            <summary>
+              The unique_opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfoStats.Unsubs">
+            <summary>
+              The unsubs.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.UserInfo">
+            <summary>
+              The user info.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.Backlog">
+            <summary>
+              Gets or sets the backlog.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.CreatedAt">
+            <summary>
+              Gets or sets the created_at.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.HourlyQuota">
+            <summary>
+              Gets or sets the hourly_quota.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.PublicId">
+            <summary>
+              Gets or sets the public_id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.Reputation">
+            <summary>
+              Gets or sets the reputation.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.Stats">
+            <summary>
+              Gets or sets the stats.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.UserInfo.Username">
+            <summary>
+              Gets or sets the username.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookEventType">
+            <summary>
+              The web hook event type.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Send">
+            <summary>
+              The send.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Hard_bounce">
+            <summary>
+              The hard_bounce.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Soft_bounce">
+            <summary>
+              The soft_bounce.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Open">
+            <summary>
+              The open.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Click">
+            <summary>
+              The click.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Spam">
+            <summary>
+              The spam.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Unsub">
+            <summary>
+              The unsub.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Reject">
+            <summary>
+              The reject.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Deferral">
+            <summary>
+              The deferral.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookEventType.Inbound">
+            <summary>
+              The inbound.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookMessageState">
+            <summary>
+              The web hook message state.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Sent">
+            <summary>
+              The sent.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Rejected">
+            <summary>
+              The rejected.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Spam">
+            <summary>
+              The spam.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Unsub">
+            <summary>
+              The unsub.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Bounced">
+            <summary>
+              The bounced.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Soft_bounced">
+            <summary>
+              The soft_bounced.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Deferred">
+            <summary>
+              The deferred.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Models.WebHookMessageState.Inbound">
+            <summary>
+              The inbound.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookEvent">
+            <summary>
+              The web hook event.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.WebHookEvent.FromUnixTime(System.Int64)">
+            <summary>
+              The from unix time.
+            </summary>
+            <param name="unixTime">
+              The unix time.
+            </param>
+            <returns>
+              The <see cref="T:System.DateTime"/>.
+            </returns>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.Event">
+            <summary>
+              Gets or sets the event.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.Msg">
+            <summary>
+              Gets or sets the msg.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.TS">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.TimeStamp">
+            <summary>
+              Gets the time stamp.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.Url">
+            <summary>
+            for click events only, the url clicked for the event
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookEvent.UserAgent">
+            <summary>
+            for open and click events only, the user agent string for the environment (ie, browser or email client) where the open or click occurred
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookMessage">
+            <summary>
+              The web hook message.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Attachments">
+            <summary>
+              Gets or sets the attachments.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.BounceDescription">
+            <summary>
+              Gets or sets the bounce description.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.CC">
+            <summary>
+              Gets or sets the cc.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Clicks">
+            <summary>
+              Gets or sets the clicks.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Diag">
+            <summary>
+              Gets or sets the diag.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Dkim">
+            <summary>
+              Gets or sets the dkim.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Email">
+            <summary>
+              Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.FromEmail">
+            <summary>
+              Gets or sets the from email.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.FromName">
+            <summary>
+              Gets or sets the from name.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Headers">
+            <summary>
+            Gets or sets the headers.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Html">
+            <summary>
+              Gets or sets the html.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Id">
+            <summary>
+              Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Images">
+            <summary>
+              Gets or sets the images.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Metadata">
+            <summary>
+              Gets or sets the metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Opens">
+            <summary>
+              Gets or sets the opens.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.RawMsg">
+            <summary>
+              Gets or sets the raw msg.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Sender">
+            <summary>
+              Gets or sets the sender.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.SmtpEvents">
+            <summary>
+              Gets or sets the smtp events.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Spf">
+            <summary>
+              Gets or sets the spf.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.State">
+            <summary>
+              Gets or sets the state.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.SubAccount">
+            <summary>
+              Gets or sets the sub account
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Subject">
+            <summary>
+              Gets or sets the subject.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.TS">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Tags">
+            <summary>
+              Gets or sets the tags.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Template">
+            <summary>
+              Gets or sets the template.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.Text">
+            <summary>
+              Gets or sets the text.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.TimeStamp">
+            <summary>
+              Gets the time stamp.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMessage.To">
+            <summary>
+              Gets or sets the to.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookMessage.MetadataConverter">
+            <summary>
+              The metadata converter.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Models.WebHookMessage.MetadataConverter.CanConvert(System.Type)">
+            <summary>
+              The can convert.
+            </summary>
+            <param name="objectType">
+              The object type.
+            </param>
+            <returns>
+              The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.Models.WebHookMessage.MetadataConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+              The read json.
+            </summary>
+            <param name="reader">
+              The reader.
+            </param>
+            <param name="objectType">
+              The object type.
+            </param>
+            <param name="existingValue">
+              The existing value.
+            </param>
+            <param name="serializer">
+              The serializer.
+            </param>
+            <returns>
+              The <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.Models.WebHookMessage.MetadataConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+              The write json.
+            </summary>
+            <param name="writer">
+              The writer.
+            </param>
+            <param name="value">
+              The value.
+            </param>
+            <param name="serializer">
+              The serializer.
+            </param>
+            <exception cref="T:System.NotImplementedException">
+            </exception>
+        </member>
+        <member name="T:Mandrill.Models.WebHookOpen">
+            <summary>
+              The web hook open.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookOpen.TS">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookOpen.TimeStamp">
+            <summary>
+              Gets the time stamp.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookClick">
+            <summary>
+              The web hook click.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookClick.TS">
+            <summary>
+              Gets or sets the ts.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookClick.TimeStamp">
+            <summary>
+              Gets the time stamp.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookClick.Url">
+            <summary>
+              Gets or sets the url.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookMetadata">
+            <summary>
+              The web hook metadata.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMetadata.Key">
+            <summary>
+              Gets or sets the key.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookMetadata.Value">
+            <summary>
+              Gets or sets the value.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookDkim">
+            <summary>
+              The web hook dkim.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookDkim.Signed">
+            <summary>
+              Gets or sets a value indicating whether signed.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookDkim.Valid">
+            <summary>
+              Gets or sets a value indicating whether valid.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.WebHookSpf">
+            <summary>
+              The web hook spf.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookSpf.Detail">
+            <summary>
+              Gets or sets the detail.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.WebHookSpf.Result">
+            <summary>
+              Gets or sets the result.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Models.TemplateContent">
+            <summary>
+              The template content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateContent.Content">
+            <summary>
+              Gets or sets the content.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Models.TemplateContent.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+        </member>
+        <member name="T:Mandrill.Utilities.JSON">
+            <summary>
+              The json.
+            </summary>
+        </member>
+        <member name="F:Mandrill.Utilities.JSON.settings">
+            <summary>
+              The settings.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Utilities.JSON.Parse(System.String)">
+            <summary>
+              The parse.
+            </summary>
+            <param name="json">
+              The json.
+            </param>
+            <returns>
+              The <see cref="!:dynamic"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.Utilities.JSON.Parse``1(System.String)">
+            <summary>
+              The parse.
+            </summary>
+            <param name="json">
+              The json.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+              The <see cref="!:T"/>.
+            </returns>
+        </member>
+        <member name="M:Mandrill.Utilities.JSON.Serialize(System.Object)">
+            <summary>
+              The serialize.
+            </summary>
+            <param name="dyn">
+              The dyn.
+            </param>
+            <returns>
+              The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="T:Mandrill.Utilities.MandrillException">
+            <summary>
+              General Exception that is thrown by the Mandrill Api
+            </summary>
+        </member>
+        <member name="M:Mandrill.Utilities.MandrillException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Utilities.MandrillException"/> class.
+            </summary>
+        </member>
+        <member name="M:Mandrill.Utilities.MandrillException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Utilities.MandrillException"/> class.
+            </summary>
+            <param name="message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Mandrill.Utilities.MandrillException.#ctor(Mandrill.Models.ErrorResponse,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Utilities.MandrillException"/> class.
+            </summary>
+            <param name="error">
+              The error.
+            </param>
+            <param name="message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Mandrill.Utilities.MandrillException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Mandrill.Utilities.MandrillException"/> class.
+            </summary>
+            <param name="message">
+              The message.
+            </param>
+            <param name="innerException">
+              The inner exception.
+            </param>
+        </member>
+        <member name="P:Mandrill.Utilities.MandrillException.Error">
+            <summary>
+              Gets the error.
+            </summary>
+        </member>
+        <member name="P:Mandrill.Utilities.MandrillException.HttpResponseMessage">
+            <summary>
+              Gets the response message if any
+            </summary>
+        </member>
+        <member name="P:Mandrill.Utilities.MandrillException.MandrillRequest">
+            <summary>
+              Gets the mandrill request used.
+            </summary>
+        </member>
+    </members>
+</doc>

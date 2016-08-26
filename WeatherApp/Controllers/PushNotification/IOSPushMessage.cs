@@ -26,10 +26,14 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             return DeviceType.IOS;
         }
 
-        public IosPushMessageSender()
+        public IosPushMessageSender(ApplicationType? appType)
         {
-            config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
-                 Options.ApnsCertificateFile, Options.ApnsCertificatePassword);
+            if(appType == ApplicationType.Tablet)
+                config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
+                    Options.ApnsCertificateFileTablet, Options.ApnsCertificatePasswordTablet);
+            else
+                config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
+                    Options.ApnsCertificateFileMobile, Options.ApnsCertificatePasswordMobile);
 
             SetUpFeedbackServiceTimer(Options.APNSFeedbackServiceRunDelay);
 

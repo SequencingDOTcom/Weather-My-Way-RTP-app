@@ -16,9 +16,9 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,8 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CsvHelper">
-      <HintPath>..\packages\CsvHelper.2.13.2.0\lib\net40-client\CsvHelper.dll</HintPath>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.15.0.2\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -50,18 +51,21 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Flurl">
-      <HintPath>..\packages\Flurl.1.0.7\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+    <Reference Include="Flurl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.0.0\lib\portable-net40+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Flurl.Http">
-      <HintPath>..\packages\Flurl.Http.0.6.0\lib\net45\Flurl.Http.dll</HintPath>
+    <Reference Include="Flurl.Http, Version=0.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.0.10.1\lib\net45\Flurl.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Mandrill">
-      <HintPath>..\packages\Mandrill.2.0.3.0\lib\net45\Mandrill.dll</HintPath>
+    <Reference Include="Mandrill, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mandrill.2.4.1.0\lib\net45\Mandrill.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -96,9 +100,9 @@
       <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -122,6 +126,10 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -155,8 +163,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Twilio.Api">
-      <HintPath>..\packages\Twilio.4.0.51\lib\3.5\Twilio.Api.dll</HintPath>
+    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.4.7.2\lib\3.5\Twilio.Api.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -668,10 +677,11 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - Web Deploy.pubxml" />
-    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Scripts\intlTelInput.min.js" />
     <Content Include="Scripts\intlTelUtils.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.2.js" />
@@ -700,6 +710,8 @@
     <Compile Include="Controllers\DaoLayer\ISettingService.cs" />
     <Compile Include="Controllers\DaoLayer\OauthTokenDao.cs" />
     <Compile Include="Controllers\DaoLayer\OAuthTokenDaoFactory.cs" />
+    <Compile Include="Controllers\DaoLayer\PushSubscribeDTO.cs" />
+    <Compile Include="Controllers\DaoLayer\SettingsRetrieveDTO.cs" />
     <Compile Include="Controllers\DaoLayer\UserSettingService.cs" />
     <Compile Include="Controllers\ExternalSettingsController.cs" />
     <Compile Include="Controllers\OAuth\AuthInfo.cs" />
@@ -715,7 +727,6 @@
     <Compile Include="Controllers\DaoLayer\MSSQLDaoFactory.cs" />
     <Compile Include="Controllers\DaoLayer\MSSQLSendInfoDao.cs" />
     <Compile Include="Controllers\DaoLayer\MSSQLUserInfoDao.cs" />
-    <Compile Include="Controllers\SettingsDto.cs" />
     <Compile Include="Controllers\UserNotification\EmailWorker.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExternalController.cs" />
@@ -735,6 +746,9 @@
     <Compile Include="Controllers\WeatherUnderground\Forecast10Root.cs" />
     <Compile Include="Controllers\WeatherUnderground\LocationVerifier.cs" />
     <Compile Include="Controllers\WeatherUnderground\WeatherWorker.cs" />
+    <Compile Include="Models\ApplicationType.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -806,7 +820,6 @@
     <Content Include="Views\Default\CheckApp.cshtml" />
     <Content Include="Views\Default\Results.cshtml" />
     <Content Include="Views\Default\Startup.cshtml" />
-    <Content Include="Scripts\jquery-2.1.3.min.map" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Default\About.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
@@ -824,6 +837,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

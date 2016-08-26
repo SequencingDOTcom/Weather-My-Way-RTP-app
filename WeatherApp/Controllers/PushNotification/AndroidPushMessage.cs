@@ -21,9 +21,12 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         private string devToken;
         private long userId;
 
-        public AndroidPushMessageSender()
+        public AndroidPushMessageSender(ApplicationType? appType)
         {
-            config = new GcmConfiguration(Options.GCMSenderId, Options.DeviceAuthToken, null);
+            if (appType == ApplicationType.Tablet)
+                config = new GcmConfiguration(Options.GCMSenderIdTablet, Options.DeviceAuthTokenTablet, null);
+            else
+                config = new GcmConfiguration(Options.GCMSenderIdMobile, Options.DeviceAuthTokenMobile, null);
 
             gcmBroker = new GcmServiceBroker(config);
 
@@ -61,7 +64,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                     }
                     else if (ex is DeviceSubscriptionExpiredException)
                     {
-                        
+
                         var expiredException = (DeviceSubscriptionExpiredException)ex;
 
                         var oldId = expiredException.OldSubscriptionId;

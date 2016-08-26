@@ -10,6 +10,7 @@ using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
 using Newtonsoft.Json;
+using Sequencing.WeatherApp.Controllers;
 using log4net;
 
 
@@ -64,7 +65,6 @@ namespace Sequencing.WeatherApp.Controllers
         {
             if (code != null)
             {
-                //Retrieving token
                 var _authInfo = authWorker.GetAuthInfo(code);
                 if (_authInfo.Success)
                 {

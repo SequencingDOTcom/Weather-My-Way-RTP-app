@@ -28,7 +28,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="deviceToken"></param>
         /// <param name="deviceType"></param>
         /// <param name="accessToken"></param>
-        public void Subscribe(string deviceToken, DeviceType deviceType, string accessToken)
+        public void Subscribe(string deviceToken, DeviceType deviceType, string accessToken, ApplicationType? appType)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     var sendInfo = mssqlDaoFactory.GetSendInfoDao().Find(userName);
 
                     if (sendInfo != null)
-                        settingsService.SubscribePushNotification(deviceToken, deviceType, sendInfo);
+                        settingsService.SubscribePushNotification(deviceToken, deviceType, sendInfo, appType);
                 }
                 else
                     throw new ApplicationException(string.Format("Invalid access token {0}", accessToken));
@@ -67,11 +67,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="deviceType"></param>
         /// <param name="token"></param>
         /// <param name="message"></param>
-        public void Send(Int64 userId, DeviceType deviceType, string token, string message)
+        public void Send(Int64 userId, DeviceType deviceType, string token, string message, ApplicationType? appType)
         {
             try
             {
-                PushMessageSender pushMessageSender = GetPushMessageSender(deviceType);
+                PushMessageSender pushMessageSender = GetPushMessageSender(deviceType, appType);
 
                 if (pushMessageSender == null)
                 {
@@ -98,7 +98,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
             foreach (DeviceInfo token in deviceTokensInfo)
             {
-                Send(userId, token.deviceType.Value, token.token, message);
+                Send(userId, token.deviceType.Value, token.token, message, token.applicationId);
             }
         }
 
@@ -108,7 +108,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <param name="deviceType"></param>
-        public void SubscribeDeviceToken(string token, DeviceType deviceType, long userId)
+        public void SubscribeDeviceToken(string token, DeviceType deviceType, long userId, ApplicationType? appType)
         {
             try
             {
@@ -121,7 +121,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     subscriptionDate = DateTime.Now.Date,
                     deviceType = deviceType,
                     token = token,
-                   
+                    applicationId = appType
                 };
 
                 mssqlDaoFactory.GetDeviceTokenDao().SaveToken(devInfo);
@@ -187,15 +187,15 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// </summary>
         /// <param name="deviceType"></param>
         /// <returns></returns>
-        private PushMessageSender GetPushMessageSender(DeviceType deviceType)
+        private PushMessageSender GetPushMessageSender(DeviceType deviceType, ApplicationType? appType)
         {
             switch (deviceType)
             {
                 case DeviceType.IOS:
-                    return new IosPushMessageSender();
+                    return new IosPushMessageSender(appType);
 
                 case DeviceType.Android:
-                    return new AndroidPushMessageSender();
+                    return new AndroidPushMessageSender(appType);
             }
 
             return null;

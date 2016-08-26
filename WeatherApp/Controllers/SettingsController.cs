@@ -59,25 +59,27 @@ namespace Sequencing.WeatherApp.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangeNotification(SettingsDto settings)
+        public ActionResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone,
+            string wakeupDay, string wakeupEnd, string timezoneSelect, string timezoneOffset,
+            WeekEndMode weekendMode, TemperatureMode temperature, string countryCode)
         {
             SendInfo info = new SendInfo()
             {
                 UserName = User.Identity.Name,
-                SendEmail = settings.emailChk,
-                SendSms = settings.smsChk,
-                UserEmail = settings.email,
-                UserPhone = settings.phone,
-                TimeWeekDay = settings.wakeupDay,
-                TimeWeekEnd = settings.wakeupEnd,
-                TimeZoneValue = settings.timezoneSelect,
-                WeekendMode = settings.weekendMode,
-                Temperature = settings.temperature,
-                CountryCode = settings.countryCode
+                SendEmail = emailChk,
+                SendSms = smsChk,
+                UserEmail = email,
+                UserPhone = phone,
+                TimeWeekDay = wakeupDay,
+                TimeWeekEnd = wakeupEnd,
+                TimeZoneValue = timezoneSelect,
+                WeekendMode = weekendMode,
+                Temperature = temperature,
+                CountryCode = countryCode
             };
 
-            if (!string.IsNullOrEmpty(settings.timezoneOffset))
-                info.TimeZoneOffset = settingService.ParseTimeZoneOffset(settings.timezoneOffset);
+            if (!string.IsNullOrEmpty(timezoneOffset))
+                info.TimeZoneOffset = settingService.ParseTimeZoneOffset(timezoneOffset);
 
             settingService.UpdateUserSettings(info);
 
