@@ -37,10 +37,14 @@ namespace Sequencing.WeatherApp.Controllers
         public static string BaseSiteUrl { get { return ConfigurationManager.AppSettings["BaseSiteUrl"]; } }
 
         //Certificates for push notification
-        public static string ApnsCertificateFile { get { return ConfigurationManager.AppSettings["ApnsCertificateFile"]; } }
-        public static string ApnsCertificatePassword { get { return ConfigurationManager.AppSettings["ApnsCertificatePassword"]; } }
-        public static string GCMSenderId { get { return ConfigurationManager.AppSettings["GCMSenderId"]; } }
-        public static string DeviceAuthToken { get { return ConfigurationManager.AppSettings["DeviceAuthToken"]; } }
+        public static string ApnsCertificateFileMobile { get { return ConfigurationManager.AppSettings["ApnsCertificateFileMobile"]; } }
+        public static string ApnsCertificatePasswordMobile { get { return ConfigurationManager.AppSettings["ApnsCertificatePasswordMobile"]; } }
+        public static string ApnsCertificateFileTablet { get { return ConfigurationManager.AppSettings["ApnsCertificateFileTablet"]; } }
+        public static string ApnsCertificatePasswordTablet { get { return ConfigurationManager.AppSettings["ApnsCertificatePasswordTablet"]; } }
+        public static string GCMSenderIdMobile { get { return ConfigurationManager.AppSettings["GCMSenderIdMobile"]; } }
+        public static string DeviceAuthTokenMobile { get { return ConfigurationManager.AppSettings["DeviceAuthTokenMobile"]; } }
+        public static string GCMSenderIdTablet { get { return ConfigurationManager.AppSettings["GCMSenderIdTablet"]; } }
+        public static string DeviceAuthTokenTablet { get { return ConfigurationManager.AppSettings["DeviceAuthTokenTablet"]; } }
         public static string NotificationMessage { get { return ConfigurationManager.AppSettings["NotificationMessage"]; } }
         public static Int64 APNSFeedbackServiceRunDelay { get { return Int64.Parse(ConfigurationManager.AppSettings["APNSFeedbackServiceRunDelay"]); } }
     }

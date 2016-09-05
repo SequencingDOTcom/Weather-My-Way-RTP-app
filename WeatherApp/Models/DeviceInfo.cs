@@ -19,5 +19,6 @@ namespace Sequencing.WeatherApp.Models
         public Nullable<DeviceType> deviceType { get; set; }
         public string token { get; set; }
         public Nullable<System.DateTime> subscriptionDate { get; set; }
+        public Nullable<ApplicationType> applicationId { get; set; }
     }
 }

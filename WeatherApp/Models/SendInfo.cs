@@ -11,11 +11,11 @@ namespace Sequencing.WeatherApp.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class SendInfo
     {
         public SendInfo()
-        { 
+        {
         }
 
         public SendInfo(string name)
@@ -47,6 +47,7 @@ namespace Sequencing.WeatherApp.Models
         public Nullable<bool> SendRoost { get; set; }
         public string LastWeatherUpdate { get; set; }
         public Nullable<System.DateTime> WeatherUpdateDt { get; set; }
+        public string CountryCode { get; set; }
 
 
         public void Merge(SendInfo from)
@@ -109,6 +110,9 @@ namespace Sequencing.WeatherApp.Models
 
             if (from.LastWeatherUpdate != null)
                 to.LastWeatherUpdate = from.LastWeatherUpdate;
+
+            if (from.CountryCode != null)
+                to.CountryCode = from.CountryCode;
         }
     }
 }

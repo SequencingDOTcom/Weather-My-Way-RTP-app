@@ -19,16 +19,21 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         private ApnsServiceBroker apnsBroker;
         public ILog logger = LogManager.GetLogger(typeof(IosPushMessageSender));
         private IPushNotificationService notificationService = new DefaultPushNotificationService();
+        private long userId;
 
         override public DeviceType GetDeviceType()
         {
             return DeviceType.IOS;
         }
 
-        public IosPushMessageSender()
+        public IosPushMessageSender(ApplicationType? appType)
         {
-            config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
-                 Options.ApnsCertificateFile, Options.ApnsCertificatePassword);
+            if(appType == ApplicationType.Tablet)
+                config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
+                    Options.ApnsCertificateFileTablet, Options.ApnsCertificatePasswordTablet);
+            else
+                config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
+                    Options.ApnsCertificateFileMobile, Options.ApnsCertificatePasswordMobile);
 
             SetUpFeedbackServiceTimer(Options.APNSFeedbackServiceRunDelay);
 
@@ -55,7 +60,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                     }
                         
 
-                    notificationService.Unsubscribe(notification.DeviceToken);
+                    notificationService.Unsubscribe(notification.DeviceToken, userId);
 
                     return true;
                 });
@@ -72,6 +77,8 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
         override public void SendPushNotification(string token, string message, Int64 userId)
         {
+
+            this.userId = userId;
             var pushObj = new
             {
                 aps = new
@@ -96,13 +103,13 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                 var fbs = new FeedbackService(config);
                 fbs.FeedbackReceived += (string deviceToken, DateTime timestamp) =>
                 {
-                    notificationService.Unsubscribe(deviceToken);
+                    notificationService.Unsubscribe(deviceToken, userId);
                 };
                 fbs.Check();
             }
             catch (Exception e)
             {
-                logger.Info("Unable to usubscibed user" + e.Message);
+                logger.ErrorFormat("Unable to usubscibed token" + e.Message);
             }
         }
 

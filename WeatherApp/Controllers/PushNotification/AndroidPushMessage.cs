@@ -12,9 +12,6 @@ using System.Web;
 
 namespace Sequencing.WeatherApp.Controllers.PushNotification
 {
-    /// <summary>
-    /// Android  push message logic implementsation
-    /// </summary>
     public class AndroidPushMessageSender : PushMessageSender
     {
         private GcmConfiguration config;
@@ -22,10 +19,14 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         private IPushNotificationService notificationService = new DefaultPushNotificationService();
         private ILog log = LogManager.GetLogger(typeof(AndroidPushMessageSender));
         private string devToken;
+        private long userId;
 
-        public AndroidPushMessageSender()
+        public AndroidPushMessageSender(ApplicationType? appType)
         {
-            config = new GcmConfiguration(Options.GCMSenderId, Options.DeviceAuthToken, null);
+            if (appType == ApplicationType.Tablet)
+                config = new GcmConfiguration(Options.GCMSenderIdTablet, Options.DeviceAuthTokenTablet, null);
+            else
+                config = new GcmConfiguration(Options.GCMSenderIdMobile, Options.DeviceAuthTokenMobile, null);
 
             gcmBroker = new GcmServiceBroker(config);
 
@@ -38,6 +39,8 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
                         var notificationException = (GcmNotificationException)ex;
                         var gcmNotification = notificationException.Notification;
                         var description = notificationException.Description;
+
+                        notificationService.Unsubscribe(devToken, userId);
 
                         log.Error(string.Format("GCM Notification Failed: ID={0}, Desc={1}", gcmNotification.MessageId, description));
                     }
@@ -57,10 +60,11 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
                             log.Error(string.Format("GCM Notification Failed: ID={0}, Desc={1}", n.MessageId, e.InnerException));
                         }
-                        notificationService.Unsubscribe(devToken);
+                        notificationService.Unsubscribe(devToken, userId);
                     }
                     else if (ex is DeviceSubscriptionExpiredException)
                     {
+
                         var expiredException = (DeviceSubscriptionExpiredException)ex;
 
                         var oldId = expiredException.OldSubscriptionId;
@@ -71,12 +75,12 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
 
                         if (!string.IsNullOrWhiteSpace(newId))
                         {
-                            notificationService.Unsubscribe(oldId);
+                            notificationService.Unsubscribe(oldId, userId);
 
                             log.Error(string.Format("Device RegistrationId Changed To: {0}", newId));
                         }
                         else
-                            notificationService.Unsubscribe(oldId);
+                            notificationService.Unsubscribe(oldId, userId);
                     }
                     else if (ex is RetryAfterException)
                     {
@@ -106,6 +110,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         override public void SendPushNotification(string token, string message, Int64 userId)
         {
             devToken = token;
+            this.userId = userId;
 
             var pushObj = new
             {
