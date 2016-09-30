@@ -2,3 +2,4 @@ WeatherApp/bin/
 WeatherApp/obj/
 Service/bin/
 Service/obj/
+.DS_Store

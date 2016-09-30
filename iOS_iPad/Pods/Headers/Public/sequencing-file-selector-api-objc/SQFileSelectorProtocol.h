@@ -1,0 +1,1 @@
+../../../sequencing-file-selector-api-objc/Pod/SQFileSelectorProtocol.h
