@@ -1,0 +1,1 @@
+../../../sequencing-oauth-api-objc/Pod/SQAuthorizationProtocol.h
