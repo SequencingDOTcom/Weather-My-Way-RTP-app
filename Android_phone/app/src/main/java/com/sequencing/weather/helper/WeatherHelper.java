@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class WeatherHelper {
 
-    private static final String API_KEY = "9b058a90b127d3d5"; // 9b058a90b127d3d5
+    private static final String API_KEY = "API_KEY"; // here is your WeatherUnderground api key
     private static final String BASE_WEATHER_URL = "https://api.wunderground.com/api/" + API_KEY
             + "/forecast10day/conditions/alerts/astronomy%s";
     private static final String BASE_CITY_URL = "https://autocomplete.wunderground.com/aq?query=";

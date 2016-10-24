@@ -102,9 +102,9 @@ public class StartActivity extends AppCompatActivity implements ISQAuthCallback,
 
         AuthenticationParameters parameters = new AuthenticationParameters.ConfigurationBuilder()
                 .withRedirectUri("wmw://login")
-                .withClientId("Weather My Way (Android)")
+                .withClientId("Client ID") // here is your client id
                 .withMobileMode("1")
-                .withClientSecret("pAyfPzlhMJt015-vPs3jo8ej4CKQze2ORmuP66jdPQGajqwlsk5hNLRlIUxn_uih485ynVe-wL0jWcGRp-JioQ")
+                .withClientSecret("Client Secret") // here is your client secret
                 .build();
 
         ioAuthHandler = new SQUIoAuthHandler(this);
