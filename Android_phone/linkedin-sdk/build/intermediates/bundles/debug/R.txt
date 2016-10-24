@@ -1,0 +1,5 @@
+int drawable ic_launcher 0x7f020000
+int string update_linkedin_app_cancel 0x7f030000
+int string update_linkedin_app_download 0x7f030001
+int string update_linkedin_app_message 0x7f030002
+int string update_linkedin_app_title 0x7f030003

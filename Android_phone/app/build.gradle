@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.sequencing.weather"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 24
+        versionName "1.4.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile('com.facebook.android:facebook-android-sdk:4.11.0') {
+        exclude module: 'support-v4'
+    }
+    compile('com.twitter.sdk.android:twitter:1.13.0@aar') {
+        transitive = true
+    }
+
+    compile project(':videoasbackground')
+    compile project(':linkedin-sdk')
+    compile project(':licensing-library')
+    compile project(':downloader-library')
+    compile project(':pdk')
+    compile project(':zip_file')
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile 'org.apache.commons:commons-csv:1.1'
+    compile 'com.sequencing:master-plugin:1.0.29'
+    compile 'com.google.android.gms:play-services:9.0.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.0'
+    compile 'com.google.android.gms:play-services-identity:9.0.0'
+    compile "com.google.firebase:firebase-messaging:9.0.0"
+}

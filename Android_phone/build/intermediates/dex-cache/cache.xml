@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/maksim/AndroidStudioProjects/Weather-My-Way/app/build/intermediates/exploded-aar/Weather-My-Way/zip_file/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="475171ef02024752d778f290ee25362ce563f4aa">
+        <dex dex="/home/maksim/AndroidStudioProjects/Weather-My-Way/app/build/intermediates/transforms/dex/release/folders/1000/4/Weather-My-Way-zip_file-unspecified_435242f2ac998a6a5122c91d119025bc12bfc5d9/classes.dex" />
+    </item>
+
+</items>

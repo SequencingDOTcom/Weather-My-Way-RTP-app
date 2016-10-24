@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llSubWeatherForecast"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDayName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:text="Day"
+            android:textColor="@color/main_text"/>
+
+        <ImageView
+            android:id="@+id/ivDayIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/tvTempH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="tempH"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="12dp"
+            android:textColor="@color/main_text"/>
+
+        <TextView
+            android:id="@+id/tvTempL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="tempL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="12dp"
+            android:textColor="@color/colorPrimary"/>
+
+</LinearLayout>

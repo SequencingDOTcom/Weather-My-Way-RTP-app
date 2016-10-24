@@ -1,0 +1,100 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:title="@string/general_preferences"
+        android:shouldDisableView="true">
+        <ListPreference
+            android:defaultValue="C"
+            android:icon="@drawable/temp_icon"
+            android:entries="@array/temperature_units"
+            android:entryValues="@array/temperature_units"
+            android:key="temperature"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_temperature_units" />
+
+        <com.sequencing.weather.preference.LocationPreference
+            android:key="location"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="@string/pref_title_location" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/personal_preferences">
+        <com.sequencing.weather.preference.RemoveAccessPreference
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:key="email"
+            android:title="@string/connected_account"/>
+
+        <com.sequencing.weather.preference.GeneticFilePreference
+            android:icon="@drawable/ic_attachment_black_24dp"
+            android:key="genetic_data_file"
+            android:title="@string/genetic_data_file"/>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+    android:title="@string/notification_preferences">
+     <!--Notification via email-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:key="email_daily_forecast"
+            android:title="@string/email_daily_forecast" />
+
+        <EditTextPreference
+            android:capitalize="none"
+            android:dependency="email_daily_forecast"
+            android:inputType="textEmailAddress"
+            android:key="email_address"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_title_display_email" />
+
+        <!-- Notification via phone number -->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_perm_phone_msg_black_24dp"
+            android:key="text_daily_forecast"
+            android:title="@string/text_daily_forecast" />
+
+        <com.sequencing.weather.preference.PhoneNumberPreference
+            android:capitalize="none"
+            android:dependency="text_daily_forecast"
+            android:inputType="phone"
+            android:key="phone_number"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:title="@string/pref_title_display_phone_number" />
+
+        <!-- Notifications data-->
+        <com.sequencing.weather.preference.TimePreference
+            android:icon="@drawable/ic_access_time_black_24dp"
+            android:key="wake_up_weekdays"
+            android:title="@string/pref_title_display_wake_up_weekdays" />
+
+        <com.sequencing.weather.preference.TimePreference
+            android:icon="@drawable/ic_access_time_black_24dp"
+            android:key="wake_up_weekends"
+            android:title="@string/pref_title_display_wake_up_weekends" />
+
+        <ListPreference
+            android:defaultValue="-1"
+            android:key="timezone"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_timezone" />
+
+        <ListPreference
+            android:defaultValue="-1"
+            android:key="weekend_notifications"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:entries="@array/weekend_notifications"
+            android:entryValues="@array/weekend_notifications"
+            android:title="@string/pref_title_weekend_notifications" />
+    </PreferenceCategory>
+</PreferenceScreen>

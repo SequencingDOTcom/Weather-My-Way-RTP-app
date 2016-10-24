@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.StartActivity"
+    tools:showIn="@layout/activity_start">
+
+    <com.sequencing.video.customview.CVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:paddingBottom="0dp"
+            android:textSize="24dp"
+            android:text="Weather My Way +RTP"/>
+
+        <TextView
+            android:id="@+id/tvAppSubName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:paddingTop="0dp"
+            android:textSize="14dp"
+            android:text="@string/app_subtitle"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:id="@+id/btnLogin"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/sign_in_with_sequencing_com_white"/>
+
+    <TextView
+        android:id="@+id/tvRegisterAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="@string/register_on_sequencing"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/btnLogin"/>
+
+</RelativeLayout>

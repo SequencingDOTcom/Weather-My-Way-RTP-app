@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_outline_white_48dp"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Location" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_message_black_24dp"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_directions_walk_black_24dp"
+            android:title="Sign out" />
+</group>
+</menu>
