@@ -88,7 +88,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        PDKClient.configureInstance(this, "4835022125880322507");
+        PDKClient.configureInstance(this, "KEY");
         PDKClient.getInstance().onConnect(this);
 
         setContentView(R.layout.activity_share);
@@ -126,7 +126,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         btnReddit.setOnClickListener(this);
         btnPinterest.setOnClickListener(this);
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig("pSLyoxsMsrgmsDz80STpCu7Mk", "ZziaiY3d4ALRfEOpauIwMXUYRqKqUfmyx6ZQ9FmufXHEssiSWU");
+        TwitterAuthConfig authConfig = new TwitterAuthConfig("KEY", "KEY");
         Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
     }
 
