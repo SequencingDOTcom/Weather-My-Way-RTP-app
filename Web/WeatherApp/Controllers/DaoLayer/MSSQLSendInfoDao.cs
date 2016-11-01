@@ -34,14 +34,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             try
             {
                 using (var dbCtx = new WeatherAppDbEntities())
-                {
-
+                {                
                     return dbCtx.SendInfo.FirstOrDefault(info => info.UserName == userName);
                 }
             }
             catch (Exception e)
             {
-                throw new DaoException("Error finding user " + userName + " in database. "+e.Message, e);
+                throw new DaoException("Error finding user " + userName + " in database. " + e.Message, e);
             }
         }
 
@@ -67,7 +66,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                throw new DaoException("Error updating user " + sendInfo.UserName + " in database. "+ e.Message, e);
+                throw new DaoException("Error updating user " + sendInfo.UserName + " in database. " + e.Message, e);
             }
         }
     }

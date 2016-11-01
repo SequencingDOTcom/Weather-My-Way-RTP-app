@@ -2,6 +2,7 @@
 using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
+using System.Web.Security;
 
 namespace Sequencing.WeatherApp.Controllers.AppChain
 {
@@ -49,7 +50,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             {
                 var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
                 var _riskDescription = GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, 
-                    _alertCode, _appChainResults);
+                    _alertCode, _appChainResults, userName);
                 _runResult.Risk = _riskDescription;
                 _runResult.RawRisk = _appChainResults.MelanomaAppChainResult.ToString();
                 _runResult.Temperature = mode;
@@ -93,11 +94,15 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="weatherAlertCode"></param>
         /// <param name="acr"></param>
         /// <returns></returns>
-        public string GetPersonalizedRiskDescription(string weatherCondition, string weatherAlertCode, AppChainResults acr)
+        public string GetPersonalizedRiskDescription(string weatherCondition, string weatherAlertCode, AppChainResults acr, string userName)
         {
-            var _s = new PersonalizedRecommendationsWorker().GetRecommendation(weatherCondition, weatherAlertCode, acr);
+            var currentDate =  DateTime.Now.Date ;
+
+            ForecastRequest[] request = new ForecastRequest[] { new ForecastRequest { date = currentDate, alertCode = weatherAlertCode, weather = weatherCondition } };
+
+            var _s = new PersonalizedRecommendationsWorker().GetRecommendation(request, acr, userName);
             if (_s != null)
-                return _s;
+                return _s[0].gtForecast;
             return
                 "Personalization is not possible due to insufficient genetic data in the selected file. Choose a different genetic data file.";
         }

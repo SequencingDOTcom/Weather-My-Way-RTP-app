@@ -87,13 +87,11 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
         /// <param name="obj"></param>
         /// <param name="cityName"></param>
         /// <returns></returns>
-        public static string ConvertFromNameToID(LocationVerifier.RootObject obj, string cityName)
+        public static string ConvertFromNameToID(string cityName)
         {
-            foreach (LocationVerifier.RootObject.RESULT res in obj.RESULTS)
-            {
-                if (res.name.Equals(cityName))
-                    return res.l;
-            }
+            var weatherInfo = WeatherParser(cityName);
+            if (weatherInfo != null)
+                return weatherInfo.l;
             return null;
         }
 
@@ -104,7 +102,33 @@ namespace Sequencing.WeatherApp.Controllers.WeatherUnderground
         /// <returns></returns>
         public static string ConvertFromIDToName(string cityID)
         {
-           return GetConditions(cityID).current_observation.display_location.full;
+            if (cityID != null)
+                return GetConditions(cityID).current_observation.display_location.full;
+            else
+
+                return null;
+        }
+
+        public static LocationVerifier.RootObject.RESULT WeatherParser(string city)
+        {
+            var currentName = city.Split(new char[] { ',' });
+            if (currentName.Length > 0)
+                city = currentName[0];
+
+            using (var _wb = new WebClient())
+            {
+                var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?format=JSON&query=" + city);
+                var rootObj = JsonConvert.DeserializeObject<LocationVerifier.RootObject>(_res);
+                if (city != null)
+                    foreach (LocationVerifier.RootObject.RESULT res in rootObj.RESULTS)
+                    {
+                        var isEqual = res.name.Split(new char[] {','})[0].Equals(city,
+                            StringComparison.InvariantCultureIgnoreCase);
+                        if (isEqual && res.type.Equals("city"))
+                            return res;
+                    }
+                return null;
+            }
         }
     }
 }

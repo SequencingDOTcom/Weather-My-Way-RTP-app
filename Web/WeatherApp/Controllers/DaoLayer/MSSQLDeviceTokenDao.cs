@@ -22,6 +22,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
+                    //var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.token == token);
+
+                    //var userId = dbCtx.SendInfo.FirstOrDefault(info => info.UserName == userName).Id;
+
                     var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.userId == userId && info.token == token);
 
                     if (singleOrDefault != null)

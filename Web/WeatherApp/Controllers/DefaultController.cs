@@ -36,7 +36,7 @@ namespace Sequencing.WeatherApp.Controllers
                 var _urlReferrer = Request.UrlReferrer;
                 if (_urlReferrer == null || _urlReferrer.Host != Request.Url.Host)
                 {
-                   return RedirectToAction("StartJobSequence");             
+                    return RedirectToAction("StartJobSequence");
                 }
             }
             return View(new CommonData());
@@ -77,7 +77,7 @@ namespace Sequencing.WeatherApp.Controllers
                     Response.Cookies.Add(faCookie);
 
                     return RedirectToAction("Startup");
-                    
+
                 }
                 return new ContentResult { Content = "Error while retrieving access token:" + _authInfo.ErrorMessage };
             }
@@ -123,7 +123,7 @@ namespace Sequencing.WeatherApp.Controllers
         [Authorize]
         public ActionResult SelectFile()
         {
-            return View(new CommonData());
+            return View("SelectFile", new CommonData());
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace Sequencing.WeatherApp.Controllers
         [Authorize]
         public ActionResult CheckApp(string jobId, string jobId2)
         {
-            return View(new CheckAppData{JobId = jobId, JobId2 = jobId2});
+            return View(new CheckAppData { JobId = jobId, JobId2 = jobId2 });
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Sequencing.WeatherApp.Controllers
             var _appIdMelanoma = _srv.StartAppChain(SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
             var _appIdVitD = _srv.StartAppChain(SqApiServiceFacade.VITD_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
 
-            return RedirectToAction("CheckApp", new {_appIdMelanoma.jobId, jobId2 = _appIdVitD.jobId });
+            return RedirectToAction("CheckApp", new { _appIdMelanoma.jobId, jobId2 = _appIdVitD.jobId });
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace Sequencing.WeatherApp.Controllers
         [Authorize]
         public ActionResult ResultsOriginal(string jobId, string jobId2)
         {
-            return RedirectToAction("Results", new {jobId, jobId2, timestamp = DateTime.Now.Ticks});
+            return RedirectToAction("Results", new { jobId, jobId2, timestamp = DateTime.Now.Ticks });
         }
         public const int MINUTES_FOR_RESULTS_USER_REFRESH = 2;
 
@@ -255,25 +255,38 @@ namespace Sequencing.WeatherApp.Controllers
          }*/
 
         [HttpPost]
-        public JsonResult VerifyLocation(string city)
-       {   
+        public JsonResult FillLocationBox(string city)
+        {
             using (var _wb = new WebClient())
             {
                 var _res = _wb.DownloadString("http://autocomplete.wunderground.com/aq?format=JSON&query=" + city);
                 rootObj = JsonConvert.DeserializeObject<LocationVerifier.RootObject>(_res);
-                return Json(_res, JsonRequestBehavior.AllowGet);
-            }           
+                List<LocationVerifier.RootObject.RESULT> result = new List<LocationVerifier.RootObject.RESULT>();
+                foreach (var loc in rootObj.RESULTS)
+                    if (loc.type.Equals("city"))
+                        result.Add(loc);
+                return Json(JsonConvert.SerializeObject(result), JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidateLocation(string city)
+        {
+            if (WeatherWorker.WeatherParser(city) != null)
+                return Json(JsonConvert.SerializeObject(new { isCorrect = true }), JsonRequestBehavior.AllowGet);
+            return Json(JsonConvert.SerializeObject(new { isCorrect = false }), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize]
+        [HttpGet]
         public ActionResult SaveLocation(string city)
         {
-            string location = WeatherWorker.ConvertFromNameToID(rootObj, city);
+            string location = WeatherWorker.ConvertFromNameToID(city);
 
-            if (location == null)
-                location = Context.City;
+            if (location != null)
+                settingService.SetUserLocation(location, User.Identity.Name);
 
-            settingService.SetUserLocation(location, User.Identity.Name);
+
             if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
                 return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
             return RedirectToAction("SelectFile");
@@ -298,9 +311,9 @@ namespace Sequencing.WeatherApp.Controllers
                     icon = "nt_" + icon;
                     _url = "http://icons.wxug.com/i/c/i/{0}.gif";
                 }
-                
+
                 var _res = _wb.DownloadData(string.Format(_url, icon));
-                return File(_res, "image/gif", icon+".gif");
+                return File(_res, "image/gif", icon + ".gif");
             }
         }
     }

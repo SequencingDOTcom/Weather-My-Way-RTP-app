@@ -12,6 +12,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             return new MSSQLDeviceTokenDao();
         }
 
+        public IRecommendationsDao GetRecommendationsDao()
+        {
+            return new MSSQLRecommendationsDao();
+        }
+
         public ISendInfoDao GetSendInfoDao()
         {
             return new MSSQLSendInfoDao();
@@ -20,6 +25,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public IUserInfoDao GetUserInfoDao()
         {
             return new MSSQLUserInfoDao();
+        }
+
+        public ISendForecastDao GetSendForecastDao()
+        {
+            return new MSSQLSendForecastDao();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model Sequencing.WeatherApp.Models.CommonData
+﻿@using Mandrill.Utilities
+@model Sequencing.WeatherApp.Models.CommonData
 
 @{
     ViewBag.Title = "Select location";
@@ -6,8 +7,9 @@
 }
 
 <script src="/Scripts/jquery.simpleWeather.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
 <script src="/assets/js/vidRandom.js"></script>
+<script src="/Scripts/autodetect.js"></script>
 
 <div id="titleText">
     <h3 id="titleOne">
@@ -15,9 +17,8 @@
     </h3>
     <h4 id="subTitle">Location</h4>
 </div>
-@using (Html.BeginForm("SaveLocation", "Default", new {r = Request.QueryString["r"]},
-    FormMethod.Post, new {@class = "form-horizontal", @role = "form"}))
-{
+   @using (Html.BeginForm("", "", new { r = Request.QueryString["r"] }, FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+   {
     <div id="locInstruction">
         <p>
             Enter your location below<br />
@@ -25,25 +26,25 @@
             Click the Auto-detect Button
         </p>
     </div>
-    <div id="location">               
-        <div id="locIn">         
-            <input type="text" list="cities" id="city" name="city" style= "width:75%" placeholder = "Enter your location"/>
-            <div id="locButton"><input id="contButton" type="submit" value="Continue" /></div>
-            <datalist id="cities">
-            </datalist>
+    <div id="location">
+        <div id="locIn">
+            <input type="text" list="cities" id="city" name="city" style="width: 75%" placeholder="Enter your location"/>
+            <div id="locButton"><input id="contButton" type="submit" value="Continue"/>
+            </div>
+            <datalist id="cities"></datalist>
             <script>
-                $('#city').on('input', function () {
-                    var data= {
-                        city: $('#city').val(),
+                $('#city').on('input', function() {
+                    var data = {
+                        city: $('#city').val()
                     };
                     $.ajax({
-                        url: "/Default/VerifyLocation",
+                        url: "/Default/FillLocationBox",
                         type: "POST",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         data: JSON.stringify(data),
-                        success: function (data) {
-                            var mydata = JSON.parse(data).RESULTS;
+                        success: function(data) {
+                            var mydata = JSON.parse(data);
                             $('#cities').empty();
                             for (i in mydata) {
                                 $('#cities').append("<option value='" + mydata[i]['name'] + "'>");
@@ -53,25 +54,67 @@
                     return false;
                 });
             </script>
-            
-           <div class="city-error"></div>
+            <br>
+            <div class="city-error"><label id="errorlb"></label></div>
+            <br>
         </div>
-        <div id="discoverButton"><img id="locIcon" src="/assets/img/location-crosshairs-icon-Sequencing-com-32px.png" /><a id="discButton">Auto-detect <br/> location</a></div>
+        <div id="discoverButton"><img id="locIcon" src="/assets/img/location-crosshairs-icon-Sequencing-com-32px.png"/><a id="discButton">Auto-detect <br/> location</a>
+        </div>
     </div>
-    
-}
+
+   }
 <div class="col-sm-offset-2 col-sm-10">
 
 
 </div>
 
 <style type="text/css">
-    .city-error .error {
+    #errorlb {
         color: red;
+        font-weight: bold;
     }
 </style>
 
 <script>
+    $('#locButton').click(function (event) {
+        event.preventDefault();
+        var location = {
+            city: $('#city').val()
+        };
+        var result;
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ValidateLocation", "Default")',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(location),
+            dataType: "json",
+            success: function (dataG) {
+                var mydata = JSON.parse(dataG).isCorrect;
+                if (mydata) {
+                    window.location = '/Default/SaveLocation/?city=' + $('#city').val();
+                   /* $.ajax({
+                        url: "/Default/SaveLocation",
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(location)
+                    });
+                    return;*/
+                   /* window.location = redirect*/
+
+                } else {
+                    $('#errorlb').text('Invalid city');
+                   // return false;
+                } 
+               
+      
+            }
+
+        });
+    })
+</script>
+
+<!--<script>
     $(document).ready(function() {
         $("#btnDiscover").click(function(parameters) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -127,4 +170,4 @@
             $("#city").val("undetermined");
         });
     }
-</script>
+</script>-->

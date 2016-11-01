@@ -72,6 +72,14 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PushSharp.Amazon, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
       <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
       <Private>True</Private>
@@ -596,10 +604,14 @@
     <Content Include="browserconfig.xml" />
     <Content Include="Content\bootstrap-timepicker.css" />
     <Content Include="Content\bootstrap-timepicker.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\customTel.css" />
     <Content Include="Content\flags%402x.png" />
     <Content Include="Content\flags.png" />
     <Content Include="Content\intlTelInput.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -637,6 +649,7 @@
     <Content Include="favicon-32x32.png" />
     <Content Include="favicon-96x96.png" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\WeatherDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -652,6 +665,7 @@
     <Content Include="ms-icon-150x150.png" />
     <Content Include="ms-icon-310x310.png" />
     <Content Include="ms-icon-70x70.png" />
+    <Content Include="Scripts\autodetect.js" />
     <Content Include="Scripts\bootstrap-timepicker.js" />
     <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="assets\fonts\HelveticaNeueLTStd-BdEx.otf" />
@@ -674,13 +688,26 @@
     <Content Include="Models\WeatherDb.edmx.diagram">
       <DependentUpon>WeatherDb.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\3.pubxml" />
+    <None Include="Properties\PublishProfiles\6.pubxml" />
+    <None Include="Properties\PublishProfiles\67.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - Web Deploy.pubxml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Scripts\intlTelInput.min.js" />
     <Content Include="Scripts\intlTelUtils.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Properties\PublishProfiles\weathermyway.pubxml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -688,6 +715,12 @@
     <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
     <Content Include="Scripts\jquery.simpleWeather.js" />
     <Content Include="Scripts\jquery.simpleWeather.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\timezones.min.js" />
     <None Include="recs.csv" />
     <Content Include="Sitemap.xml" />
@@ -700,20 +733,29 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
+    <Compile Include="Controllers\ConditionsController.cs" />
     <Compile Include="Controllers\DaoLayer\ApplicationException.cs" />
     <Compile Include="Controllers\DaoLayer\DaoException.cs" />
     <Compile Include="Controllers\DaoLayer\DefaultNotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\ForecastRetrieveDTO.cs" />
     <Compile Include="Controllers\DaoLayer\GenericResponse.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDao.cs" />
     <Compile Include="Controllers\DaoLayer\IFrontendDaoFactory.cs" />
     <Compile Include="Controllers\DaoLayer\INotificationService.cs" />
+    <Compile Include="Controllers\DaoLayer\IRecommendationsDao.cs" />
+    <Compile Include="Controllers\DaoLayer\ISendForecastDao.cs" />
     <Compile Include="Controllers\DaoLayer\ISettingService.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLRecommendationsDao.cs" />
+    <Compile Include="Controllers\DaoLayer\MSSQLSendForecastDao.cs" />
     <Compile Include="Controllers\DaoLayer\OauthTokenDao.cs" />
     <Compile Include="Controllers\DaoLayer\OAuthTokenDaoFactory.cs" />
     <Compile Include="Controllers\DaoLayer\PushSubscribeDTO.cs" />
     <Compile Include="Controllers\DaoLayer\SettingsRetrieveDTO.cs" />
     <Compile Include="Controllers\DaoLayer\UserSettingService.cs" />
+    <Compile Include="Controllers\ExternalForecastRetrieveController.cs" />
     <Compile Include="Controllers\ExternalSettingsController.cs" />
+    <Compile Include="Controllers\MelanomaRisksController.cs" />
+    <Compile Include="Controllers\RecommendationsController.cs" />
     <Compile Include="Controllers\OAuth\AuthInfo.cs" />
     <Compile Include="Controllers\OAuth\AuthWorker.cs" />
     <Compile Include="Controllers\AppChain\SqApiServiceFacade.cs" />
@@ -752,16 +794,32 @@
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Models\Condition.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConditionsRepository.cs" />
     <Compile Include="Models\DeviceInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeviceType.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MelanomaRisk.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MelanomaRiskRepository.cs" />
+    <Compile Include="Models\Recommendation.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecommendationsRepository.cs" />
+    <Compile Include="Models\RecommendationViewModel.cs" />
     <Compile Include="Models\RunResult.cs" />
     <Compile Include="Controllers\AppChain\PersonalizedForecastResultBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SendForecast.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SendInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
@@ -773,6 +831,10 @@
     <Compile Include="Models\UserInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VitaminD.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VitaminDRepository.cs" />
     <Compile Include="Models\WeatherDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -825,6 +887,17 @@
     <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Recommendations\Create.cshtml" />
+    <Content Include="Views\Recommendations\Edit.cshtml" />
+    <Content Include="Views\Recommendations\Index.cshtml" />
+    <Content Include="Views\Conditions\Create.cshtml" />
+    <Content Include="Views\Conditions\Edit.cshtml" />
+    <Content Include="Views\Conditions\List.cshtml" />
+    <Content Include="Views\MelanomaRisks\Create.cshtml" />
+    <Content Include="Views\MelanomaRisks\Edit.cshtml" />
+    <Content Include="Views\MelanomaRisks\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

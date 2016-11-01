@@ -1,0 +1,1693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Anna\Documents\deploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="android-icon-144x144.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="android-icon-192x192.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="android-icon-36x36.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="android-icon-48x48.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="android-icon-72x72.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="android-icon-96x96.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-114x114.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-120x120.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-144x144.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-152x152.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-180x180.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-57x57.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-60x60.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-72x72.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-76x76.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon-precomposed.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="apple-icon.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/animate.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/clndr.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/font-awesome.min.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/home.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/landing.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/main.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/main.css.map">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/main.less">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/main.scss">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/simple-line-icons.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/css/style.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.eot">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.svg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont.woff">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/FontAwesome.otf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/HelveticaNeueLTStd-BdEx.otf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/HelveticaNeueLTStd-Ex.otf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Roboto-Bold.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Roboto-Light.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Simple-Line-Icons.dev.svg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Simple-Line-Icons.eot">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Simple-Line-Icons.svg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Simple-Line-Icons.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/fonts/Simple-Line-Icons.woff">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Awesome-cub-pre-loader-Sequencing-com-128px.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Back-icon-Sequencing-com-16px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Back-icon-Sequencing-com-24px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Checkbox-combined-Sequencing-com-16px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Checkbox-combined-Sequencing-com-32px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Close-icon-Sequencing-com-16px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Close-icon-Sequencing-com-24px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128.zip">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Preloader_3.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/preloader_3_14879.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00000.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00001.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00002.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00003.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00004.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00005.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00006.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00007.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00008.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00009.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00010.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00011.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00012.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00013.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00014.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00015.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00016.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00017.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00018.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00019.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00020.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00021.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00022.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00023.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00024.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00025.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00026.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00027.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00028.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00029.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00030.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00031.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00032.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00033.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00034.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00035.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00036.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00037.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00038.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00039.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00040.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00041.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00042.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00043.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00044.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00045.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00046.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00047.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00048.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00049.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00050.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Preloader_3/Sprites/PR_3_00051.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/128x128/Sequencing-com-awesome-preloader-128px.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Preloader_3.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/.DS_Store">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00000.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00001.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00002.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00003.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00004.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00005.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00006.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00007.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00008.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00009.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00010.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00011.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00012.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00013.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00014.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00015.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00016.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00017.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00018.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00019.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00020.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00021.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00022.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00023.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00024.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00025.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00026.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00027.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00028.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00029.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00030.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00031.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00032.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00033.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00034.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00035.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00036.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00037.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00038.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00039.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00040.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00041.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00042.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00043.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00044.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00045.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00046.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00047.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00048.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00049.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00050.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Preloader_3/Sprites/PR_3_00051.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Cube preloader/64x64/Sequencing-com-awesome-preloader-64px.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/facebook-icon-Simek-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/facebook_share_pic.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/gear.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/GitHub-Mark-64px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/GitHub_Logo.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/GitHub_symbol.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/google-plus-icon-Simek-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Info-icon-Sequencing-com-16px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/linkedin-icon-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Location-crosshairs-icon-Sequencing-com-32px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/location-marked-icon-32px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/location-marked-icon-64px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Logo.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/LogoWithTag.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/menu-icon-64px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Personalize.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/PersonalizeMe-RTP.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/PersonalizeMe.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/PersonalizeMe02.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/PersonalizeMe03.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/PersonalizeMeSlate.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/pinterest-icon-Simek-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/10572149_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1093591_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1126162_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/11588486_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/11612783_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/120847_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1389124_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1538677_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/163903_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1775912_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/1936054_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2051507_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/225991_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2302283_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2580011_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2629166_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2718020_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2831005_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/2864458_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3036661_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3112114_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3149698_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3168328_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3579536_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3652088_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3671960_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3753200_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/3935576_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4189258_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4314167_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4406759_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4443185_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4491596_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4584485_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4627466_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/4636637_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5236070_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5468858_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5649644_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5742650_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5744606_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/5793242_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/6698111_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/6820675_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/7188568_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/728440_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/7419178_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/800269_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/8037967_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/8257699_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/8529928_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/861337_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/posters/885172_poster.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/profile-lg.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/profile.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/question48.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/reddit-icon-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/refresh-icon-32px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Revoke-icon-Sequencing-com-16px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/ror.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Sequencing-com-awesome-preloader-128px.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/SettingsButton.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/Sign_in_with_Sequencing_com_SSO_button_slate.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/social-share-icon-64px.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/social24.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/thumbnail-soon.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/thumbnail.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/twitter-icon-Simek-sequencing-com.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/vac-1.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/vac-2.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/vac-3.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/vac-4.jpg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/weather-myway.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/blowing snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/blustery.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/chanceflurries.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/chancerain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/chancesleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/chancesnow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/chancetstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/clear.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/cloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/cold.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/default weather icon.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/drizzle.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/dust.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/fair.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/flurries.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/fog.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/freezing drizzle.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/freezing rain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/hail.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/hazy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/heavy snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/hot.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/hurricane.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/isolated thundershowers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/isolated thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/light rain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/light snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mixed rain and hail.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mixed rain and sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mixed rain and snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mixed snow and sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mostlycloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/mostlysunny.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/partlycloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/partlySunny.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/pm showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/rain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/scattered showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/scattered snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/scattered thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/severe thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/smoky.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/sunny.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/thundershowers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/tornado.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/tropical storm.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/tstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/unknown.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/day/windy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/blowing snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/blustery.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/chanceflurries.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/chancerain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/chancesleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/chancesnow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/chancetstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/clear.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/cloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/cold.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/default weather icon.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/drizzle.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/fair.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/flurries.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/fog.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/freezing drizzle.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/freezing rain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/hail.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/heavy snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/hurricane.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/isolated thundershowers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/isolated thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/light snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/mixed rain and hail.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/mixed rain and sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/mixed rain and snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/mixed snow and sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/mostlycloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/partlycloudy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/pm showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/rain.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/scattered showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/scattered snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/scattered thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/severe thunderstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/sleet.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/snow showers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/snow.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/thundershowers.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/tornado.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/tropical storm.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/tstorms.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/unknown.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/WeatherIcons/night/windy.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/widget-twitter-bg.gif">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/img/wundergroundLogo_4c_horz.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/alertVids.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/home.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/sequencing-file-selector.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/src/app.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/vendor/html5shiv.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/vendor/jquery-1.11.1.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/vendor/modernizr-2.6.2.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/vendor/respond.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/vidRandom.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/js/weatherVids.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-slider/css/slider.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-slider/js/bootstrap-slider.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-wysihtml5/css/bootstrap-wysihtml5.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-wysihtml5/css/bootstrap3-wysiwyg5-color.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap-wysihtml5/js/wysihtml5-0.3.0.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/css/bootstrap.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/css/bootstrap.min.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/js/bootstrap.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/bootstrap/js/bootstrap.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/daterangepicker/daterangepicker-bs3.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/daterangepicker/daterangepicker.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/daterangepicker/moment.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/switchery/switchery.min.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/plugins/switchery/switchery.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v10572149.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1093591.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1126162.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v11588486.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v11612783.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v120847.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1389124.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1538677.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v163903.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1775912.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v1936054.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2051507.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v225991.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2302283.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2580011.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2629166.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2718020.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2831005.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v2864458.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3036661.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3112114.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3149698.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3168328.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3579536.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3652088.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3671960.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3753200.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v3935576.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4189258.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4314167.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4406759.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4443185.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4491596.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4584485.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4627466.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v4636637.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5236070.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5468858.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5649644.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5742650.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5744606.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v5793242.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v6698111.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v6820675.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v7188568.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v728440.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v7419178.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v800269.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v8037967.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v8257699.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v8529928.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v861337.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="assets/videos/shutterstock_v885172.mp4">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/CsvHelper.dll">
+      <publishTime>01/07/2016 20:48:08</publishTime>
+    </File>
+    <File Include="bin/CsvHelper.pdb">
+      <publishTime>01/07/2016 20:48:08</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>02/03/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>02/03/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/Flurl.dll">
+      <publishTime>05/15/2016 09:23:28</publishTime>
+    </File>
+    <File Include="bin/Flurl.Http.dll">
+      <publishTime>05/24/2016 20:13:04</publishTime>
+    </File>
+    <File Include="bin/Flurl.Http.pdb">
+      <publishTime>05/24/2016 20:13:04</publishTime>
+    </File>
+    <File Include="bin/Flurl.pdb">
+      <publishTime>05/15/2016 09:23:28</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>10/12/2015 16:55:06</publishTime>
+    </File>
+    <File Include="bin/Mandrill.dll">
+      <publishTime>02/16/2016 06:32:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/13/2016 23:06:14</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Amazon.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Apple.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Blackberry.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Core.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Firefox.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Google.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/PushSharp.Windows.dll">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>08/26/2015 16:33:34</publishTime>
+    </File>
+    <File Include="bin/Sequencing.WeatherApp.dll">
+      <publishTime>09/15/2016 17:37:36</publishTime>
+    </File>
+    <File Include="bin/Sequencing.WeatherApp.pdb">
+      <publishTime>09/15/2016 17:37:36</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>01/28/2015 04:03:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/Twilio.Api.dll">
+      <publishTime>05/23/2016 23:17:32</publishTime>
+    </File>
+    <File Include="bin/Twilio.Api.pdb">
+      <publishTime>05/23/2016 23:17:32</publishTime>
+    </File>
+    <File Include="browserconfig.xml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/bootstrap-timepicker.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/bootstrap-timepicker.min.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/customTel.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/flags%402x.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/flags.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/intlTelInput.css">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>07/11/2016 16:46:23</publishTime>
+    </File>
+    <File Include="favicon-16x16.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="favicon-32x32.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="favicon-96x96.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="manifest.json">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Models/WeatherDb.edmx.diagram">
+      <publishTime>08/09/2016 19:07:35</publishTime>
+    </File>
+    <File Include="ms-icon-144x144.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="ms-icon-150x150.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="ms-icon-310x310.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="ms-icon-70x70.png">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/11/2016 17:11:11</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-timepicker.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-timepicker.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/intlTelInput.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/intlTelInput.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/intlTelUtils.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.min.map">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.simpleWeather.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.simpleWeather.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Scripts/timezones.min.js">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Sitemap.xml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Default/About.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Default/CheckApp.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Default/Location.cshtml">
+      <publishTime>06/16/2016 19:05:30</publishTime>
+    </File>
+    <File Include="Views/Default/Results.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Default/SelectFile.cshtml">
+      <publishTime>07/13/2016 16:30:01</publishTime>
+    </File>
+    <File Include="Views/Default/Startup.cshtml">
+      <publishTime>07/13/2016 16:30:06</publishTime>
+    </File>
+    <File Include="Views/Error/Error.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Error/NotFound.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Settings/Index.cshtml">
+      <publishTime>07/13/2016 16:26:24</publishTime>
+    </File>
+    <File Include="Views/Shared/Menu.cshtml">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPage1.cshtml">
+      <publishTime>07/13/2016 16:28:47</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>09/06/2016 13:29:24</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/15/2016 17:38:18</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -2,52 +2,32 @@ using System.Collections.Generic;
 using System.IO;
 using CsvHelper;
 using CsvHelper.Configuration;
+using Sequencing.WeatherApp.Controllers.DaoLayer;
+using Sequencing.WeatherApp.Models;
+using System.Collections;
+using System;
+using System.Linq;
+using Newtonsoft.Json;
+using Sequencing.WeatherApp.Controllers.WeatherUnderground;
+using log4net;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+using Newtonsoft.Json.Serialization;
 
 namespace Sequencing.WeatherApp.Controllers.AppChain
 {
     /// <summary>
     /// Produces personalized recommendations
     /// </summary>
+    /// 
     public class PersonalizedRecommendationsWorker
     {
-        private readonly List<PersonalRecommendation> items = new List<PersonalRecommendation>();
 
-        /// <summary>
-        /// Loads PR data from csv file. Sample file is included into solution and named as recs.csv
-        /// </summary>
-        public PersonalizedRecommendationsWorker()
-        {
-            string[] _firstLine = null;
-            using (var _file = File.OpenRead(Options.RecommendationsPath))
-            using (var _sr = new StreamReader(_file))
-            using (var _csvReader = new CsvParser(_sr, new CsvConfiguration{HasHeaderRecord = false}))
-            {
-                string[] _fields;
-                do
-                {
-                    _fields = _csvReader.Read();
-                    
-                    if (_firstLine == null)
-                        _firstLine = _fields;
-                    else if (_fields != null)
-                    {
-                        for (int _idx = 1; _idx < 13; _idx++)
-                        {
-                            var _split = _firstLine[_idx].Split('-');
-                            var _personalRecommendation = new PersonalRecommendation
-                            {
-                                Recommendation = _fields[_idx],
-                                Risk = _split[0],
-                                VitD = _split[1],
-                                WeatherCondition = _fields[0]
-                            };
-                            items.Add(_personalRecommendation);
-                        }
-                    }    
-                } while (_fields != null);
-            }
-        }
-            
+        private MSSQLDaoFactory factory = new MSSQLDaoFactory();
+        public ILog logger = LogManager.GetLogger(typeof(PersonalizedRecommendationsWorker));
+
+
         /// <summary>
         /// Returns PR for given weather/alert/app-chains. First scans for alerts, then for regular weather conditions.
         /// </summary>
@@ -55,14 +35,14 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="alert"></param>
         /// <param name="acr"></param>
         /// <returns></returns>
-        public string GetRecommendation(string weatherCondition, string alert, AppChainResults acr)
+        public List<ForecastResponse> GetRecommendation(ForecastRequest [] request, AppChainResults acr, string userName)
         {
             var _melanomaRisk = acr.MelanomaAppChainResult.ToString();
-            var _vitDRisk = acr.VitDAppChainResult ? "True" : "False";
-            var _rec = GetRecommendationImpl(alert, _melanomaRisk, _vitDRisk);
+            var _vitDRisk = acr.VitDAppChainResult;
+            var _rec = GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName);
             if (_rec != null)
                 return _rec;
-            return GetRecommendationImpl(weatherCondition, _melanomaRisk, _vitDRisk);
+            return GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName);
         }
 
         /// <summary>
@@ -72,16 +52,31 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="risk"></param>
         /// <param name="vitD"></param>
         /// <returns></returns>
-        private string GetRecommendationImpl(string weatherCondition, string risk, string vitD)
+        private List<ForecastResponse> GetRecommendationImpl(ForecastRequest [] request, string risk, bool vitD, string userName)
         {
-            foreach (var _item in items)
+            List<ForecastResponse> list = new List<ForecastResponse>();
+
+            using (WeatherAppDbEntities db = new WeatherAppDbEntities())
             {
-                if (CompareLower(_item.WeatherCondition, weatherCondition) &&
-                    CompareLower(_item.Risk, risk) &&
-                    CompareLower(_item.VitD, vitD))
-                    return _item.Recommendation;
+                var vitDId = db.VitaminDs.Where(con => con.Type == vitD).Select(info => info.Id).FirstOrDefault();
+                var melanomaRiskId = db.MelanomaRisks.Where(con => con.Type == risk).Select(info => info.Id).FirstOrDefault();
+                var userId = db.SendInfo.Where(con => con.UserName == userName).Select(info => info.Id).FirstOrDefault();
+
+                foreach (ForecastRequest req in request)
+                {
+                    var condId = db.Conditions.Where(con => con.WeatherCond == req.weather).Select(info => info.Id).FirstOrDefault();
+                    if (condId == 0)
+                        return null;
+                    list.Add(new ForecastResponse { gtForecast = factory.GetSendForecastDao().StorageProcetureCalling(req.date, condId, vitDId, melanomaRiskId, userId), date = req.date.ToString() } );
+                }
+
+                var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+                logger.Info(string.Format("Inputs: [ForecastRequest = {0}, Risk = {1}, vitaminD = {2} ] for user {3}", serializer.Serialize(request), risk , vitD, userName));
+
+                logger.Info(string.Format("Outputs: GT forecast [{0}]", string.Join(",", serializer.Serialize(list) )));
+
+                return list;
             }
-            return null;
         }
 
         private static bool CompareLower(string s1, string s2)

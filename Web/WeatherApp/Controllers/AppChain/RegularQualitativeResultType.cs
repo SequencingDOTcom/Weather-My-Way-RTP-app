@@ -5,11 +5,11 @@
     /// </summary>
     public enum RegularQualitativeResultType
     {
-        Low = 0,
-        Normal = 1,
-        SlightlyIncreased = 2,
-        Moderate = 3,
-        High = 4,
-        VeryHigh = 5
+        Low = 1,
+        Normal = 2,
+        SlightlyIncreased = 3,
+        Moderate = 4,
+        High = 5,
+        VeryHigh = 6
     }
 }

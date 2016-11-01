@@ -122,7 +122,10 @@
 
         $("#phone").change(function() {
             $("#countryCode").val(jQuery("#phone").intlTelInput("getSelectedCountryData").iso2);
+            alert(jQuery("#phone").intlTelInput("getSelectedCountryData").iso2);
         });
+
+        //alert("Code" + $("#countryCode").val());
 
         $('#wakeupDay').timepicker();
         $('#wakeupEnd').timepicker();

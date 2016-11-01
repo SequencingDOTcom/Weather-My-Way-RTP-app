@@ -47,5 +47,15 @@ namespace Sequencing.WeatherApp.Controllers
         public static string DeviceAuthTokenTablet { get { return ConfigurationManager.AppSettings["DeviceAuthTokenTablet"]; } }
         public static string NotificationMessage { get { return ConfigurationManager.AppSettings["NotificationMessage"]; } }
         public static Int64 APNSFeedbackServiceRunDelay { get { return Int64.Parse(ConfigurationManager.AppSettings["APNSFeedbackServiceRunDelay"]); } }
+
+
+        public static int STOutputMaxSize { get { return Int32.Parse(ConfigurationManager.AppSettings["STOutputMaxSize"]); } }
+        public static string STParameter1Name { get { return ConfigurationManager.AppSettings["STParameter1Name"]; } }
+        public static string STParameter2Name { get { return ConfigurationManager.AppSettings["STParameter2Name"]; } }
+        public static string STParameter3Name { get { return ConfigurationManager.AppSettings["STParameter3Name"]; } }
+        public static string STParameter4Name { get { return ConfigurationManager.AppSettings["STParameter4Name"]; } }
+        public static string STParameter5Name { get { return ConfigurationManager.AppSettings["STParameter5Name"]; } }
+        public static string STOutputName { get { return ConfigurationManager.AppSettings["STOutputName"]; } }
+        public static string StorageProcedureName { get { return ConfigurationManager.AppSettings["StorageProcedureName"]; } }
     }
 }

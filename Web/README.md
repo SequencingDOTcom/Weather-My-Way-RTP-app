@@ -6,12 +6,6 @@ The app provides the app user with genetically tailored forecasts that help the 
 
 The genetically tailored forecasts are personalized to the user's genes (using Sequencing.com's API) and the weather (using Weather Underground's API) in real-time.
 
-This open-source app provides developers with the ability to view how Real-Time Personalization technology is integrated into an app. It is coded in four different languages:
-* [iOS (Objective C)](https://geo.itunes.apple.com/us/app/weather-my-way-+rtp/id1116797084?mt=8)
-* iOS (Swift) (coming soon)
-* [Android](https://play.google.com/store/apps/details?id=com.sequencing.weather)
-* [Web (C# and HTML/PHP)](https://weathermyway.rocks)
-
 Contents
 =========================================
 * Editions
@@ -30,11 +24,7 @@ Editions
 =========================================
 Weather My Way +RTP 
 * Repo = this repo
-* App =
- * [iOS (Objective C)](https://geo.itunes.apple.com/us/app/weather-my-way-+rtp/id1116797084?mt=8)
- * iOS (Swift) (coming soon)
- * [Android](https://play.google.com/store/apps/details?id=com.sequencing.weather)
- * [Web (C# and HTML/PHP)](https://weathermyway.rocks)
+* App = https://weathermyway.rocks
 
 Weather My Child's Way +RTP
 * Repo = https://github.com/SequencingDOTcom/Weather-My-Childs-Way-app
@@ -42,7 +32,7 @@ Weather My Child's Way +RTP
 
 Introduction
 =========================================
-The [Weather My Way +RTP app](https://sequencing.com/weather-my-way-rtp) code shows how to combine real-time weather data with the genetic data from the child of the app user.
+The [Weather My Way +RTP app](https://weathermyway.rocks/) codebase is a C# .NET implementation that shows how to combine real-time weather data with the genetic data from the child of the app user.
 
 [Register for a free account](https://sequencing.com/user/register/) to learn more about Real-Time Personalization technology and gain full access to this technology. Development using RTP is free.
 
@@ -61,7 +51,7 @@ Information flow
 
 Project
 ========================================
-This codebase for the Web version of this app is supplied as a C# Visual Studio project with MVC as the coding pattern. The code included mainly three components
+This codebase is supplied as a C# Visual Studio project with MVC as the coding pattern. The code included mainly three components
 
 * Models: Implemented as C# class objects.
 * Controllers: Implemented as C# class objects.
@@ -69,7 +59,7 @@ This codebase for the Web version of this app is supplied as a C# Visual Studio 
 
 Requirements
 ======================================
-The main requirement for the Web version of this app is installed Visual Studio or the free Visual Web Matrix that can be obtained from the following links
+The main requirement is installed Visual Studio or the free Visual Web Matrix that can be obtained from the following links
 
 * Visual Web Matrix: http://www.microsoft.com/web/webmatrix/
 * Visual Studio: http://www.visualstudio.com
@@ -81,18 +71,20 @@ We have included all the supporting binaries to execute the code. The following 
 
 Installation
 ======================================
-The Web version of this app is developed as a web application so no installation required. Simply clone this repository on your workstation/ computer and open the project in Visual Studio/ Visual Web Matrix. Then click the play button and you should be on your way.
-
-The iOS and Android versions are developed for those mobile platforms.
+The app is developed as a web application and so no installation as such is required. Simply clone this repository on your workstation/ computer and open the project in Visual Studio/ Visual Web Matrix. Then click the play button and you should be on your way. Then follow the screen instructions.
 
 Configuration
 ======================================
-To use the app, first [register for a free account](https://sequencing.com/user/register) at Sequencing.com. You will then be able to use one of the Fun Sample files to experience the app. 
+There are no strict configurations that have to be performed. However, there are some settings while using the app.
 
-These sample files are automatically available to all apps that use Sequencing.com's App Chains to provide their apps with Real-Time Personalization.
+It is possible to use the app in an anonymous mode in which case the app will work with real-time weather data and will not include any personalized data. Only if the use logs in using their account then the genetic data is visible and personalized recommendations are generated.
 
 Troubleshooting
 ======================================
+The app should work straight away without any issue. 
+
+Other tips
+
 * To experience the app, [register for a free account](https://sequencing.com/user/register/) and use your account credentials when running the demo. You may then access all developer tools and information directly from the [Developer Center](https://sequencing.com/developer-center/).
 * [Developer Documentation](https://sequencing.com/developer-documentation/) is also available.
 * Confirm all the dependency dlls loaded correctly.

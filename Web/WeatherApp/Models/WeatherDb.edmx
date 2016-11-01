@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="WeatherMyWayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Conditions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeatherCond" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="DeviceInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -15,6 +22,43 @@
           <Property Name="token" Type="nvarchar" MaxLength="200" />
           <Property Name="subscriptionDate" Type="date" />
           <Property Name="applicationId" Type="int" />
+        </EntityType>
+        <EntityType Name="MelanomaRisk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recommendations">
+          <Key>
+            <PropertyRef Name="CondId" />
+            <PropertyRef Name="VitaminDId" />
+            <PropertyRef Name="MelanomaRiskId" />
+            <PropertyRef Name="Language" />
+            <PropertyRef Name="GroupItemId" />
+          </Key>
+          <Property Name="Forecast" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CondId" Type="bigint" Nullable="false" />
+          <Property Name="VitaminDId" Type="bigint" Nullable="false" />
+          <Property Name="MelanomaRiskId" Type="bigint" Nullable="false" />
+          <Property Name="Language" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="GroupItemId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SendForecast">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="WeatherCond" />
+            <PropertyRef Name="VitaminD" />
+            <PropertyRef Name="MelanomaRisk" />
+            <PropertyRef Name="ForecastDate" />
+          </Key>
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="SendForecastID" Type="bigint" Nullable="false" />
+          <Property Name="WeatherCond" Type="bigint" Nullable="false" />
+          <Property Name="VitaminD" Type="bigint" Nullable="false" />
+          <Property Name="MelanomaRisk" Type="bigint" Nullable="false" />
+          <Property Name="ForecastDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SendInfo">
           <Key>
@@ -53,10 +97,134 @@
           <Property Name="RefreshToken" Type="nvarchar" MaxLength="250" />
           <Property Name="AuthDt" Type="datetime" />
         </EntityType>
+        <EntityType Name="VitaminD">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Recommendations_Conditions">
+          <End Role="Conditions" Type="Self.Conditions" Multiplicity="1" />
+          <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conditions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendations">
+              <PropertyRef Name="CondId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recommendations_MelanomaRisk">
+          <End Role="MelanomaRisk" Type="Self.MelanomaRisk" Multiplicity="1" />
+          <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MelanomaRisk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendations">
+              <PropertyRef Name="MelanomaRiskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recommendations_VitaminD">
+          <End Role="VitaminD" Type="Self.VitaminD" Multiplicity="1" />
+          <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitaminD">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendations">
+              <PropertyRef Name="VitaminDId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_Conditions">
+          <End Role="Conditions" Type="Self.Conditions" Multiplicity="1" />
+          <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conditions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="WeatherCond" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_MelanomaRisk">
+          <End Role="MelanomaRisk" Type="Self.MelanomaRisk" Multiplicity="1" />
+          <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MelanomaRisk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="MelanomaRisk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_SendInfo">
+          <End Role="SendInfo" Type="Self.SendInfo" Multiplicity="1" />
+          <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_VitaminD">
+          <End Role="VitaminD" Type="Self.VitaminD" Multiplicity="1" />
+          <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitaminD">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="VitaminD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WeatherMyWayModelStoreContainer">
+          <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MelanomaRisk" EntityType="Self.MelanomaRisk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recommendations" EntityType="Self.Recommendations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SendForecast" EntityType="Self.SendForecast" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SendInfo" EntityType="Self.SendInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VitaminD" EntityType="Self.VitaminD" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Recommendations_Conditions" Association="Self.FK_Recommendations_Conditions">
+            <End Role="Conditions" EntitySet="Conditions" />
+            <End Role="Recommendations" EntitySet="Recommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recommendations_MelanomaRisk" Association="Self.FK_Recommendations_MelanomaRisk">
+            <End Role="MelanomaRisk" EntitySet="MelanomaRisk" />
+            <End Role="Recommendations" EntitySet="Recommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recommendations_VitaminD" Association="Self.FK_Recommendations_VitaminD">
+            <End Role="VitaminD" EntitySet="VitaminD" />
+            <End Role="Recommendations" EntitySet="Recommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_Conditions" Association="Self.FK_SendForecast_Conditions">
+            <End Role="Conditions" EntitySet="Conditions" />
+            <End Role="SendForecast" EntitySet="SendForecast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_MelanomaRisk" Association="Self.FK_SendForecast_MelanomaRisk">
+            <End Role="MelanomaRisk" EntitySet="MelanomaRisk" />
+            <End Role="SendForecast" EntitySet="SendForecast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_SendInfo" Association="Self.FK_SendForecast_SendInfo">
+            <End Role="SendInfo" EntitySet="SendInfo" />
+            <End Role="SendForecast" EntitySet="SendForecast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_VitaminD" Association="Self.FK_SendForecast_VitaminD">
+            <End Role="VitaminD" EntitySet="VitaminD" />
+            <End Role="SendForecast" EntitySet="SendForecast" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -99,6 +267,7 @@
           <Property Name="LastWeatherUpdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="WeatherUpdateDt" Type="DateTime" Precision="3" />
           <Property Name="CountryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SendForecasts" Relationship="WeatherMyWayModel.FK_SendForecast_SendInfo" FromRole="SendInfo" ToRole="SendForecast" />
         </EntityType>
         <EntityType Name="UserInfo">
           <Key>
@@ -110,10 +279,43 @@
           <Property Name="RefreshToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="AuthDt" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" />
           <EntitySet Name="SendInfo" EntityType="Self.SendInfo" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="Conditions" EntityType="WeatherMyWayModel.Condition" />
+          <EntitySet Name="MelanomaRisks" EntityType="WeatherMyWayModel.MelanomaRisk" />
+          <EntitySet Name="Recommendations" EntityType="WeatherMyWayModel.Recommendation" />
+          <EntitySet Name="VitaminDs" EntityType="WeatherMyWayModel.VitaminD" />
+          <AssociationSet Name="FK_Recommendations_Conditions" Association="WeatherMyWayModel.FK_Recommendations_Conditions">
+            <End Role="Condition" EntitySet="Conditions" />
+            <End Role="Recommendation" EntitySet="Recommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recommendations_MelanomaRisk" Association="WeatherMyWayModel.FK_Recommendations_MelanomaRisk">
+            <End Role="MelanomaRisk" EntitySet="MelanomaRisks" />
+            <End Role="Recommendation" EntitySet="Recommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recommendations_VitaminD" Association="WeatherMyWayModel.FK_Recommendations_VitaminD">
+            <End Role="VitaminD" EntitySet="VitaminDs" />
+            <End Role="Recommendation" EntitySet="Recommendations" />
+          </AssociationSet>
+          <EntitySet Name="SendForecasts" EntityType="WeatherMyWayModel.SendForecast" />
+          <AssociationSet Name="FK_SendForecast_Conditions" Association="WeatherMyWayModel.FK_SendForecast_Conditions">
+            <End Role="Condition" EntitySet="Conditions" />
+            <End Role="SendForecast" EntitySet="SendForecasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_MelanomaRisk" Association="WeatherMyWayModel.FK_SendForecast_MelanomaRisk">
+            <End Role="MelanomaRisk" EntitySet="MelanomaRisks" />
+            <End Role="SendForecast" EntitySet="SendForecasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_SendInfo" Association="WeatherMyWayModel.FK_SendForecast_SendInfo">
+            <End Role="SendInfo" EntitySet="SendInfo" />
+            <End Role="SendForecast" EntitySet="SendForecasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SendForecast_VitaminD" Association="WeatherMyWayModel.FK_SendForecast_VitaminD">
+            <End Role="VitaminD" EntitySet="VitaminDs" />
+            <End Role="SendForecast" EntitySet="SendForecasts" />
+          </AssociationSet>
         </EntityContainer>
         <EnumType Name="DeviceType" />
         <EnumType Name="WeekEndMode" />
@@ -122,6 +324,154 @@
           <Member Name="Tablet" Value="2" />
         </EnumType>
         <EnumType Name="TemperatureMode" />
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeatherCond" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Recommendations" Relationship="WeatherMyWayModel.FK_Recommendations_Conditions" FromRole="Condition" ToRole="Recommendation" />
+          <NavigationProperty Name="SendForecasts" Relationship="WeatherMyWayModel.FK_SendForecast_Conditions" FromRole="Condition" ToRole="SendForecast" />
+        </EntityType>
+        <EntityType Name="MelanomaRisk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Recommendations" Relationship="WeatherMyWayModel.FK_Recommendations_MelanomaRisk" FromRole="MelanomaRisk" ToRole="Recommendation" />
+          <NavigationProperty Name="SendForecasts" Relationship="WeatherMyWayModel.FK_SendForecast_MelanomaRisk" FromRole="MelanomaRisk" ToRole="SendForecast" />
+        </EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="CondId" />
+            <PropertyRef Name="VitaminDId" />
+            <PropertyRef Name="MelanomaRiskId" />
+            <PropertyRef Name="Language" />
+            <PropertyRef Name="GroupItemId" />
+          </Key>
+          <Property Name="Forecast" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CondId" Type="Int64" Nullable="false" />
+          <Property Name="VitaminDId" Type="Int64" Nullable="false" />
+          <Property Name="MelanomaRiskId" Type="Int64" Nullable="false" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GroupItemId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Condition" Relationship="WeatherMyWayModel.FK_Recommendations_Conditions" FromRole="Recommendation" ToRole="Condition" />
+          <NavigationProperty Name="MelanomaRisk" Relationship="WeatherMyWayModel.FK_Recommendations_MelanomaRisk" FromRole="Recommendation" ToRole="MelanomaRisk" />
+          <NavigationProperty Name="VitaminD" Relationship="WeatherMyWayModel.FK_Recommendations_VitaminD" FromRole="Recommendation" ToRole="VitaminD" />
+        </EntityType>
+        <EntityType Name="VitaminD">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Recommendations" Relationship="WeatherMyWayModel.FK_Recommendations_VitaminD" FromRole="VitaminD" ToRole="Recommendation" />
+          <NavigationProperty Name="SendForecasts" Relationship="WeatherMyWayModel.FK_SendForecast_VitaminD" FromRole="VitaminD" ToRole="SendForecast" />
+        </EntityType>
+        <Association Name="FK_Recommendations_Conditions">
+          <End Type="WeatherMyWayModel.Condition" Role="Condition" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.Recommendation" Role="Recommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendation">
+              <PropertyRef Name="CondId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recommendations_MelanomaRisk">
+          <End Type="WeatherMyWayModel.MelanomaRisk" Role="MelanomaRisk" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.Recommendation" Role="Recommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MelanomaRisk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendation">
+              <PropertyRef Name="MelanomaRiskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recommendations_VitaminD">
+          <End Type="WeatherMyWayModel.VitaminD" Role="VitaminD" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.Recommendation" Role="Recommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitaminD">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recommendation">
+              <PropertyRef Name="VitaminDId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SendForecast">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="WeatherCond" />
+            <PropertyRef Name="VitaminD" />
+            <PropertyRef Name="MelanomaRisk" />
+            <PropertyRef Name="ForecastDate" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="SendForecastID" Type="Int64" Nullable="false" />
+          <Property Name="WeatherCond" Type="Int64" Nullable="false" />
+          <Property Name="VitaminD" Type="Int64" Nullable="false" />
+          <Property Name="MelanomaRisk" Type="Int64" Nullable="false" />
+          <Property Name="ForecastDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Condition" Relationship="WeatherMyWayModel.FK_SendForecast_Conditions" FromRole="SendForecast" ToRole="Condition" />
+          <NavigationProperty Name="MelanomaRisk1" Relationship="WeatherMyWayModel.FK_SendForecast_MelanomaRisk" FromRole="SendForecast" ToRole="MelanomaRisk" />
+          <NavigationProperty Name="SendInfo" Relationship="WeatherMyWayModel.FK_SendForecast_SendInfo" FromRole="SendForecast" ToRole="SendInfo" />
+          <NavigationProperty Name="VitaminD1" Relationship="WeatherMyWayModel.FK_SendForecast_VitaminD" FromRole="SendForecast" ToRole="VitaminD" />
+        </EntityType>
+        <Association Name="FK_SendForecast_Conditions">
+          <End Type="WeatherMyWayModel.Condition" Role="Condition" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.SendForecast" Role="SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="WeatherCond" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_MelanomaRisk">
+          <End Type="WeatherMyWayModel.MelanomaRisk" Role="MelanomaRisk" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.SendForecast" Role="SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MelanomaRisk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="MelanomaRisk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_SendInfo">
+          <End Type="WeatherMyWayModel.SendInfo" Role="SendInfo" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.SendForecast" Role="SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SendForecast_VitaminD">
+          <End Type="WeatherMyWayModel.VitaminD" Role="VitaminD" Multiplicity="1" />
+          <End Type="WeatherMyWayModel.SendForecast" Role="SendForecast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitaminD">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SendForecast">
+              <PropertyRef Name="VitaminD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -179,6 +529,54 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Conditions">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.Condition">
+              <MappingFragment StoreEntitySet="Conditions">
+                <ScalarProperty Name="WeatherCond" ColumnName="WeatherCond" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MelanomaRisks">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.MelanomaRisk">
+              <MappingFragment StoreEntitySet="MelanomaRisk">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recommendations">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.Recommendation">
+              <MappingFragment StoreEntitySet="Recommendations">
+                <ScalarProperty Name="GroupItemId" ColumnName="GroupItemId" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="MelanomaRiskId" ColumnName="MelanomaRiskId" />
+                <ScalarProperty Name="VitaminDId" ColumnName="VitaminDId" />
+                <ScalarProperty Name="CondId" ColumnName="CondId" />
+                <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VitaminDs">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.VitaminD">
+              <MappingFragment StoreEntitySet="VitaminD">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SendForecasts">
+            <EntityTypeMapping TypeName="WeatherMyWayModel.SendForecast">
+              <MappingFragment StoreEntitySet="SendForecast">
+                <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />
+                <ScalarProperty Name="MelanomaRisk" ColumnName="MelanomaRisk" />
+                <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
+                <ScalarProperty Name="WeatherCond" ColumnName="WeatherCond" />
+                <ScalarProperty Name="SendForecastID" ColumnName="SendForecastID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -193,7 +591,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

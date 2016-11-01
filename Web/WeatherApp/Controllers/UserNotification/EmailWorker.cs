@@ -157,7 +157,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                         var _riskValue = _rrb.GetAppChainResultingRisks(_jobId.Item1.ToString(), _jobId.Item2.ToString());
                         var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
 
-                        var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _riskValue);
+                        var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _riskValue, _info.UserName);
                         var _subj =
                             string.Format("Forecast for " +
                                           DateTime.Now.ToString("dddd MMMM d"));
@@ -201,8 +201,6 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                 _city, _todayForecast, _currentObservation, _riskDescription);
 
             notificationService.Send(_info.Id, _msg1);
-
-           
         }
 
         private void SendSmsNotification(SendInfo _info, string _city, string _todayForecast, string _currentObservation, string _riskDescription)
@@ -284,7 +282,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         /// <param name="name"></param>
         public void SendSmsInvite(SendInfo info)
         {
-            string message = "Genetically tailored SMS notifications successfully enabled for your Weather My Way + RTP app. Email apps@weathermyway.rocks if you didn't activate this notification.";
+            string message = "Genetically tailored SMS notifications successfully enabled for your Weather My Way + RTP app. Email apps@weathermyway.rocks if you did not activate this notification.";
             SendSms(info, message);
         }
     }

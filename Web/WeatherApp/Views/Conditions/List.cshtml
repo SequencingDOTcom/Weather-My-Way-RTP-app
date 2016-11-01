@@ -1,0 +1,40 @@
+﻿@model PagedList.IPagedList<Sequencing.WeatherApp.Models.Condition>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Conditions</h2>
+
+<p>
+    <br>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p><br><br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().WeatherCond)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeatherCond)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) 
+               
+                @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { HttpMethod = "POST" }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) ou of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+

@@ -10,5 +10,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         IDeviceTokenDao GetDeviceTokenDao();
         ISendInfoDao GetSendInfoDao();
         IUserInfoDao GetUserInfoDao();
+        IRecommendationsDao GetRecommendationsDao();
+        ISendForecastDao GetSendForecastDao();
     }
 }

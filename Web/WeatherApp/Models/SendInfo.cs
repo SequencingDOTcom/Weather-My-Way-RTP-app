@@ -14,8 +14,10 @@ namespace Sequencing.WeatherApp.Models
     
     public partial class SendInfo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SendInfo()
         {
+            this.SendForecasts = new HashSet<SendForecast>();
         }
 
         public SendInfo(string name)
@@ -30,6 +32,7 @@ namespace Sequencing.WeatherApp.Models
         public string UserName { get; set; }
         public Nullable<bool> SendEmail { get; set; }
         public Nullable<bool> SendSms { get; set; }
+        public Nullable<bool> SendRoost { get; set; }
         public string UserEmail { get; set; }
         public string UserPhone { get; set; }
         public Nullable<System.DateTime> LastSendDt { get; set; }
@@ -44,11 +47,12 @@ namespace Sequencing.WeatherApp.Models
         public Nullable<TemperatureMode> Temperature { get; set; }
         public string SmsId { get; set; }
         public Nullable<bool> SmsUseFrom2 { get; set; }
-        public Nullable<bool> SendRoost { get; set; }
         public string LastWeatherUpdate { get; set; }
         public Nullable<System.DateTime> WeatherUpdateDt { get; set; }
         public string CountryCode { get; set; }
-
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SendForecast> SendForecasts { get; set; }
 
         public void Merge(SendInfo from)
         {

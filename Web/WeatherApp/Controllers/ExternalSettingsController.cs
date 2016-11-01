@@ -19,7 +19,7 @@ namespace Sequencing.WeatherApp.Controllers
     /// </summary>
     public class ExternalSettingsController : ControllerBase
     {
-        public ILog log = LogManager.GetLogger(typeof(ExternalSettingsController));
+        public static ILog log = LogManager.GetLogger(typeof(ExternalSettingsController));
 
         MSSQLDaoFactory factory = new MSSQLDaoFactory();
         IPushNotificationService pushService = new DefaultPushNotificationService();
@@ -249,24 +249,21 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult RetrieveUserSettings(SettingsRetrieveDTO settingsDTO)
         {
-
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
             SendInfo info = null;
 
             try
             {
-                //info = settingsService.RetrieveSettings(settingsDTO);
+                info = settingsService.RetrieveSettings(settingsDTO);
 
-                //string message = settingsService.DeviceTokenSetting(settingsDTO, info.Id);
-
-                pushService.Send(10084,"Hello");
+                string message = settingsService.DeviceTokenSetting(settingsDTO, info.Id);
 
                 responseObj = new GenericResponse()
                 {
                     Status = 0,
                     ResponseTime = DateTime.Now.TimeOfDay.Seconds - timeStart,
-                    //Message = message,
+                    Message = message,
                     Data = info,
                 };
 
@@ -287,7 +284,7 @@ namespace Sequencing.WeatherApp.Controllers
             }
         }
 
-        public void ResponseLogging(GenericResponse responseObj)
+        public static void ResponseLogging(GenericResponse responseObj)
         {
             log.ErrorFormat(string.Format("Response object: [Status = {0}, ResponseTime = {1}, Message = {2}, Data = {3}]", responseObj.Status, 
                 responseObj.ResponseTime, responseObj.Message, responseObj.Data));

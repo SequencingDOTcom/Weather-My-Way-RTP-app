@@ -8,7 +8,19 @@
         <EntityTypeShape EntityType="WeatherMyWayModel.DeviceInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WeatherMyWayModel.SendInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WeatherMyWayModel.UserInfo" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-      </Diagram>
+        <EntityTypeShape EntityType="WeatherMyWayModel.Condition" Width="1.5" PointX="5.375" PointY="4.5" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.MelanomaRisk" Width="1.5" PointX="7.5" PointY="11" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.Recommendation" Width="1.5" PointX="7.625" PointY="4" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.VitaminD" Width="1.5" PointX="6.375" PointY="7.875" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_Recommendations_Conditions" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_Recommendations_MelanomaRisk" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_Recommendations_VitaminD" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.SendForecast" Width="1.5" PointX="3" PointY="9.5" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_Conditions" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_MelanomaRisk" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_SendInfo" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_VitaminD" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
