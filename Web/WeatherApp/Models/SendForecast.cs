@@ -20,10 +20,12 @@ namespace Sequencing.WeatherApp.Models
         public long VitaminD { get; set; }
         public long MelanomaRisk { get; set; }
         public System.DateTime ForecastDate { get; set; }
+        public int AppTypeId { get; set; }
     
         public virtual Condition Condition { get; set; }
         public virtual MelanomaRisk MelanomaRisk1 { get; set; }
         public virtual SendInfo SendInfo { get; set; }
         public virtual VitaminD VitaminD1 { get; set; }
+        public virtual ApplicationName ApplicationName { get; set; }
     }
 }

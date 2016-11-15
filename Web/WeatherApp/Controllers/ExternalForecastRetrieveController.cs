@@ -30,7 +30,7 @@ namespace Sequencing.WeatherApp.Controllers
                     VitDAppChainResult = forecastDTO.vitaminD
                 };
 
-                var _s = new PersonalizedRecommendationsWorker().GetRecommendation(forecastDTO.forecastRequest, acr, userName);
+                var _s = new PersonalizedRecommendationsWorker().GetRecommendation(forecastDTO.forecastRequest, acr, userName, forecastDTO.appId);
 
                 responseObj = new GenericResponse()
                 {

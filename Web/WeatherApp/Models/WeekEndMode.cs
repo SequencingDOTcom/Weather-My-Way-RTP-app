@@ -10,7 +10,7 @@
 namespace Sequencing.WeatherApp.Models
 {
     using System;
-    
+
     public enum WeekEndMode : int
     {
         SendSms = 0,

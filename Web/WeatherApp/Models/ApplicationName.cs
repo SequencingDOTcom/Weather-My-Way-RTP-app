@@ -12,17 +12,17 @@ namespace Sequencing.WeatherApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Condition
+    public partial class ApplicationName
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Condition()
+        public ApplicationName()
         {
             this.Recommendations = new HashSet<Recommendation>();
             this.SendForecasts = new HashSet<SendForecast>();
         }
     
-        public long Id { get; set; }
-        public string WeatherCond { get; set; }
+        public int Id { get; set; }
+        public string AppName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recommendation> Recommendations { get; set; }

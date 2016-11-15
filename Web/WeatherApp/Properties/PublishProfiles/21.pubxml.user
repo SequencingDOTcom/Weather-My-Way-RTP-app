@@ -1417,10 +1417,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2015 16:33:34</publishTime>
     </File>
     <File Include="bin/Sequencing.WeatherApp.dll">
-      <publishTime>11/04/2016 15:40:42</publishTime>
+      <publishTime>11/15/2016 15:27:36</publishTime>
     </File>
     <File Include="bin/Sequencing.WeatherApp.pdb">
-      <publishTime>11/04/2016 15:40:42</publishTime>
+      <publishTime>11/15/2016 15:27:36</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -1621,7 +1621,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2016 13:29:24</publishTime>
     </File>
     <File Include="Models/WeatherDb.edmx.diagram">
-      <publishTime>09/08/2016 19:07:35</publishTime>
+      <publishTime>11/14/2016 16:04:52</publishTime>
     </File>
     <File Include="ms-icon-144x144.png">
       <publishTime>06/09/2016 13:29:24</publishTime>
@@ -1738,7 +1738,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/31/2016 15:13:50</publishTime>
     </File>
     <File Include="Views/Default/Startup.cshtml">
-      <publishTime>07/13/2016 16:30:06</publishTime>
+      <publishTime>11/10/2016 16:04:25</publishTime>
     </File>
     <File Include="Views/Error/Error.cshtml">
       <publishTime>06/09/2016 13:29:24</publishTime>
@@ -1783,7 +1783,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2016 16:07:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/04/2016 15:41:45</publishTime>
+      <publishTime>11/15/2016 15:31:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

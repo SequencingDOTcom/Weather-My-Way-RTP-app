@@ -50,7 +50,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             {
                 var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
                 var _riskDescription = GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, 
-                    _alertCode, _appChainResults, userName);
+                    _alertCode, _appChainResults, userName, Options.ApplicationName);
                 _runResult.Risk = _riskDescription;
                 _runResult.RawRisk = _appChainResults.MelanomaAppChainResult.ToString();
                 _runResult.Temperature = mode;
@@ -94,13 +94,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="weatherAlertCode"></param>
         /// <param name="acr"></param>
         /// <returns></returns>
-        public string GetPersonalizedRiskDescription(string weatherCondition, string weatherAlertCode, AppChainResults acr, string userName)
+        public string GetPersonalizedRiskDescription(string weatherCondition, string weatherAlertCode, AppChainResults acr, string userName, int appId)
         {
             var currentDate =  DateTime.Now.Date ;
 
             ForecastRequest[] request = new ForecastRequest[] { new ForecastRequest { date = currentDate, alertCode = weatherAlertCode, weather = weatherCondition } };
 
-            var _s = new PersonalizedRecommendationsWorker().GetRecommendation(request, acr, userName);
+            var _s = new PersonalizedRecommendationsWorker().GetRecommendation(request, acr, userName, appId);
             if (_s != null)
                 return _s[0].gtForecast;
             return

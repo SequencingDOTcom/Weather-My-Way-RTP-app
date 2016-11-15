@@ -10,7 +10,7 @@
 namespace Sequencing.WeatherApp.Models
 {
     using System;
-    
+
     public enum DeviceType : int
     {
         IOS = 1,

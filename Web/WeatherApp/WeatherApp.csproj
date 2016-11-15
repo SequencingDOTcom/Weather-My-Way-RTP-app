@@ -691,6 +691,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\21.pubxml" />
     <None Include="Properties\PublishProfiles\3.pubxml" />
     <None Include="Properties\PublishProfiles\6.pubxml" />
     <None Include="Properties\PublishProfiles\67.pubxml" />
@@ -733,7 +734,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppChain\AppChainResults.cs" />
     <Compile Include="Controllers\AppChain\RegularQualitativeResultType.cs" />
-    <Compile Include="Controllers\ConditionsController.cs" />
     <Compile Include="Controllers\DaoLayer\ApplicationException.cs" />
     <Compile Include="Controllers\DaoLayer\DaoException.cs" />
     <Compile Include="Controllers\DaoLayer\DefaultNotificationService.cs" />
@@ -754,8 +754,6 @@
     <Compile Include="Controllers\DaoLayer\UserSettingService.cs" />
     <Compile Include="Controllers\ExternalForecastRetrieveController.cs" />
     <Compile Include="Controllers\ExternalSettingsController.cs" />
-    <Compile Include="Controllers\MelanomaRisksController.cs" />
-    <Compile Include="Controllers\RecommendationsController.cs" />
     <Compile Include="Controllers\OAuth\AuthInfo.cs" />
     <Compile Include="Controllers\OAuth\AuthWorker.cs" />
     <Compile Include="Controllers\AppChain\SqApiServiceFacade.cs" />
@@ -788,6 +786,9 @@
     <Compile Include="Controllers\WeatherUnderground\Forecast10Root.cs" />
     <Compile Include="Controllers\WeatherUnderground\LocationVerifier.cs" />
     <Compile Include="Controllers\WeatherUnderground\WeatherWorker.cs" />
+    <Compile Include="Models\ApplicationName.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ApplicationType.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
@@ -797,7 +798,6 @@
     <Compile Include="Models\Condition.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConditionsRepository.cs" />
     <Compile Include="Models\DeviceInfo.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
@@ -807,12 +807,9 @@
     <Compile Include="Models\MelanomaRisk.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MelanomaRiskRepository.cs" />
     <Compile Include="Models\Recommendation.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RecommendationsRepository.cs" />
-    <Compile Include="Models\RecommendationViewModel.cs" />
     <Compile Include="Models\RunResult.cs" />
     <Compile Include="Controllers\AppChain\PersonalizedForecastResultBuilder.cs" />
     <Compile Include="Global.asax.cs">
@@ -834,7 +831,6 @@
     <Compile Include="Models\VitaminD.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VitaminDRepository.cs" />
     <Compile Include="Models\WeatherDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -887,17 +883,6 @@
     <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Recommendations\Create.cshtml" />
-    <Content Include="Views\Recommendations\Edit.cshtml" />
-    <Content Include="Views\Recommendations\Index.cshtml" />
-    <Content Include="Views\Conditions\Create.cshtml" />
-    <Content Include="Views\Conditions\Edit.cshtml" />
-    <Content Include="Views\Conditions\List.cshtml" />
-    <Content Include="Views\MelanomaRisks\Create.cshtml" />
-    <Content Include="Views\MelanomaRisks\Edit.cshtml" />
-    <Content Include="Views\MelanomaRisks\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

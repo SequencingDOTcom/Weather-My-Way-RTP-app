@@ -15,6 +15,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public string language { set; get;  }
         public string authToken { set; get; }
         public ForecastRequest [] forecastRequest { set; get; }
+        public int appId { set; get; }
     }
 
     public class ForecastRequest

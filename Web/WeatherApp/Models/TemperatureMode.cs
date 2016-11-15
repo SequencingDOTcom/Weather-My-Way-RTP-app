@@ -10,7 +10,7 @@
 namespace Sequencing.WeatherApp.Models
 {
     using System;
-    
+
     public enum TemperatureMode : int
     {
         F = 0,

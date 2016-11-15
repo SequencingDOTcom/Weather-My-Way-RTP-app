@@ -20,6 +20,9 @@
         <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_MelanomaRisk" />
         <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_SendInfo" />
         <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_VitaminD" />
+        <EntityTypeShape EntityType="WeatherMyWayModel.ApplicationName" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_Recommendations_ApplicationType" />
+        <AssociationConnector Association="WeatherMyWayModel.FK_SendForecast_ApplicationType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

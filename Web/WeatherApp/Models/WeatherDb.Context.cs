@@ -34,5 +34,6 @@ namespace Sequencing.WeatherApp.Models
         public virtual DbSet<Recommendation> Recommendations { get; set; }
         public virtual DbSet<VitaminD> VitaminDs { get; set; }
         public virtual DbSet<SendForecast> SendForecasts { get; set; }
+        public virtual DbSet<ApplicationName> ApplicationNames { get; set; }
     }
 }

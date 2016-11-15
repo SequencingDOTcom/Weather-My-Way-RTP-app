@@ -49,13 +49,19 @@ namespace Sequencing.WeatherApp.Controllers
         public static Int64 APNSFeedbackServiceRunDelay { get { return Int64.Parse(ConfigurationManager.AppSettings["APNSFeedbackServiceRunDelay"]); } }
 
 
+        public static int ApplicationName { get { return Int32.Parse(ConfigurationManager.AppSettings["ApplicationName"]); } }
+
+
         public static int STOutputMaxSize { get { return Int32.Parse(ConfigurationManager.AppSettings["STOutputMaxSize"]); } }
         public static string STParameter1Name { get { return ConfigurationManager.AppSettings["STParameter1Name"]; } }
         public static string STParameter2Name { get { return ConfigurationManager.AppSettings["STParameter2Name"]; } }
         public static string STParameter3Name { get { return ConfigurationManager.AppSettings["STParameter3Name"]; } }
         public static string STParameter4Name { get { return ConfigurationManager.AppSettings["STParameter4Name"]; } }
         public static string STParameter5Name { get { return ConfigurationManager.AppSettings["STParameter5Name"]; } }
+        public static string STParameter6Name { get { return ConfigurationManager.AppSettings["STParameter6Name"]; } }
         public static string STOutputName { get { return ConfigurationManager.AppSettings["STOutputName"]; } }
         public static string StorageProcedureName { get { return ConfigurationManager.AppSettings["StorageProcedureName"]; } }
-    }
+        public static string ForecastManagerLogin { get { return ConfigurationManager.AppSettings["ForecastManagerLogin"]; } }
+        public static string ForecastManagerPassword { get { return ConfigurationManager.AppSettings["ForecastManagerPassword"]; } }
+}
 }

@@ -35,14 +35,14 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="alert"></param>
         /// <param name="acr"></param>
         /// <returns></returns>
-        public List<ForecastResponse> GetRecommendation(ForecastRequest [] request, AppChainResults acr, string userName)
+        public List<ForecastResponse> GetRecommendation(ForecastRequest [] request, AppChainResults acr, string userName, int appId)
         {
             var _melanomaRisk = acr.MelanomaAppChainResult.ToString();
             var _vitDRisk = acr.VitDAppChainResult;
-            var _rec = GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName);
+            var _rec = GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName, appId);
             if (_rec != null)
                 return _rec;
-            return GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName);
+            return GetRecommendationImpl(request, _melanomaRisk, _vitDRisk, userName, appId);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="risk"></param>
         /// <param name="vitD"></param>
         /// <returns></returns>
-        private List<ForecastResponse> GetRecommendationImpl(ForecastRequest [] request, string risk, bool vitD, string userName)
+        private List<ForecastResponse> GetRecommendationImpl(ForecastRequest [] request, string risk, bool vitD, string userName, int appId)
         {
             List<ForecastResponse> list = new List<ForecastResponse>();
 
@@ -62,12 +62,17 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
                 var melanomaRiskId = db.MelanomaRisks.Where(con => con.Type == risk).Select(info => info.Id).FirstOrDefault();
                 var userId = db.SendInfo.Where(con => con.UserName == userName).Select(info => info.Id).FirstOrDefault();
 
+                var appTypeId =
+                    db.ApplicationNames.Where(app => app.Id == appId).Select(app => app.Id).FirstOrDefault();
+                if (appId == 0 || appTypeId == 0)
+                   appId = Options.ApplicationName;
+
                 foreach (ForecastRequest req in request)
                 {
                     var condId = db.Conditions.Where(con => con.WeatherCond == req.weather).Select(info => info.Id).FirstOrDefault();
                     if (condId == 0)
                         return null;
-                    list.Add(new ForecastResponse { gtForecast = factory.GetSendForecastDao().StorageProcetureCalling(req.date, condId, vitDId, melanomaRiskId, userId), date = req.date.ToString() } );
+                    list.Add(new ForecastResponse { gtForecast = factory.GetSendForecastDao().StorageProcetureCalling(req.date, condId, vitDId, melanomaRiskId, userId, appId), date = req.date.ToString() } );
                 }
 
                 var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();

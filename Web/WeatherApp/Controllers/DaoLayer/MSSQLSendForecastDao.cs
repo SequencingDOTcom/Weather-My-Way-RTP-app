@@ -32,7 +32,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             throw new NotImplementedException();
         }
 
-        public string StorageProcetureCalling(DateTime date, Int64 CondId, Int64 VitaminDId, Int64 MelanomaRiskId, Int64 UserId)
+        public string StorageProcetureCalling(DateTime date, Int64 condId, Int64 vitaminDId, Int64 melanomaRiskId, Int64 userId, Int64 appType)
         {
             SqlConnection conn = null;
             try
@@ -49,13 +49,15 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     cmd.Parameters.Add(Options.STParameter3Name, SqlDbType.BigInt);
                     cmd.Parameters.Add(Options.STParameter4Name, SqlDbType.DateTime);
                     cmd.Parameters.Add(Options.STParameter5Name, SqlDbType.BigInt);
+                    cmd.Parameters.Add(Options.STParameter6Name, SqlDbType.BigInt);
                     cmd.Parameters.Add(Options.STOutputName, SqlDbType.VarChar, Options.STOutputMaxSize).Direction = ParameterDirection.Output;
 
-                    cmd.Parameters[Options.STParameter1Name].Value = CondId;
-                    cmd.Parameters[Options.STParameter2Name].Value = VitaminDId;
-                    cmd.Parameters[Options.STParameter3Name].Value = MelanomaRiskId;
+                    cmd.Parameters[Options.STParameter1Name].Value = condId;
+                    cmd.Parameters[Options.STParameter2Name].Value = vitaminDId;
+                    cmd.Parameters[Options.STParameter3Name].Value = melanomaRiskId;
                     cmd.Parameters[Options.STParameter4Name].Value = date;
-                    cmd.Parameters[Options.STParameter5Name].Value = UserId;
+                    cmd.Parameters[Options.STParameter5Name].Value = userId;
+                    cmd.Parameters[Options.STParameter6Name].Value = appType;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

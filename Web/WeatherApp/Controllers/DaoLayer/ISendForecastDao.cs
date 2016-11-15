@@ -10,6 +10,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
     {
         SendForecast Insert(SendForecast send);
         SendForecast Find(string userName);
-        string StorageProcetureCalling(DateTime date, Int64 CondId, Int64 VitaminDId, Int64 MelanomaRiskId, Int64 UserId);
+        string StorageProcetureCalling(DateTime date, Int64 condId, Int64 vitaminDId, Int64 melanomaRiskId, Int64 userId, Int64 appType);
     }
 }

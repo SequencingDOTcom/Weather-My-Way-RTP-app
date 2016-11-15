@@ -11,7 +11,7 @@ namespace Sequencing.WeatherApp.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class VitaminD
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +22,7 @@ namespace Sequencing.WeatherApp.Models
         }
     
         public long Id { get; set; }
-        [Required]
-        [Display(Name = "Vitamin D")]
-        public bool? Type { get; set; }
+        public bool Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recommendation> Recommendations { get; set; }

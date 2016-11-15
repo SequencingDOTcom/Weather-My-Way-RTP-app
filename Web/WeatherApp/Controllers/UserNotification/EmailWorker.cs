@@ -157,7 +157,7 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                         var _riskValue = _rrb.GetAppChainResultingRisks(_jobId.Item1.ToString(), _jobId.Item2.ToString());
                         var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
 
-                        var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _riskValue, _info.UserName);
+                        var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _riskValue, _info.UserName, Options.ApplicationName);
                         var _subj =
                             string.Format("Forecast for " +
                                           DateTime.Now.ToString("dddd MMMM d"));
