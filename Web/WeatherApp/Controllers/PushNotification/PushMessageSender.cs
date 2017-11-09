@@ -16,7 +16,7 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         /// <param name="token"></param>
         /// <param name="message"></param>
         /// <param name="userId"></param>
-        public abstract void SendPushNotification(string token, string message, Int64 userId);
+        public abstract void SendPushNotification(string token, Int64 userId);
         public abstract DeviceType GetDeviceType();
     }
 }

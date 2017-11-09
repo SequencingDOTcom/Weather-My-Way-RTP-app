@@ -91,25 +91,11 @@
             success: function (dataG) {
                 var mydata = JSON.parse(dataG).isCorrect;
                 if (mydata) {
-                    window.location = '/Default/SaveLocation/?city=' + $('#city').val();
-                   /* $.ajax({
-                        url: "/Default/SaveLocation",
-                        type: "POST",
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify(location)
-                    });
-                    return;*/
-                   /* window.location = redirect*/
-
+                    window.location = '/Default/SaveLocation/?city=' + $('#city').val();                 
                 } else {
                     $('#errorlb').text('Invalid city');
-                   // return false;
-                } 
-               
-      
+                }                    
             }
-
         });
     })
 </script>

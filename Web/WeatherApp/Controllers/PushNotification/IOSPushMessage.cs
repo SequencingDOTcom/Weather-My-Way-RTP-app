@@ -20,15 +20,18 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         public ILog logger = LogManager.GetLogger(typeof(IosPushMessageSender));
         private IPushNotificationService notificationService = new DefaultPushNotificationService();
         private long userId;
+        private string pushContent;
 
         override public DeviceType GetDeviceType()
         {
             return DeviceType.IOS;
         }
 
-        public IosPushMessageSender(ApplicationType? appType)
+        public IosPushMessageSender(ApplicationType? appType, string pushContent)
         {
-            if(appType == ApplicationType.Tablet)
+            this.pushContent = pushContent;
+            logger.Debug("Push content "+ pushContent);
+            if (appType == ApplicationType.Tablet)
                 config = new ApnsConfiguration(PushSharp.Apple.ApnsConfiguration.ApnsServerEnvironment.Production,
                     Options.ApnsCertificateFileTablet, Options.ApnsCertificatePasswordTablet);
             else
@@ -75,24 +78,22 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             apnsBroker.Start();
         }
 
-        override public void SendPushNotification(string token, string message, Int64 userId)
+        override public void SendPushNotification(string token, Int64 userId)
         {
-
             this.userId = userId;
-            var pushObj = new
+            /*var pushObj = new
             {
                 aps = new
                 {
                     alert = message,
-                    sound = "default",
-                    badge = 1
+                    sound = "default"
                 }
-            };
+            };*/
 
             apnsBroker.QueueNotification(new ApnsNotification
             {
                 DeviceToken = token,
-                Payload = JObject.Parse(JsonConvert.SerializeObject(pushObj))
+                Payload = JObject.Parse(pushContent)
             });
         }
 

@@ -84,7 +84,7 @@ namespace Sequencing.WeatherApp.Controllers
 
             settingService.UpdateUserSettings(info);
 
-            return RedirectToAction("GoToResults", "Default");
+            return RedirectToAction("CheckApp", "Default");
         }
 
         [Authorize]

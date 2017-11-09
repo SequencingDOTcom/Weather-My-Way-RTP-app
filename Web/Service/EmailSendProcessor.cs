@@ -7,71 +7,21 @@ using Sequencing.WeatherApp.Controllers.UserNotification;
 
 namespace Sequencing.WeatherApp.Service
 {
-    public class EmailSendProcessor
+    public class EmailSendProcessor : TaskProcessor
     {
-        private const int CANCEL_TIMEOUT = 20000;
-        private const int ERROR_TIMEOUT = 20000;
-        private readonly AutoResetEvent stopProcessing = new AutoResetEvent(false);
-        private Thread workerThread;
 
-        private ILog Log
-        {
-            get { return LogManager.GetLogger(typeof(EmailSendProcessor)); }
-        }
-
-        public void Start()
-        {
-            XmlConfigurator.Configure();
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_OnUnhandledException;
-            workerThread = new Thread(Process);
-            workerThread.Start(false);
-        }
-
-        private void CurrentDomain_OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        protected override void CurrentDomain_OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             LogManager.GetLogger(typeof(EmailSendProcessor)).Fatal(e.ExceptionObject);
         }
 
-
-        public void Process(object stopRun)
-        {
-            bool _stop = false;
-            while (!_stop)
-            {
-                if (stopProcessing.WaitOne(0, false))
-                    break;
-                double _secondsToWait;
-                try
-                {
-                    ProcessImpl();
-                    _secondsToWait = Options.EmailCheckDelay;
-                }
-                catch (Exception ex)
-                {
-                    Log.Fatal(ex);
-                    _secondsToWait = ERROR_TIMEOUT / 1000;
-                }
-                if ((bool)stopRun)
-                {
-                    break;
-                }
-                int _millisecondsTimeout = Convert.ToInt32(_secondsToWait * 1000);
-                Log.DebugFormat("Waiting for {0} ms", _millisecondsTimeout);
-                int _idx = WaitHandle.WaitAny(new WaitHandle[] { stopProcessing }, _millisecondsTimeout, false);
-                _stop = _idx == 0;
-            }
-        }
-
-        private void ProcessImpl()
+        protected override void ProcessImpl()
         {
             new EmailWorker().CheckAllAndSendEmails();
         }
-
-        public void Stop()
+        protected override void Init()
         {
-            stopProcessing.Set();
-            workerThread.Join(CANCEL_TIMEOUT);
-            workerThread.Abort();
+
         }
     }
 }

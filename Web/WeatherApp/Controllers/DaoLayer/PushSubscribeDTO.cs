@@ -13,5 +13,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public DeviceType deviceType { get; set; }
         public string accessToken { get; set; }
         public ApplicationType appType { get; set; }
+        public string appVersion { get; set; }
     }
 }

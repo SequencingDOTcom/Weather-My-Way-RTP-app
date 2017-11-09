@@ -18,5 +18,6 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         public bool sendPush { set; get; }
         public DeviceType deviceType { set; get; }
         public ApplicationType applicationId { set; get; }
+        public string appVersion { set; get; }
     }
 }

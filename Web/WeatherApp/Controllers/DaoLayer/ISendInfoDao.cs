@@ -11,6 +11,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         SendInfo Insert(SendInfo info);
         SendInfo Find(string userName);
         SendInfo Update(SendInfo info);
-   
+
+        List<long> SelectUsersByName(List<string> info);
+
     }
 }

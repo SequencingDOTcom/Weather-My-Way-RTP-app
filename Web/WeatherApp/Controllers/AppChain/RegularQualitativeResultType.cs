@@ -10,6 +10,7 @@
         SlightlyIncreased = 3,
         Moderate = 4,
         High = 5,
-        VeryHigh = 6
+        VeryHigh = 6,
+        NoData = 7
     }
 }

@@ -69,5 +69,11 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 throw new DaoException("Error updating user " + sendInfo.UserName + " in database. " + e.Message, e);
             }
         }
+
+        public List<long> SelectUsersByName(List<string> info)
+        {         
+            using (var dbCtx = new WeatherAppDbEntities())
+                return dbCtx.SendInfo.Where(x => info.Contains(x.UserName)).Select(x => x.Id).ToList();                         
+        }
     }
 }

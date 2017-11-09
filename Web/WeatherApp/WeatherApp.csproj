@@ -34,7 +34,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -108,8 +108,12 @@
       <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sequencing.AppChainsSample, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sequencing.AppChainsSample.2.0.0.8\lib\net45\Sequencing.AppChainsSample.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -172,7 +176,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Twilio.4.7.2\lib\3.5\Twilio.Api.dll</HintPath>
+      <HintPath>..\packages\Twilio.4.0.4\lib\3.5\Twilio.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -692,10 +696,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\21.pubxml" />
+    <None Include="Properties\PublishProfiles\23.pubxml" />
     <None Include="Properties\PublishProfiles\3.pubxml" />
     <None Include="Properties\PublishProfiles\6.pubxml" />
     <None Include="Properties\PublishProfiles\67.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\qe.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
@@ -703,6 +709,7 @@
     <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Scripts\intlTelInput.min.js" />
     <Content Include="Scripts\intlTelUtils.js" />
+    <None Include="Properties\PublishProfiles\we.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

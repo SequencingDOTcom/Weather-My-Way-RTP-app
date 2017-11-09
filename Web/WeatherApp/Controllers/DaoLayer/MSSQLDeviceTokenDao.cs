@@ -22,12 +22,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 using (var dbCtx = new WeatherAppDbEntities())
                 {
-                    //var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.token == token);
-
-                    //var userId = dbCtx.SendInfo.FirstOrDefault(info => info.UserName == userName).Id;
-
                     var singleOrDefault = dbCtx.DeviceInfo.SingleOrDefault(info => info.userId == userId && info.token == token);
-
                     if (singleOrDefault != null)
                     {
                         dbCtx.DeviceInfo.Remove(singleOrDefault);
@@ -39,7 +34,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     {
                         logger.InfoFormat(string.Format("Token {0} is already removed from database", token));
                         throw new DaoException(string.Format("Token {0} is already removed from database", token));
-                    }                     
+                    }
                 }
             }
             catch (Exception e)
@@ -94,7 +89,37 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                throw new DaoException(string.Format("Error getting device token. "+e.Message), e);
+                throw new DaoException(string.Format("Error getting device token. " + e.Message), e);
+            }
+        }
+
+        public List<DeviceInfo> SelectTokens(int skip, int take)
+        {
+            try
+            {
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceInfo.Where(i => i.appVersion != null).Select(info => info).OrderBy(r => r.id).Skip(skip).Take(take).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error getting device token. " + e.Message), e);
+            }
+        }
+
+        public int CountDeviceInfo()
+        {
+            try
+            {
+                using (var dbCtx = new WeatherAppDbEntities())
+                {
+                    return dbCtx.DeviceInfo.Where(i => i.appVersion!=null).Count();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new DaoException(string.Format("Error getting device token info. " + e.Message), e);
             }
         }
 
@@ -114,7 +139,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                throw new DaoException(string.Format("Error counting user device tokens. "+ e.Message), e);
+                throw new DaoException(string.Format("Error counting user device tokens. " + e.Message), e);
             }
         }
 
@@ -130,7 +155,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                throw new DaoException(string.Format("Error inserting device token {0}. "+e.Message, tokenInfo.token), e);
+                throw new DaoException(string.Format("Error inserting device token {0}. " + e.Message, tokenInfo.token), e);
             }
         }
 
@@ -145,7 +170,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
             catch (Exception e)
             {
-                throw new DaoException(string.Format("Error selecting device token. "+e.Message), e);
+                throw new DaoException(string.Format("Error selecting device token. " + e.Message), e);
             }
         }
 
@@ -164,13 +189,21 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
                         logger.ErrorFormat("Old Token {0} successfully updated with new {1} ", oldId, newId);
                     }
-                    else 
+                    else
                         throw new DaoException(string.Format("No device token {0} found in database. ", oldId));
                 }
             }
             catch (Exception e)
             {
                 throw new DaoException(string.Format("Error updating device token {0}. {1}", oldId, e.Message), e);
+            }
+        }
+
+        public List<DeviceInfo> GetDeviceTokensByUserId(List<long> ids)
+        {
+            using (var dbCtx = new WeatherAppDbEntities())
+            {
+                return dbCtx.DeviceInfo.Where(info => ids.Contains(info.userId.Value)).ToList();              
             }
         }
     }

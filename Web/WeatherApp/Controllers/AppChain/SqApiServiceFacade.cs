@@ -6,6 +6,7 @@ using log4net;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
+using Sequencing.AppChainsSample;
 using Sequencing.WeatherApp.Controllers.OAuth;
 
 namespace Sequencing.WeatherApp.Controllers.AppChain
@@ -44,11 +45,6 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             return _restClient;
         }
 
-        /// <summary>
-        /// Returns results of executed app chain
-        /// </summary>
-        /// <param name="idJob">app chain job id</param>
-        /// <returns></returns>
         public AppResultsHolder GetAppChainResults(long idJob)
         {
             var _restClient = CreateClient();
@@ -57,6 +53,50 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
             var _restResponse = RunRq(_restClient, _restRequest);
             LogManager.GetLogger(GetType()).DebugFormat("Called GetAppResults:{0},{1}", idJob, _restResponse.Content);
             return JsonConvert.DeserializeObject<AppResultsHolder>(_restResponse.Content);
+        }
+
+        /// <summary>
+        /// Returns results of executed app chain
+        /// </summary>
+        /// <param name="idJob">app chain job id</param>
+        /// <returns></returns>
+        public Dictionary<string, string> StartAppChains(Dictionary<string, string> jobParms)
+        {
+            Dictionary<string, string> jobResults = new Dictionary<string, string>();
+
+            var chains = new AppChains(GetUserTokenInfo(), url + "/v2", Options.FrontendUrl);
+            var jobReports= chains.GetReportBatch(jobParms);
+
+            foreach (var report in jobReports)
+            {
+                foreach (var res in report.Value.getResults())
+                {
+                    ResultType type = res.getValue().getType();
+                    if (type == ResultType.TEXT)
+                    {
+                        var valueResult = (TextResultValue)res.getValue();
+                        if (report.Key.Equals(SqApiServiceFacade.MELANOMA_APP_CHAIN_ID) && res.getName().Equals("RiskDescription"))
+                            jobResults[SqApiServiceFacade.MELANOMA_APP_CHAIN_ID] = valueResult.Data;
+                        else if (report.Key.Equals(SqApiServiceFacade.VITD_APP_CHAIN_ID) && res.getName().Equals("result"))
+                            jobResults[SqApiServiceFacade.VITD_APP_CHAIN_ID] = valueResult.Data.Equals("No") ? "False" : "True";
+                    }
+                }
+            }
+            return jobResults;
+        }
+
+        public string GetUserTokenInfo()
+        {
+            var _userInfo = userAuthWorker.GetCurrent();
+            var _newInfo =
+                new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                    Options.OAuthAppId).RefreshToken(_userInfo.RefreshToken);
+            if (!_newInfo.Success)
+                throw new Exception("Error while token refresh:" + _userInfo.RefreshToken + "," + _newInfo.ErrorMessage);
+            _userInfo.AuthToken = _newInfo.Token.access_token;
+            userAuthWorker.UpdateToken(_userInfo);
+
+            return _newInfo.Token.access_token;
         }
 
         /// <summary>

@@ -16,5 +16,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         List<string> GetUserTokens(Int64 userId, DeviceType deviceType);
         int SelectCount(Int64 userId);
         long GetUserIdByName(string userName);
+        List<DeviceInfo> GetDeviceTokensByUserId(List<long> ids);
+        List<DeviceInfo> SelectTokens(int skip, int take);
+        int CountDeviceInfo();
     }
 }

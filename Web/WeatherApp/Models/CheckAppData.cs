@@ -5,7 +5,8 @@
     /// </summary>
     public class CheckAppData : CommonData
     {
-        public string JobId { get; set; }
-        public string JobId2 { get; set; }
+        public string selectedId { get; set; }
+        public string melanomaRisk { get; set; }
+        public string vitD { get; set; }
     }
 }

@@ -93,14 +93,13 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                 var _leftPart = _uri.GetLeftPart(UriPartial.Authority);
                 var _rq =
                     (HttpWebRequest)
-                        WebRequest.Create(_leftPart + "?q=js/custom_oauth2_server/custom-token-info" + "/" + token);
-                _rq.Method = "GET";
+                        WebRequest.Create(oAuthUrl + "?q=js/custom_oauth2_server/custom-token-info" + "/" + token);
+                _rq.Method = "GET";              
                 WebResponse _webResponse = _rq.GetResponse();
                 using (Stream _s = _webResponse.GetResponseStream())
                 using (var _sr = new StreamReader(_s))
                 {
-                    string _readToEnd = _sr.ReadToEnd();
-
+                    string _readToEnd = _sr.ReadToEnd();            
                     var _drupalOAuthInfo = JsonConvert.DeserializeObject<DrupalOAuthInfo>(_readToEnd);
                     return _drupalOAuthInfo;
                 }

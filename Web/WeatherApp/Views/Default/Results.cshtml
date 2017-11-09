@@ -85,7 +85,7 @@
                 timeDay = "night/";
             }
           
-            var source = "../assets/img/WeatherIcons/" + timeDay + Model.Forecast.forecast.simpleforecast.forecastday[0].icon + ".png";
+            var source = "/assets/img/WeatherIcons/" + timeDay + Model.Forecast.forecast.simpleforecast.forecastday[0].icon + ".png";
 
         <img id="forecastIcon" src=@source />}<br /><br /><br /><br />
         <p id="forecastIconText">@Model.Forecast.forecast.simpleforecast.forecastday[0].conditions</p>
@@ -160,7 +160,7 @@
             {
                 <td id="day@_idx">
                     <b>@Model.Forecast.forecast.simpleforecast.forecastday[_idx].date.weekday</b><br />
-                    <img class="fcIcon" src=@("../assets/img/WeatherIcons/day/"+Model.Forecast.forecast.simpleforecast.forecastday[_idx].icon+".png") /><br />
+                    <img class="fcIcon" src=@("/assets/img/WeatherIcons/day/"+Model.Forecast.forecast.simpleforecast.forecastday[_idx].icon+".png") /><br />
                     <p><b> @(Model.Temperature == TemperatureMode.F ? Model.Forecast.forecast.simpleforecast.forecastday[_idx].high.fahrenheit
                                    : Model.Forecast.forecast.simpleforecast.forecastday[_idx].high.celsius)</b><br />
                         @(Model.Temperature == TemperatureMode.F ? Model.Forecast.forecast.simpleforecast.forecastday[_idx].low.fahrenheit
@@ -172,7 +172,7 @@
 
     </table>
 }
-<script>
+<!--<script>
     function checkApp() {
 
         $.ajax({
@@ -191,7 +191,7 @@
     $(function () {
         checkApp();
     });
-</script>
+</script>-->
 
 
 

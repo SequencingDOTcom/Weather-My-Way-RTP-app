@@ -12,7 +12,7 @@ using Sequencing.WeatherApp.Controllers.DaoLayer;
 using Newtonsoft.Json;
 using Sequencing.WeatherApp.Controllers;
 using log4net;
-
+using Sequencing.WeatherApp.Controllers.PushNotification;
 
 namespace Sequencing.WeatherApp.Controllers
 {
@@ -76,8 +76,7 @@ namespace Sequencing.WeatherApp.Controllers
 
                     Response.Cookies.Add(faCookie);
 
-                    return RedirectToAction("Startup");
-
+                    return RedirectToAction("CheckApp");
                 }
                 return new ContentResult { Content = "Error while retrieving access token:" + _authInfo.ErrorMessage };
             }
@@ -102,7 +101,7 @@ namespace Sequencing.WeatherApp.Controllers
         public ActionResult StartJobSequence()
         {
             if (!string.IsNullOrEmpty(Context.City) && !string.IsNullOrEmpty(Context.DataFileId))
-                return RedirectToAction("StartJob", new { selectedId = Context.DataFileId, city = Context.City });
+                return RedirectToAction("CheckApp");
             return RedirectToAction("Location");
         }
 
@@ -150,9 +149,9 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="jobId2"></param>
         /// <returns></returns>
         [Authorize]
-        public ActionResult CheckApp(string jobId, string jobId2)
+        public ActionResult CheckApp()
         {
-            return View(new CheckAppData { JobId = jobId, JobId2 = jobId2 });
+            return View(new CheckAppData { selectedId = Context.DataFileId });
         }
 
         /// <summary>
@@ -161,13 +160,18 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="selectedId"></param>
         /// <returns></returns>
         [Authorize]
-        public ActionResult StartJob(string selectedId)
+        public JsonResult StartJob(string selectedId)
         {
             var _srv = new SqApiServiceFacade(Options.ApiUrl);
-            var _appIdMelanoma = _srv.StartAppChain(SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
-            var _appIdVitD = _srv.StartAppChain(SqApiServiceFacade.VITD_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", selectedId } });
 
-            return RedirectToAction("CheckApp", new { _appIdMelanoma.jobId, jobId2 = _appIdVitD.jobId });
+            var appChainsParms = new Dictionary<string, string>() { { SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, selectedId }, { SqApiServiceFacade.VITD_APP_CHAIN_ID, selectedId } };
+            var appChainsResult = _srv.StartAppChains(appChainsParms);
+            return Json(JsonConvert.SerializeObject(new CheckAppData()
+            {
+                selectedId = Context.DataFileId,
+                melanomaRisk = appChainsResult[SqApiServiceFacade.MELANOMA_APP_CHAIN_ID],
+                vitD = appChainsResult[SqApiServiceFacade.VITD_APP_CHAIN_ID]
+            }), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -192,19 +196,18 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="timestamp"></param>
         /// <returns></returns>
         [Authorize]
-        public ActionResult Results(string jobId, string jobId2, long? timestamp)
+        public ActionResult Results(string melanomaRisk, string vitD, long? timestamp)
         {
-            var _ts = new DateTime(timestamp ?? 0);
-            if (Math.Abs(DateTime.Now.Subtract(_ts).TotalMinutes) > MINUTES_FOR_RESULTS_USER_REFRESH)
-                return RedirectToAction("GoToResults");
+            if (melanomaRisk == null)
+                return RedirectToAction("CheckApp");
 
             var _isAuthenticated = User.Identity.IsAuthenticated;
             var _userName = User.Identity.Name;
-            var _runResult = new PersonalizedForecastResultBuilder(_userName, TemperatureMode.F).Build(jobId, jobId2, Context.City);
+            var _runResult = new PersonalizedForecastResultBuilder(_userName, TemperatureMode.F).Build(melanomaRisk, vitD, Context.City);
             Context.City = WeatherWorker.ConvertFromIDToName(Context.City);
             ViewBag.ShowEmail = _isAuthenticated;
-            ViewBag.LastJobId = jobId;
             ViewBag.City = Context.City;
+            ViewBag.LastJobId = 405762;
             return View(_runResult);
         }
 
@@ -248,11 +251,6 @@ namespace Sequencing.WeatherApp.Controllers
         /// </summary>
         /// <param name="city"></param>
         /// <returns></returns>
-        /* public ActionResult VerifyLocation(string city)
-         {
-             var _res = new LocationVerifier(Context).IsLocationValid(city);
-             return Content(_res.ToString());
-         }*/
 
         [HttpPost]
         public JsonResult FillLocationBox(string city)
@@ -298,7 +296,7 @@ namespace Sequencing.WeatherApp.Controllers
             settingService.SetUserDataFile(selectedName, selectedId, User.Identity.Name);
             if (!string.IsNullOrEmpty(Request.QueryString[REDIRECT_URI_PAR]))
                 return Redirect(Request.QueryString[REDIRECT_URI_PAR]);
-            return RedirectToAction("StartJob", new { selectedId, city = Context.City });
+            return RedirectToAction("CheckApp", new { selectedId, city = Context.City });
         }
 
         public ActionResult GetIcon(string icon, bool night = false)
@@ -315,6 +313,6 @@ namespace Sequencing.WeatherApp.Controllers
                 var _res = _wb.DownloadData(string.Format(_url, icon));
                 return File(_res, "image/gif", icon + ".gif");
             }
-        }
+        }      
     }
 }

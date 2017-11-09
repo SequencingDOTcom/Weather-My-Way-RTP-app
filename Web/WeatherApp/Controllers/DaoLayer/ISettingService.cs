@@ -10,7 +10,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 {
     interface ISettingService
     {
-        void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info, ApplicationType? appType);
+        void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info, ApplicationType? appType, string appVersion);
         void SetUserLocation(string city, string name);
         void SetUserLocationExt(string city, string userToken);
         void SetUserDataFile(string selectedName, string selectedId, string name);

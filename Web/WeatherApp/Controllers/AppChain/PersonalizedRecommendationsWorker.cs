@@ -72,7 +72,26 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
                     var condId = db.Conditions.Where(con => con.WeatherCond == req.weather).Select(info => info.Id).FirstOrDefault();
                     if (condId == 0)
                         return null;
-                    list.Add(new ForecastResponse { gtForecast = factory.GetSendForecastDao().StorageProcetureCalling(req.date, condId, vitDId, melanomaRiskId, userId, appId), date = req.date.ToString() } );
+                    try
+                    {
+                        list.Add(new ForecastResponse
+                        {
+                            gtForecast =
+                                factory.GetSendForecastDao()
+                                    .StorageProcetureCalling(req.date, condId, vitDId, melanomaRiskId, userId, appId),
+                            date = req.date.ToString()
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        list.Add(new ForecastResponse
+                        {
+                            gtForecast =
+                                "Personalization is not possible due to insufficient genetic data in the selected file. Choose a different genetic data file.",
+                            date = req.date.ToString()
+                        });
+                    }
+                   
                 }
 
                 var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();

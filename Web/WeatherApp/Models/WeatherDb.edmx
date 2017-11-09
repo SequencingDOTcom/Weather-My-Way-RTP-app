@@ -29,6 +29,7 @@
           <Property Name="token" Type="nvarchar" MaxLength="200" />
           <Property Name="subscriptionDate" Type="date" />
           <Property Name="applicationId" Type="int" />
+		  <Property Name="appVersion" Type="nchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="MelanomaRisk">
           <Key>
@@ -284,6 +285,7 @@
           <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
           <Property Name="applicationId" Type="WeatherMyWayModel.ApplicationType" />
+		  <Property Name="appVersion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SendInfo">
           <Key>
@@ -579,6 +581,7 @@
                 <ScalarProperty Name="deviceType" ColumnName="deviceType" />
                 <ScalarProperty Name="token" ColumnName="token" />
                 <ScalarProperty Name="subscriptionDate" ColumnName="subscriptionDate" />
+				<ScalarProperty Name="appVersion" ColumnName="appVersion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,14 +20,16 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
         private ILog log = LogManager.GetLogger(typeof(AndroidPushMessageSender));
         private string devToken;
         private long userId;
+        private string pushContent;
 
-        public AndroidPushMessageSender(ApplicationType? appType)
+        public AndroidPushMessageSender(ApplicationType? appType, string pushContent)
         {
+            this.pushContent = pushContent;
+
             if (appType == ApplicationType.Tablet)
                 config = new GcmConfiguration(Options.GCMSenderIdTablet, Options.DeviceAuthTokenTablet, null);
             else
                 config = new GcmConfiguration(Options.GCMSenderIdMobile, Options.DeviceAuthTokenMobile, null);
-
             gcmBroker = new GcmServiceBroker(config);
 
             gcmBroker.OnNotificationFailed += (notification, aggregateEx) =>
@@ -107,22 +109,22 @@ namespace Sequencing.WeatherApp.Controllers.PushNotification
             gcmBroker.Start();
         }
 
-        override public void SendPushNotification(string token, string message, Int64 userId)
+        override public void SendPushNotification(string token, Int64 userId)
         {
             devToken = token;
             this.userId = userId;
 
-            var pushObj = new
+            /*var pushObj = new
             {
                 message = message,
-            };
+            };*/
 
             gcmBroker.QueueNotification(new GcmNotification
             {
                 RegistrationIds = new List<string> {
                         token
                     },
-                Data = JObject.Parse(JsonConvert.SerializeObject(pushObj))
+                Data = JObject.Parse(pushContent)
             });
         }
 

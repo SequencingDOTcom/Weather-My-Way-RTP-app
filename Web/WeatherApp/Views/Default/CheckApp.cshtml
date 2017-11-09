@@ -7,22 +7,18 @@
 
 <div>
     <script>
-        var delay = 0;
         function checkApp() {
-
             $.ajax({
-                url: '@Html.Raw(Url.Action("CheckAppCompletion", "Default", new { jobId = Model.JobId, jobId2=Model.JobId2 }))',
+                url: '@Html.Raw(Url.Action("StartJob", "Default", new { selectedId = Model.selectedId }))',
                 contentType: 'application/json',
                 method: "GET",
                 success: function (data) {
-                    if (data == "True")
-                        window.location.replace('@Html.Raw(Url.Action("ResultsOriginal", new { jobId = Model.JobId, jobId2 = Model.JobId2 }))');
+                    var result = JSON.parse(data);
+                    if (result.melanomaRisk != null)
+                        window.location.replace('/Default/Results/?melanomaRisk=' + result.melanomaRisk + '&vitD=' + result.vitD);
                 }
             });
-            if (delay < 30000)
-                delay += 5000;
-            setTimeout(checkApp, delay);
-        
+ 
         };
 
         $(function () {

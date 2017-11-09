@@ -28,19 +28,19 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="deviceToken"></param>
         /// <param name="deviceType"></param>
         /// <param name="accessToken"></param>
-        public void Subscribe(string deviceToken, DeviceType deviceType, string accessToken, ApplicationType? appType)
+        public void Subscribe(string deviceToken, DeviceType deviceType, string accessToken, ApplicationType? appType, string appVersion)
         {
             try
             {
-               string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-               Options.OAuthAppId).GetUserInfo(accessToken).username;
+                string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                Options.OAuthAppId).GetUserInfo(accessToken).username;
 
                 if (userName != null)
                 {
                     var sendInfo = mssqlDaoFactory.GetSendInfoDao().Find(userName);
 
                     if (sendInfo != null)
-                        settingsService.SubscribePushNotification(deviceToken, deviceType, sendInfo, appType);
+                        settingsService.SubscribePushNotification(deviceToken, deviceType, sendInfo, appType, appVersion);
                 }
                 else
                     throw new ApplicationException(string.Format("Invalid access token {0}", accessToken));
@@ -48,7 +48,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             catch (Exception e)
             {
                 throw new ApplicationException(e.Message);
-            }   
+            }
         }
 
         /// <summary>
@@ -69,21 +69,16 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="message"></param>
         public void Send(Int64 userId, DeviceType deviceType, string token, string message, ApplicationType? appType)
         {
-            try
+            LogManager.GetLogger(GetType()).Debug(string.Format("User message {0}. Token: {1}", message, token));
+
+            PushMessageSender pushMessageSender = GetPushMessageSender(deviceType, appType, message);
+
+            if (pushMessageSender == null)
             {
-                PushMessageSender pushMessageSender = GetPushMessageSender(deviceType, appType);
-
-                if (pushMessageSender == null)
-                {
-                    throw new ApplicationException(string.Format("Device type: {0} is not supported", deviceType));
-                }
-
-                pushMessageSender.SendPushNotification(token, message, userId);
+                throw new ApplicationException(string.Format("Device type: {0} is not supported", deviceType));
             }
-            catch(Exception e)
-            {
-                throw new ApplicationException(e.Message);
-            }  
+
+            pushMessageSender.SendPushNotification(token, userId);
         }
 
 
@@ -108,7 +103,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <param name="deviceType"></param>
-        public void SubscribeDeviceToken(string token, DeviceType deviceType, long userId, ApplicationType? appType)
+        public void SubscribeDeviceToken(string token, DeviceType deviceType, long userId, ApplicationType? appType, string appVersion)
         {
             try
             {
@@ -121,7 +116,8 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                     subscriptionDate = DateTime.Now.Date,
                     deviceType = deviceType,
                     token = token,
-                    applicationId = appType
+                    applicationId = appType,
+                    appVersion = appVersion
                 };
 
                 mssqlDaoFactory.GetDeviceTokenDao().SaveToken(devInfo);
@@ -187,15 +183,17 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// </summary>
         /// <param name="deviceType"></param>
         /// <returns></returns>
-        private PushMessageSender GetPushMessageSender(DeviceType deviceType, ApplicationType? appType)
+        private PushMessageSender GetPushMessageSender(DeviceType deviceType, ApplicationType? appType, string message)
         {
+            logger.Debug("{\"aps\":{\"alert\":\"" + message + "\",\"sound\":\"default\"}}");
+            //logger.Debug("{\"message\":\"" + message + "\"}");
             switch (deviceType)
             {
                 case DeviceType.IOS:
-                    return new IosPushMessageSender(appType);
+                    return new IosPushMessageSender(appType, "{\"aps\":{\"alert\":\"" + message + "\",\"sound\":\"default\"}}");
 
                 case DeviceType.Android:
-                    return new AndroidPushMessageSender(appType);
+                    return new AndroidPushMessageSender(appType, "{\"message\":\"" + message + "\"}");
             }
 
             return null;

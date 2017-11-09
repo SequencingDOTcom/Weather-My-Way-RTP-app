@@ -123,13 +123,13 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             {
                 if (settingsDTO.sendPush == true && settingsDTO.newDeviceToken != null && settingsDTO.oldDeviceToken == null)
                 {
-                    ProcessSubscribe(settingsDTO.newDeviceToken, settingsDTO.deviceType, settingsDTO.accessToken, settingsDTO.applicationId);
+                    ProcessSubscribe(settingsDTO.newDeviceToken, settingsDTO.deviceType, settingsDTO.accessToken, settingsDTO.applicationId, settingsDTO.appVersion);
                     logger.InfoFormat("Device token {0} successfully subscribed", settingsDTO.newDeviceToken);
                     return string.Format("Device token {0} successfully subscribed", settingsDTO.newDeviceToken);
                 }
                 else if (settingsDTO.sendPush == true && settingsDTO.newDeviceToken != null && settingsDTO.oldDeviceToken != null)
                 {
-                    return ProcessUpdate(settingsDTO.oldDeviceToken, settingsDTO.newDeviceToken, userId, settingsDTO.deviceType, settingsDTO.applicationId);
+                    return ProcessUpdate(settingsDTO.oldDeviceToken, settingsDTO.newDeviceToken, userId, settingsDTO.deviceType, settingsDTO.applicationId, settingsDTO.appVersion);
                 }
 
                 return "Settings successfully retrieved";
@@ -140,7 +140,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
-        private string ProcessUpdate(string oldToken, string newToken, long userId, DeviceType deviceType, ApplicationType? appType)
+        private string ProcessUpdate(string oldToken, string newToken, long userId, DeviceType deviceType, ApplicationType? appType, string appVersion)
         {
             try
             {
@@ -158,7 +158,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 }
                 else if (!notificationSrv.IsTokenSubscribed(newToken))
                 {
-                    notificationSrv.SubscribeDeviceToken(newToken, deviceType, userId, appType);
+                    notificationSrv.SubscribeDeviceToken(newToken, deviceType, userId, appType, appVersion);
                     return string.Format("New device token {0} successfully inserted in database", newToken);
                 }
                 return null;
@@ -169,14 +169,14 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
             }
         }
 
-        private void ProcessSubscribe(string newToken, DeviceType deviceType, string accessToken, ApplicationType? appType)
+        private void ProcessSubscribe(string newToken, DeviceType deviceType, string accessToken, ApplicationType? appType, string appVersion)
         {
             try
             {
                 IPushNotificationService notificationSrv = new DefaultPushNotificationService();
 
                 if (!notificationSrv.IsTokenSubscribed(newToken))
-                    notificationSrv.Subscribe(newToken, deviceType, accessToken, appType);
+                    notificationSrv.Subscribe(newToken, deviceType, accessToken, appType, appVersion);
                 else
                     throw new ApplicationException("Device already subscribed");
             }
@@ -315,7 +315,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
         /// <param name="token"></param>
         /// <param name="deviceType"></param>
 
-        public void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info, ApplicationType? appType)
+        public void SubscribePushNotification(string token, DeviceType deviceType, SendInfo info, ApplicationType? appType, string appVersion)
         {
             try
             {
@@ -323,7 +323,7 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
 
                 if (notificationService.IsTokenSubscribed(token) == false)
                 {
-                    notificationService.SubscribeDeviceToken(token, deviceType, info.Id, appType);
+                    notificationService.SubscribeDeviceToken(token, deviceType, info.Id, appType, appVersion);
                     notificationService.Send(info.Id, deviceType, token, Options.NotificationMessage, appType);
                 }
                 else

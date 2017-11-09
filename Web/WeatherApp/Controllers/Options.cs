@@ -33,7 +33,9 @@ namespace Sequencing.WeatherApp.Controllers
         //Personalized recommendations file path
         public static string RecommendationsPath { get { return ConfigurationManager.AppSettings["RecommendationsPath"]; } }
 
+
         
+        public static string FrontendUrl { get { return ConfigurationManager.AppSettings["FrontendUrl"]; } }
         public static string BaseSiteUrl { get { return ConfigurationManager.AppSettings["BaseSiteUrl"]; } }
 
         //Certificates for push notification

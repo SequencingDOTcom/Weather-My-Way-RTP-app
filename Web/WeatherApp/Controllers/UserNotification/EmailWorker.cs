@@ -24,22 +24,11 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
         IPushNotificationService notificationService = new DefaultPushNotificationService();
         ILog _logger = LogManager.GetLogger(typeof(EmailWorker));
 
-        private Tuple<long, long> GetJobId(SendInfo info)
+        private Dictionary<string, string> GetJobId(SendInfo info)
         {
             var _srv = new SqApiServiceFacade(Options.ApiUrl, info.UserName);
-            var _rs = _srv.StartAppChain(SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", info.DataFileId } });
-            var _rs2 = _srv.StartAppChain(SqApiServiceFacade.VITD_APP_CHAIN_ID, new Dictionary<string, string> { { "dataSourceId", info.DataFileId } });
-
-            while (true)
-            {
-                var _appStatus = _srv.CheckAppChainStatus(Convert.ToInt64(_rs.jobId));
-                var _appStatus2 = _srv.CheckAppChainStatus(Convert.ToInt64(_rs2.jobId));
-                if (_appStatus == "Completed" && _appStatus2 == "Completed")
-                    break;
-                Thread.Sleep(5000);
-            }
-
-            return Tuple.Create(_rs.jobId, _rs2.jobId);
+            var appChainsParms = new Dictionary<string, string>() { { SqApiServiceFacade.MELANOMA_APP_CHAIN_ID, info.DataFileId }, { SqApiServiceFacade.VITD_APP_CHAIN_ID, info.DataFileId } };
+            return _srv.StartAppChains(appChainsParms);
         }
 
         private string SmsSendImpl(string from, string phone, string msg)
@@ -140,56 +129,65 @@ namespace Sequencing.WeatherApp.Controllers.UserNotification
                     _ctx.SendInfo.Where(info => (info.SendEmail ?? false) || (info.SendSms ?? false)).ToList();
                 foreach (var _info in _infos)
                 {
-                    var _mode = _info.Temperature ?? TemperatureMode.F;
-                    var _rrb = new PersonalizedForecastResultBuilder(_info.UserName, _mode);
-                    LogManager.GetLogger(GetType()).Debug("Processing sendInfo:"+_info.Id);
-                    if (IsRightTime(_info))
+                    try
                     {
-                        LogManager.GetLogger(GetType()).Debug("Processing sendInfo, time was right:" + _info.Id);
-                        var _weatherWorker = new WeatherWorker(_info.UserName);
-                        var _forecastRoot = _weatherWorker.GetForecast10(_info.City);
-                        LogManager.GetLogger(GetType()).Debug("Received forecast:" + _info.Id);
-                        if (string.IsNullOrEmpty(_info.DataFileId))
-                            continue;
-                        var _jobId = GetJobId(_info);
-                        LogManager.GetLogger(GetType()).Debug("Started job:" + _info.Id);
-
-                        var _riskValue = _rrb.GetAppChainResultingRisks(_jobId.Item1.ToString(), _jobId.Item2.ToString());
-                        var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
-
-                        var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _riskValue, _info.UserName, Options.ApplicationName);
-                        var _subj =
-                            string.Format("Forecast for " +
-                                          DateTime.Now.ToString("dddd MMMM d"));
-                        var _city = WeatherWorker.ConvertFromIDToName(_info.City);
-                        var _time = _forecastRoot.current_observation.observation_time;
-                        var _todayForecast = _mode == TemperatureMode.F ?
-                            _forecastRoot.forecast.txt_forecast.forecastday[0].fcttext :
-                            _forecastRoot.forecast.txt_forecast.forecastday[0].fcttext_metric;
-                        var _currentObservation = _forecastRoot.current_observation.weather + " and " + (_mode == TemperatureMode.F
-                                                 ? _forecastRoot.current_observation.temp_f + "F"
-                                                 : _forecastRoot.current_observation.temp_c + "C");
-
-                        if (_info.SendSms ?? false)
+                        var _mode = _info.Temperature ?? TemperatureMode.F;
+                        var _rrb = new PersonalizedForecastResultBuilder(_info.UserName, _mode);
+                        LogManager.GetLogger(GetType()).Debug("Processing sendInfo:" + _info.Id);
+                        if (IsRightTime(_info))
                         {
-                            LogManager.GetLogger(GetType()).Debug("Sending sms:" + _info.Id);
-                            SendSmsNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
-                        }
+                            LogManager.GetLogger(GetType()).Debug("Processing sendInfo, time was right:" + _info.Id);
+                            var _weatherWorker = new WeatherWorker(_info.UserName);
+                            var _forecastRoot = _weatherWorker.GetForecast10(_info.City);
+                            LogManager.GetLogger(GetType()).Debug("Received forecast:" + _info.Id);
+                            if (string.IsNullOrEmpty(_info.DataFileId))
+                                continue;
+                            var jobResult = GetJobId(_info);
+                            LogManager.GetLogger(GetType()).Debug("Started job:" + _info.Id);
 
-                        if (notificationService.IsUserSubscribed(_info.Id))
-                        {
-                            LogManager.GetLogger(GetType()).Debug("Sending push:" + _info.Id);
-                            SendPushNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
-                        }
+                            var _appChainResults = _rrb.GetAppChainResultingRisks(jobResult[SqApiServiceFacade.MELANOMA_APP_CHAIN_ID], jobResult[SqApiServiceFacade.VITD_APP_CHAIN_ID]);
+                            var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
 
-                        if (_info.SendEmail ?? false)
-                        {
-                            LogManager.GetLogger(GetType()).Debug("Sending email:" + _info.Id);
-                            SendEmailNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription, _forecastRoot, _mode, _api, _subj);
-                        }
+                            var _riskDescription = _rrb.GetPersonalizedRiskDescription(_forecastRoot.forecast.simpleforecast.forecastday[0].conditions, _alertCode, _appChainResults, _info.UserName, Options.ApplicationName);
+                            var _subj =
+                                string.Format("Forecast for " +
+                                              DateTime.Now.ToString("dddd MMMM d"));
+                            var _city = WeatherWorker.ConvertFromIDToName(_info.City);
+                            var _time = _forecastRoot.current_observation.observation_time;
+                            var _todayForecast = _mode == TemperatureMode.F ?
+                                _forecastRoot.forecast.txt_forecast.forecastday[0].fcttext :
+                                _forecastRoot.forecast.txt_forecast.forecastday[0].fcttext_metric;
+                            var _currentObservation = _forecastRoot.current_observation.weather + " and " + (_mode == TemperatureMode.F
+                                                     ? _forecastRoot.current_observation.temp_f + "F"
+                                                     : _forecastRoot.current_observation.temp_c + "C");
 
+                            if (_info.SendSms ?? false)
+                            {
+                                LogManager.GetLogger(GetType()).Debug("Sending sms:" + _info.Id);
+                                SendSmsNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
+                            }
+
+                            if (notificationService.IsUserSubscribed(_info.Id))
+                            {
+                                LogManager.GetLogger(GetType()).Debug("Sending push:" + _info.Id);
+                                SendPushNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription);
+                            }
+
+                            if (_info.SendEmail ?? false)
+                            {
+                                LogManager.GetLogger(GetType()).Debug("Sending email:" + _info.Id);
+                                SendEmailNotification(_info, _city, _todayForecast, _currentObservation, _riskDescription, _forecastRoot, _mode, _api, _subj);
+                            }
+
+                            _info.LastSendDt = DateTime.Now;
+                            _ctx.SaveChanges();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
                         _info.LastSendDt = DateTime.Now;
                         _ctx.SaveChanges();
+                        LogManager.GetLogger(GetType()).Error(string.Format("User name {0}. Error: {1}", _info.UserName, ex));
                     }
                 }
             }

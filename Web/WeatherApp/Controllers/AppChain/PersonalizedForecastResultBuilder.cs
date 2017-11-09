@@ -3,6 +3,7 @@ using Sequencing.WeatherApp.Controllers.WeatherUnderground;
 using Sequencing.WeatherApp.Models;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
 using System.Web.Security;
+using Sequencing.AppChainsSample;
 
 namespace Sequencing.WeatherApp.Controllers.AppChain
 {
@@ -29,7 +30,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         /// <param name="jobId2"></param>
         /// <param name="city"></param>
         /// <returns></returns>
-        public RunResult Build(string jobId, string jobId2, string city)
+        public RunResult Build(string melanomaRisk, string vitD, string city)
         {
             mode = service.GetInfo(userName).Temperature ?? TemperatureMode.F;
 
@@ -45,7 +46,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
                                  Forecast = _forecastRoot,
                                  CurrentWeather = _forecastRoot.current_observation
                              };
-            var _appChainResults = GetAppChainResultingRisks(jobId, jobId2);
+            var _appChainResults = GetAppChainResultingRisks(melanomaRisk, vitD);
             if (_forecastRoot != null)
             {
                 var _alertCode = _forecastRoot.alerts.Count == 0 ? "--" : _forecastRoot.alerts[0].type;
@@ -69,19 +70,13 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         {
             if (!string.IsNullOrEmpty(acJobIdMelanoma))
             {
-                var _srv = new SqApiServiceFacade(Options.ApiUrl, userName);
-                var _acHolder = _srv.GetAppChainResults(Convert.ToInt64(acJobIdMelanoma));
-                var _risk = _acHolder.ResultProps.Find(value => value.Name == "RiskDescription").Value;
-                _acHolder = _srv.GetAppChainResults(Convert.ToInt64(acJobIdVitD));
-                var _vitDResult = _acHolder.ResultProps.Find(value => value.Name == "result").Value;
-
                 var _melanomaACRisk =
-                    (RegularQualitativeResultType) Enum.Parse(typeof (RegularQualitativeResultType), _risk);
+                    (RegularQualitativeResultType) Enum.Parse(typeof (RegularQualitativeResultType), acJobIdMelanoma);
                 return new AppChainResults
                        {
                            MelanomaAppChainResult = _melanomaACRisk,
-                           AppChainRunDt = _acHolder.Status.FinishDt ?? DateTime.Now,
-                           VitDAppChainResult = _vitDResult == "Yes"
+                           AppChainRunDt = DateTime.Now,
+                           VitDAppChainResult = acJobIdVitD == "Yes"
                        };
             }
             return null;

@@ -40,12 +40,13 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="weekendMode"></param>
         /// <param name="temperature"></param>
         /// <param name="token"></param>
-        [HttpPost]
+        //[HttpPost]
         public JsonResult ChangeNotification(bool emailChk, bool smsChk, string email, string phone, string wakeupDay, string wakeupEnd,
             string timezoneSelect, string timezoneOffset, WeekEndMode weekendMode, TemperatureMode temperature, string token, string countryCode)
         {
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
+            log.Info("ChangeNotification: timezoneOffset " + timezoneOffset);
 
             try
             {
@@ -71,8 +72,12 @@ namespace Sequencing.WeatherApp.Controllers
                     if (!string.IsNullOrEmpty(timezoneOffset))
                         info.TimeZoneOffset = settingsService.ParseTimeZoneOffset(timezoneOffset);
 
+
+                    log.Info("ChangeNotification: " + JsonConvert.SerializeObject(info));
+
                     settingsService.UpdateUserSettings(info);
                 }
+
 
                 responseObj = new GenericResponse()
                 {
@@ -86,6 +91,7 @@ namespace Sequencing.WeatherApp.Controllers
             }
             catch (Exception e)
             {
+                log.Error(e);
                 responseObj = new GenericResponse()
                 {
                     Status = 1,
@@ -109,13 +115,14 @@ namespace Sequencing.WeatherApp.Controllers
         [HttpPost]
         public JsonResult SubscribePushNotification(PushSubscribeDTO pushDTO)
         {
+            log.Info("SubscribePushNotification: " + JsonConvert.SerializeObject(pushDTO));
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
 
             try
             {
                 if (pushDTO.pushCheck)
-                    pushService.Subscribe(pushDTO.deviceToken, pushDTO.deviceType, pushDTO.accessToken, pushDTO.appType);
+                    pushService.Subscribe(pushDTO.deviceToken, pushDTO.deviceType, pushDTO.accessToken, pushDTO.appType, pushDTO.appVersion);
                 else
                 {
                     string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
@@ -246,9 +253,11 @@ namespace Sequencing.WeatherApp.Controllers
         /// <param name="sendPush"></param>
         /// <param name="deviceType"></param>
         /// <returns></returns>
-        [HttpPost]
+        //[HttpPost]
         public JsonResult RetrieveUserSettings(SettingsRetrieveDTO settingsDTO)
         {
+            log.Info("RetrieveUserSettings: "+ JsonConvert.SerializeObject(settingsDTO));
+
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
             SendInfo info = null;

@@ -1,4 +1,5 @@
-﻿using Sequencing.WeatherApp.Controllers;
+﻿using log4net;
+using Sequencing.WeatherApp.Controllers;
 using Sequencing.WeatherApp.Controllers.AppChain;
 using Sequencing.WeatherApp.Controllers.DaoLayer;
 using Sequencing.WeatherApp.Controllers.OAuth;
@@ -8,19 +9,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace Sequencing.WeatherApp.Controllers
 {
     public class ExternalForecastRetrieveController : Controller
     {
+        public static ILog log = LogManager.GetLogger(typeof(ExternalForecastRetrieveController));
+
         [HttpPost]
         public JsonResult GetForecast(ForecastRetrieveDTO forecastDTO)
         {
+            log.Info(string.Format("Request: {0}", JsonConvert.SerializeObject(forecastDTO)));
+
             GenericResponse responseObj = null;
             int timeStart = DateTime.Now.TimeOfDay.Seconds;
+            string userName = "";
             try
             {
-                string userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                userName = new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
                         Options.OAuthAppId).GetUserInfo(forecastDTO.authToken).username;
                 if(userName == null) throw new Sequencing.WeatherApp.Controllers.DaoLayer.ApplicationException(string.Format("Invalid access token {0}", forecastDTO.authToken));
 
@@ -40,6 +47,7 @@ namespace Sequencing.WeatherApp.Controllers
                     Data = _s,
                 };
 
+                log.Info(string.Format("Response: {0}", JsonConvert.SerializeObject(responseObj)));
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -49,10 +57,11 @@ namespace Sequencing.WeatherApp.Controllers
                     Status = 1,
                     ResponseTime = DateTime.Now.TimeOfDay.Milliseconds - timeStart,
                     Message = e.Message,
-                    Data = "Personalization is not possible due to insufficient genetic data in the selected file. Choose a different genetic data file.",
+                    Data = null
                 };
 
-                ExternalSettingsController.ResponseLogging(responseObj);
+                log.Error(string.Format("Error getting GT forecast: username - {0}", userName));
+                log.Error(string.Format("Error is: {0}", e));
                 return Json(responseObj, JsonRequestBehavior.AllowGet);
             }
         }
