@@ -1,0 +1,1 @@
+../../../sequencing-oauth-api-objc/Pod/NSData+Base64.h

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrepareForecastViewController">
+            <connections>
+                <outlet property="imagePreloader" destination="skH-QU-JkC" id="C4G-s8-SHd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skH-QU-JkC">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="skH-QU-JkC" secondAttribute="height" multiplier="1:1" id="Ais-LI-wD9"/>
+                        <constraint firstAttribute="width" constant="128" id="nQc-43-hle"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analyzing your genes and the weather, together..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpD-bj-Lbj">
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tpD-bj-Lbj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mqw-jC-1CD"/>
+                <constraint firstItem="tpD-bj-Lbj" firstAttribute="top" secondItem="skH-QU-JkC" secondAttribute="bottom" constant="20" id="TXo-f3-jug"/>
+                <constraint firstItem="skH-QU-JkC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jrh-lO-dYB"/>
+                <constraint firstItem="tpD-bj-Lbj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="ryu-wz-OaD"/>
+                <constraint firstItem="skH-QU-JkC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-25" id="s9b-VC-3Ce"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

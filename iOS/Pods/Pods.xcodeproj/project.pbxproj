@@ -1,0 +1,1338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01CB4C908E403C2DF7115111736429E2 /* SQTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B50D28EA6AE27779EDBED18BA1322 /* SQTableCell.m */; };
+		06E07D0E1AB8C6E082CF6BDCC03C03F1 /* SQServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2902DC74ED9AE94D4A0629F87212265F /* SQServerManager.m */; };
+		078CD6618300A88BE8A6F5C34D79D41A /* SQSampleFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B165AA3E9B0F9BB0BF1E61D82A7935EE /* SQSampleFilesViewController.m */; };
+		0AD0CF119587B3609FB12C414A51D27E /* SQEmailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05BB3478496AA255192547D1F45370 /* SQEmailHelper.m */; };
+		1852363C76B393D2DFA87AE004820821 /* SQToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A826CE13709C1AB361F50C644FE0DE8C /* SQToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19BBED9F7E80881454655472FAF2BF0C /* SQPopoverInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6C22C3C9202FFEDE07815FD92C7EC2 /* SQPopoverInfoViewController.m */; };
+		1A4F26036E497F5221EF494FF67FB149 /* SQPopoverInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D5346F75CB575C88B551D05ADA694F18 /* SQPopoverInfoViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B9BD7AE4D7F8253C09CAEED2C0EBCD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		1C2737B3DC888DFB3E167259A728C2A6 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4989DC9E1D21A3FBEEDEC9C0457AC9E9 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C9F6B110D3276F887B1329EF6FF7572 /* sequencing-oauth-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B24E30C6DFCCA2FB9CC164C9C0615 /* sequencing-oauth-api-objc-dummy.m */; };
+		1D5A0F0032897D395DD811821C5FA4F7 /* SQMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC984C1898593B243019EA40F1423DD7 /* SQMyFilesViewController.m */; };
+		1E528D890E3B32D53D963CE1417BA4D8 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F34AF2368F8E42221F271C5E7F3492 /* MBProgressHUD-dummy.m */; };
+		1FB67F416EC27CC8408E3453F7FAD582 /* SQTokenAccessProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 85ACB9D65FDF05002ECA8B41B133763E /* SQTokenAccessProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A76DB3CD21C569626495DE7D69D7B0C /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A2262F68058EF1F12254AF3FFEB79DCC /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C213B2B51E8D75C1493D8C6DD5EF296 /* SQ3rdPartyImportAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E98BA28036175E75256A2E84E88FB4B /* SQ3rdPartyImportAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30BC1B0BA843C884C0DC831C399F413C /* SQFilesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8F6401BBF4496D51F2C16E0E786CE /* SQFilesHelper.m */; };
+		325CC0B9A0B9F08532B2FBEB0072F4D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		36DC5FC2666F8D39FC98BEC98A9859E9 /* SQPopoverMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4665A5F56F0D4E1D85896662767773 /* SQPopoverMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EDA904E6568B070FA547E25295E641F /* SQIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC31D9FD1FBE6323EC689901AF1F1258 /* SQIntroViewController.m */; };
+		3F31F6CB97FBC99F30CAE4A06666D69D /* SQRequestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 11F52B892335D604BE4572096CF9CCA7 /* SQRequestHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A5112B94F0143C7140B6517396D06F /* FBEncryptorAES.h in Headers */ = {isa = PBXBuildFile; fileRef = CA12EABBABC6123F1218433B0F9C97D9 /* FBEncryptorAES.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4156DC75EB4D8E6FB8D7C4B863BD8A3A /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6C316984FB7B5C6D509C61B2F2C92E /* FBEncryptorAES.m */; };
+		49D7B8A2904657C12C307D9E023B9410 /* SQFilesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A7B27D41BC2A53DE2DBC24ABBD12CBF /* SQFilesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		508FF941A1239E95A58CE163F38A0FC6 /* SQHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B201E954AB8C505642F4FAB92321719C /* SQHttpHelper.m */; };
+		5249605250CD5FEB5D038B747EB16B39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		533767E17DC8EE027C30B0331361D000 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E44E6547AE0C8FAC2845691562B18126 /* NSData+Base64.m */; };
+		535C3BD688BA2CDEC5DAE361DDF5D7B0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 826EC354A0F70D51B9BC4221EDD7CC7A /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		54A795FD10BD9FCF3B6FF3BD185B885F /* SQConnectToHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9A74368524A92C2DE0BDABE7747D0 /* SQConnectToHelper.m */; };
+		5945372FA737C7299931E0C28753FF96 /* SQAuthorizationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C83F44046FCFC6D6E25CBDC7896266B9 /* SQAuthorizationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		599E5449B2EECD79E71AFFB18B5596D5 /* SQFilesServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6C4E0940C61A1F6F537D900D64038 /* SQFilesServerManager.m */; };
+		5C9E9FC08A49AFF8A12A86A5F61A3A86 /* SQPopoverMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3537FC535381F88C866EE5D465A954A /* SQPopoverMyFilesViewController.m */; };
+		6249CAE06C1C0D4EFF5BF8F75485E26B /* SQSectionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AAA49DFC713714C838FEC5E9EFD25A /* SQSectionInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		657D99C578AD6325A7B9D63F618157D9 /* SQFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4652384681CD35D5E33B37EFC6745 /* SQFilesContainer.m */; };
+		6702C8B678D52CFE703762D4D73CE58B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
+		683B758B9CDB11BF128069E839ACEDCD /* SQFilesHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 073751CA69EE807DACBD00C764F2D3CD /* SQFilesHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6988F804E6B1441F4153F63656B04C15 /* SQ3rdPartyImportHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EBE6B018EA854961B26EA4435551B54 /* SQ3rdPartyImportHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A599CAC152B0AAE3F1ED0E6CB480E69 /* SQEmailHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A39A5D782AC568975C3B72510784456 /* SQEmailHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C10DB3E3245A20A19EDEC3ADB9835BA /* SQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C384C1F7041018B94C0CF65F4552444 /* SQToken.m */; };
+		6C3937E699FDBCF65E4FB23A678205AB /* SQExtendedNavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D904E4B8DDBDE11B6DDEEA75D2FF155 /* SQExtendedNavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75362AE716681448BB0D3E88A9245FC5 /* SQTokenAccessProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EA4DD8FCC58CBA7202DCC3B884D747 /* SQTokenAccessProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75BBA43B3AAC46FD458FB2F7865FC26E /* SQTokenStorageAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6073D33C081741972EF41EB32DF65258 /* SQTokenStorageAppSettings.m */; };
+		79E1EF21E642D17FF34666987AB40FB4 /* SQOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BECA61F18CFC6FD4AF3858FFDF5252 /* SQOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7AC238A8BF6BFD0A3E0D8485D81EC9E1 /* SQ3rdPartyImportHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5405C0FAFF2264AA94021F8D5FD3339D /* SQ3rdPartyImportHelper.m */; };
+		7DAE6F9FF8BAB4293C77D60C3294CE1F /* SQEncryptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D738F31A8AA6306BE9C3E8B776D39 /* SQEncryptionHelper.m */; };
+		7EEE4A0D02D61B24E607C84A351BBEA3 /* sequencing-app-chains-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AAE43CB143CCAAFA8868D5329A46E /* sequencing-app-chains-api-objc-dummy.m */; };
+		852D1FCB8D74FB463FB7DFC28B7B62A6 /* SQClientSecretAccessProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C2EF0DB8D8B5704883D30342E31054 /* SQClientSecretAccessProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AB498C222EFB16F91F6F6F776B80BFA /* SQSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9A4B9E95B6FB8566ACD3A8275C88B /* SQSectionInfo.m */; };
+		8C4D417DAC70775F4B30B5C00E580827 /* SQIntroViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 06A756E9E5DB71E758B79D868D3D673D /* SQIntroViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F99816BE1ABB6AF2828799CD64BFA1E /* SQFilesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C8A5B8C000911E8A3336322F678000 /* SQFilesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FEA3C8597361B720E2D815D35134349 /* Pods-Weather-My-Way-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14B75C3C939FF41C21CD6D91D832B5 /* Pods-Weather-My-Way-dummy.m */; };
+		93E4E6CFBADD0158B36DF21B18CF51CB /* SQSegmentedControlHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD980BE31CE722A9A161C864F1DA8E6 /* SQSegmentedControlHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96D19BDA068D92E56B605F6BB36D4544 /* SQFileSelectorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BFF29E206A7B13FE2B237FAB4F2856F /* SQFileSelectorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975C34DC9B9C834719D2289C6B8B3813 /* AppChains.h in Headers */ = {isa = PBXBuildFile; fileRef = D53CD2D54E7BCB47D3E2B800CA4EA6A8 /* AppChains.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A51C8B3007F800C4EE9EDE8AA593F62 /* sequencing-file-selector-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E03351681F755922F12BC1D66419A135 /* sequencing-file-selector-api-objc-dummy.m */; };
+		9C1F842EB593B8CC4E3BD37C85C12155 /* SQTokenStorageProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CE7EAACCCA422ADAE6BCCEC4006426C7 /* SQTokenStorageProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DEA6E059D1C0228017DBD3EF8329ACF /* SQ3rdPartyImportHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BE6CB4C25DA040A78DA63E45B4068D7 /* SQ3rdPartyImportHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E263BE5159005E8EA3E4C9901AF6CB7 /* SQRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7A78947A75BCAA3B1FD7CF7D982E4 /* SQRequestHelper.m */; };
+		A046239040F7DDEAA5E3B81FDC07492D /* SQFilesHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F31C213AD6977205FAD7310BFB7ED34B /* SQFilesHttpHelper.m */; };
+		A085FD030AF13A09457A6238470C8984 /* SQOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 2960CB58E9A591253291059794953C15 /* SQOAuth.m */; };
+		A89C82E12921BF2D49BCB35BB85C0644 /* SQConnectToWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C29F6E780A8DBDFA706FF3B1A021D92 /* SQConnectToWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8A8167D4D7B2D4F1F0BC94DF8F9527C /* SQMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 50EC8EC35F449F171E81B20BDBDC408B /* SQMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC93879B2AB3FB2860ECC9B43E1F320D /* SQEncryptionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6941036EEDD8DDC3348D46FD5DD632E4 /* SQEncryptionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39CA16FE511DB1482C52711F9C17576 /* SQFilesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B6D8522846A09B1D745E0ABCCDE9D02 /* SQFilesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B41A8C8391E4F27874D69600B61B5C78 /* SQFilesServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BE902C922301FE7D95EEA5E49C6A0D93 /* SQFilesServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B904BDE1212ADB5673B8AB3E61D5C5 /* AppChains.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DDE71DF2F48D07A83652C4B110FEA9 /* AppChains.m */; };
+		B547854FE52473877D0DF1172F4BB195 /* SQSampleFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DA24A6B01E2FE18721E29E4D24B5CF3E /* SQSampleFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6BA5AAF65302892E8865251028D59AF /* SQLoginWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BB376594F00A114472A706791974C520 /* SQLoginWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB9F8DCCE7181F13FB5590066AA494BF /* SQExtendedNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD5F75669F51415871130A37092AF6 /* SQExtendedNavBarView.m */; };
+		BE4616F4FB447584EFCC7B229BFA2D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		C031FC12E52BDC1A24902B7454C7803B /* SQ3rdPartyImportAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F71800BA7C742D683BCDA0AA8E548 /* SQ3rdPartyImportAPI.m */; };
+		C62CF850237DB4D6338E30472245FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		C9ACFAD66AB970B5DA841DBAA1B2E1B4 /* SQHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F544D34AEF91C55997D2ED98791E50 /* SQHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD2EDAACB5FE3CAD5C5F9AEC216C059B /* SQServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C44FA136FFB0B4B3BD8EB5A169D884 /* SQServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0FAB4C7BCCCD6EC1D245825966DD778 /* SQSegmentedControlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DB33DE26C1BEB7A7C3927BD18A46847B /* SQSegmentedControlHelper.m */; };
+		D727FC321C58AE6F2D7FBD7BA93232E1 /* SQLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88D86B89A9672AB345C6D384B5BD5C /* SQLoginWebViewController.m */; };
+		D830EECECA4079640C2260966DB0B644 /* SQ3rdPartyImportHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6040D5F9A7EFFA2BCE4EF6805CE52DBE /* SQ3rdPartyImportHttpHelper.m */; };
+		DA3410D6A985204F6D558701263B771C /* SQTokenStorageAppSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = B74096F6FC3D522E341003080F51C0F8 /* SQTokenStorageAppSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E73C07586380AC1824876C1FA0108B30 /* SQFilesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4749C3278F3C0F86880FC2C8A435E0C6 /* SQFilesAPI.m */; };
+		EC94E46B7883E51F2382FB9D307C528A /* SQTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EB6DE8420B9AF44B1F38539F88534DFC /* SQTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEB35BF4897EEB7E6F950E4DD8398075 /* SQConnectToHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FA757D162584B1AFF2583B2A0F2633 /* SQConnectToHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F127EFE69D57A9C2BCEEF8FC8BE44CAD /* SQConnectTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F17FF07B9EB8F2EB52C2A863E8573B1 /* SQConnectTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F21E8C75B8B12464699F0ED9900F946D /* SQConnectTo.m in Sources */ = {isa = PBXBuildFile; fileRef = A63B93D28495AFC6EE5AA754FFB624F0 /* SQConnectTo.m */; };
+		FF809C3CB629F801BD98CFB5AA5ACD83 /* SQConnectToWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B15E6F77058DBDD0A1F7ABFE16C8F5 /* SQConnectToWebViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2ADF46345AA5E550DBF7E636FB51D2C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1C0D0140D42D7B438B24193792025E5;
+			remoteInfo = "sequencing-file-selector-api-objc";
+		};
+		34204672C050AED682B56C8B376CB66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBA7E9DF982939E8CD3FABDB25EFB86A;
+			remoteInfo = "sequencing-app-chains-api-objc";
+		};
+		7FCE3EB72B688845A8B4E4AC1D93308B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 175B076ED45EB1A3E40F58BA14036467;
+			remoteInfo = MBProgressHUD;
+		};
+		E6F30E451176B435A4DFB11DF7F5FA73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91DD7594B89217CE161445EBC5C16494;
+			remoteInfo = "sequencing-oauth-api-objc";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04F70C2A5BF17C472C46F675EF3C6406 /* SQPopoverMyFilesViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverMyFilesViewController.xib; path = Resources/SQPopoverMyFilesViewController.xib; sourceTree = "<group>"; };
+		06A756E9E5DB71E758B79D868D3D673D /* SQIntroViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQIntroViewController.h; path = Pod/SQIntroViewController.h; sourceTree = "<group>"; };
+		073751CA69EE807DACBD00C764F2D3CD /* SQFilesHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHttpHelper.h; path = Pod/SQFilesHttpHelper.h; sourceTree = "<group>"; };
+		07C8A5B8C000911E8A3336322F678000 /* SQFilesAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesAPI.h; path = Pod/SQFilesAPI.h; sourceTree = "<group>"; };
+		098BD94BB4BFDD520A494F7887F2A7B7 /* libPods-Weather-My-Way.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Weather-My-Way.a"; path = "libPods-Weather-My-Way.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09BD39F6582B6A94BB7249AD1120F725 /* SQPopoverInfoViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverInfoViewController.xib; path = Resources/SQPopoverInfoViewController.xib; sourceTree = "<group>"; };
+		0E1369D073FCE19638E716E8BF76BA6D /* Pods-Weather-My-Way-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Weather-My-Way-frameworks.sh"; sourceTree = "<group>"; };
+		0FFEF0CD9AE587F0B5E1FB4141D9D41F /* Pods-Weather-My-Way-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Weather-My-Way-acknowledgements.markdown"; sourceTree = "<group>"; };
+		11F52B892335D604BE4572096CF9CCA7 /* SQRequestHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQRequestHelper.h; path = Pod/SQRequestHelper.h; sourceTree = "<group>"; };
+		13EC5B9D0C59C930B63E1DFE38613A6C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		25B15E6F77058DBDD0A1F7ABFE16C8F5 /* SQConnectToWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQConnectToWebViewController.m; path = Pod/SQConnectToWebViewController.m; sourceTree = "<group>"; };
+		2845D9B122B43266E15FC28542BE5F28 /* sequencing-file-selector-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-file-selector-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		2902DC74ED9AE94D4A0629F87212265F /* SQServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQServerManager.m; path = Pod/SQServerManager.m; sourceTree = "<group>"; };
+		29291DE554D178D81525967E64FE2536 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		2960CB58E9A591253291059794953C15 /* SQOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQOAuth.m; path = Pod/SQOAuth.m; sourceTree = "<group>"; };
+		2AD980BE31CE722A9A161C864F1DA8E6 /* SQSegmentedControlHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSegmentedControlHelper.h; path = Pod/SQSegmentedControlHelper.h; sourceTree = "<group>"; };
+		2B77B3327318D9E2D22ADEA1BD8B2F93 /* libsequencing-app-chains-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-app-chains-api-objc.a"; path = "libsequencing-app-chains-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B86280754C53E91AE94A82CA71619C8 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
+		2EB7A78947A75BCAA3B1FD7CF7D982E4 /* SQRequestHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQRequestHelper.m; path = Pod/SQRequestHelper.m; sourceTree = "<group>"; };
+		38EA4DD8FCC58CBA7202DCC3B884D747 /* SQTokenAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenAccessProtocol.h; path = Pod/SQTokenAccessProtocol.h; sourceTree = "<group>"; };
+		3A39A5D782AC568975C3B72510784456 /* SQEmailHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQEmailHelper.h; path = Pod/SQEmailHelper.h; sourceTree = "<group>"; };
+		3B0D738F31A8AA6306BE9C3E8B776D39 /* SQEncryptionHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQEncryptionHelper.m; path = Pod/SQEncryptionHelper.m; sourceTree = "<group>"; };
+		3D79ECEDFE87704624D64529E53CB8C3 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
+		40C44FA136FFB0B4B3BD8EB5A169D884 /* SQServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQServerManager.h; path = Pod/SQServerManager.h; sourceTree = "<group>"; };
+		44A9C350E7D73FE3A5A8488C37066D76 /* sequencing-oauth-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-oauth-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		4749C3278F3C0F86880FC2C8A435E0C6 /* SQFilesAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesAPI.m; path = Pod/SQFilesAPI.m; sourceTree = "<group>"; };
+		4989DC9E1D21A3FBEEDEC9C0457AC9E9 /* NSData+Base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "Pod/NSData+Base64.h"; sourceTree = "<group>"; };
+		4D904E4B8DDBDE11B6DDEEA75D2FF155 /* SQExtendedNavBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQExtendedNavBarView.h; path = Pod/SQExtendedNavBarView.h; sourceTree = "<group>"; };
+		4EBE6B018EA854961B26EA4435551B54 /* SQ3rdPartyImportHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQ3rdPartyImportHelper.h; path = Pod/SQ3rdPartyImportHelper.h; sourceTree = "<group>"; };
+		50EC8EC35F449F171E81B20BDBDC408B /* SQMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQMyFilesViewController.h; path = Pod/SQMyFilesViewController.h; sourceTree = "<group>"; };
+		5405C0FAFF2264AA94021F8D5FD3339D /* SQ3rdPartyImportHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQ3rdPartyImportHelper.m; path = Pod/SQ3rdPartyImportHelper.m; sourceTree = "<group>"; };
+		5957106574A4DC74D2405F7C91D748C4 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC9A4B9E95B6FB8566ACD3A8275C88B /* SQSectionInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSectionInfo.m; path = Pod/SQSectionInfo.m; sourceTree = "<group>"; };
+		5D28A7AA6228591D390BE0DE0091699C /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		5D9F71800BA7C742D683BCDA0AA8E548 /* SQ3rdPartyImportAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQ3rdPartyImportAPI.m; path = Pod/SQ3rdPartyImportAPI.m; sourceTree = "<group>"; };
+		5E4B4484E7A5CBB49F42E81B73E5CFE3 /* FirebaseCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrash.framework; path = Frameworks/FirebaseCrash.framework; sourceTree = "<group>"; };
+		6040D5F9A7EFFA2BCE4EF6805CE52DBE /* SQ3rdPartyImportHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQ3rdPartyImportHttpHelper.m; path = Pod/SQ3rdPartyImportHttpHelper.m; sourceTree = "<group>"; };
+		6073D33C081741972EF41EB32DF65258 /* SQTokenStorageAppSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTokenStorageAppSettings.m; path = Pod/SQTokenStorageAppSettings.m; sourceTree = "<group>"; };
+		63F34AF2368F8E42221F271C5E7F3492 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		6941036EEDD8DDC3348D46FD5DD632E4 /* SQEncryptionHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQEncryptionHelper.h; path = Pod/SQEncryptionHelper.h; sourceTree = "<group>"; };
+		6A7B27D41BC2A53DE2DBC24ABBD12CBF /* SQFilesHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHelper.h; path = Pod/SQFilesHelper.h; sourceTree = "<group>"; };
+		6B3B50D28EA6AE27779EDBED18BA1322 /* SQTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTableCell.m; path = Pod/SQTableCell.m; sourceTree = "<group>"; };
+		6BE6CB4C25DA040A78DA63E45B4068D7 /* SQ3rdPartyImportHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQ3rdPartyImportHttpHelper.h; path = Pod/SQ3rdPartyImportHttpHelper.h; sourceTree = "<group>"; };
+		6C29F6E780A8DBDFA706FF3B1A021D92 /* SQConnectToWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQConnectToWebViewController.h; path = Pod/SQConnectToWebViewController.h; sourceTree = "<group>"; };
+		6E5B24E30C6DFCCA2FB9CC164C9C0615 /* sequencing-oauth-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-oauth-api-objc-dummy.m"; sourceTree = "<group>"; };
+		6E98BA28036175E75256A2E84E88FB4B /* SQ3rdPartyImportAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQ3rdPartyImportAPI.h; path = Pod/SQ3rdPartyImportAPI.h; sourceTree = "<group>"; };
+		6EAD5F75669F51415871130A37092AF6 /* SQExtendedNavBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQExtendedNavBarView.m; path = Pod/SQExtendedNavBarView.m; sourceTree = "<group>"; };
+		7A4665A5F56F0D4E1D85896662767773 /* SQPopoverMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverMyFilesViewController.h; path = Pod/SQPopoverMyFilesViewController.h; sourceTree = "<group>"; };
+		7F17FF07B9EB8F2EB52C2A863E8573B1 /* SQConnectTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQConnectTo.h; path = Pod/SQConnectTo.h; sourceTree = "<group>"; };
+		826EC354A0F70D51B9BC4221EDD7CC7A /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		83EAED46CEDA1A2BC8E32468EF7F8F8D /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		85ACB9D65FDF05002ECA8B41B133763E /* SQTokenAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenAccessProtocol.h; path = Pod/SQTokenAccessProtocol.h; sourceTree = "<group>"; };
+		8833CBD4A971BBBB050D6A3E9B0992D4 /* AuthImages.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = AuthImages.xcassets; path = Resources/AuthImages.xcassets; sourceTree = "<group>"; };
+		8A3CD14A371719507749D78E93BE0953 /* Pods-Weather-My-Way-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Weather-My-Way-acknowledgements.plist"; sourceTree = "<group>"; };
+		8B1AAE43CB143CCAAFA8868D5329A46E /* sequencing-app-chains-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-app-chains-api-objc-dummy.m"; sourceTree = "<group>"; };
+		8BFF29E206A7B13FE2B237FAB4F2856F /* SQFileSelectorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFileSelectorProtocol.h; path = Pod/SQFileSelectorProtocol.h; sourceTree = "<group>"; };
+		90DDE71DF2F48D07A83652C4B110FEA9 /* AppChains.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppChains.m; path = Pod/AppChains.m; sourceTree = "<group>"; };
+		928B5327DF44040F890EED14A5283C7B /* Pods-Weather-My-Way-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Weather-My-Way-resources.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		997EB030850C8539AAA3AA37DFF54508 /* Pods-Weather-My-Way.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-My-Way.debug.xcconfig"; sourceTree = "<group>"; };
+		9A545D712A52FFD28EC6B07D0A2FC105 /* TabbarFileSelector.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; name = TabbarFileSelector.storyboard; path = Resources/TabbarFileSelector.storyboard; sourceTree = "<group>"; };
+		9B6D8522846A09B1D745E0ABCCDE9D02 /* SQFilesContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesContainer.h; path = Pod/SQFilesContainer.h; sourceTree = "<group>"; };
+		9C384C1F7041018B94C0CF65F4552444 /* SQToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQToken.m; path = Pod/SQToken.m; sourceTree = "<group>"; };
+		9C6C22C3C9202FFEDE07815FD92C7EC2 /* SQPopoverInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverInfoViewController.m; path = Pod/SQPopoverInfoViewController.m; sourceTree = "<group>"; };
+		9C88D86B89A9672AB345C6D384B5BD5C /* SQLoginWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLoginWebViewController.m; path = Pod/SQLoginWebViewController.m; sourceTree = "<group>"; };
+		9CC9A74368524A92C2DE0BDABE7747D0 /* SQConnectToHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQConnectToHelper.m; path = Pod/SQConnectToHelper.m; sourceTree = "<group>"; };
+		9CCF8BC7301298F6B7F3BBEA6F2CF28B /* libsequencing-oauth-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-oauth-api-objc.a"; path = "libsequencing-oauth-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04F6071D54142FD974D57FDCFEBF346 /* sequencing-app-chains-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-app-chains-api-objc.xcconfig"; sourceTree = "<group>"; };
+		A2262F68058EF1F12254AF3FFEB79DCC /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A63B93D28495AFC6EE5AA754FFB624F0 /* SQConnectTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQConnectTo.m; path = Pod/SQConnectTo.m; sourceTree = "<group>"; };
+		A826CE13709C1AB361F50C644FE0DE8C /* SQToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQToken.h; path = Pod/SQToken.h; sourceTree = "<group>"; };
+		AA14B75C3C939FF41C21CD6D91D832B5 /* Pods-Weather-My-Way-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-My-Way-dummy.m"; sourceTree = "<group>"; };
+		AE05BB3478496AA255192547D1F45370 /* SQEmailHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQEmailHelper.m; path = Pod/SQEmailHelper.m; sourceTree = "<group>"; };
+		B165AA3E9B0F9BB0BF1E61D82A7935EE /* SQSampleFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSampleFilesViewController.m; path = Pod/SQSampleFilesViewController.m; sourceTree = "<group>"; };
+		B1AAA49DFC713714C838FEC5E9EFD25A /* SQSectionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSectionInfo.h; path = Pod/SQSectionInfo.h; sourceTree = "<group>"; };
+		B201E954AB8C505642F4FAB92321719C /* SQHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQHttpHelper.m; path = Pod/SQHttpHelper.m; sourceTree = "<group>"; };
+		B74096F6FC3D522E341003080F51C0F8 /* SQTokenStorageAppSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenStorageAppSettings.h; path = Pod/SQTokenStorageAppSettings.h; sourceTree = "<group>"; };
+		B8B6C4E0940C61A1F6F537D900D64038 /* SQFilesServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesServerManager.m; path = Pod/SQFilesServerManager.m; sourceTree = "<group>"; };
+		BA23868C062EDE7230FA8BAA74C566BB /* sequencing-app-chains-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-app-chains-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		BA5FC8A5875953291FC80B5B61F5BCCF /* libsequencing-file-selector-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-file-selector-api-objc.a"; path = "libsequencing-file-selector-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB376594F00A114472A706791974C520 /* SQLoginWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLoginWebViewController.h; path = Pod/SQLoginWebViewController.h; sourceTree = "<group>"; };
+		BC31D9FD1FBE6323EC689901AF1F1258 /* SQIntroViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQIntroViewController.m; path = Pod/SQIntroViewController.m; sourceTree = "<group>"; };
+		BE902C922301FE7D95EEA5E49C6A0D93 /* SQFilesServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesServerManager.h; path = Pod/SQFilesServerManager.h; sourceTree = "<group>"; };
+		C2E4652384681CD35D5E33B37EFC6745 /* SQFilesContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesContainer.m; path = Pod/SQFilesContainer.m; sourceTree = "<group>"; };
+		C5C2EF0DB8D8B5704883D30342E31054 /* SQClientSecretAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQClientSecretAccessProtocol.h; path = Pod/SQClientSecretAccessProtocol.h; sourceTree = "<group>"; };
+		C811D68B6DC34EAB2D5319D3E064E70E /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		C83F44046FCFC6D6E25CBDC7896266B9 /* SQAuthorizationProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthorizationProtocol.h; path = Pod/SQAuthorizationProtocol.h; sourceTree = "<group>"; };
+		C9BECA61F18CFC6FD4AF3858FFDF5252 /* SQOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQOAuth.h; path = Pod/SQOAuth.h; sourceTree = "<group>"; };
+		CA12EABBABC6123F1218433B0F9C97D9 /* FBEncryptorAES.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBEncryptorAES.h; path = Pod/FBEncryptorAES.h; sourceTree = "<group>"; };
+		CE7EAACCCA422ADAE6BCCEC4006426C7 /* SQTokenStorageProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenStorageProtocol.h; path = Pod/SQTokenStorageProtocol.h; sourceTree = "<group>"; };
+		CEA8F6401BBF4496D51F2C16E0E786CE /* SQFilesHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHelper.m; path = Pod/SQFilesHelper.m; sourceTree = "<group>"; };
+		D4726BC713430491019239CE9DA7A871 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		D5346F75CB575C88B551D05ADA694F18 /* SQPopoverInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverInfoViewController.h; path = Pod/SQPopoverInfoViewController.h; sourceTree = "<group>"; };
+		D53CD2D54E7BCB47D3E2B800CA4EA6A8 /* AppChains.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppChains.h; path = Pod/AppChains.h; sourceTree = "<group>"; };
+		D6F544D34AEF91C55997D2ED98791E50 /* SQHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQHttpHelper.h; path = Pod/SQHttpHelper.h; sourceTree = "<group>"; };
+		D8FA757D162584B1AFF2583B2A0F2633 /* SQConnectToHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQConnectToHelper.h; path = Pod/SQConnectToHelper.h; sourceTree = "<group>"; };
+		DA24A6B01E2FE18721E29E4D24B5CF3E /* SQSampleFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSampleFilesViewController.h; path = Pod/SQSampleFilesViewController.h; sourceTree = "<group>"; };
+		DB33DE26C1BEB7A7C3927BD18A46847B /* SQSegmentedControlHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSegmentedControlHelper.m; path = Pod/SQSegmentedControlHelper.m; sourceTree = "<group>"; };
+		DC984C1898593B243019EA40F1423DD7 /* SQMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQMyFilesViewController.m; path = Pod/SQMyFilesViewController.m; sourceTree = "<group>"; };
+		E03351681F755922F12BC1D66419A135 /* sequencing-file-selector-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-file-selector-api-objc-dummy.m"; sourceTree = "<group>"; };
+		E3537FC535381F88C866EE5D465A954A /* SQPopoverMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverMyFilesViewController.m; path = Pod/SQPopoverMyFilesViewController.m; sourceTree = "<group>"; };
+		E44E6547AE0C8FAC2845691562B18126 /* NSData+Base64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "Pod/NSData+Base64.m"; sourceTree = "<group>"; };
+		E686906B1431AB61CD4D99C8C9211B02 /* sequencing-file-selector-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-file-selector-api-objc.xcconfig"; sourceTree = "<group>"; };
+		E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		EB6DE8420B9AF44B1F38539F88534DFC /* SQTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTableCell.h; path = Pod/SQTableCell.h; sourceTree = "<group>"; };
+		ED52CBC75E6C0685779A417D8EC820C6 /* Pods-Weather-My-Way.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-My-Way.release.xcconfig"; sourceTree = "<group>"; };
+		EF9B98B6B7131FC74E797FA72106144A /* sequencing-oauth-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-oauth-api-objc.xcconfig"; sourceTree = "<group>"; };
+		F195E411BEC9A60EA9037F1193C46801 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		F31C213AD6977205FAD7310BFB7ED34B /* SQFilesHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHttpHelper.m; path = Pod/SQFilesHttpHelper.m; sourceTree = "<group>"; };
+		F50CB4352711AA8EE918E16C1BB667F2 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		FB6C316984FB7B5C6D509C61B2F2C92E /* FBEncryptorAES.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBEncryptorAES.m; path = Pod/FBEncryptorAES.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12070984FA8985EF77A932BEC1CF2A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6702C8B678D52CFE703762D4D73CE58B /* CoreGraphics.framework in Frameworks */,
+				C62CF850237DB4D6338E30472245FF6F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F2CCD4567299453297881CC7BA8676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325CC0B9A0B9F08532B2FBEB0072F4D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B4F90E2B3A8C1514D786087463D18F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5249605250CD5FEB5D038B747EB16B39 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B21529DA41C653F0AAC62B278686F82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4616F4FB447584EFCC7B229BFA2D36 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C9CE520761A825C5C3E03DF1182EF7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9BD7AE4D7F8253C09CAEED2C0EBCD8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0183CCBC70D0DB6AF58712B0BE90484A /* FirebaseCrash */ = {
+			isa = PBXGroup;
+			children = (
+				C6B633F8406646AC07FB4CD930957254 /* Frameworks */,
+			);
+			name = FirebaseCrash;
+			path = FirebaseCrash;
+			sourceTree = "<group>";
+		};
+		06291ACF9C2B6C568BEDC7360B571AB3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A04F6071D54142FD974D57FDCFEBF346 /* sequencing-app-chains-api-objc.xcconfig */,
+				8B1AAE43CB143CCAAFA8868D5329A46E /* sequencing-app-chains-api-objc-dummy.m */,
+				BA23868C062EDE7230FA8BAA74C566BB /* sequencing-app-chains-api-objc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/sequencing-app-chains-api-objc";
+			sourceTree = "<group>";
+		};
+		0D4866661F7C19D6DD1E2756B245E55B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F195E411BEC9A60EA9037F1193C46801 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F064D04E379CE8E07B6BDB97C593316 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */,
+				A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		126BE9D2900F6BBD65F96B7AEB4C018E /* sequencing-master-plugin-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "sequencing-master-plugin-api-objc";
+			path = "sequencing-master-plugin-api-objc";
+			sourceTree = "<group>";
+		};
+		2186F5A2BF67B2BB16AAF82AD291FE4C /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ECEDFE87704624D64529E53CB8C3 /* FIRInstanceID.h */,
+				ACE633E09983CEA22EA40A77E96707EC /* Frameworks */,
+			);
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		23CECFED051CE9E3D7D97A4941C90E4E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF9B98B6B7131FC74E797FA72106144A /* sequencing-oauth-api-objc.xcconfig */,
+				6E5B24E30C6DFCCA2FB9CC164C9C0615 /* sequencing-oauth-api-objc-dummy.m */,
+				44A9C350E7D73FE3A5A8488C37066D76 /* sequencing-oauth-api-objc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/sequencing-oauth-api-objc";
+			sourceTree = "<group>";
+		};
+		2E8EEC4989C658EE68206BE5A7160A72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F50CB4352711AA8EE918E16C1BB667F2 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34991F4EB818AFAE460E19FE45AEB7AB /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				5D28A7AA6228591D390BE0DE0091699C /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F064D04E379CE8E07B6BDB97C593316 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50973E29F1705BE7B45A264E553FD664 /* Pods-Weather-My-Way */ = {
+			isa = PBXGroup;
+			children = (
+				0FFEF0CD9AE587F0B5E1FB4141D9D41F /* Pods-Weather-My-Way-acknowledgements.markdown */,
+				8A3CD14A371719507749D78E93BE0953 /* Pods-Weather-My-Way-acknowledgements.plist */,
+				AA14B75C3C939FF41C21CD6D91D832B5 /* Pods-Weather-My-Way-dummy.m */,
+				0E1369D073FCE19638E716E8BF76BA6D /* Pods-Weather-My-Way-frameworks.sh */,
+				928B5327DF44040F890EED14A5283C7B /* Pods-Weather-My-Way-resources.sh */,
+				997EB030850C8539AAA3AA37DFF54508 /* Pods-Weather-My-Way.debug.xcconfig */,
+				ED52CBC75E6C0685779A417D8EC820C6 /* Pods-Weather-My-Way.release.xcconfig */,
+			);
+			name = "Pods-Weather-My-Way";
+			path = "Target Support Files/Pods-Weather-My-Way";
+			sourceTree = "<group>";
+		};
+		5FE0898573D02163743503A16D27300C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B86280754C53E91AE94A82CA71619C8 /* Images.xcassets */,
+				09BD39F6582B6A94BB7249AD1120F725 /* SQPopoverInfoViewController.xib */,
+				04F70C2A5BF17C472C46F675EF3C6406 /* SQPopoverMyFilesViewController.xib */,
+				9A545D712A52FFD28EC6B07D0A2FC105 /* TabbarFileSelector.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6601936C6CF0F8A8443B80E95E550A82 /* sequencing-oauth-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+				CA12EABBABC6123F1218433B0F9C97D9 /* FBEncryptorAES.h */,
+				FB6C316984FB7B5C6D509C61B2F2C92E /* FBEncryptorAES.m */,
+				4989DC9E1D21A3FBEEDEC9C0457AC9E9 /* NSData+Base64.h */,
+				E44E6547AE0C8FAC2845691562B18126 /* NSData+Base64.m */,
+				6E98BA28036175E75256A2E84E88FB4B /* SQ3rdPartyImportAPI.h */,
+				5D9F71800BA7C742D683BCDA0AA8E548 /* SQ3rdPartyImportAPI.m */,
+				4EBE6B018EA854961B26EA4435551B54 /* SQ3rdPartyImportHelper.h */,
+				5405C0FAFF2264AA94021F8D5FD3339D /* SQ3rdPartyImportHelper.m */,
+				6BE6CB4C25DA040A78DA63E45B4068D7 /* SQ3rdPartyImportHttpHelper.h */,
+				6040D5F9A7EFFA2BCE4EF6805CE52DBE /* SQ3rdPartyImportHttpHelper.m */,
+				C83F44046FCFC6D6E25CBDC7896266B9 /* SQAuthorizationProtocol.h */,
+				C5C2EF0DB8D8B5704883D30342E31054 /* SQClientSecretAccessProtocol.h */,
+				7F17FF07B9EB8F2EB52C2A863E8573B1 /* SQConnectTo.h */,
+				A63B93D28495AFC6EE5AA754FFB624F0 /* SQConnectTo.m */,
+				D8FA757D162584B1AFF2583B2A0F2633 /* SQConnectToHelper.h */,
+				9CC9A74368524A92C2DE0BDABE7747D0 /* SQConnectToHelper.m */,
+				6C29F6E780A8DBDFA706FF3B1A021D92 /* SQConnectToWebViewController.h */,
+				25B15E6F77058DBDD0A1F7ABFE16C8F5 /* SQConnectToWebViewController.m */,
+				3A39A5D782AC568975C3B72510784456 /* SQEmailHelper.h */,
+				AE05BB3478496AA255192547D1F45370 /* SQEmailHelper.m */,
+				6941036EEDD8DDC3348D46FD5DD632E4 /* SQEncryptionHelper.h */,
+				3B0D738F31A8AA6306BE9C3E8B776D39 /* SQEncryptionHelper.m */,
+				D6F544D34AEF91C55997D2ED98791E50 /* SQHttpHelper.h */,
+				B201E954AB8C505642F4FAB92321719C /* SQHttpHelper.m */,
+				BB376594F00A114472A706791974C520 /* SQLoginWebViewController.h */,
+				9C88D86B89A9672AB345C6D384B5BD5C /* SQLoginWebViewController.m */,
+				C9BECA61F18CFC6FD4AF3858FFDF5252 /* SQOAuth.h */,
+				2960CB58E9A591253291059794953C15 /* SQOAuth.m */,
+				11F52B892335D604BE4572096CF9CCA7 /* SQRequestHelper.h */,
+				2EB7A78947A75BCAA3B1FD7CF7D982E4 /* SQRequestHelper.m */,
+				40C44FA136FFB0B4B3BD8EB5A169D884 /* SQServerManager.h */,
+				2902DC74ED9AE94D4A0629F87212265F /* SQServerManager.m */,
+				A826CE13709C1AB361F50C644FE0DE8C /* SQToken.h */,
+				9C384C1F7041018B94C0CF65F4552444 /* SQToken.m */,
+				85ACB9D65FDF05002ECA8B41B133763E /* SQTokenAccessProtocol.h */,
+				B74096F6FC3D522E341003080F51C0F8 /* SQTokenStorageAppSettings.h */,
+				6073D33C081741972EF41EB32DF65258 /* SQTokenStorageAppSettings.m */,
+				CE7EAACCCA422ADAE6BCCEC4006426C7 /* SQTokenStorageProtocol.h */,
+				6C9EF565447E6C1D7DCD88A034676661 /* Resources */,
+				23CECFED051CE9E3D7D97A4941C90E4E /* Support Files */,
+			);
+			name = "sequencing-oauth-api-objc";
+			path = "sequencing-oauth-api-objc";
+			sourceTree = "<group>";
+		};
+		6C9EF565447E6C1D7DCD88A034676661 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8833CBD4A971BBBB050D6A3E9B0992D4 /* AuthImages.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				B242D4D5FD131812DB7EBE827FFA6366 /* Pods */,
+				D7D2AF18858E8CB502D2C273E18ACFFE /* Products */,
+				861D18F1B3E3D5FF58735D5238EB38BA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		820B67FB09562857D76D945E378376B2 /* sequencing-app-chains-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+				D53CD2D54E7BCB47D3E2B800CA4EA6A8 /* AppChains.h */,
+				90DDE71DF2F48D07A83652C4B110FEA9 /* AppChains.m */,
+				06291ACF9C2B6C568BEDC7360B571AB3 /* Support Files */,
+			);
+			name = "sequencing-app-chains-api-objc";
+			path = "sequencing-app-chains-api-objc";
+			sourceTree = "<group>";
+		};
+		82198803243E78127BB1A0093EAE4D7C /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				2E8EEC4989C658EE68206BE5A7160A72 /* Frameworks */,
+			);
+			name = GoogleSymbolUtilities;
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		861D18F1B3E3D5FF58735D5238EB38BA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				50973E29F1705BE7B45A264E553FD664 /* Pods-Weather-My-Way */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8A3D87EF68D888F2172BC7AE4C9FD27D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29291DE554D178D81525967E64FE2536 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACE633E09983CEA22EA40A77E96707EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13EC5B9D0C59C930B63E1DFE38613A6C /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B242D4D5FD131812DB7EBE827FFA6366 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBC35EE0D7CE4F7938BB4DA06662B2BE /* Firebase */,
+				D40D04E626649693E8E0C23318CB8998 /* FirebaseAnalytics */,
+				0183CCBC70D0DB6AF58712B0BE90484A /* FirebaseCrash */,
+				2186F5A2BF67B2BB16AAF82AD291FE4C /* FirebaseInstanceID */,
+				BF7FDE59BC104237953EDA6FACE47D63 /* GoogleInterchangeUtilities */,
+				82198803243E78127BB1A0093EAE4D7C /* GoogleSymbolUtilities */,
+				C5E63E8C9BC85F11D996938A33D6693D /* GoogleUtilities */,
+				D90790E28A40462151D8BAE64224626B /* MBProgressHUD */,
+				820B67FB09562857D76D945E378376B2 /* sequencing-app-chains-api-objc */,
+				EA8AB4AB345BFE511E22DC26DD930331 /* sequencing-file-selector-api-objc */,
+				126BE9D2900F6BBD65F96B7AEB4C018E /* sequencing-master-plugin-api-objc */,
+				6601936C6CF0F8A8443B80E95E550A82 /* sequencing-oauth-api-objc */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF7FDE59BC104237953EDA6FACE47D63 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				F7680721278A08156957AE3CCCDB3430 /* Frameworks */,
+			);
+			name = GoogleInterchangeUtilities;
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		C5E63E8C9BC85F11D996938A33D6693D /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				8A3D87EF68D888F2172BC7AE4C9FD27D /* Frameworks */,
+			);
+			name = GoogleUtilities;
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		C6B633F8406646AC07FB4CD930957254 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E4B4484E7A5CBB49F42E81B73E5CFE3 /* FirebaseCrash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D40D04E626649693E8E0C23318CB8998 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				0D4866661F7C19D6DD1E2756B245E55B /* Frameworks */,
+			);
+			name = FirebaseAnalytics;
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		D7D2AF18858E8CB502D2C273E18ACFFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5957106574A4DC74D2405F7C91D748C4 /* libMBProgressHUD.a */,
+				098BD94BB4BFDD520A494F7887F2A7B7 /* libPods-Weather-My-Way.a */,
+				2B77B3327318D9E2D22ADEA1BD8B2F93 /* libsequencing-app-chains-api-objc.a */,
+				BA5FC8A5875953291FC80B5B61F5BCCF /* libsequencing-file-selector-api-objc.a */,
+				9CCF8BC7301298F6B7F3BBEA6F2CF28B /* libsequencing-oauth-api-objc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D90790E28A40462151D8BAE64224626B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A2262F68058EF1F12254AF3FFEB79DCC /* MBProgressHUD.h */,
+				826EC354A0F70D51B9BC4221EDD7CC7A /* MBProgressHUD.m */,
+				E0C13C13741D92AE1AF33914F84743B1 /* Support Files */,
+			);
+			name = MBProgressHUD;
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E0C13C13741D92AE1AF33914F84743B1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C811D68B6DC34EAB2D5319D3E064E70E /* MBProgressHUD.xcconfig */,
+				63F34AF2368F8E42221F271C5E7F3492 /* MBProgressHUD-dummy.m */,
+				D4726BC713430491019239CE9DA7A871 /* MBProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MBProgressHUD";
+			sourceTree = "<group>";
+		};
+		EA8AB4AB345BFE511E22DC26DD930331 /* sequencing-file-selector-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+				4D904E4B8DDBDE11B6DDEEA75D2FF155 /* SQExtendedNavBarView.h */,
+				6EAD5F75669F51415871130A37092AF6 /* SQExtendedNavBarView.m */,
+				07C8A5B8C000911E8A3336322F678000 /* SQFilesAPI.h */,
+				4749C3278F3C0F86880FC2C8A435E0C6 /* SQFilesAPI.m */,
+				9B6D8522846A09B1D745E0ABCCDE9D02 /* SQFilesContainer.h */,
+				C2E4652384681CD35D5E33B37EFC6745 /* SQFilesContainer.m */,
+				8BFF29E206A7B13FE2B237FAB4F2856F /* SQFileSelectorProtocol.h */,
+				6A7B27D41BC2A53DE2DBC24ABBD12CBF /* SQFilesHelper.h */,
+				CEA8F6401BBF4496D51F2C16E0E786CE /* SQFilesHelper.m */,
+				073751CA69EE807DACBD00C764F2D3CD /* SQFilesHttpHelper.h */,
+				F31C213AD6977205FAD7310BFB7ED34B /* SQFilesHttpHelper.m */,
+				BE902C922301FE7D95EEA5E49C6A0D93 /* SQFilesServerManager.h */,
+				B8B6C4E0940C61A1F6F537D900D64038 /* SQFilesServerManager.m */,
+				06A756E9E5DB71E758B79D868D3D673D /* SQIntroViewController.h */,
+				BC31D9FD1FBE6323EC689901AF1F1258 /* SQIntroViewController.m */,
+				50EC8EC35F449F171E81B20BDBDC408B /* SQMyFilesViewController.h */,
+				DC984C1898593B243019EA40F1423DD7 /* SQMyFilesViewController.m */,
+				D5346F75CB575C88B551D05ADA694F18 /* SQPopoverInfoViewController.h */,
+				9C6C22C3C9202FFEDE07815FD92C7EC2 /* SQPopoverInfoViewController.m */,
+				7A4665A5F56F0D4E1D85896662767773 /* SQPopoverMyFilesViewController.h */,
+				E3537FC535381F88C866EE5D465A954A /* SQPopoverMyFilesViewController.m */,
+				DA24A6B01E2FE18721E29E4D24B5CF3E /* SQSampleFilesViewController.h */,
+				B165AA3E9B0F9BB0BF1E61D82A7935EE /* SQSampleFilesViewController.m */,
+				B1AAA49DFC713714C838FEC5E9EFD25A /* SQSectionInfo.h */,
+				5BC9A4B9E95B6FB8566ACD3A8275C88B /* SQSectionInfo.m */,
+				2AD980BE31CE722A9A161C864F1DA8E6 /* SQSegmentedControlHelper.h */,
+				DB33DE26C1BEB7A7C3927BD18A46847B /* SQSegmentedControlHelper.m */,
+				EB6DE8420B9AF44B1F38539F88534DFC /* SQTableCell.h */,
+				6B3B50D28EA6AE27779EDBED18BA1322 /* SQTableCell.m */,
+				38EA4DD8FCC58CBA7202DCC3B884D747 /* SQTokenAccessProtocol.h */,
+				5FE0898573D02163743503A16D27300C /* Resources */,
+				FDB3DBAD9438864AC0831A082E0AA598 /* Support Files */,
+			);
+			name = "sequencing-file-selector-api-objc";
+			path = "sequencing-file-selector-api-objc";
+			sourceTree = "<group>";
+		};
+		F7680721278A08156957AE3CCCDB3430 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83EAED46CEDA1A2BC8E32468EF7F8F8D /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBC35EE0D7CE4F7938BB4DA06662B2BE /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				34991F4EB818AFAE460E19FE45AEB7AB /* Analytics */,
+			);
+			name = Firebase;
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FDB3DBAD9438864AC0831A082E0AA598 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E686906B1431AB61CD4D99C8C9211B02 /* sequencing-file-selector-api-objc.xcconfig */,
+				E03351681F755922F12BC1D66419A135 /* sequencing-file-selector-api-objc-dummy.m */,
+				2845D9B122B43266E15FC28542BE5F28 /* sequencing-file-selector-api-objc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/sequencing-file-selector-api-objc";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		30477A32A4741223846D069A96BF14A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				975C34DC9B9C834719D2289C6B8B3813 /* AppChains.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86B7A06503D8070F8282EF3A59708D05 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5112B94F0143C7140B6517396D06F /* FBEncryptorAES.h in Headers */,
+				1C2737B3DC888DFB3E167259A728C2A6 /* NSData+Base64.h in Headers */,
+				2C213B2B51E8D75C1493D8C6DD5EF296 /* SQ3rdPartyImportAPI.h in Headers */,
+				6988F804E6B1441F4153F63656B04C15 /* SQ3rdPartyImportHelper.h in Headers */,
+				9DEA6E059D1C0228017DBD3EF8329ACF /* SQ3rdPartyImportHttpHelper.h in Headers */,
+				5945372FA737C7299931E0C28753FF96 /* SQAuthorizationProtocol.h in Headers */,
+				852D1FCB8D74FB463FB7DFC28B7B62A6 /* SQClientSecretAccessProtocol.h in Headers */,
+				F127EFE69D57A9C2BCEEF8FC8BE44CAD /* SQConnectTo.h in Headers */,
+				EEB35BF4897EEB7E6F950E4DD8398075 /* SQConnectToHelper.h in Headers */,
+				A89C82E12921BF2D49BCB35BB85C0644 /* SQConnectToWebViewController.h in Headers */,
+				6A599CAC152B0AAE3F1ED0E6CB480E69 /* SQEmailHelper.h in Headers */,
+				AC93879B2AB3FB2860ECC9B43E1F320D /* SQEncryptionHelper.h in Headers */,
+				C9ACFAD66AB970B5DA841DBAA1B2E1B4 /* SQHttpHelper.h in Headers */,
+				B6BA5AAF65302892E8865251028D59AF /* SQLoginWebViewController.h in Headers */,
+				79E1EF21E642D17FF34666987AB40FB4 /* SQOAuth.h in Headers */,
+				3F31F6CB97FBC99F30CAE4A06666D69D /* SQRequestHelper.h in Headers */,
+				CD2EDAACB5FE3CAD5C5F9AEC216C059B /* SQServerManager.h in Headers */,
+				1852363C76B393D2DFA87AE004820821 /* SQToken.h in Headers */,
+				1FB67F416EC27CC8408E3453F7FAD582 /* SQTokenAccessProtocol.h in Headers */,
+				DA3410D6A985204F6D558701263B771C /* SQTokenStorageAppSettings.h in Headers */,
+				9C1F842EB593B8CC4E3BD37C85C12155 /* SQTokenStorageProtocol.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC33D369E9A80BFCC07EAB513251186 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A76DB3CD21C569626495DE7D69D7B0C /* MBProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE62571556B8EC9C99167B9CB859E6C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3937E699FDBCF65E4FB23A678205AB /* SQExtendedNavBarView.h in Headers */,
+				8F99816BE1ABB6AF2828799CD64BFA1E /* SQFilesAPI.h in Headers */,
+				B39CA16FE511DB1482C52711F9C17576 /* SQFilesContainer.h in Headers */,
+				96D19BDA068D92E56B605F6BB36D4544 /* SQFileSelectorProtocol.h in Headers */,
+				49D7B8A2904657C12C307D9E023B9410 /* SQFilesHelper.h in Headers */,
+				683B758B9CDB11BF128069E839ACEDCD /* SQFilesHttpHelper.h in Headers */,
+				B41A8C8391E4F27874D69600B61B5C78 /* SQFilesServerManager.h in Headers */,
+				8C4D417DAC70775F4B30B5C00E580827 /* SQIntroViewController.h in Headers */,
+				A8A8167D4D7B2D4F1F0BC94DF8F9527C /* SQMyFilesViewController.h in Headers */,
+				1A4F26036E497F5221EF494FF67FB149 /* SQPopoverInfoViewController.h in Headers */,
+				36DC5FC2666F8D39FC98BEC98A9859E9 /* SQPopoverMyFilesViewController.h in Headers */,
+				B547854FE52473877D0DF1172F4BB195 /* SQSampleFilesViewController.h in Headers */,
+				6249CAE06C1C0D4EFF5BF8F75485E26B /* SQSectionInfo.h in Headers */,
+				93E4E6CFBADD0158B36DF21B18CF51CB /* SQSegmentedControlHelper.h in Headers */,
+				EC94E46B7883E51F2382FB9D307C528A /* SQTableCell.h in Headers */,
+				75362AE716681448BB0D3E88A9245FC5 /* SQTokenAccessProtocol.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		175B076ED45EB1A3E40F58BA14036467 /* MBProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C66CB3E04875BC1C255326C7ADB2D78 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildPhases = (
+				FED59DE88F6C855E8E4E64782275A4C6 /* Sources */,
+				12070984FA8985EF77A932BEC1CF2A5D /* Frameworks */,
+				EFC33D369E9A80BFCC07EAB513251186 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBProgressHUD;
+			productName = MBProgressHUD;
+			productReference = 5957106574A4DC74D2405F7C91D748C4 /* libMBProgressHUD.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		66B28878AA6C9681C5E1797A9E7DB4F3 /* Pods-Weather-My-Way */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7461073FA9D748155325C507FF5097D9 /* Build configuration list for PBXNativeTarget "Pods-Weather-My-Way" */;
+			buildPhases = (
+				462123148D568017B84258E2367DF06F /* Sources */,
+				9C9CE520761A825C5C3E03DF1182EF7B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA1C1A0050018E242858057B5FABA214 /* PBXTargetDependency */,
+				6744E98A5F9DDA7593A5052F8EB7EB92 /* PBXTargetDependency */,
+				1CE5F03784D04EADE51617FE8EABFA7A /* PBXTargetDependency */,
+				BF5B84EA098C97261F57ABBF1FEAA98C /* PBXTargetDependency */,
+			);
+			name = "Pods-Weather-My-Way";
+			productName = "Pods-Weather-My-Way";
+			productReference = 098BD94BB4BFDD520A494F7887F2A7B7 /* libPods-Weather-My-Way.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		91DD7594B89217CE161445EBC5C16494 /* sequencing-oauth-api-objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF2498DB0FA76EFBFB4E5D9992C252AC /* Build configuration list for PBXNativeTarget "sequencing-oauth-api-objc" */;
+			buildPhases = (
+				9FF86A24B37B80D2867C7F5DE0B553B0 /* Sources */,
+				35F2CCD4567299453297881CC7BA8676 /* Frameworks */,
+				86B7A06503D8070F8282EF3A59708D05 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sequencing-oauth-api-objc";
+			productName = "sequencing-oauth-api-objc";
+			productReference = 9CCF8BC7301298F6B7F3BBEA6F2CF28B /* libsequencing-oauth-api-objc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D1C0D0140D42D7B438B24193792025E5 /* sequencing-file-selector-api-objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E639018B1C5F171C3E074CAA09EF7FC /* Build configuration list for PBXNativeTarget "sequencing-file-selector-api-objc" */;
+			buildPhases = (
+				8529743D5A8E4D224E7E33F95CC78EEF /* Sources */,
+				9B21529DA41C653F0AAC62B278686F82 /* Frameworks */,
+				FE62571556B8EC9C99167B9CB859E6C4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sequencing-file-selector-api-objc";
+			productName = "sequencing-file-selector-api-objc";
+			productReference = BA5FC8A5875953291FC80B5B61F5BCCF /* libsequencing-file-selector-api-objc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EBA7E9DF982939E8CD3FABDB25EFB86A /* sequencing-app-chains-api-objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A5BC4333BCC9144918DE28E8E95E6F8 /* Build configuration list for PBXNativeTarget "sequencing-app-chains-api-objc" */;
+			buildPhases = (
+				0A97A34C5A63653B7B98E4678B614FFC /* Sources */,
+				4B4F90E2B3A8C1514D786087463D18F3 /* Frameworks */,
+				30477A32A4741223846D069A96BF14A6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sequencing-app-chains-api-objc";
+			productName = "sequencing-app-chains-api-objc";
+			productReference = 2B77B3327318D9E2D22ADEA1BD8B2F93 /* libsequencing-app-chains-api-objc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D7D2AF18858E8CB502D2C273E18ACFFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				175B076ED45EB1A3E40F58BA14036467 /* MBProgressHUD */,
+				66B28878AA6C9681C5E1797A9E7DB4F3 /* Pods-Weather-My-Way */,
+				EBA7E9DF982939E8CD3FABDB25EFB86A /* sequencing-app-chains-api-objc */,
+				D1C0D0140D42D7B438B24193792025E5 /* sequencing-file-selector-api-objc */,
+				91DD7594B89217CE161445EBC5C16494 /* sequencing-oauth-api-objc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A97A34C5A63653B7B98E4678B614FFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B904BDE1212ADB5673B8AB3E61D5C5 /* AppChains.m in Sources */,
+				7EEE4A0D02D61B24E607C84A351BBEA3 /* sequencing-app-chains-api-objc-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		462123148D568017B84258E2367DF06F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEA3C8597361B720E2D815D35134349 /* Pods-Weather-My-Way-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8529743D5A8E4D224E7E33F95CC78EEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A51C8B3007F800C4EE9EDE8AA593F62 /* sequencing-file-selector-api-objc-dummy.m in Sources */,
+				BB9F8DCCE7181F13FB5590066AA494BF /* SQExtendedNavBarView.m in Sources */,
+				E73C07586380AC1824876C1FA0108B30 /* SQFilesAPI.m in Sources */,
+				657D99C578AD6325A7B9D63F618157D9 /* SQFilesContainer.m in Sources */,
+				30BC1B0BA843C884C0DC831C399F413C /* SQFilesHelper.m in Sources */,
+				A046239040F7DDEAA5E3B81FDC07492D /* SQFilesHttpHelper.m in Sources */,
+				599E5449B2EECD79E71AFFB18B5596D5 /* SQFilesServerManager.m in Sources */,
+				3EDA904E6568B070FA547E25295E641F /* SQIntroViewController.m in Sources */,
+				1D5A0F0032897D395DD811821C5FA4F7 /* SQMyFilesViewController.m in Sources */,
+				19BBED9F7E80881454655472FAF2BF0C /* SQPopoverInfoViewController.m in Sources */,
+				5C9E9FC08A49AFF8A12A86A5F61A3A86 /* SQPopoverMyFilesViewController.m in Sources */,
+				078CD6618300A88BE8A6F5C34D79D41A /* SQSampleFilesViewController.m in Sources */,
+				8AB498C222EFB16F91F6F6F776B80BFA /* SQSectionInfo.m in Sources */,
+				D0FAB4C7BCCCD6EC1D245825966DD778 /* SQSegmentedControlHelper.m in Sources */,
+				01CB4C908E403C2DF7115111736429E2 /* SQTableCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF86A24B37B80D2867C7F5DE0B553B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4156DC75EB4D8E6FB8D7C4B863BD8A3A /* FBEncryptorAES.m in Sources */,
+				533767E17DC8EE027C30B0331361D000 /* NSData+Base64.m in Sources */,
+				1C9F6B110D3276F887B1329EF6FF7572 /* sequencing-oauth-api-objc-dummy.m in Sources */,
+				C031FC12E52BDC1A24902B7454C7803B /* SQ3rdPartyImportAPI.m in Sources */,
+				7AC238A8BF6BFD0A3E0D8485D81EC9E1 /* SQ3rdPartyImportHelper.m in Sources */,
+				D830EECECA4079640C2260966DB0B644 /* SQ3rdPartyImportHttpHelper.m in Sources */,
+				F21E8C75B8B12464699F0ED9900F946D /* SQConnectTo.m in Sources */,
+				54A795FD10BD9FCF3B6FF3BD185B885F /* SQConnectToHelper.m in Sources */,
+				FF809C3CB629F801BD98CFB5AA5ACD83 /* SQConnectToWebViewController.m in Sources */,
+				0AD0CF119587B3609FB12C414A51D27E /* SQEmailHelper.m in Sources */,
+				7DAE6F9FF8BAB4293C77D60C3294CE1F /* SQEncryptionHelper.m in Sources */,
+				508FF941A1239E95A58CE163F38A0FC6 /* SQHttpHelper.m in Sources */,
+				D727FC321C58AE6F2D7FBD7BA93232E1 /* SQLoginWebViewController.m in Sources */,
+				A085FD030AF13A09457A6238470C8984 /* SQOAuth.m in Sources */,
+				9E263BE5159005E8EA3E4C9901AF6CB7 /* SQRequestHelper.m in Sources */,
+				06E07D0E1AB8C6E082CF6BDCC03C03F1 /* SQServerManager.m in Sources */,
+				6C10DB3E3245A20A19EDEC3ADB9835BA /* SQToken.m in Sources */,
+				75BBA43B3AAC46FD458FB2F7865FC26E /* SQTokenStorageAppSettings.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FED59DE88F6C855E8E4E64782275A4C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E528D890E3B32D53D963CE1417BA4D8 /* MBProgressHUD-dummy.m in Sources */,
+				535C3BD688BA2CDEC5DAE361DDF5D7B0 /* MBProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CE5F03784D04EADE51617FE8EABFA7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sequencing-file-selector-api-objc";
+			target = D1C0D0140D42D7B438B24193792025E5 /* sequencing-file-selector-api-objc */;
+			targetProxy = 2ADF46345AA5E550DBF7E636FB51D2C6 /* PBXContainerItemProxy */;
+		};
+		6744E98A5F9DDA7593A5052F8EB7EB92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sequencing-app-chains-api-objc";
+			target = EBA7E9DF982939E8CD3FABDB25EFB86A /* sequencing-app-chains-api-objc */;
+			targetProxy = 34204672C050AED682B56C8B376CB66E /* PBXContainerItemProxy */;
+		};
+		BA1C1A0050018E242858057B5FABA214 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			target = 175B076ED45EB1A3E40F58BA14036467 /* MBProgressHUD */;
+			targetProxy = 7FCE3EB72B688845A8B4E4AC1D93308B /* PBXContainerItemProxy */;
+		};
+		BF5B84EA098C97261F57ABBF1FEAA98C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sequencing-oauth-api-objc";
+			target = 91DD7594B89217CE161445EBC5C16494 /* sequencing-oauth-api-objc */;
+			targetProxy = E6F30E451176B435A4DFB11DF7F5FA73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08C898B1BD0F33C054BC3320B250CB21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E686906B1431AB61CD4D99C8C9211B02 /* sequencing-file-selector-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1968D2D426957FFE176B2880D231E4A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 997EB030850C8539AAA3AA37DFF54508 /* Pods-Weather-My-Way.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		283D50FB8C125E4E1102EFE237F6A07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF9B98B6B7131FC74E797FA72106144A /* sequencing-oauth-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4ECD94EB658408EAB639A8B305F4DA79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C811D68B6DC34EAB2D5319D3E064E70E /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		50578562CB4D9ABA8620420C08C638C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C811D68B6DC34EAB2D5319D3E064E70E /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6002700FB73F29DFBB1A9E0AB031F4C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED52CBC75E6C0685779A417D8EC820C6 /* Pods-Weather-My-Way.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6111CCA40F59C2AD1908B8FC2448EC94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF9B98B6B7131FC74E797FA72106144A /* sequencing-oauth-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		645CAB5A7462041CCCB12B96796ECF24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A04F6071D54142FD974D57FDCFEBF346 /* sequencing-app-chains-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5CD1A62A60A013799584A45E5F62855 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A04F6071D54142FD974D57FDCFEBF346 /* sequencing-app-chains-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EFDB7CCB593E0074B302FAFC339E33A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E686906B1431AB61CD4D99C8C9211B02 /* sequencing-file-selector-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A5BC4333BCC9144918DE28E8E95E6F8 /* Build configuration list for PBXNativeTarget "sequencing-app-chains-api-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5CD1A62A60A013799584A45E5F62855 /* Debug */,
+				645CAB5A7462041CCCB12B96796ECF24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E639018B1C5F171C3E074CAA09EF7FC /* Build configuration list for PBXNativeTarget "sequencing-file-selector-api-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDB7CCB593E0074B302FAFC339E33A1 /* Debug */,
+				08C898B1BD0F33C054BC3320B250CB21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7461073FA9D748155325C507FF5097D9 /* Build configuration list for PBXNativeTarget "Pods-Weather-My-Way" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1968D2D426957FFE176B2880D231E4A8 /* Debug */,
+				6002700FB73F29DFBB1A9E0AB031F4C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C66CB3E04875BC1C255326C7ADB2D78 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECD94EB658408EAB639A8B305F4DA79 /* Debug */,
+				50578562CB4D9ABA8620420C08C638C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF2498DB0FA76EFBFB4E5D9992C252AC /* Build configuration list for PBXNativeTarget "sequencing-oauth-api-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283D50FB8C125E4E1102EFE237F6A07D /* Debug */,
+				6111CCA40F59C2AD1908B8FC2448EC94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
