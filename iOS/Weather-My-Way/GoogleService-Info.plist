@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>965245308105-bvitmv10e9opcqmiosah9ujrqre6fbau.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.965245308105-bvitmv10e9opcqmiosah9ujrqre6fbau</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDwyPbMWa27SI4jnKhz3AkRlc9cKmzKDFE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>965245308105</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sequencing.weather-my-way-ios</string>
+	<key>PROJECT_ID</key>
+	<string>weather-my-way-rtp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>weather-my-way-rtp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:965245308105:ios:4cacbd5e9d53fbfa</string>
+	<key>DATABASE_URL</key>
+	<string>https://weather-my-way-rtp.firebaseio.com</string>
+</dict>
+</plist>

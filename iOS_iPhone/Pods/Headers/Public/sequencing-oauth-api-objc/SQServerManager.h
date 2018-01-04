@@ -1,1 +1,0 @@
-../../../sequencing-oauth-api-objc/Pod/SQServerManager.h

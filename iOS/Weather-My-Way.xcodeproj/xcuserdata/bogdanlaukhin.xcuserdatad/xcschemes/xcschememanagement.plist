@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>MyWay RTP (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>MyWay RTP.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Weather-My-Way.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Weather-My-Way_Fetch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1C30334A1EDD8C1A00CA0C26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C38CACE1CA5646D00553718</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C64D58B1E39166400A7BF43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C64D5B71E3916BC00A7BF43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C64D5E21E39170600A7BF43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

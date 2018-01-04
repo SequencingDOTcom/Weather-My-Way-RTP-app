@@ -1,1 +1,0 @@
-../../../sequencing-file-selector-api-objc/Pod/SQFilesHttpHelper.h

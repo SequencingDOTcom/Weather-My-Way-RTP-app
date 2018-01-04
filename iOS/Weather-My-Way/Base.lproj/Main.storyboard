@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QsG-xy-wvh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Dct-2G-BzN">
+            <objects>
+                <viewController storyboardIdentifier="loginVC" id="tvc-jj-acb" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fDe-XN-OKz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ejt-9w-tyB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="que-bg-IgR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-OT-62s">
+                                <rect key="frame" x="48" y="311" width="280" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MlF-OT-62s" secondAttribute="height" multiplier="140:23" id="Adx-3s-Vyx"/>
+                                </constraints>
+                                <state key="normal" image="button_signin_white_gradation"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="tvc-jj-acb" eventType="touchUpInside" id="Sxs-Va-Ck0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmo-vY-MnV">
+                                <rect key="frame" x="105" y="367" width="166" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="Register for a free account"/>
+                                <connections>
+                                    <action selector="registerAccountButtonPressed:" destination="tvc-jj-acb" eventType="touchUpInside" id="ZZB-VJ-46n"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myway_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cav-8g-pBj">
+                                <rect key="frame" x="259" y="600" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PQX-aa-fkq"/>
+                                    <constraint firstAttribute="width" secondItem="cav-8g-pBj" secondAttribute="height" multiplier="1:1" id="tgY-6g-aO5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahf-hg-Wj5">
+                                <rect key="frame" x="297" y="607" width="43" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="About">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="aboutButtonPressed:" destination="tvc-jj-acb" eventType="touchUpInside" id="f9T-d4-tte"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cav-8g-pBj" firstAttribute="centerY" secondItem="ahf-hg-Wj5" secondAttribute="centerY" constant="-2" id="5M1-uI-VHa"/>
+                            <constraint firstAttribute="trailing" secondItem="ahf-hg-Wj5" secondAttribute="trailing" constant="35" id="Dar-QC-3Xr"/>
+                            <constraint firstItem="tmo-vY-MnV" firstAttribute="top" secondItem="MlF-OT-62s" secondAttribute="bottom" constant="10" id="H4V-DQ-o5k"/>
+                            <constraint firstItem="ejt-9w-tyB" firstAttribute="top" secondItem="ahf-hg-Wj5" secondAttribute="bottom" constant="30" id="JCz-d4-eLE"/>
+                            <constraint firstItem="tmo-vY-MnV" firstAttribute="centerX" secondItem="que-bg-IgR" secondAttribute="centerX" id="WY6-6T-2F1"/>
+                            <constraint firstItem="cav-8g-pBj" firstAttribute="trailing" secondItem="ahf-hg-Wj5" secondAttribute="leading" constant="2" id="Xga-nr-t0i"/>
+                            <constraint firstItem="MlF-OT-62s" firstAttribute="centerY" secondItem="que-bg-IgR" secondAttribute="centerY" id="hDp-55-aMg"/>
+                            <constraint firstItem="MlF-OT-62s" firstAttribute="centerX" secondItem="que-bg-IgR" secondAttribute="centerX" id="ywj-0k-Nu3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AX7-y6-EX5"/>
+                    <connections>
+                        <outlet property="myWayLogo" destination="cav-8g-pBj" id="0yF-Zg-K6p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTm-1A-0MM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317.5999999999999" y="513.19340329835086"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eHu-q6-HLu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QsG-xy-wvh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1iz-LQ-cE3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tvc-jj-acb" kind="relationship" relationship="rootViewController" id="yS5-8N-iiZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVb-5P-xWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="514"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_signin_white_gradation" width="280" height="46"/>
+        <image name="myway_logo" width="50" height="50"/>
+    </resources>
+</document>
