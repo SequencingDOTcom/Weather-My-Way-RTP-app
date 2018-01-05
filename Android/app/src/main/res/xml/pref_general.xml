@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <ListPreference
+            android:defaultValue="F"
+            android:icon="@drawable/temp_icon"
+            android:entries="@array/temperature_units"
+            android:entryValues="@array/temperature_units"
+            android:key="temperature"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_temperature_units"/>
+
+        <com.sequencing.weather.preference.LocationPreference
+            android:key="location"
+            android:icon="@drawable/ic_location_on_white_24dp"
+            android:title="@string/pref_title_location"/>
+</PreferenceScreen>

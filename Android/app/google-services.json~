@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "134146053873",
+    "firebase_url": "https://weather-my-way-rtp-6f7e4.firebaseio.com",
+    "project_id": "weather-my-way-rtp-6f7e4",
+    "storage_bucket": "weather-my-way-rtp-6f7e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134146053873:android:1965d8f07d0e945a",
+        "android_client_info": {
+          "package_name": "com.sequencing.weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134146053873-3bkfd0qaass1bvju14maen4flcnhlvru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuAvmQyFfJwKtedi2wDYN8NVBG6X2qQ7s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

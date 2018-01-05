@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\projects\weather-way2\weather-my-way\zip_file\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\projects\weather-way2\weather-my-way\zip_file\src\debug\jniLibs"/></dataSet></merger>

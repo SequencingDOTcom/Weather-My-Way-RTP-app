@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <com.sequencing.video.customview.CVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/svMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/llCurrentWeather"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                app:layout_heightPercent="39%">
+
+                <TextView
+                    android:id="@+id/titleWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Current weather"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/temperatureLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleWeather"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_heightPercent="58%">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        app:layout_widthPercent="45%">
+
+                        <TextView
+                            android:id="@+id/tvCurrentTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="00"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/main_text"
+                            android:textSize="178sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTempLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/tvCurrentTemp"
+                            android:text="°F"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/main_text"
+                            android:textSize="48dp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/ivToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/day_clear"
+                        app:layout_widthPercent="36%" />
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvSubWeatherInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/temperatureLayout"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="18dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/temperatureLayout"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:minWidth="80dp"
+                    android:orientation="vertical"
+                    app:layout_widthPercent="40%">
+
+                    <TextView
+                        android:id="@+id/tvTodayWeather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:minEms="5"
+                        android:text="N/A"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/main_text"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvTodayTempH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvTodayWeather"
+                        android:layout_below="@+id/tvTodayWeather"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:maxLines="1"
+                        android:text="H:N/A"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/main_text"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvTodayTempL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvTodayWeather"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@+id/tvTodayTempH"
+                        android:gravity="center_horizontal"
+                        android:maxLines="1"
+                        android:text="L:N/A"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llExtendedForecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llCurrentWeather"
+                android:layout_marginTop="20dp"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="12dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                app:layout_heightPercent="15%">
+
+                <TextView
+                    android:id="@+id/tvExtendedForecastTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Today's extended wheather forecast"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvExtendedForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvExtendedForecastTitle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:maxEms="20"
+                    android:text="N/A"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnAlert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@android:color/holo_red_dark"
+                    android:text="Alert"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llTailoredForecast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/llExtendedForecast"
+                android:layout_marginTop="20dp"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="12dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                app:layout_heightPercent="20%">
+
+                <TextView
+                    android:id="@+id/tvPersonalPredictionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Your genetically tailored forecast"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:id="@+id/ivSequencingLogo"
+                    android:layout_width="40dp"
+                    android:layout_height="65dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:alpha="0.65"
+                    android:src="@drawable/sequencing_logo"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvPersonalPrediction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPersonalPredictionTitle"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/ivSequencingLogo"
+                    android:padding="10dp"
+                    android:text="Your genetically tailored forecast"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWait"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPersonalPredictionTitle"
+                    android:gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="@string/user_mess_wait"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/rlCubeWaitSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/wvCubeMainSmall"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/cube"
+                    android:layout_below="@+id/tvWait"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tvBanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/banner"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/llTailoredForecast"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/main_layouts_background"
+                app:layout_heightPercent="19%">
+
+                <HorizontalScrollView
+                    android:id="@+id/hScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/llWeatherForecast"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+    </ScrollView>
+
+    <com.nhaarman.supertooltips.ToolTipRelativeLayout
+        android:id="@+id/rlToolTip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/rlSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/wvCubeMain"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@drawable/cube"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tvMessWait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wvCubeMain"
+            android:gravity="center_horizontal"
+            android:maxEms="25"
+            android:text="@string/user_mess_wait"
+            android:textColor="@color/main_text"
+            android:textSize="20dp" />
+    </RelativeLayout>
+</RelativeLayout>
+

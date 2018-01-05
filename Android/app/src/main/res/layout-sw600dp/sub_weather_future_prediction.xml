@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llSubWeatherForecast"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/tvDayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:gravity="center"
+        android:text="Day"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/main_text"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:id="@+id/ivDayIcon"
+        android:layout_marginTop="5dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvTempH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="tempH"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/main_text"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvTempL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/tvTempH"
+            android:gravity="center"
+            android:text="tempL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+</LinearLayout>

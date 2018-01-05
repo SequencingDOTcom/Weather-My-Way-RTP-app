@@ -1,0 +1,68 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notification_preferences"
+        android:layout="@layout/preferences_category">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/ic_android_white_24dp"
+            android:key="push_daily_forecast"
+            android:title="@string/push_daily_forecast" />
+
+
+        <!--Notification via email-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_email_white_24dp"
+            android:key="email_daily_forecast"
+            android:title="@string/email_daily_forecast" />
+
+        <com.sequencing.weather.preference.EmailPreference
+            android:capitalize="none"
+            android:dependency="email_daily_forecast"
+            android:inputType="textEmailAddress"
+            android:key="email_address"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_title_display_email" />
+
+        <!-- Notification via phone number -->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_perm_phone_msg_white_24dp"
+            android:key="text_daily_forecast"
+            android:title="@string/text_daily_forecast" />
+
+        <com.sequencing.weather.preference.PhoneNumberPreference
+            android:capitalize="none"
+            android:dependency="text_daily_forecast"
+            android:inputType="phone"
+            android:key="phone_number"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:title="@string/pref_title_display_phone_number" />
+
+        <!-- Notifications data-->
+        <com.sequencing.weather.preference.TimePreference
+            android:defaultValue="7:00"
+            android:summary="7:00"
+            android:icon="@drawable/ic_access_time_white_24dp"
+            android:key="wake_up_weekdays"
+            android:title="@string/pref_title_display_wake_up_weekdays" />
+
+        <com.sequencing.weather.preference.TimePreference
+            android:defaultValue="8:00"
+            android:summary="8:00"
+            android:icon="@drawable/ic_access_time_white_24dp"
+            android:key="wake_up_weekends"
+            android:title="@string/pref_title_display_wake_up_weekends" />
+
+        <com.sequencing.weather.preference.WeekendNotifications
+            android:defaultValue="All"
+            android:key="weekend_notifications"
+            android:title="@string/pref_title_weekend_notifications" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

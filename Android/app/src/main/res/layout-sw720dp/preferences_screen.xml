@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SettingsActivity"
+    tools:showIn="@layout/activity_preferences">
+
+    <com.sequencing.video.customview.CVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/headerWeather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/llExtendedForecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="120dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="30dp"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    android:id="@+id/tvLocationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Location:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvLocationTitle"
+                    android:layout_marginTop="20dp"
+                    android:maxEms="20"
+                    android:text="N/A"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="60%" />
+
+                <Button
+                    android:id="@+id/btnChangeLocation"
+                    android:layout_width="89dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvLocationTitle"
+                    android:layout_marginTop="19dp"
+                    android:background="@drawable/selector_main_button"
+                    android:text="Change"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTempUnitsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvLocation"
+                    android:layout_marginTop="35dp"
+                    android:maxEms="20"
+                    android:text="Temperature units:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp" />
+
+                <!--<android.support.v7.widget.SwitchCompat-->
+                <!--android:id="@+id/switchTempUnits"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignStart="@+id/btnChangeLocation"-->
+                <!--android:layout_below="@+id/btnChangeLocation"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_toRightOf="@+id/tvTempUnitsTitle"-->
+
+                <!--/>-->
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="99dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/btnChangeLocation"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/selector_main_button"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioF"
+                        android:layout_width="48dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="1dp"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:tag="F"
+                        android:text="°F"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioC"
+                        android:layout_width="48dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="1dp"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:tag="C"
+                        android:text="°C"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </RadioGroup>
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/personalizationLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/llNotifications"
+                android:layout_below="@+id/llExtendedForecast"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="12dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                app:layout_widthPercent="50%">
+
+                <LinearLayout
+                    android:id="@+id/llRealTimeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivSequencingLogo"
+                        android:layout_width="40dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="15dp"
+                        android:alpha="0.65"
+                        android:src="@drawable/sequencing_logo" />
+
+                    <TextView
+                        android:id="@+id/tvPersonalPrediction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/ivSequencingLogo"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Real-Time Personalization®"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/main_text"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvConnectedAccountTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llRealTimeTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="Connected account:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/tvConnectedAccountTitle"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@+id/btnSignOut"
+                    android:text="N/A"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnSignOut"
+                    android:layout_width="89dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvConnectedAccountTitle"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/selector_main_button"
+                    android:text="Sign out"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGenericDataTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvAccount"
+                    android:layout_marginTop="25dp"
+                    android:text="Genetic data obtained from this file:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvGenericDataFileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvGenericDataTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20sp"
+                    app:layout_widthPercent="60%" />
+
+                <Button
+                    android:id="@+id/btnChangeFile"
+                    android:layout_width="89dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvGenericDataTitle"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/selector_main_button"
+                    android:text="Change"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textStyle="bold" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/llNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/llExtendedForecast"
+                android:background="@color/main_layouts_background"
+                android:paddingBottom="60dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="30dp"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    android:id="@+id/notificationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Notifications"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/pushNotificationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/notificationTitle"
+                    android:layout_marginTop="25dp"
+                    android:maxEms="20"
+                    android:text="Push notifications:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchPushNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/pushNotificationTitle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/notificationTitle"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:id="@+id/emailDailyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pushNotificationTitle"
+                    android:layout_marginTop="15dp"
+                    android:maxEms="20"
+                    android:text="Email daily forecast:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/emailDailyTitle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/switchPushNotifications"
+                    android:layout_marginTop="10dp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/emailDailyTitle"
+                    android:layout_marginTop="15dp"
+                    android:maxLines="1"
+                    android:text="hbg hhh hb"
+                    android:background="@drawable/selector_main_button"
+                    android:paddingLeft="10dp" />
+
+                <ImageView
+                    android:id="@+id/invalidTextEmail"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/emailDailyTitle"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_error_outline_black_24dp" />
+
+                <TextView
+                    android:id="@+id/textDailyForecastTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/etEmail"
+                    android:layout_marginTop="10dp"
+                    android:maxEms="20"
+                    android:text="Text daily forecast (SMS):"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchSMS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/textDailyForecastTitle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/etEmail"
+                    android:layout_marginTop="10dp" />
+
+
+                <Spinner
+                    android:id="@+id/spCountriesCodes"
+                    style="@android:style/Widget.Holo.Light.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/textDailyForecastTitle"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/selector_main_button"
+                    android:spinnerMode="dialog" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/spCountriesCodes"
+                    android:layout_marginTop="9dp"
+                    android:maxLines="1"
+                    android:background="@drawable/selector_main_button"
+                    android:paddingLeft="5dp" />
+
+                <ImageView
+                    android:id="@+id/invalidTextPhone"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/spCountriesCodes"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/ic_error_outline_black_24dp" />
+
+                <TextView
+                    android:id="@+id/weekendNotificationsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_marginTop="25dp"
+                    android:maxEms="20"
+                    android:text="Weekend notifications:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <TextView
+                    android:id="@+id/spWeekendNotifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/weekendNotificationsTitle"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/selector_main_button"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/wakeUpTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spWeekendNotifications"
+                    android:layout_marginTop="15dp"
+                    android:maxEms="20"
+                    android:text="Wake up time (weekdays):"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <TextView
+                    android:id="@+id/tvWakeUpWeekDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/wakeUpTitle"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/selector_main_button"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/wakeUpWeekendsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvWakeUpWeekDays"
+                    android:layout_marginTop="10dp"
+                    android:maxEms="20"
+                    android:text="Wake up time (weekends):"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/main_text"
+                    android:textSize="18sp"
+                    app:layout_widthPercent="50%" />
+
+                <TextView
+                    android:id="@+id/tvWakeUpWeekends"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/wakeUpWeekendsTitle"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/selector_main_button"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</RelativeLayout>
