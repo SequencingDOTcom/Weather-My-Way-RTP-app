@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <Spinner
+        android:id="@+id/sCountryeCode"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
+    <EditText
+        android:id="@+id/etPhone"
+        android:inputType="number"
+        android:layout_below="@+id/sCountryeCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/tvInvalidPhone"
+        android:layout_below="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="@string/invalid_phone"
+        android:textSize="12dp"
+        android:visibility="gone"
+        android:textColor="@android:color/holo_red_light"/>
+</RelativeLayout>

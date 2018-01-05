@@ -1,0 +1,141 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+def AAVersion = '4.2.0'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0]?.processResources?.manifestFile
+        resourcePackageName 'com.sequencing.weather'
+    }
+}
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'sequencing'
+            keyPassword 'ctrhtn!23'
+            storeFile file('D:/projects/weather-way2/weather-my-way/keystore')
+            storePassword 'ctrhtn!23'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        applicationId "com.sequencing.weather"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 31
+        versionName "1.11.0"
+        multiDexEnabled true
+        manifestPlaceholders = [HOCKEYAPP_APP_ID: "647b4aad08074052ade4487c7c6e3e0b"]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            multiDexEnabled true
+//            signingConfig signingConfigs.config
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    useLibrary 'org.apache.http.legacy'
+    productFlavors {
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile('com.facebook.android:facebook-android-sdk:4.11.0') {
+        exclude module: 'support-v4'
+    }
+    compile 'com.android.support:multidex:1.0.1'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+
+    apt ("org.androidannotations:rest-spring:4.2.0")
+    compile "org.androidannotations:rest-spring-api:4.2.0"
+    compile('org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'){
+        exclude module: 'support-v4'
+    }
+    compile 'com.android.support:percent:25.0.0'
+    compile('com.twitter.sdk.android:twitter:1.13.0@aar') {
+        transitive = true
+    }
+    compile project(':videoasbackground')
+    compile project(':linkedin-sdk')
+    compile project(':licensing-library')
+    compile project(':pdk')
+    compile project(':zip_file')
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile 'org.apache.commons:commons-csv:1.1'
+    compile ('com.sequencing:oauth2-core:1.9'){
+        exclude module: 'slf4j-api'
+    }
+    compile('com.sequencing:appchains:1.0.9'){
+        exclude module: 'slf4j-api'
+        exclude module: 'gson'
+        exclude module: 'commons-lang3'
+    }
+    compile ('com.sequencing:master-plugin:1.0.32'){
+        exclude module: 'appchains'
+        exclude module: 'oauth2-core'
+    }
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.5'
+    //    compile 'net.hockeyapp.android:HockeySDK:4.0.0'
+    compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.android.gms:play-services-identity:9.4.0'
+    compile 'com.google.android.gms:play-services-maps:9.4.0'
+    compile 'com.google.android.gms:play-services-location:9.4.0'
+    compile 'com.google.android.gms:play-services-plus:9.4.0'
+    compile 'com.google.firebase:firebase-messaging:9.4.0'
+//    compile 'com.google.firebase:firebase-crash:9.4.0'
+    compile 'com.google.android.gms:play-services-appindexing:9.4.0'
+    compile 'com.nhaarman.supertooltips:library:3.0.+'
+    compile 'me.grantland:autofittextview:0.2.+'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    compile "me.leolin:ShortcutBadger:1.1.13@aar"
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+    apt 'com.google.dagger:dagger-compiler:2.2'
+    compile 'com.google.dagger:dagger:2.2'
+}
+apply plugin: 'com.google.gms.google-services'

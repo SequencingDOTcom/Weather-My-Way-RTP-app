@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Weather My Way</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="app_title">Weather My Way</string>
+    <string name="app_subtitle">with Real-Time Personalization<sup><small>TM</small></sup></string>
+
+    <string name="about_weather_my_way">
+        The Weather My Way +RTP app uses Real-Time Personalization<sup><small>TM</small></sup> technology to provide you with personalized recommendations that optimize your health.\n
+
+        This app is personalized by combining the weather forecast with an analysis of your genes. Since your genes are unique, the recommendations you receive are genetically tailored to you.\n\n
+    
+
+        <b>Learn more</b>\n
+        This app securely accesses your genetic data that is stored in your Sequencing.com account. Only the genetic data relevant to this app is accessed and no data is stored in your browser or on your mobile device.\n
+
+        If you don\'t have genetic data, don\'t worry! You can still use this app by choosing one of the app\'s fun sample files. This app\'s personalization will then be powered by the genetic data in that sample file. Since all sample files are from individuals, the data and the personalization are real.\n
+
+        To use a sample file, first Register for a free account at Sequencing.com. After registering, return to this app, click the \'Sign in with Sequencing.com\' button and select a file from the list of sample files.\n
+     </string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <string name="pref_title_temperature_units">Temperature units</string>
+    <string-array name="temperature_units">
+        <item>C</item>
+        <item>F</item>
+    </string-array>
+
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="email_daily_forecast">Email daily forecast</string>text_daily_forecast
+    <string name="text_daily_forecast">Text daily forecast (SMS)</string>
+
+    <string name="pref_title_display_email">Email address</string>
+    <string name="pref_title_display_phone_number">Phone number</string>
+    <string name="pref_title_display_wake_up_weekdays">Wake up time (weekdays)</string>
+    <string name="pref_title_display_wake_up_weekends">Wake up time (weekends)</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_vibrate">Vibrate</string>
+</resources>

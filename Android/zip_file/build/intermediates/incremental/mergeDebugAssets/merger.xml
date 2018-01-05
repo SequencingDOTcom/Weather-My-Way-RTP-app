@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\projects\weather-way2\weather-my-way\zip_file\src\main\assets"/><source path="D:\projects\weather-way2\weather-my-way\zip_file\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\projects\weather-way2\weather-my-way\zip_file\src\debug\assets"/></dataSet></merger>
