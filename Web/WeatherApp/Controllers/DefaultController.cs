@@ -76,7 +76,7 @@ namespace Sequencing.WeatherApp.Controllers
 
                     Response.Cookies.Add(faCookie);
 
-                    return RedirectToAction("CheckApp");
+                    return RedirectToAction("Startup");
                 }
                 return new ContentResult { Content = "Error while retrieving access token:" + _authInfo.ErrorMessage };
             }

@@ -677,13 +677,6 @@
     <Content Include="assets\fonts\Roboto-Bold.ttf" />
     <Content Include="assets\fonts\Roboto-Light.ttf" />
     <Content Include="assets\img\Cube preloader\128x128.zip" />
-    <Content Include="assets\img\Cube preloader\128x128\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\128x128\Preloader_3\Sprites\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\64x64\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\64x64\Preloader_3\Sprites\.DS_Store" />
-    <Content Include="assets\img\Cube preloader\.DS_Store" />
     <Content Include="manifest.json" />
     <EntityDeploy Include="Models\WeatherDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -695,11 +688,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Properties\PublishProfiles\21.pubxml" />
     <None Include="Properties\PublishProfiles\23.pubxml" />
-    <None Include="Properties\PublishProfiles\3.pubxml" />
-    <None Include="Properties\PublishProfiles\6.pubxml" />
-    <None Include="Properties\PublishProfiles\67.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\qe.pubxml" />
     <None Include="Properties\PublishProfiles\seq-weatherapp - FTP.pubxml" />
