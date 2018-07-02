@@ -220,6 +220,10 @@ namespace Sequencing.WeatherApp.Controllers.DaoLayer
                 scope = settingsDTO.scope,
                 refresh_token = settingsDTO.refreshToken
             };
+            if (settingsDTO.deviceType == DeviceType.IOS)
+                tokenInfo.appType = AuthAppType.Iphone;
+            if (settingsDTO.deviceType == DeviceType.Android)
+                tokenInfo.appType = AuthAppType.Android;
 
             SendInfo info = GetUserSettings(tokenInfo);
             info.LastWeatherUpdate = null;

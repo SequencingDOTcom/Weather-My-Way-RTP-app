@@ -40,7 +40,8 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
                 AuthToken = info.access_token,
                 RefreshToken = info.refresh_token,
                 UserName = _userName,
-                AuthDt = DateTime.Now
+                AuthDt = DateTime.Now,
+                AppId = info.appType
             };
 
             return factory.GetUserInfoDao().SaveUser(_userInfo);

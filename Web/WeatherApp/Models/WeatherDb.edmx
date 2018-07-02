@@ -26,10 +26,10 @@
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="bigint" />
           <Property Name="deviceType" Type="int" />
-          <Property Name="token" Type="nvarchar" MaxLength="200" />
+          <Property Name="token" Type="varchar" MaxLength="200" />
           <Property Name="subscriptionDate" Type="date" />
           <Property Name="applicationId" Type="int" />
-		  <Property Name="appVersion" Type="nchar" MaxLength="20" />
+          <Property Name="appVersion" Type="nchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="MelanomaRisk">
           <Key>
@@ -108,6 +108,7 @@
           <Property Name="AuthToken" Type="nvarchar" MaxLength="250" />
           <Property Name="RefreshToken" Type="nvarchar" MaxLength="250" />
           <Property Name="AuthDt" Type="datetime" />
+          <Property Name="AppId" Type="int" />
         </EntityType>
         <EntityType Name="VitaminD">
           <Key>
@@ -165,7 +166,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SendForecast_ApplicationType">
-          <End Role="ApplicationName" Type="Self.ApplicationName" Multiplicity="1" />
+          <End Role="ApplicationName" Type="Self.ApplicationName" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ApplicationName">
@@ -177,7 +180,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SendForecast_Conditions">
-          <End Role="Conditions" Type="Self.Conditions" Multiplicity="1" />
+          <End Role="Conditions" Type="Self.Conditions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Conditions">
@@ -189,7 +194,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SendForecast_MelanomaRisk">
-          <End Role="MelanomaRisk" Type="Self.MelanomaRisk" Multiplicity="1" />
+          <End Role="MelanomaRisk" Type="Self.MelanomaRisk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MelanomaRisk">
@@ -201,7 +208,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SendForecast_SendInfo">
-          <End Role="SendInfo" Type="Self.SendInfo" Multiplicity="1" />
+          <End Role="SendInfo" Type="Self.SendInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SendInfo">
@@ -213,7 +222,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SendForecast_VitaminD">
-          <End Role="VitaminD" Type="Self.VitaminD" Multiplicity="1" />
+          <End Role="VitaminD" Type="Self.VitaminD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SendForecast" Type="Self.SendForecast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VitaminD">
@@ -282,10 +293,10 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userId" Type="Int64" />
           <Property Name="deviceType" Type="WeatherMyWayModel.DeviceType" />
-          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="subscriptionDate" Type="DateTime" Precision="0" />
           <Property Name="applicationId" Type="WeatherMyWayModel.ApplicationType" />
-		  <Property Name="appVersion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+		  <Property Name="appVersion" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="SendInfo">
           <Key>
@@ -324,6 +335,7 @@
           <Property Name="AuthToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="RefreshToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="AuthDt" Type="DateTime" Precision="3" />
+          <Property Name="AppId" Type="WeatherMyWayModel.AuthAppType" />
         </EntityType>
         <EntityContainer Name="WeatherAppDbEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" />
@@ -566,6 +578,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="AuthAppType">
+          <Member Name="Web" Value="0" />
+          <Member Name="Iphone" Value="1" />
+          <Member Name="Android" Value="2" />
+        </EnumType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -616,6 +633,7 @@
           <EntitySetMapping Name="UserInfo">
             <EntityTypeMapping TypeName="WeatherMyWayModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />

@@ -1,4 +1,6 @@
-﻿namespace Sequencing.WeatherApp.Controllers.OAuth
+﻿using Sequencing.WeatherApp.Models;
+
+namespace Sequencing.WeatherApp.Controllers.OAuth
 {
     /// <summary>
     /// OAuth token data
@@ -10,5 +12,6 @@
         public string token_type { get; set; }
         public string scope { get; set; }
         public string refresh_token { get; set; }
+        public AuthAppType? appType { get; set; }
     }
 }

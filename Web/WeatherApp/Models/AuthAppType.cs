@@ -10,15 +10,11 @@
 namespace Sequencing.WeatherApp.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UserInfo
+    public enum AuthAppType : int
     {
-        public long Id { get; set; }
-        public string UserName { get; set; }
-        public string AuthToken { get; set; }
-        public string RefreshToken { get; set; }
-        public Nullable<System.DateTime> AuthDt { get; set; }
-        public Nullable<AuthAppType> AppId { get; set; }
+        Web = 0,
+        Iphone = 1,
+        Android = 2
     }
 }

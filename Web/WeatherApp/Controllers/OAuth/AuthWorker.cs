@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using Newtonsoft.Json;
 using RestSharp;
+using Sequencing.WeatherApp.Models;
 
 namespace Sequencing.WeatherApp.Controllers.OAuth
 {
@@ -26,6 +27,19 @@ namespace Sequencing.WeatherApp.Controllers.OAuth
             this.appId = appId;
         }
 
+        public static AuthWorker Create(AuthAppType? type)
+        {
+            if (type == null || type == AuthAppType.Web)
+                return new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
+                    Options.OAuthAppId);
+            if (type == AuthAppType.Iphone)
+                return new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecretIPhone,
+                    Options.OAuthAppIdIPhone);
+            if (type == AuthAppType.Android)
+                return new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecretAndroid,
+                    Options.OAuthAppIdAndroid);
+            throw new Exception("NotExpected");
+        }
         /// <summary>
         /// Refreshes existing token
         /// </summary>

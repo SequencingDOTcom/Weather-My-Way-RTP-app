@@ -788,6 +788,9 @@
     <Compile Include="Models\ApplicationType.cs">
       <DependentUpon>WeatherDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthAppType.cs">
+      <DependentUpon>WeatherDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CheckAppData.cs" />
     <Compile Include="Models\CommonData.cs" />
     <Compile Include="Controllers\DefaultController.cs" />

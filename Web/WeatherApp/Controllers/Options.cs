@@ -14,6 +14,12 @@ namespace Sequencing.WeatherApp.Controllers
         public static string OAuthSecret { get { return ConfigurationManager.AppSettings["OAuthSecret"]; } }
         public static string OAuthUrl { get { return ConfigurationManager.AppSettings["OAuthUrl"]; } }
 
+        public static string OAuthAppIdIPhone { get { return ConfigurationManager.AppSettings["OAuthAppIdIPhone"]; } }
+        public static string OAuthSecretIPhone { get { return ConfigurationManager.AppSettings["OAuthSecretIPhone"]; } }
+
+        public static string OAuthAppIdAndroid { get { return ConfigurationManager.AppSettings["OAuthAppIdAndroid"]; } }
+        public static string OAuthSecretAndroid { get { return ConfigurationManager.AppSettings["OAuthSecretAndroid"]; } }
+
         //Backend url
         public static string ApiUrl { get { return ConfigurationManager.AppSettings["ApiUrl"]; } }
         //Mandrill api key

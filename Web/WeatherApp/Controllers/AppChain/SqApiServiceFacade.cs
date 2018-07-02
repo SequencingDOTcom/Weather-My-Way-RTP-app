@@ -88,9 +88,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
         public string GetUserTokenInfo()
         {
             var _userInfo = userAuthWorker.GetCurrent();
-            var _newInfo =
-                new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                    Options.OAuthAppId).RefreshToken(_userInfo.RefreshToken);
+            var _newInfo = AuthWorker.Create(_userInfo.AppId).RefreshToken(_userInfo.RefreshToken);
             if (!_newInfo.Success)
                 throw new Exception("Error while token refresh:" + _userInfo.RefreshToken + "," + _newInfo.ErrorMessage);
             _userInfo.AuthToken = _newInfo.Token.access_token;
@@ -148,9 +146,7 @@ namespace Sequencing.WeatherApp.Controllers.AppChain
                 if (_restResponse.StatusCode != HttpStatusCode.OK)
                 {
                     var _userInfo = userAuthWorker.GetCurrent();
-                    var _newInfo =
-                        new AuthWorker(Options.OAuthUrl, Options.OAuthRedirectUrl, Options.OAuthSecret,
-                            Options.OAuthAppId).RefreshToken(_userInfo.RefreshToken);
+                    var _newInfo = AuthWorker.Create(_userInfo.AppId).RefreshToken(_userInfo.RefreshToken);
                     if (!_newInfo.Success)
                         throw new Exception("Error while token refresh:" + _userInfo.RefreshToken+"," + _newInfo.ErrorMessage);
                     _userInfo.AuthToken = _newInfo.Token.access_token;
