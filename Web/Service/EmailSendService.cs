@@ -1,4 +1,5 @@
-﻿using System.ServiceProcess;
+﻿using System.Net;
+using System.ServiceProcess;
 
 namespace Sequencing.WeatherApp.Service
 {
@@ -14,6 +15,8 @@ namespace Sequencing.WeatherApp.Service
 
         protected override void OnStart(string[] args)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             pushSender = new PushNotificationSender();
             pushSender.Init();
             proc = new EmailSendProcessor();

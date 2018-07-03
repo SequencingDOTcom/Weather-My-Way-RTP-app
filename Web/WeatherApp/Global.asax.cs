@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -19,6 +20,7 @@ namespace Sequencing.WeatherApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             GlobalFilters.Filters.Add(new CommonDataModelAttribute(), 1);
             XmlConfigurator.Configure();
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         protected void Application_Error(object sender, EventArgs e)

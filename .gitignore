@@ -4,3 +4,4 @@ Service/bin/
 Service/obj/
 .DS_Store
 Web/packages/
+Web/.vs/
